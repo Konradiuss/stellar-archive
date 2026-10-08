@@ -357,9 +357,10 @@
               "kind": "station",
               "type": "ring",
               "distance": 3.2,
-              "size": 0.18,
+              "size": 0.55,
               "speed": 0.006,
-              "lore": "'''Exodus Station''' is the orbital gateway of [[Earth]] and a major civilian port of the [[Solar Concord]]. Its rotating ring houses departure halls, hydroponic gardens and temporary quarters for expedition crews. Service docks prepare [[Jump Ships]] for journeys beyond [[Sol]], while returning explorers bring their discoveries to the station's public archive."
+              "lore": "'''Exodus Station''' is the orbital gateway of [[Earth]] and a major civilian port of the [[Solar Concord]]. Its rotating ring houses departure halls, hydroponic gardens and temporary quarters for expedition crews. Service docks prepare [[Jump Ships]] for journeys beyond [[Sol]], while returning explorers bring their discoveries to the station's public archive.",
+              "lights": "#0e9be1"
             }
           ]
         },
