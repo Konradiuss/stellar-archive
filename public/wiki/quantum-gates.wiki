@@ -1,0 +1,18 @@
+'''Quantum Gates''' hold stable passages between the fictional systems of this atlas. Paired installations exchange timing data before a ship crosses. The coloured routes on the map distinguish public gates, commercial passages, military patrols, industrial freight and supply runs.
+
+== Network ==
+[[Sol]] connects directly to [[Asterion]] and [[Cinder]]. Trade reaches [[Nacre]], [[Pelagos]] and [[Halcyon]], while industrial convoys pass through [[Vesper]]. The survey supply run from Pelagos toward [[Silent Reach]] is shown in one direction.
+
+== Passage procedure ==
+# Request a departure slot.
+# Synchronize the ship's navigation clock.
+# Confirm arrival clearance before entering the passage.
+
+{{Warning|A visible route is a recorded connection, not a guarantee of safe passage.}}
+
+== Ownership ==
+The [[Solar Concord]] regards gates as a public service. The [[Crucible Combine]] treats their machinery as a concession. The [[Free Tide]] accepts neither exclusive claim. Their dispute predates the discovery of the [[Nacre Beacon]].
+
+== Beyond the network ==
+[[Jump Ships]] use a compact [[Gate Drive]] when no permanent gate is available. Such journeys consume far more energy and cannot replace scheduled freight traffic.
+[[Category:Technology]]

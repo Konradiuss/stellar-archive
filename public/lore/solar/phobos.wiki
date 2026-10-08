@@ -1,0 +1,125 @@
+{{Planet|name=Phobos|class=Natural satellite}}
+[[File:solar/phobos-overview.jpg|thumb|right|220px|alt=Irregular, cratered shape of Phobos|Mars Reconnaissance Orbiter colour view of Phobos; colour contrasts have been enhanced. Credit: NASA / JPL-Caltech / University of Arizona. [https://commons.wikimedia.org/wiki/File:Phobos_colour_2008.jpg Source]; [https://commons.wikimedia.org/wiki/File:Phobos_colour_2008.jpg#Licensing Public domain].]]
+'''Phobos''' is the larger and closer of [[Mars]]'s two natural moons. It is an irregular, dark body with a prominent impact crater and long surface grooves. Its orbit lies so close to Mars that it completes a circuit faster than the planet rotates. That geometry produces behaviour unlike the familiar movement of Earth's [[Moon]], including an apparent west-to-east reversal in its rising and setting as seen from suitable locations on Mars.
+
+The moon is small enough that gravity has not shaped it into a nearly spherical planet-like body. Its interior, surface material and origin remain only partly understood through remote observations. Phobos is therefore valuable for studying both small-body physics and the history of the Martian system. The companion moon [[Deimos]] offers a comparison at a different orbital distance, while planned sample analysis aims to distinguish between competing explanations of how both bodies formed.<ref name="overview">[https://science.nasa.gov/mars/moons/phobos/ NASA Science: Phobos]. Basic properties, terrain and orbital behaviour.</ref>
+
+{| class="wikitable"
+|+ Selected physical and orbital characteristics
+! Quantity !! Approximate value
+|-
+| Approximate dimensions || 27 × 22 × 18 km
+|-
+| Mean radius || About 11 km
+|-
+| Mean orbital distance from Mars's centre || About 9,376 km
+|-
+| Orbital period || About 7 hours 39 minutes
+|-
+| Rotation || Synchronous
+|-
+| Major named crater || Stickney
+|-
+| Atmosphere || None of substantial density
+|}
+
+== Discovery and naming ==
+Asaph Hall discovered Phobos in 1877 while investigating the region around Mars with the large refracting telescope at the United States Naval Observatory. Deimos was identified during the same observing campaign. Detecting the moons required separating faint nearby objects from the much brighter planet and following their motion to establish that they belonged to the Martian system.
+
+The names derive from figures associated with Ares in Greek mythology, reflecting the connection between Mars and the corresponding Roman god of war. Phobos is conventionally associated with fear. The name identifies the moon but does not describe a physical property or scientific interpretation of its landscape.
+
+Earlier telescopic searches had not reliably established the moons. Small size, low reflectivity and closeness to the planetary glare all made the task difficult. Improved instruments and favourable geometry helped Hall distinguish the objects from background stars.
+
+Discovery history is useful context for the limits of remote observation. A moon can remain undetected despite orbiting a well-known planet, and its detection does not immediately determine its size, density or composition. Those quantities require additional observations, especially spacecraft measurements. The progression from faint moving point to mapped physical body illustrates how different methods answer different questions rather than revealing every property at the moment of discovery.
+
+== Orbit close to Mars ==
+[[File:solar/phobos-orbit.png|thumb|center|480px|alt=Diagram of Martian moon and spacecraft orbits|NASA schematic comparing the orbits of Phobos, Deimos and spacecraft around Mars as mapped in 2015. Credit: Courtesy NASA/JPL-Caltech. [https://commons.wikimedia.org/wiki/File:PIA19396-PlanetMars-OrbitsOfMoonsAndOrbiters-20150504.jpg Source]; [https://commons.wikimedia.org/wiki/File:PIA19396-PlanetMars-OrbitsOfMoonsAndOrbiters-20150504.jpg#Licensing Public domain].]]
+
+Phobos follows a nearly circular orbit close to Mars's equatorial plane. Its distance is usually quoted from the planet's centre; altitude above the surface is smaller. Confusing those two distances can produce an incorrect impression of how far a spacecraft or the moon is from the ground.
+
+The orbital period is shorter than a Martian day. From the Martian surface, the moon can therefore appear to rise in the west and set in the east, unlike most familiar celestial objects. Its visibility also depends on latitude: the close orbit means it does not appear above the horizon from every part of Mars.
+
+=== Motion and viewing geometry ===
+The planet's apparent size in the Phobos sky would be enormous compared with the Moon seen from Earth. Mars also blocks sunlight during portions of the moon's orbit, producing repeated eclipses under suitable geometry. These changes affect illumination and temperature without requiring an atmosphere.
+
+The orbit is a dynamic relationship, not a fixed track marked in space. Mars's gravity field, the moon's own physical response and tidal exchange influence its long-term evolution. A precise orbital model must account for perturbations and changing rotation. The short period makes Phobos particularly useful for repeated observations from spacecraft in the Martian system.
+
+== Rotation, tides and orbital decay ==
+Phobos rotates synchronously, keeping approximately the same hemisphere towards Mars. Small departures from perfect alignment provide information about its shape, mass distribution and mechanical response. Those variations are important because the moon is irregular rather than an ideal rigid sphere.
+
+Its orbit is inside the distance at which an orbiting body would match Mars's rotation period. Tidal interactions therefore act differently from those moving Earth's Moon outward. Phobos gradually spirals inward as angular momentum is exchanged with Mars. The rate and ultimate outcome depend on tidal properties and the moon's internal strength.
+
+Researchers investigate whether continued approach will eventually break the moon apart, allow material to form a ring, or produce impact under particular assumptions. Those are long-term evolutionary scenarios rather than imminent events visible in the current atlas. Different structural models can lead to different predictions.
+
+Tidal deformation also helps interpret surface stresses. However, an appealing connection between an inward-moving moon and a set of grooves does not alone prove how every groove formed. Geological relationships and material behaviour have to agree with the proposed mechanism. The orbital evolution supplies a physical context within which those explanations can be tested rather than a single automatic answer to every surface feature.
+
+== Shape, gravity and interior ==
+Phobos's irregular outline reflects its small size and the limited ability of gravity to overcome material strength. For a much larger body, gravitational forces can produce a nearly spherical equilibrium figure. On Phobos, impacts and structural properties remain visibly important to the overall shape.
+
+Mass estimates come from the moon's gravitational influence on spacecraft, while volume estimates require shape models built from images and other measurements. Combining them yields a bulk density. That density can be consistent with porosity, different material mixtures or both, so it does not uniquely reveal a solid internal composition.
+
+The interior may contain fractures and voids. Whether Phobos is best described as a heavily fractured body, a rubble-like aggregate or a more complex structure remains under investigation. Surface appearance alone cannot determine how deeply a fracture extends or how strongly interior material is connected.
+
+Gravity varies across the surface, and rotation and Mars's tidal influence affect the local effective forces. A slope measured relative to a simple spherical centre is therefore not always equivalent to the slope that controls loose material. Understanding local gravity is necessary for interpreting terrain, predicting particle motion and designing safe sampling operations. The irregular figure is an active part of the physics, not merely a decorative shape in a map.
+
+== Stickney and the impact record ==
+[[File:solar/phobos-stickney.jpg|thumb|center|480px|alt=Stickney crater on Phobos|Mars Reconnaissance Orbiter view of Stickney, the large impact crater on Phobos. Credit: NASA/JPL-Caltech/University of Arizona. [https://commons.wikimedia.org/wiki/File:Stickney_mro.jpg Source]; [https://commons.wikimedia.org/wiki/File:Stickney_mro.jpg#Licensing Public domain].]]
+
+Stickney is Phobos's largest prominent crater and occupies a substantial fraction of the moon's visible surface. Its formation involved a collision large in relation to the target body's size. The surrounding terrain therefore helps investigate how a small moon responds to an impact that is significant without necessarily destroying it.
+
+Crater morphology, ejecta and structural relationships can constrain the event, but the original projectile and exact conditions are not directly observed. Models need to account for the moon's possible porosity and internal strength. An impact into solid competent rock behaves differently from one into a highly fractured or porous target.
+
+Smaller craters record subsequent impacts and provide relative chronological clues. A crater that cuts another feature formed later than that feature, while deposited material can obscure older structures. Counts are useful, but converting them into absolute ages depends on an assumed population of impactors in the Martian environment.
+
+Material excavated by impacts may move far from the original site or leave the moon entirely because escape speeds are low. Mars's nearby gravity complicates the fate of ejecta. Stickney is therefore not only a local depression: its formation may have redistributed material and affected interpretation of terrain elsewhere on Phobos.
+
+== Grooves and surface structure ==
+Long grooves are among Phobos's most distinctive features. Their patterns have motivated several hypotheses involving impact-related processes, tidal stresses and movement of material. Different mechanisms predict different orientations, relationships to craters and responses to the moon's irregular shape.
+
+Some groove systems have historically been associated with Stickney, but not every visible line is necessarily produced by the same event. Later imaging and mapping allow researchers to test whether a proposed mechanism accounts for the global distribution, rather than explaining only the most photogenic region.
+
+=== Testing competing explanations ===
+A structural interpretation must consider whether the required stresses fit the moon's orbit and internal properties. An ejecta or rolling-material interpretation must explain trajectories, surface contact and the observed continuity of features. Those tests rely on geometry and physical constraints, not only resemblance to a familiar terrestrial landform.
+
+Grooves also reveal why planetary science distinguishes description from explanation. Mapping a trough's position and shape is an observation; assigning it to a tidal fracture or an impact-related path is an interpretation. More than one interpretation can fit limited images. Improving resolution, measuring local topography and investigating material properties help narrow the possibilities without treating an unresolved debate as a completed discovery.
+
+== Regolith and low-gravity surface processes ==
+Phobos is covered by loose and fragmented material produced and modified by impacts. This regolith can accumulate in depressions and redistribute over slopes. Its behaviour depends on grain sizes, cohesion, electrical effects and the weak local gravity rather than following every rule familiar from sand on Earth.
+
+Fine particles can remain attached through forces that are comparatively minor in a stronger gravitational environment. Conversely, a modest disturbance can send some material away from the surface. Sampling, landing and mobility operations therefore have to account for the balance among gravity, contact forces and momentum.
+
+The regolith is not a uniform layer with a known depth everywhere. Surface roughness, crater interiors and differences in illumination affect what images reveal. Thermal measurements can help constrain particle properties because material responds to heating differently according to its structure and ability to conduct energy.
+
+Mars can also contribute particles to the moon's environment through impacts that launch material from the planet. Whether a particular sample contains such material requires careful laboratory and geological interpretation. A piece of regolith can record several sources and exposure histories rather than one simple original composition. That complexity makes the context of a collected sample as important as the quantity returned.
+
+== Composition and origin hypotheses ==
+Phobos is dark and its spectra have been compared with those of some primitive small bodies. That similarity motivated capture hypotheses in which an asteroid became a Martian satellite. However, the current nearly circular, equatorial orbit requires a physical history that explains how an initially different trajectory became the one observed.
+
+Impact-based scenarios instead propose that material produced by a major collision involving Mars assembled into moons. Such models can naturally connect formation to the planet's equatorial region, but they must also reproduce the moons' chemistry, sizes and later evolution. An orbital arrangement that looks plausible does not remove the need for compositional evidence.
+
+The two broad explanations therefore make different predictions that samples could test. Isotopic ratios, mineral assemblages and evidence of heating would help identify the source materials and processes. Mixtures or later contamination could complicate the interpretation, which is why sample selection and contextual observations matter.
+
+The origin remains an open scientific question. Phobos should not be labelled conclusively as a captured asteroid merely because of its colour, nor definitively as impact debris because its orbit is convenient for a model. Reliable reconstruction requires agreement among dynamics, chemistry and geology. Deimos supplies an additional test because one history must explain both moons, not just the larger object.
+
+== Spacecraft observations ==
+Spacecraft operating near Mars have repeatedly observed Phobos, improving shape models and mapping terrain at scales impossible from Earth. Different encounters provide different illumination angles and coverage. Those changes help reveal topography, but they must be considered when comparing the apparent brightness of a surface.
+
+Close flybys can measure gravitational effects and collect thermal or spectral information. Their accuracy depends on trajectory knowledge, instrument calibration and the distance from the moon. A brief encounter can supply valuable detail without creating a complete map of every physical property.
+
+Repeated images also track orbital and rotational behaviour. Small changes in apparent orientation can constrain synchronous rotation and libration. Such measurements connect the surface shape with interior modelling because mass distribution influences how the body responds to forces.
+
+No returned Phobos sample had been obtained by the preparation date of this article. Earlier mission attempts and remote investigations should therefore be distinguished from successful laboratory access to material selected directly on the moon. Research continues to extract value from archived images and measurements, while future close investigations are intended to answer questions that remote sensing alone cannot settle.<ref name="mmx">[https://www.mmx.jaxa.jp/en/mission/ JAXA: MMX mission overview]. Planned observations and sample-return objectives.</ref>
+
+== MMX and scientific priorities ==
+JAXA's Martian Moons eXploration mission is designed to examine Phobos and Deimos and return material collected from Phobos. As of 7 October 2026, the announced launch date is 20 October 2026, so launch and sample return remain future events in this article's dated account.<ref name="schedule">[https://www.mmx.jaxa.jp/en/ JAXA: MMX updates], checked 7 October 2026.</ref>
+
+The scientific value of returned material comes from measurements that are difficult to perform remotely. Laboratories can investigate mineral chemistry, isotopic relationships and microscopic textures with methods unavailable to a spacecraft camera. Those results must still be interpreted within the sample's collection context.
+
+Priorities include distinguishing origin scenarios, measuring the physical behaviour of the surface and examining how exposure to space modifies particles. Better information about gravity and interior structure would also improve estimates of long-term tidal evolution. These goals connect small-body geology with the larger history of Mars.
+
+Phobos demonstrates how a small satellite can pose disproportionately broad questions. Its close orbit makes it accessible to repeated study, while its uncertain origin and low-gravity terrain prevent easy answers. The moon's importance does not depend on being a miniature planet: it lies in the particular combination of orbital dynamics, impact history and material evidence that can help reconstruct the Martian system.
+
+== Sources ==
+<references />
+
+Written and reorganised using [https://en.wikipedia.org/wiki/Phobos_(moon) Phobos (moon)] by Wikipedia contributors ([https://en.wikipedia.org/w/index.php?title=Phobos_(moon)&action=history page history]), checked 7 October 2026, with primary sources cited above. Changes include new explanatory prose, restructuring, a summary table and local atlas links. Adapted article text: [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0].

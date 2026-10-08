@@ -1,0 +1,105 @@
+{{Planet|name=Venus|class=Rocky planet}}
+[[File:solar/venus-overview.jpg|thumb|right|220px|alt=Venus covered by pale clouds|Approximate natural-colour composite of Venus made from MESSENGER images; clouds conceal the surface. Credit: CactiStaccingCrane. [https://commons.wikimedia.org/wiki/File:Composite_Venus_true_color.png Source]; [https://creativecommons.org/publicdomain/zero/1.0/deed.en CC0 1.0].]]
+'''Venus''' is the second planet from the Sun and the nearest planetary neighbour to [[Earth]] in orbital distance. Similar radii and masses make the two useful comparisons, but resemblance in size conceals profound differences. Venus has a dense carbon-dioxide atmosphere, clouds containing sulphuric acid and a surface hot enough to exclude familiar terrestrial environments. Its bright appearance in Earth's sky comes largely from sunlight reflected by those clouds, rather than from an unusually reflective rocky surface.
+
+Understanding Venus means connecting processes at different depths and times. Slow rotation does not prevent rapid atmospheric circulation, and an old-looking radar landscape does not prove that the planet is geologically inactive. Its history helps explain how rocky worlds lose water, exchange gases with their interiors and evolve towards different climates. The planet's scientific description concerns real astronomy; any political connection to the [[Solar Concord]] belongs to the fictional atlas setting.<ref name="overview">[https://science.nasa.gov/venus/venus-facts/ NASA Science: Venus facts]. Overview of the planet and its environment.</ref>
+
+{| class="wikitable"
+|+ Selected physical and orbital characteristics
+! Quantity !! Approximate value
+|-
+| Mean radius || 6,052 km
+|-
+| Mean solar distance || 0.723 astronomical units
+|-
+| Orbital period || 224.7 Earth days
+|-
+| Sidereal rotation || 243 Earth days, retrograde
+|-
+| Solar day || 116.8 Earth days
+|-
+| Surface pressure || About 92 times Earth's sea-level pressure
+|-
+| Natural satellites || None
+|}
+
+== Appearance and cultural history ==
+Venus is conspicuous in morning or evening skies because it reflects substantial sunlight and approaches relatively close to Earth. It remains near the Sun from our viewpoint, so it does not travel across the sky at midnight like a planet outside Earth's orbit can. Different cultures associated its morning and evening appearances with distinct figures before recognising that both belonged to the same object.
+
+Telescopic observations reveal changing phases. A large crescent appears when Venus is relatively near Earth, while a smaller, more fully illuminated disc appears when it is farther away. Those phases were important evidence for the geometry of a Sun-centred planetary system. The bright cloud deck, however, prevents an ordinary visible-light telescope from revealing the surface. Apparent featurelessness once encouraged imaginative descriptions of Venusian environments that spacecraft later disproved.
+
+Occasional transits place Venus directly across the solar disc. They require a conjunction near the line where the two orbital planes intersect, making them rare compared with ordinary appearances as an evening or morning star. Historical expeditions used transits to improve estimates of distances within the Solar System. Modern observations still illustrate how geometry, timing and the observer's position affect astronomical measurements. Brightness in the sky should never be confused with evidence for a benign surface climate.
+
+== Orbit and slow retrograde rotation ==
+Venus follows a nearly circular orbit, reducing the seasonal variation in incoming sunlight caused by changing solar distance. Its rotation is exceptionally slow and retrograde relative to the usual direction of planetary rotation. A complete turn relative to the stars takes longer than one orbit around the Sun. Because orbital motion and rotation act in opposite senses, the interval between successive solar noons is considerably shorter than the sidereal rotation period.
+
+=== Why the definition of day matters ===
+A day measured against the stars describes the orientation of the solid planet. A solar day describes the changing direction of sunlight at a place on the surface. These quantities differ for every planet, but Venus makes the distinction especially obvious. Its slowly changing orientation also means that short-term atmospheric motion cannot be understood merely by imagining clouds moving with a rapidly spinning ground.
+
+The origin of retrograde rotation remains a subject of study. Interactions involving gravitational tides, atmospheric tides, early impacts and internal dissipation can influence spin over long intervals. Present rotation therefore does not uniquely identify a single ancient collision. Measurements also indicate that the rotation rate is not perfectly constant, and exchanges of angular momentum with the atmosphere can contribute to variations. This connects the dynamics of the surface to the massive envelope of gas above it.
+
+== Interior and geological framework ==
+Venus's bulk density and similarity to Earth support a differentiated interior with a metal-rich core beneath a rocky mantle and crust. Details such as the size and physical state of the core remain less securely constrained than Earth's interior. There is no global network of Venusian seismometers, and gravity measurements must be interpreted with assumptions about crustal thickness and mantle behaviour.
+
+Heat generated and retained inside the planet has to reach the surface. On Earth, plate tectonics provides a major mechanism for moving crust and transferring interior heat. Venus does not display an equivalent global arrangement of mobile plates in the same familiar form. That does not mean the crust is motionless. Faulting, deformation, uplift and volcanic construction reveal a complex mechanical history.
+
+Scientists investigate whether Venus loses heat through a comparatively stagnant outer shell, through episodic large-scale renewal or through more localised forms of deformation. Each model predicts relationships among surface ages, topography and volcanic activity. The evidence does not reduce the planet to a simple failed version of Earth. Differences in water content, temperature and the strength of the lithosphere may produce distinct forms of rocky-planet evolution. Improving interior constraints is necessary before the sequence and magnitude of those changes can be established confidently.
+
+== Surface landscapes ==
+[[File:solar/venus-radar.jpg|thumb|center|480px|alt=Radar map of the surface of Venus|Magellan radar mosaic of Venus. The colours are assigned to radar data and are not the visible colour of the surface. Credit: NASA/JPL. [https://commons.wikimedia.org/wiki/File:Venus_globe.jpg Source]; [https://commons.wikimedia.org/wiki/File:Venus_globe.jpg#Licensing Public domain].]]
+
+Radar mapping shows broad plains, highland regions, large volcanic structures and intensely deformed terrain called tesserae. Radar is essential because clouds obscure the ground at visible wavelengths. The strength and texture of radar reflections depend on roughness, viewing geometry and material properties; a bright radar area is not automatically a brightly coloured landscape.
+
+Large volcanic rises and shield-like structures indicate extensive movement of molten material. Coronae, roughly circular tectonic and volcanic features, record interactions between mantle processes and the outer shell. Tessera terrain contains intersecting structural patterns and may preserve important evidence of older crustal evolution. Its composition is a major target for future measurements because topography alone cannot establish whether it formed through processes resembling those on Earth.
+
+Impact craters supply another record. Their distribution and preservation help estimate how the surface was renewed, but the inferred chronology depends on impact rates and assumptions about resurfacing. The atmosphere prevents many smaller incoming bodies from reaching the ground intact, complicating direct comparison with airless [[Mercury]] or the [[Moon]]. Consequently, an apparent scarcity of small craters reflects both atmospheric filtering and geological history. Interpreting Venus requires several independent observations rather than treating a crater count or a radar texture as a complete explanation.
+
+== Atmosphere and surface pressure ==
+Carbon dioxide dominates the Venusian atmosphere, with nitrogen forming most of the remaining bulk gas. The enormous atmospheric mass produces surface pressure comparable to pressure far below the surface of Earth's oceans. A lander therefore faces intense heat and a dense surrounding fluid, despite arriving on a rocky planet whose diameter resembles Earth's.
+
+Pressure increases downward because the overlying gas has weight. Temperature also changes with altitude, and conditions near the main cloud layers differ greatly from those at the surface. Describing Venus as uniformly hot at every height would miss this vertical structure. The lower atmosphere is comparatively opaque to much of the thermal radiation emitted by the ground, influencing how energy escapes to space.
+
+Trace gases provide clues to chemical processes, atmospheric mixing and exchanges with the surface. Sulphur compounds are especially important because they connect volcanic release, cloud formation and photochemistry. A changing abundance at one height does not by itself demonstrate a particular eruption; transport and chemistry can also alter the measurement. Atmospheric investigations therefore benefit from simultaneous observations at several altitudes and wavelengths. Comparing those observations with surface data can test whether a proposed geological process is consistent with the atmospheric evidence.
+
+== Greenhouse climate and water history ==
+Sunlight that reaches the lower atmosphere and surface eventually has to leave as thermal radiation. The dense atmosphere absorbs and re-emits radiation in ways that raise the temperature of the lower layers. Venus is hotter at the surface than [[Mercury]], although Mercury is closer to the Sun. Distance alone is therefore insufficient for ranking planetary surface temperatures.
+
+A runaway greenhouse involves a feedback in which increasing temperature raises atmospheric water vapour and makes cooling less effective. Such processes are relevant to theories of Venus's evolution, but the exact history of its water remains uncertain. Researchers investigate whether early Venus sustained surface water, how long any water-rich phase lasted and how atmospheric escape changed the inventory. Different assumptions about clouds, rotation and initial conditions can produce different histories.
+
+The high ratio of deuterium to ordinary hydrogen in the atmosphere is one clue to water loss, because lighter hydrogen can escape more readily. It does not uniquely specify the original depth of an ocean. The planet also lacks a present global surface-water cycle like Earth's. Reconstructing its climate requires combining atmospheric chemistry, geological information and evolutionary models. Venus provides a powerful comparison for assessing the range of habitable conditions around stars, while reminding researchers that a present-day atmosphere need not reveal a single unambiguous past.
+
+== Clouds and atmospheric circulation ==
+[[File:solar/venus-clouds.jpg|thumb|center|480px|alt=Ultraviolet view of Venus with bands of cloud|Mariner 10 view of Venus through an ultraviolet filter, with colour assigned to reveal cloud patterns. Credit: NASA. [https://commons.wikimedia.org/wiki/File:Venus_as_captured_by_Mariner_10_(cropped).jpg Source]; [https://commons.wikimedia.org/wiki/File:Venus_as_captured_by_Mariner_10_(cropped).jpg#Licensing Public domain].]]
+
+The bright cloud system contains droplets of sulphuric acid and is accompanied by layers of haze. It reflects much incoming sunlight, helping make Venus so luminous from Earth. Clouds influence both solar heating and the loss of thermal radiation, so their effect cannot be represented by reflection alone. Particle sizes, altitude and coverage all matter.
+
+=== Atmospheric superrotation ===
+The upper atmosphere moves around the planet much faster than the solid surface rotates. This superrotation requires transport of angular momentum and energy through the atmosphere. Waves, large-scale circulation and interactions among atmospheric layers contribute to the observed patterns. The existence of fast-moving clouds above a slowly rotating ground illustrates why wind speed cannot be inferred from the planet's rotation period.
+
+Polar vortices and changing cloud structures reveal atmospheric dynamics on several scales. Ultraviolet observations make patterns visible that may be difficult to distinguish in ordinary reflected light. Some cloud absorption remains chemically interesting, and claims about particular trace substances require independent confirmation. A spectral feature is evidence to interpret, not automatically proof of a unique molecule or of life. The cloud layers are scientifically distinct from the ground beneath them, and uncertainty in cloud chemistry should not be turned into certainty about Venusian biology.
+
+== Magnetic environment and atmospheric escape ==
+Venus does not have an Earth-like global magnetic field generated by a comparable internal dynamo. The solar wind nevertheless interacts with its upper atmosphere and ionosphere, producing an induced magnetic environment. Charged particles, electrical currents and atmospheric gases establish structures that partly divert and reshape the incoming plasma.
+
+This distinction matters when discussing protection from the solar wind. A planet can interact with plasma without possessing a strong intrinsic field. Atmospheric retention also depends on gravity, chemical species, radiation and escape mechanisms. It cannot be reduced to a rule that planets without magnetic fields necessarily lose every atmosphere; Venus itself retains a very massive one.
+
+Hydrogen and oxygen can escape through different processes and at different rates. Measurements help connect present interactions with long-term changes in water and atmospheric composition. However, extrapolating a present escape rate directly across billions of years is risky because solar activity and the planet's atmosphere were different in the past. The upper atmosphere is therefore both an accessible laboratory for current plasma physics and a source of constraints on planetary history. Connecting those scales requires models and evidence from other parts of the system, rather than simply multiplying a modern measurement by the age of the planet.
+
+== Exploration by probes and orbiters ==
+The Soviet Venera programme demonstrated the extraordinary conditions at Venus through atmospheric measurements, landings and surface photographs. Survival on the ground was brief compared with operations possible at colder destinations. The observations nevertheless replaced speculative surface descriptions with direct evidence of rocks, pressure and temperature.
+
+Magellan used radar to map much of the planet during the 1990s. Its data remain central to studies of terrain and potential volcanic changes. Comparing radar observations obtained at different times can identify candidate changes, but illumination geometry and processing must be considered before interpreting a difference as new lava. Careful reanalysis has strengthened evidence that Venus is volcanically active.<ref name="radar">[https://science.nasa.gov/mission/magellan/ NASA Science: Magellan]. Radar mapping and the continuing scientific use of its observations.</ref>
+
+Venus Express examined atmospheric structure, circulation and escape. Other missions and flybys have added observations at different wavelengths and altitudes. ESA's EnVision mission is designed to investigate connections among the interior, surface and atmosphere. Its scientific objectives concern why Venus and Earth evolved differently; an intended measurement is not yet a discovery.<ref name="envision">[https://www.cosmos.esa.int/web/envision ESA: EnVision science and mission overview], checked 7 October 2026.</ref> Long-lived surface instruments and improved compositional measurements would address questions that radar images and remote atmospheric observations alone cannot settle.
+
+== Scientific significance and remaining questions ==
+Venus demonstrates that similar planetary sizes can coexist with radically different surface environments. The reasons involve the interaction of water, atmospheric mass, interior heat, solar energy and geological exchange. A successful evolutionary model must explain several properties together instead of reproducing only one conspicuous feature, such as the high temperature.
+
+Major open questions include the timing of water loss, the history of crustal renewal and the mechanisms sustaining present volcanism. Tessera composition could reveal whether early conditions differed from those associated with younger plains. Better measurements of noble gases and isotopic ratios could help constrain atmospheric origins and escape. Improved gravity data and repeated surface observations would strengthen estimates of interior structure and geological activity.
+
+Venus also serves as a caution when interpreting exoplanets. Radius and orbital distance provide useful starting information, but they do not establish a surface climate without atmospheric context. Clouds may conceal the ground while dominating the observed spectrum. The planet's value therefore lies in understanding coupled systems: an atmosphere modifies the surface environment, the interior supplies gases and heat, and the star drives energy input and escape. Studying those connections helps turn a familiar bright point in the sky into a detailed account of how a terrestrial world changes over time.
+
+== Sources ==
+<references />
+
+Written and reorganised using [https://en.wikipedia.org/wiki/Venus Venus] by Wikipedia contributors ([https://en.wikipedia.org/w/index.php?title=Venus&action=history page history]), checked 7 October 2026, with primary sources cited above. Changes include new explanatory prose, restructuring, a summary table and local atlas links. Adapted article text: [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0].

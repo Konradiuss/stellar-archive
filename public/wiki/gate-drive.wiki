@@ -1,0 +1,15 @@
+'''Gate Drive''' is the compact passage generator carried by [[Jump Ships]]. Unlike a permanent [[Quantum Gates|quantum gate]], it opens a brief corridor for a single vessel and then shuts down to cool and recharge.
+
+== Construction ==
+The [[Crucible Combine]] builds its field coils at [[Crucible Yard]]. Concord laboratories maintain calibration standards, while [[Free Tide]] crews contribute observations from unscheduled routes. No group can operate the entire supply chain alone.
+
+== Limitations ==
+* A jump needs a verified navigation solution.
+* Energy stores require a long recovery period.
+* Damage to timing equipment can leave a ship without a dependable return route.
+
+{{Warning|Do not activate a ship drive inside the field of an operating gate.}}
+
+== Research ==
+The repeating signal of the [[Nacre Beacon]] resembles an old drive calibration sequence. Researchers at [[Beacon Watch]] have not established whether that resemblance indicates a machine, a warning or a coincidence.
+[[Category:Technology]]

@@ -1,0 +1,254 @@
+/* Shared CRT keyframes, unscoped so every component can use them by name; durations in src/utils/crtTiming.js. */
+
+:root {
+  --crt-scanline-alpha: 0.16;
+  --crt-vignette-alpha: 0.35;
+  --crt-scan-alpha: 0.05;
+  /* Each screen sets its own, so their scan bars do not coincide */
+  --crt-scan-period: 13s;
+  --crt-scan-delay: 4s;
+  --crt-glow: rgb(var(--ui-text-rgb) / calc(0.85 * var(--crt-glow-strength, 1)));
+}
+
+.crt-glass {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgb(var(--ui-screen-rgb) / var(--crt-scanline-alpha)) 0px,
+      rgb(var(--ui-screen-rgb) / var(--crt-scanline-alpha)) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 60%,
+      rgb(var(--ui-screen-rgb) / var(--crt-vignette-alpha)) 100%
+    );
+}
+
+.crt-glass-scan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 12%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgb(var(--ui-text-rgb) / var(--crt-scan-alpha)) 50%,
+    transparent 100%
+  );
+  transform: translateY(-100%);
+  animation: crt-scan var(--crt-scan-period) linear var(--crt-scan-delay) infinite;
+}
+
+/* The pass takes the start of the period; the rest of it the bar is off screen */
+@keyframes crt-scan {
+  0% { transform: translateY(-100%); }
+  9%, 100% { transform: translateY(900%); }
+}
+
+.crt-bloom {
+  position: absolute;
+  inset: 0;
+  z-index: 1000;
+  background: var(--ui-text);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.crt-beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(50% - 1px);
+  height: 2px;
+  background: var(--ui-text);
+  box-shadow:
+    0 0 6px 1px var(--crt-glow),
+    0 0 18px 4px rgb(var(--ui-text-rgb) / 0.35);
+  opacity: 0;
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+.crt-dot {
+  position: absolute;
+  left: calc(50% - 3px);
+  top: calc(50% - 3px);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ui-text);
+  box-shadow:
+    0 0 8px 2px var(--crt-glow),
+    0 0 24px 6px rgb(var(--ui-text-rgb) / 0.3);
+  animation: dot-decay 700ms ease-out forwards;
+}
+
+@keyframes crt-on {
+  0% {
+    transform: scale(0, 0.006);
+    filter: brightness(3);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.4, 1);
+  }
+  20% {
+    transform: scale(1, 0.006);
+    filter: brightness(3);
+    animation-timing-function: cubic-bezier(0.2, 0.9, 0.3, 1);
+  }
+  70% {
+    transform: scale(1, 1);
+    filter: brightness(1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+    filter: brightness(1);
+    opacity: 1;
+  }
+}
+
+@keyframes crt-off {
+  0% {
+    transform: scale(1, 1);
+    filter: brightness(1);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.85, 0.35);
+  }
+  60% {
+    transform: scale(1, 0.006);
+    filter: brightness(3);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.8, 0.3);
+  }
+  92% {
+    transform: scale(0.06, 0.006);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0, 0.006);
+    filter: brightness(3);
+    opacity: 0;
+  }
+}
+
+@keyframes bloom-on {
+  0%, 20% { opacity: 1; }
+  30% { opacity: 0.3; }
+  45% { opacity: 0.08; }
+  70%, 100% { opacity: 0; }
+}
+
+@keyframes bloom-off {
+  0%, 38% { opacity: 0; }
+  52% { opacity: 0.35; }
+  60% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes beam-on {
+  0% {
+    opacity: 1;
+    transform: scaleX(0.01);
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.4, 1);
+  }
+  20% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  45% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes beam-off {
+  0%, 52% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+  60% {
+    opacity: 1;
+    transform: scaleX(1);
+    animation-timing-function: cubic-bezier(0.5, 0, 0.8, 0.3);
+  }
+  92% {
+    opacity: 1;
+    transform: scaleX(0.06);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(0.01);
+  }
+}
+
+@keyframes dot-decay {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.3); }
+}
+
+@keyframes crt-channel-roll {
+  0% { transform: translate(0, 0); filter: brightness(1); }
+  15% { transform: translate(-2px, -6%); filter: brightness(0.5); }
+  30% { transform: translate(2px, 3%); filter: brightness(1.4); }
+  45% { transform: translate(-1px, -3%); filter: brightness(0.7); }
+  60% { transform: translate(1px, 2%); filter: brightness(1.2); }
+  80% { transform: translate(0, -1%); filter: brightness(0.9); }
+  100% { transform: translate(0, 0); filter: brightness(1); }
+}
+
+@keyframes crt-interference {
+  0% { transform: translateX(0) skewX(0deg); filter: brightness(1); }
+  20% { transform: translateX(3px) skewX(-0.6deg); filter: brightness(0.6); }
+  45% { transform: translateX(-2px) skewX(0.4deg); filter: brightness(1.3); }
+  70% { transform: translateX(1px) skewX(0deg); filter: brightness(0.85); }
+  100% { transform: translateX(0) skewX(0deg); filter: brightness(1); }
+}
+
+@keyframes hack-flicker {
+  0% { background: var(--ui-screen); }
+  100% { background: #c00000; }
+}
+
+.crt-boot-text {
+  text-shadow:
+    0 0 4px rgb(var(--ui-text-rgb) / 0.55),
+    0 0 10px rgb(var(--ui-text-rgb) / 0.2);
+  animation: crt-boot-flicker 4s infinite;
+}
+
+@keyframes crt-boot-flicker {
+  0%, 100% { opacity: 1; }
+  3% { opacity: 0.85; }
+  5% { opacity: 1; }
+  47% { opacity: 1; }
+  48% { opacity: 0.9; }
+  49% { opacity: 1; }
+}
+
+@keyframes crt-blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crt-glass-scan {
+    display: none;
+  }
+
+  .crt-bloom,
+  .crt-beam,
+  .crt-dot,
+  .crt-boot-text {
+    animation: none !important;
+  }
+}

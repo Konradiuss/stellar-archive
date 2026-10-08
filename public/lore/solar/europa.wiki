@@ -1,0 +1,126 @@
+{{Planet|name=Europa|class=Natural satellite}}
+[[File:solar/europa-overview.jpg|thumb|right|220px|alt=Europa's bright icy surface crossed by dark markings|Processed Juno view of Europa from its September 2022 flyby. Credit: NASA/JPL-Caltech/SwRI/MSSS/Kevin M. Gill. [https://commons.wikimedia.org/wiki/File:Europa_-_Perijove_45_(cropped).png Source]; [https://creativecommons.org/licenses/by/2.0 CC BY 2.0].]]
+'''Europa''' is one of [[Jupiter]]'s four Galilean moons and a major target for investigating ocean worlds. Its exterior is dominated by water ice, crossed by long fractures and regions of disrupted terrain. Beneath that cold surface, several independent observations support the presence of a global liquid-water ocean. The contrast between an icy shell and a potentially active interior makes Europa scientifically distinctive.
+
+An ocean does not establish the existence of life. The relevant questions concern water, chemical ingredients, energy sources and the ability of those components to interact over time. Europa also orbits within Jupiter's radiation environment, which alters exposed material and complicates the interpretation of surface chemistry. Its significance therefore extends beyond the statement that water may exist below the ice: researchers need to understand the structure and exchange processes connecting the surface, ocean and rocky interior.<ref name="overview">[https://science.nasa.gov/jupiter/jupiter-moons/europa/ NASA Science: Europa]. Overview of the icy surface and ocean evidence.</ref>
+
+{| class="wikitable"
+|+ Selected physical and orbital characteristics
+! Quantity !! Approximate value
+|-
+| Mean radius || 1,561 km
+|-
+| Mean orbital distance from Jupiter's centre || 670,900 km
+|-
+| Orbital period || About 3.55 Earth days
+|-
+| Rotation || Synchronous
+|-
+| Exterior || Predominantly water ice
+|-
+| Atmosphere || Extremely tenuous, oxygen-bearing
+|-
+| Proposed major internal reservoir || A global subsurface ocean
+|}
+
+== Discovery and early observation ==
+Europa was identified during the telescopic discovery of Jupiter's four major moons in 1610. Observing its motion contributed to evidence that planets could possess their own orbiting systems. The name follows a figure in Greek mythology associated with Zeus, the Greek counterpart of Jupiter.
+
+From Earth, Europa appears as a small point or disc depending on the instrument. Its orbit can be followed accurately even when the surface cannot be resolved. That distinction shows why orbital knowledge does not automatically provide geological knowledge.
+
+Before spacecraft imaging, brightness and spectra supplied clues to an icy exterior. Close observations then revealed a fractured, relatively lightly cratered landscape unlike a simple frozen version of Earth's Moon. The progression from unresolved brightness to detailed terrain changed the questions scientists could ask.
+
+Repeated Earth-based and space-based observations remain valuable after spacecraft encounters. They can monitor spectral properties and search for changes or intermittent phenomena over longer intervals. However, the limited spatial resolution requires care when connecting a signal to one geological feature. A remote detection may establish a property somewhere on the visible hemisphere without uniquely locating the responsible source.
+
+== Orbit and resonant interactions ==
+Europa follows a nearly circular but not perfectly circular orbit around Jupiter and rotates synchronously. Approximately the same hemisphere faces the planet, while a particular surface location experiences changing illumination and tidal forcing over its orbit.
+
+Europa participates in the orbital resonance linking [[Io]], Europa and Ganymede. The approximate one-to-two-to-four relationship among their periods allows repeated gravitational interactions to influence eccentricity. That sustained orbital behaviour contributes to the changing deformation relevant to internal heating.
+
+=== Tides beneath an icy surface ===
+Jupiter's gravity is stronger on the near side than on the far side, creating tidal stresses. As orbital distance and geometry change, the stresses vary. Material responses are not perfectly reversible, so dissipation can release heat. The amount depends on the shell and interior, making mechanical structure important to orbital interpretation.
+
+Synchronous rotation does not eliminate this process. A moon can maintain one average facing direction while its orbit and deformation vary enough to sustain heating. Europa's ocean and icy shell may respond differently from a wholly rigid body, creating additional observable effects. Measuring those responses can help constrain the structure beneath the surface without directly drilling through the ice.
+
+== Interior and differentiation ==
+Europa's density supports an interior containing a substantial rocky component rather than a globe composed entirely of ice. Models include a metal-rich core, a rocky mantle and outer water-related layers. The exact boundaries and compositions remain inferred from gravity, magnetic observations and other measurements.
+
+The water inventory can occupy both solid and liquid states depending on temperature and pressure. A shell of ice can overlie an ocean while deeper rock supplies a different mechanical and chemical environment. These layers interact but should not be treated as one uniform substance.
+
+Interior evolution depends on heating, cooling, composition and orbital history. Radioactive decay contributes energy within rocky material, while tidal dissipation can be important in the deforming system. The relative importance and location of those sources affect how long liquid reservoirs persist.
+
+A simplified cutaway is useful orientation, but several internal models can fit broad constraints. Better measurements of gravity and deformation would help distinguish them. Establishing how the water layers relate to the rocky interior is particularly important for evaluating possible chemical exchange. An ocean isolated from rock could have different properties from one interacting extensively with minerals and material released at the seafloor.
+
+== Evidence for an ocean ==
+[[File:solar/europa-ocean.png|thumb|center|480px|alt=Two proposed models of ice and liquid water beneath Europa's surface|Illustrative models of Europa's subsurface: an ocean beneath ice versus warm convecting ice. These are hypotheses, not photographs of the interior. Credit: NASA/JPL. [https://commons.wikimedia.org/wiki/File:EuropaInterior1.jpg Source]; [https://commons.wikimedia.org/wiki/File:EuropaInterior1.jpg#Licensing Public domain].]]
+
+Magnetic observations obtained during Galileo's investigation provide strong evidence for an electrically conducting layer beneath Europa's surface. A salty ocean offers a compelling explanation for an induced response to Jupiter's changing magnetic field. The interpretation combines field measurements with plausible material properties.
+
+Geological features supply another line of evidence. Fractures, displaced blocks and other structures suggest that the outer shell has been mobile or repeatedly modified. However, no single surface feature alone measures the entire ocean's thickness or determines the depth of every local water reservoir.
+
+Combining independent methods is essential. Gravity, magnetic response, thermal behaviour and surface geology constrain different parts of the physical system. Agreement among them strengthens the ocean interpretation while leaving quantities such as shell thickness, salinity and internal stratification uncertain.
+
+The ocean is not directly photographed through transparent ice. It is inferred from observations that are physically consistent with liquid water and difficult to explain otherwise. That distinction does not make the evidence weak; it explains the form of the evidence. Planetary science routinely investigates inaccessible interiors through their measurable external consequences. Europa's case is strongest when those consequences are described together rather than reduced to a single attractive image or headline.
+
+== Ice shell and surface renewal ==
+Europa's outer surface has comparatively few large preserved impact craters, suggesting substantial geological renewal. Age estimates depend on the impact history and on how resurfacing removes or modifies the record. A young-looking surface does not imply that every feature formed at the same time.
+
+The icy shell can fracture under changing stress and may move or deform over long intervals. Temperature differences, tidal forcing and possible movement of warmer material affect its behaviour. Ice on geological timescales can respond very differently from a brittle frozen block held briefly in a laboratory.
+
+=== Thickness and mechanical behaviour ===
+Determining the shell's thickness is important because it affects heat transfer and exchange with the ocean. A thick shell may still contain fractures or local reservoirs, while a thin shell does not guarantee unrestricted communication everywhere. Mechanical properties and the distribution of warm regions also matter.
+
+Researchers therefore distinguish the global shell from local features. A disrupted terrain region may reveal a particular process without setting the thickness of the entire moon's ice. Radar, gravity and deformation measurements are intended to supply complementary constraints. Understanding the shell is central to interpreting both the geological record and the accessibility of any material from the ocean below it.
+
+== Ridges, bands and chaos terrain ==
+[[File:solar/europa-ice.jpg|thumb|center|480px|alt=Broken ice blocks and intersecting fractures on Europa|Galileo image of fractured terrain on Europa. The disrupted ice records deformation and surface renewal. Credit: NASA / JPL / Arizona State University. [https://commons.wikimedia.org/wiki/File:PIA01092_-_Evidence_of_Internal_Activity_on_Europa.jpg Source]; [https://commons.wikimedia.org/wiki/File:PIA01092_-_Evidence_of_Internal_Activity_on_Europa.jpg#Licensing Public domain].]]
+
+Long ridges and bands cross Europa's surface, recording episodes of deformation and material movement. Their relationships can show which structures formed earlier or later. A feature that cuts another supplies a relative chronological constraint even when no sample provides an absolute age.
+
+Bands can indicate separation and modification of adjacent terrain. Double ridges and other patterns have inspired several formation models involving stress, subsurface fluids and thermal processes. Similarity to an Earth feature is useful for developing a hypothesis but is not sufficient to prove an identical mechanism under different gravity and temperature.
+
+Chaos terrain contains disrupted blocks and surrounding material that appears to have been rearranged. Researchers examine whether local melting, warm-ice movement or reservoirs within the shell can produce the observed patterns. More than one physical explanation may remain consistent with limited observations.
+
+Detailed topography and composition can help discriminate among these models. A ridge's height, a block's rotation and the material occupying gaps each supply additional information. The surface is consequently an archive of mechanical history rather than a collection of names attached to visually interesting lines. Reading that archive requires combining structural relationships with physically plausible processes operating inside cold but deformable ice.
+
+== Chemistry and Jupiter's radiation ==
+Europa's exposed ice is continuously processed by energetic particles in Jupiter's magnetosphere. Irradiation can break apart molecules and create new chemical products, altering what remote instruments detect at the surface. The measured chemistry can therefore reflect both material originally supplied and later modification.
+
+Non-ice components are important because they may contain information about ocean or interior material. However, identifying their origin requires considering contamination from external sources, transport and radiation processing. A detected salt or other compound does not automatically provide an unchanged sample of ocean water.
+
+The leading and trailing hemispheres experience different environmental conditions, contributing to variations in surface appearance and composition. Mapping those differences helps separate external processing from geological delivery. Observations obtained at different wavelengths provide additional tests of proposed chemical identifications.
+
+Potential exchange among surface, shell and ocean is central to the scientific investigation. Material produced by irradiation might reach deeper reservoirs under some geological scenarios, while ocean-derived substances might move towards the surface. Demonstrating that such routes operate, and quantifying their efficiency, requires more than noting that both an ocean and oxidised surface compounds exist. The physical connection between those reservoirs determines the chemical opportunities available within the moon.
+
+== Atmosphere and candidate plumes ==
+Europa has an extremely tenuous atmosphere containing oxygen-related species. It is not an atmosphere supporting ordinary terrestrial breathing or weather. Surface irradiation and the release of particles contribute to its production, while escape and other processes remove material.
+
+Some observations have suggested intermittent plumes involving water vapour. Those candidate detections are scientifically interesting because a plume could provide access to material associated with subsurface reservoirs. However, Europa's plume evidence should not be presented as a continuously observed, fully characterised geyser system.
+
+Interpreting a signal requires evaluating instrumental limits, viewing geometry and alternative explanations. Repeated observations can test whether a phenomenon recurs at the same location or under particular orbital conditions. A failure to detect a plume on one occasion does not necessarily invalidate every possible intermittent source, but neither does one candidate detection establish its complete behaviour.
+
+Plume material, if sampled reliably, would still need contextual interpretation. It could originate in a local reservoir rather than directly representing the whole global ocean. Researchers therefore connect plume investigations with geology, atmosphere and interior models. That approach preserves the scientific promise while clearly separating a potential measurement opportunity from results not yet established.
+
+== Habitability and the search for life ==
+Europa is a priority in astrobiology because liquid water, chemical ingredients and sources of energy may coexist. Evaluating that possibility requires examining how they are distributed and whether they can interact. The presence of water alone is insufficient to establish an environment capable of sustaining known biological processes.
+
+A rocky seafloor could support chemical exchanges different from those at the illuminated surface. Tidal and radioactive heat may influence those exchanges, while radiation-produced compounds could contribute if transported through the shell. Each link requires evidence and modelling rather than being assumed from the existence of neighbouring layers.
+
+=== Conditions are not a detection ===
+Habitability describes a set of potentially favourable conditions. A biosignature would be evidence specifically supporting biological activity, and a confirmed detection would require strong exclusion of non-biological explanations. Those are different levels of claim and should remain separate in the article.
+
+Europa's environment also differs from Earth's oceans because it receives little or no direct sunlight beneath the shell. Terrestrial biology offers useful comparisons, including ecosystems relying on chemical energy, but resemblance does not prove that Europa is inhabited. The scientific objective is to assess physical and chemical conditions carefully while keeping the question of life open.
+
+== Exploration and the coming measurements ==
+Voyager imaging established Europa's striking surface appearance, and Galileo added detailed geological and magnetic observations. Telescope studies continue to examine chemistry, atmosphere and possible transient activity. Each method supplies a different scale and type of evidence.
+
+NASA's Europa Clipper launched on 14 October 2024. As of 7 October 2026, it is travelling towards the Jovian system with arrival planned for 2030. Its instruments are designed to investigate the shell, ocean-related properties, composition and geology through repeated flybys.<ref name="clipper">[https://science.nasa.gov/mission/europa-clipper/ NASA Science: Europa Clipper], checked 7 October 2026.</ref> These objectives are future measurements, not discoveries already made by the mission.
+
+ESA's Juice mission, launched in 2023, also includes Europa investigations within a broader study of Jupiter and icy moons. Its planned arrival at Jupiter is in 2031.<ref name="juice">[https://www.cosmos.esa.int/web/juice/overview ESA: Juice overview], checked 7 October 2026.</ref> Combining complementary measurements is intended to reduce ambiguity among internal and geological models.
+
+The major priorities are connections: how the ice deforms, how heat moves, how surface chemistry relates to deeper material and which processes persist over time. Europa's promise rests on answering those questions with observations. Its ocean makes it an exceptional target, while the remaining uncertainty makes a careful, evidence-based account more valuable than a prematurely complete story.
+
+== Sources ==
+<references />
+
+Written and reorganised using [https://en.wikipedia.org/wiki/Europa_(moon) Europa (moon)] by Wikipedia contributors ([https://en.wikipedia.org/w/index.php?title=Europa_(moon)&action=history page history]), checked 7 October 2026, with primary sources cited above. Changes include new explanatory prose, restructuring, a summary table and local atlas links. Adapted article text: [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0].

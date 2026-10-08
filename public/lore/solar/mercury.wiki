@@ -1,0 +1,101 @@
+{{Planet|name=Mercury|class=Rocky planet}}
+[[File:solar/mercury-overview.jpg|thumb|right|220px|alt=Mercury showing a heavily cratered surface|Mercury in an approximately natural-colour composite from MESSENGER. Credit: NASA/Johns Hopkins University Applied Physics Laboratory/Arizona State University/Carnegie Institution of Washington. [https://commons.wikimedia.org/wiki/File:Mercury_in_true_color.jpg Source]; [https://commons.wikimedia.org/wiki/File:Mercury_in_true_color.jpg#Licensing Public domain].]]
+'''Mercury''' is the innermost planet of [[Sol]] and the smallest of its eight planets. It is a rocky world whose cratered landscape records impacts, volcanic flooding and the gradual contraction of a cooling interior. Its proximity to the Sun makes observation difficult, yet its surface does not simply behave like a permanently hot desert. Long nights, intense sunlight and almost airless conditions produce striking differences between locations and times of day.
+
+Mercury is especially valuable for studying how terrestrial planets acquire and retain their materials. A large metal-rich interior, a modest magnetic field and deposits protected inside dark polar craters appear together on a world with no natural satellites. These features connect planetary geology with atmospheric loss, orbital dynamics and the history of the inner Solar System. The discussion below concerns the real planet; the scale of its orbit in the atlas is schematic.<ref name="overview">[https://science.nasa.gov/mercury/facts/ NASA Science: Mercury facts]. Physical overview and exploration context.</ref>
+
+{| class="wikitable"
+|+ Selected physical and orbital characteristics
+! Quantity !! Approximate value
+|-
+| Mean radius || 2,440 km
+|-
+| Mean distance from the Sun || 0.387 astronomical units
+|-
+| Orbital period || 88 Earth days
+|-
+| Sidereal rotation period || 58.6 Earth days
+|-
+| Solar day || 176 Earth days
+|-
+| Natural satellites || None
+|}
+
+== Name and observation ==
+Mercury was known long before telescopes because it can occasionally be seen without optical aid. Its name associates its quick apparent motion with the messenger god of Roman mythology. That motion arises from a short orbit around the Sun, although the path seen from Earth is complicated by the movement of both planets. Mercury never travels far from the Sun in our sky. It therefore appears most conveniently near the horizon during twilight, when atmospheric turbulence and scattered light make detailed observations challenging.
+
+The most favourable viewing opportunities depend on the planet's elongation, the observer's latitude and the angle at which the ecliptic meets the horizon. A large elongation does not automatically place Mercury high in a dark sky. Through a telescope, Mercury displays phases, just as [[Venus]] does, because observers see different portions of its illuminated hemisphere. Apparent size and phase change as the planet moves between the far and near parts of its orbit. A transit occurs when Mercury crosses the solar disc from our viewpoint, but orbital inclination makes these events much less frequent than ordinary conjunctions. Safe solar filters are essential for observing any transit; a telescope must never be aimed at the Sun without equipment designed for that purpose.
+
+== Orbit and relativistic motion ==
+Mercury follows an appreciably elliptical orbit, so its distance from the Sun changes substantially over a year. The planet moves fastest near perihelion and slowest near aphelion, consistent with conservation of angular momentum. This variation also changes the intensity of incoming sunlight. Orbital distance and rotation must be considered together when interpreting temperatures or illumination: two places at the same latitude need not share an identical history of solar heating.
+
+=== The advance of perihelion ===
+An ellipse is a useful first description, but Mercury's orbital orientation slowly changes. Gravitational interactions with other planets account for most of that precession. A small additional advance, historically left unexplained by Newtonian calculations, was successfully described by general relativity. Mercury consequently became an important test of gravitational theory. The effect concerns the accumulated orientation of the orbit, rather than an abrupt departure from its ordinary path.
+
+The orbit is also tilted relative to Earth's orbital plane. Mercury usually passes above or below the Sun during an inferior conjunction, which explains why transits require a particular alignment. Over geological times, interactions among planetary orbits affect eccentricity and other orbital elements. A present-day orbital diagram should therefore be understood as a snapshot of a dynamic system, not a fixed pattern that has existed unchanged since planet formation.
+
+== Rotation and the solar day ==
+Mercury rotates three times relative to distant stars during two journeys around the Sun. This three-to-two spin-orbit resonance is different from the synchronous rotation familiar from the [[Moon]]. A fixed point on Mercury does not permanently face the Sun. The difference between its rotation period and its orbital period instead creates a solar day of approximately two Mercurian years.
+
+=== An unusual movement of the Sun ===
+Near perihelion, orbital motion becomes fast enough to compete closely with the rotational movement of the surface. At suitable locations, the Sun can appear to slow, briefly reverse its direction and then resume its usual motion across the sky. This behaviour follows from the combination of changing orbital speed and nearly uniform rotation. It does not mean the planet itself repeatedly reverses its spin.
+
+The resonance also helps establish preferred regions of stronger heating. Because particular longitudes face the Sun near successive perihelia, solar energy is not distributed as it would be on a rapidly rotating planet with a circular orbit. Mercury's small axial tilt limits ordinary seasons, but it does not eliminate variation caused by orbital eccentricity. The planet illustrates why the word day needs a definition: a sidereal rotation, an interval between sunrises and the duration of daylight can describe different quantities.
+
+== Interior and bulk composition ==
+[[File:solar/mercury-interior.png|thumb|center|480px|alt=Cutaway diagram of Mercury showing its crust, mantle and core|Schematic model of Mercury's layered interior; boundaries are illustrative rather than a direct photograph. Credit: A loose necktie. [https://commons.wikimedia.org/wiki/File:Mercury_(planet).svg Source]; [https://creativecommons.org/licenses/by-sa/4.0 CC BY-SA 4.0].]]
+
+Mercury's high mean density implies a substantial contribution from metal beneath the rocky exterior. Its core occupies a large fraction of its radius, leaving a comparatively thin silicate mantle and crust. The detailed arrangement is inferred from measurements of gravity, rotation and magnetic behaviour rather than from direct access to the interior. Density alone would not uniquely reveal those layers because pressure, composition and temperature all affect the properties of planetary materials.
+
+A metallic interior can contain solid and liquid regions at the same time. Observations of small variations in rotation, combined with gravity information, support the presence of a liquid component. Understanding how much of the core remains molten is important for explaining the magnetic field and the history of heat loss. Estimates of an inner core and of chemical constituents depend on interior models and should not be treated as equivalent to a photograph of a cut-open planet.
+
+Mercury's unusual metal-to-rock proportion has inspired competing formation scenarios. Selective removal of rocky material, the conditions of the early protoplanetary disc and the effects of collisions may all have contributed. Surface chemistry places additional constraints on these explanations. A successful account must explain several measurements together, including retained volatile elements, rather than only reproduce the planet's large core.
+
+== Craters and impact basins ==
+[[File:solar/mercury-caloris.jpg|thumb|center|480px|alt=Enhanced-colour perspective view of Caloris basin|Perspective rendering of Caloris basin using MESSENGER imagery and topography; enhanced colours emphasize differences in surface materials. Credit: NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington. [https://commons.wikimedia.org/wiki/File:PIA19450-PlanetMercury-CalorisBasin-20150501.jpg Source]; [https://commons.wikimedia.org/wiki/File:PIA19450-PlanetMercury-CalorisBasin-20150501.jpg#Licensing Public domain].]]
+
+Many Mercurian landscapes are dominated by impact craters. The absence of rain, vegetation and substantial atmospheric erosion allows old structures to remain visible, although subsequent impacts and volcanic deposits can modify or bury them. Small craters, broad basins and ejecta blankets provide different kinds of information. Their shapes depend on impact energy, target properties and the planet's gravity.
+
+Caloris is a particularly prominent impact basin, surrounded by structures and deposits associated with a major collision. The basin contains plains that developed after its formation, illustrating how a single region can preserve more than one geological episode. Identifying the order of these events requires comparing which structures cut or cover others. A crater superimposed on a plain is younger than that plain, while a partly buried crater predates the material filling it.
+
+Crater counts offer a way to compare the relative ages of surfaces. A landscape exposed for longer usually accumulates more impacts, but converting that pattern into an absolute age requires assumptions about the history of impacting bodies. Counts also become difficult where craters overlap or where resurfacing has removed part of the record. Mercury's terrain is therefore a geological archive with gaps and alterations, not an exact clock that can be read without interpretation.
+
+== Volcanism and planetary contraction ==
+Smooth plains indicate that parts of Mercury were resurfaced after the oldest heavily cratered terrain formed. Volcanic activity transported material from the interior to the surface and changed local topography. Some volcanic features are associated with explosive processes, indicating that gases once helped drive eruptions. Their existence matters because a completely depleted, volatile-free planet would be difficult to reconcile with such activity.
+
+Long scarps and related structures record compression of the crust. As the interior lost heat, the planet's volume decreased and the outer shell accommodated that change by faulting and shortening. These scarps differ from an isolated crater rim: their extent and relationship with older surfaces connect them to stresses affecting the planet more broadly. Mapping their distribution helps reconstruct the timing and scale of contraction.
+
+Another distinctive class of feature is the bright, irregular depressions called hollows. They suggest that certain near-surface materials were removed or destabilised, but the responsible substances and processes remain under investigation. Their sharp appearance makes them interesting candidates for relatively recent surface modification. Craters, scarps, volcanic plains and hollows consequently tell complementary stories. No single process explains Mercury's entire landscape, and a visually ancient surface can still contain features produced much later.
+
+== Temperature and polar deposits ==
+A tenuous exosphere cannot efficiently redistribute heat between the illuminated and dark sides. The result is a large temperature range: sunlit equatorial locations may approach 430 degrees Celsius, while long nights can become extremely cold. Surface properties also matter. Fine regolith, exposed rock and material at different depths respond differently to changing illumination, so one quoted temperature cannot describe the entire planet.
+
+Mercury's poles demonstrate how geometry can outweigh proximity to the Sun. With little axial tilt, the floors of certain deep polar craters remain permanently shaded. These cold traps can preserve water ice delivered by impacts or produced through other processes, even while nearby illuminated surfaces become hot. Radar observations and spacecraft measurements provide independent evidence for polar deposits.<ref name="ice">[https://science.nasa.gov/mission/messenger/ NASA Science: MESSENGER]. Orbital investigations included Mercury's polar deposits.</ref>
+
+The ice does not imply a temperate climate, rainfall or a global liquid-water cycle. It survives because particular sites receive very little direct solar heating. Studying those deposits can reveal something about the delivery and preservation of volatile materials in the inner Solar System. Their distribution also highlights a general lesson for planetary science: average conditions are useful summaries, but locally protected environments can be radically different from the average.
+
+== Exosphere and space weather ==
+Mercury's exosphere consists of particles so widely separated that collisions among them are uncommon. It is distinct from a dense atmosphere such as Earth's, where collisions support familiar weather and pressure. Particles can be released from the surface by sunlight, impacts, energetic charged particles and thermal processes. They can subsequently escape, return to the ground or become ionised.
+
+This creates a changing connection between the surface and surrounding space. Sodium is among the species detected remotely, and its distribution can form an extended tail. The exosphere responds to both the planet's position in its orbit and conditions in the solar wind. A measured abundance therefore describes a particular observation and cannot always be extrapolated to all locations and times.
+
+Mercury has a global magnetic field, but it is much weaker than Earth's. Its small magnetosphere is repeatedly shaped and compressed by the nearby solar wind. Magnetic reconnection and energetic particles can expose the surface to space-weather processes that occur above a substantial atmosphere on Earth. The field is an important clue to the interior, while the magnetosphere is a laboratory for the interaction between a planetary magnetic field and a variable stream of plasma. These are related topics, but they concern different physical regions.
+
+== Spacecraft exploration ==
+Mariner 10 carried out three flybys in the 1970s, providing the first close views of Mercury and revealing its magnetic field. A flyby can observe a planet only along a limited trajectory and during a limited interval. Large areas therefore remained poorly characterised after the mission, even though it transformed scientific understanding.
+
+MESSENGER entered orbit in 2011 and continued operations until 2015. Repeated observations allowed global mapping, chemical measurements and comparisons among different seasons and illumination conditions. Its instruments investigated terrain, gravity, magnetic fields and the exosphere. A spacecraft orbiting close to Mercury faces intense sunlight and changing thermal conditions; maintaining suitable temperatures for electronics and instruments is a central engineering problem.
+
+BepiColombo is a joint ESA and JAXA mission using two complementary science orbiters. One concentrates on the planet and its environment, while the other focuses on magnetospheric investigations. As of 7 October 2026, ESA schedules Mercury orbit insertion for 21 November 2026; that arrival remains a planned event, not an accomplished observation.<ref name="bepi">[https://www.esa.int/Science_Exploration/Space_Science/BepiColombo/Latest_updates_BepiColombo_s_arrival_at_Mercury ESA: latest updates on BepiColombo's arrival], checked 7 October 2026.</ref> Coordinated measurements are intended to separate spatial differences from changes over time.
+
+== Formation and open questions ==
+Mercury links several unresolved problems in planetary evolution. Why is its metal-rich interior so large? How did volatile elements survive the conditions that formed the planet? Which substances produce hollows, and how long has that process operated? Answering these questions requires combining chemistry, topography, gravity and orbital dynamics rather than choosing an explanation from appearance alone.
+
+A large collision could remove mantle material, but its consequences must agree with the chemistry of what remains. Alternatively, differences in the composition and processing of material near the young Sun could have influenced the growing planet before its final assembly. These possibilities are not interchangeable descriptions of a settled event. Researchers test them through simulations and comparisons with measured composition.
+
+Mercury also offers a comparison with [[Venus]], [[Earth]] and [[Mars]]. All four are terrestrial planets, yet their atmospheres, magnetic properties, geological histories and surface environments diverged. Those differences help constrain the roles of size, solar distance and initial materials. The planet's importance is consequently greater than its small diameter suggests: it preserves evidence about the range of outcomes available to rocky worlds, including some conditions that also matter when interpreting planets around other stars.
+
+== Sources ==
+<references />
+
+Written and reorganised using [https://en.wikipedia.org/wiki/Mercury_(planet) Mercury (planet)] by Wikipedia contributors ([https://en.wikipedia.org/w/index.php?title=Mercury_(planet)&action=history page history]), checked 7 October 2026, with NASA and ESA material cited above. Changes include new explanatory prose, restructuring, a summary table and local atlas links. Adapted article text: [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0].

@@ -1,0 +1,66 @@
+/* Linked in the head of index.html, so the page is black from the first frame; the other styles come with the program. */
+
+html,
+body {
+  margin: 0;
+  background-color: #000;
+}
+
+/* Shown only if the program has not started in 0.6 s (a slow network), else Vue replaces it unseen. */
+.preboot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #b7b7b7;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  white-space: pre;
+  visibility: hidden;
+  animation: preboot-show 0s 0.6s forwards;
+}
+
+@keyframes preboot-show {
+  to {
+    visibility: visible;
+  }
+}
+
+.preboot-cursor {
+  animation: preboot-blink 1s steps(1, end) infinite;
+}
+
+@keyframes preboot-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preboot-cursor {
+    animation: none;
+  }
+}
+
+/* Without JS the <noscript> message (scripts/socialPreview.js) takes the screen; with JS its content is text, not a <p>. */
+noscript p {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 16px;
+  background-color: #000;
+  color: #b7b7b7;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  white-space: normal;
+  text-align: center;
+}
+
+/* A browser without :has() still sees the message: it covers the line. */
+body:has(noscript p) .preboot {
+  display: none;
+}

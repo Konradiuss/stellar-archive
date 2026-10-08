@@ -1,0 +1,125 @@
+{{Planet|name=Mars|class=Rocky planet}}
+[[File:solar/mars-overview.jpg|thumb|right|220px|alt=Global view of Mars with dark terrain and a polar cap|Processed global view of Mars from the Emirates Mars Mission's Hope spacecraft. Credit: Kevin Gill from Los Angeles, CA, United States. [https://commons.wikimedia.org/wiki/File:Mars_-_August_30_2021_-_Flickr_-_Kevin_M._Gill.png Source]; [https://creativecommons.org/licenses/by/2.0 CC BY 2.0].]]
+'''Mars''' is the fourth planet from the Sun, a rocky world with a thin atmosphere, polar ice and landscapes shaped by impacts, volcanism, wind and ancient water. Iron-bearing surface materials give much of the planet its familiar reddish appearance, but its rocks and sediments are more varied than the phrase red planet suggests. Large volcanoes, deep canyon systems and layered deposits record a long history of change.
+
+Mars is especially important for investigating the evolution of planetary habitability. Evidence for rivers, lakes and water-altered minerals shows that some past environments differed markedly from the cold, dry conditions prevailing at the surface today. That evidence does not establish that life existed there. The scientific challenge is to reconstruct when water was present, how long it persisted and what physical and chemical conditions accompanied it. Mars has two small natural moons, [[Phobos]] and [[Deimos]], which raise additional questions about the formation of the system.<ref name="overview">[https://science.nasa.gov/mars/facts/ NASA Science: Mars facts]. Planetary overview and exploration context.</ref>
+
+{| class="wikitable"
+|+ Selected physical and orbital characteristics
+! Quantity !! Approximate value
+|-
+| Mean radius || 3,390 km
+|-
+| Mean solar distance || 1.52 astronomical units
+|-
+| Orbital period || 687 Earth days
+|-
+| Solar day || 24 hours 39 minutes
+|-
+| Axial tilt || About 25 degrees
+|-
+| Atmosphere || Predominantly carbon dioxide
+|-
+| Natural satellites || Phobos and Deimos
+|}
+
+== Appearance, discovery and observation ==
+Mars has been observed since antiquity. Its colour and changing brightness made it distinctive among the visible planets, while its apparent backward loops helped motivate increasingly sophisticated descriptions of planetary motion. Those loops occur because [[Earth]] and Mars move at different speeds around the Sun; they do not indicate that Mars periodically reverses its orbit.
+
+Opposition places Mars approximately opposite the Sun in Earth's sky and offers favourable observing opportunities. The distance at opposition is not always the same because both orbits are elliptical. A particularly close approach can produce a much larger apparent disc than a more distant opposition, affecting how much surface detail a telescope can resolve.
+
+Polar caps and dark surface markings are visible through suitable instruments, but atmospheric conditions and limited resolution can be misleading. Historical claims of an extensive network of engineered canals arose from interpretations that later observations did not support. Spacecraft replaced those impressions with detailed measurements of real geological features.
+
+Modern ground-based observations still have value. They can monitor weather and seasonal changes across long intervals, complementing spacecraft observations with different coverage. A telescopic image should be interpreted in terms of wavelength, resolution and viewing geometry rather than assumed to reveal every feature visible in a high-resolution orbital map.
+
+== Orbit, rotation and seasons ==
+A Martian year lasts about 687 Earth days, while a solar day, commonly called a sol, is only modestly longer than an Earth day. The similarity in daily timing can make operations on the surface seem familiar, but a longer year changes the seasonal rhythm. Mars's axial tilt gives it seasons, and its orbital eccentricity makes their durations and intensities differ between hemispheres.
+
+=== A changing axial tilt ===
+Mars's tilt can vary substantially over geological times. Those changes alter where sunlight is absorbed and where ice is stable, helping explain evidence for ice-related landscapes outside the present polar regions. A modern map of ice distribution is therefore not a permanent arrangement that necessarily applied throughout Martian history.
+
+The atmosphere, surface and ice exchange energy and material over the seasonal cycle. Carbon dioxide can condense onto the winter pole and later return to the atmosphere, changing surface pressure. Water ice responds differently because it has different phase behaviour and moves through distinct reservoirs.
+
+Understanding these cycles requires more than quoting a mean temperature. Latitude, elevation, season, time of day and surface properties affect local conditions. Atmospheric dust also modifies how sunlight and thermal radiation move through the system. Mars is a planet with active seasonal changes even though its atmosphere is much thinner than Earth's.
+
+== Interior and magnetic history ==
+Mars has a crust and mantle above a metal-rich core. Gravity measurements, rotational behaviour and seismic observations constrain the internal structure. The InSight mission added direct recordings of marsquakes and other vibrations, allowing researchers to investigate the paths taken by waves through the planet.
+
+Interpreting those measurements requires models. Some internal boundaries and material properties remain uncertain, and estimates can change as analyses improve. A diagram of the interior is therefore a scientific reconstruction rather than a literal image of exposed layers. Mars's smaller size compared with Earth also affects the rate at which it loses heat and the ways its interior evolves.
+
+The planet does not possess an Earth-like global magnetic field today. However, magnetised crust preserves evidence of an earlier magnetic dynamo. Different regions retain different magnetic signatures, linking the record to crustal age, heating and subsequent geological events.
+
+Loss of a strong global field is relevant to atmospheric interactions with the solar wind, but atmospheric escape also depends on gravity, chemistry and solar radiation. The history cannot be reduced to a single switch that instantly removed all air. Measurements of remaining gases and escape processes provide clues to a long, changing interaction between the interior, atmosphere and surrounding space.<ref name="insight">[https://science.nasa.gov/mission/insight/ NASA Science: InSight]. Seismic investigation of the Martian interior.</ref>
+
+== Highlands, plains and impact history ==
+Mars has a broad contrast between older, heavily cratered southern highlands and lower northern plains. The origin of this large-scale difference remains debated, with proposed explanations involving early impacts and interior processes. Later erosion, deposition and volcanism have modified the original terrain, so present topography combines several episodes.
+
+Impact craters record collisions and can expose material from below the immediate surface. Their shapes also reflect target properties, including the possible presence of subsurface ice. Ejecta patterns, central peaks and layered crater walls supply different kinds of geological information. A crater is consequently both a scar from an impact and a window into material that would otherwise remain buried.
+
+Crater counts help compare the relative ages of landscapes, but absolute ages depend on assumptions about impact rates. Wind deposits can bury old surfaces, while erosion can remove or soften crater outlines. An apparently smooth plain need not be young in every part.
+
+The contrast between terrains is important for reconstructing Mars's early history. Researchers combine topography, composition and structural relationships to distinguish original crust from material deposited later. A colour map or a single spectacular feature cannot by itself establish the sequence of events that produced an entire hemisphere.
+
+== Volcanoes and tectonic landscapes ==
+[[File:solar/mars-valles.jpg|thumb|center|480px|alt=Valles Marineris extending across the Martian surface|Viking mosaic showing Valles Marineris, the extensive canyon system across the Martian equatorial region. Credit: NASA / USGS (see PIA04304 catalog page). [https://commons.wikimedia.org/wiki/File:Mars_Valles_Marineris.jpeg Source]; [https://commons.wikimedia.org/wiki/File:Mars_Valles_Marineris.jpeg#Licensing Public domain].]]
+
+Olympus Mons and the volcanoes of the Tharsis region demonstrate that Mars sustained major volcanic activity. Olympus Mons is exceptionally large, reflecting prolonged construction and the conditions under which lava accumulated. Without Earth's familiar pattern of rapidly moving tectonic plates, a volcanic source can build a broad structure over repeated episodes.
+
+Valles Marineris is a vast canyon system associated with extension and subsequent modification. Its history differs from that of a terrestrial river canyon excavated entirely by flowing water. Faulting, slope failure, erosion and deposition contributed at different stages. Recognising those mechanisms avoids turning a familiar-looking landform into an incorrect explanation.
+
+Volcanism also affects climate and chemistry by releasing gases and bringing new material to the surface. Lava flows can bury earlier landscapes, providing relationships that help establish relative ages. Their shapes and textures offer clues to the conditions under which they formed.
+
+=== Interpreting geological activity ===
+Ancient volcanism is securely recorded, while the timing of the most recent events and the state of remaining magmatic systems are more difficult to establish. Seismicity and young-looking terrain motivate investigation, but they are not equivalent to a witnessed eruption. Researchers assess several measurements together before assigning an active process or an absolute date to a feature.
+
+== Water, rivers and sedimentary archives ==
+Valley networks, channels, deltas and lake deposits indicate that liquid water once shaped parts of Mars. These features represent different settings: a brief catastrophic flood is not the same environment as a lake persisting through repeated sedimentation. Mineral assemblages and sedimentary structures can help distinguish between them.
+
+Clay minerals, sulphates and other alteration products record interactions among water, rock and atmospheric gases. Their formation depends on chemistry, temperature and duration. The presence of an altered mineral therefore demonstrates a process under certain conditions, but does not automatically reveal how much water existed across the whole planet.
+
+Layered sediments can preserve sequences of changing environments. Grain size, bedding and chemical composition provide information about transport and deposition, while later modification can alter the original record. Rovers investigate these relationships at scales an orbital camera cannot resolve.
+
+Water remains present chiefly as ice and in mineral structures, with buried deposits distributed beyond the visible polar caps. The stability of any liquid depends strongly on temperature, pressure and dissolved substances. The modern surface generally does not sustain exposed liquid water for long intervals. Reconstructing past water thus requires separating a secure geological observation from interpretations about climate, duration and geographic extent.
+
+== Atmosphere, dust and weather ==
+Carbon dioxide dominates the thin Martian atmosphere. Surface pressure varies with elevation and season, and the low atmospheric mass limits how much heat can be stored and redistributed. Local temperatures can change rapidly between day and night, especially at the surface.
+
+Winds nevertheless move dust and sand. Dunes, ripples, dust devils and larger storms demonstrate that a thin atmosphere can actively reshape loose material. Dust in the air affects heating, visibility and spacecraft operations. Some storms become extremely extensive, but a global dust event does not mean every location experiences identical winds.
+
+Clouds can contain water ice or carbon dioxide ice depending on altitude and conditions. Weather patterns also respond to topography and the seasonal exchange of gases with the polar caps. The atmosphere is therefore a dynamic component of Mars, rather than a negligible layer because its pressure is low.
+
+Long-term observations are important for distinguishing ordinary seasonal behaviour from unusual events. Orbital measurements provide broad context while surface stations record local changes. Atmospheric escape measurements, including those associated with MAVEN, investigate how particles leave the upper atmosphere and how solar conditions influence that process.<ref name="maven">[https://science.nasa.gov/mission/maven/ NASA Science: MAVEN]. Measurements of Mars's atmosphere and its interaction with space.</ref> Present escape rates constrain evolutionary models but should not be extrapolated unchanged across the entire age of the planet.
+
+== Polar caps and the ice record ==
+Both polar regions contain extensive water ice, while carbon dioxide participates in seasonal frost and cap changes. The northern and southern deposits differ in their structure and seasonal behaviour. Treating both poles as identical blocks of frozen carbon dioxide would miss their layered composition and distinct histories.
+
+Layered polar deposits preserve changes in the supply of dust and ice. Those variations can be related to changing orbital conditions, climate and transport, although assigning exact ages and mechanisms requires careful modelling. A visible layer is evidence of a change in deposition or preservation, not automatically one annual season.
+
+Radar instruments can investigate buried structures because some signals penetrate suitable materials. Reflections depend on electrical properties as well as geometry, so identifying a bright radar boundary does not alone identify its composition. Claims involving liquid beneath ice require examination of possible alternative materials and conditions.
+
+The polar regions connect contemporary weather with long-term planetary history. Seasonal exchange influences the atmosphere now, while deeper deposits can retain records accumulated over much longer intervals. Studying both scales helps researchers test models of ice movement and climate. It also informs comparisons with the [[Moon]], Mercury and icy satellites, where different illumination and atmospheric conditions produce different forms of volatile storage.
+
+== Phobos and Deimos ==
+Phobos and Deimos are irregular, small moons rather than spherical worlds comparable to Earth's Moon. Phobos moves close to Mars and completes an orbit faster than Mars rotates, while Deimos follows a more distant orbit. Their differing orbital behaviour reflects their locations relative to the planet's synchronous orbit.
+
+Both moons are dark and heavily modified by impacts, but their surfaces and terrain are not identical. Phobos has prominent grooves and the large crater Stickney; Deimos appears more subdued at comparable image scales. Low gravity influences how loose material moves and whether impact ejecta remains nearby or escapes.
+
+Their origin remains unresolved. Captured asteroids offer one class of explanation, while formation from debris associated with a major impact offers another. A successful model must explain both composition and the current orbital arrangement. Visual resemblance to a particular asteroid is useful evidence but is not a complete dynamical history.
+
+JAXA's Martian Moons eXploration mission is designed to observe both moons and return material from Phobos. On 7 October 2026, its announced launch remains scheduled for 20 October 2026.<ref name="mmx">[https://www.mmx.jaxa.jp/en/ JAXA: MMX mission updates], checked 7 October 2026.</ref> Laboratory analysis is intended to help distinguish among origin models. Until samples and their context are available, the two moons remain valuable examples of the limits of remote interpretation.
+
+== Exploration and the search for past habitability ==
+[[File:solar/mars-surface.jpg|thumb|center|480px|alt=Martian rocks and soil near Home Plate photographed by Spirit|Spirit rover's Paige panorama of layered rocks inside Home Plate, photographed in 2006. Credit: NASA/JPL-Caltech/USGS/Cornell. [https://commons.wikimedia.org/wiki/File:Spirit_paige_panorama.jpg Source]; [https://commons.wikimedia.org/wiki/File:Spirit_paige_panorama.jpg#Licensing Public domain].]]
+
+Mariner, Viking and later missions progressively transformed Mars from a telescopic target into a planet mapped and studied at close range. Viking added landings and direct environmental measurements. Subsequent orbiters and rovers investigated terrain, chemistry, ice and atmospheric behaviour with increasingly detailed instruments.
+
+Curiosity examined sedimentary environments in Gale crater, while Perseverance investigated Jezero crater and its ancient lake and delta setting. Such missions address whether particular environments could have supported known forms of life and how evidence might be preserved. Habitability, organic chemistry and a confirmed biological signature are distinct findings. Organic compounds can also arise through non-biological processes.
+
+Rovers supply geological context by observing relationships among rocks before making detailed measurements. Orbiters connect those local findings to broader terrain, and meteorites from Mars provide samples whose original locations are often uncertain. These approaches complement one another rather than supplying interchangeable kinds of evidence.
+
+Mars's scientific importance rests on reconstructing change: how a world with water-shaped terrain became the planet observed today, and which records survived that transformation. Future investigations need to combine reliable measurements, contamination control and careful interpretation. The question of past life remains open, and uncertainty is part of the scientific account rather than an invitation to treat an attractive possibility as an established discovery.
+
+== Sources ==
+<references />
+
+Written and reorganised using [https://en.wikipedia.org/wiki/Mars Mars] by Wikipedia contributors ([https://en.wikipedia.org/w/index.php?title=Mars&action=history page history]), checked 7 October 2026, with primary sources cited above. Changes include new explanatory prose, restructuring, a summary table and local atlas links. Adapted article text: [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0].

@@ -1,0 +1,15 @@
+'''Nacre Beacon''' is the name given to a repeating signal detected beneath the ruins of [[Reliquary]]. Its transmitter has not been located. The sequence changes when a ship enters the [[Nacre]] system, but the intervals between responses do not match any known navigation clock.
+
+== Discovery ==
+A survey crew found the first receiver fragments in 2411.<ref name="survey">Fictional source: Beacon Watch preliminary survey, expedition 01.</ref> [[Beacon Watch]] was established to compare measurements without placing the site under a single faction's control.
+
+=== Competing interpretations ===
+The [[Solar Concord]] calls for an open scientific investigation. The [[Crucible Combine]] suspects a recoverable [[Gate Drive|passage generator]]. The [[Free Tide]] wants to know whether the beacon can explain the missing log from [[Silent Reach]].
+
+== Observation rules ==
+{{Warning|No transmission experiments are permitted without agreement from all three delegations.}}
+Passive receivers remain active. Ships may deliver instruments to Beacon Watch but must leave their drive fields off while approaching the excavation.
+
+== Notes ==
+<references />
+[[Category:History]]

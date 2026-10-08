@@ -1,0 +1,472 @@
+EXODUS STATION OS v1.18 - SOLAR CONCORD PORT AUTHORITY
+(C)Copyright 2411 - Solar Concord Assembly
+
+Initializing PORTMASTER mainframe connection...
+[OK] Connection established
+
+C:\>cd SYSTEM
+
+C:\SYSTEM>dir /w
+
+ Volume in drive C is EXODUS-OS
+ Volume Serial Number is 2A4F-1B3E
+
+ Directory of C:\SYSTEM
+
+[.]          [..]         BOOT.SYS     CONFIG.SYS   KERNEL.SYS
+DRIVERS      NETWORK      DATABASE     VISUAL.EXE   GALAXY.DAT
+SECTOR.DB    PLANET.IDX   STARS.CAT    SYSTEM.LOG   MEMORY.DMP
+NETSTAT.EXE  PING.EXE     TELNET.EXE   MATRIX.EXE   SCAN.COM
+      20 file(s)    12,942,384 bytes
+       2 dir(s)   524,288,000 bytes free
+
+C:\SYSTEM>systemcheck.exe
+
+EXODUS-OS System Diagnostic Tool v3.14
+=========================================
+
+~Checking system integrity
+[OK] System integrity verified
+[OK] Boot sector: Clean
+[OK] System files: Verified
+[OK] Registry: Consistent
+
+~Scanning memory modules
+[OK] Memory: 16384 KB available
+[OK] ECC Memory Test: Passed
+[OK] Address Bus Test: Passed
+
+~Checking device drivers
+[OK] DISPLAY.SYS loaded
+[OK] KEYBOARD.SYS loaded
+[OK] NETWORK.SYS loaded
+[OK] STORAGE.SYS loaded
+
+System check complete. All tests passed.
+
+C:\SYSTEM>cd \DATABASE
+
+C:\DATABASE>dir *.db
+
+ Directory of C:\DATABASE
+
+STARS.DB     PLANETS.DB   SECTORS.DB   NAVDATA.DB
+       4 file(s)    45,234,891 bytes
+
+C:\DATABASE>dbcheck.exe /all
+
+Database Integrity Check Utility
+=================================
+
+~Scanning stellar database
+[OK] STARS.DB verified - 8 charted systems
+     Checksum: 0x4A8F29BC
+     Last modified: 2411-06-14 18:42:12
+
+[OK] PLANETS.DB verified - 20 planets, 9 moons
+     Checksum: 0x7B2E4F91
+     Last modified: 2411-06-14 22:15:34
+
+[OK] SECTORS.DB verified - 64 sectors
+     Checksum: 0x9C3D8A22
+     Last modified: 2411-06-15 04:30:56
+
+[!!] NAVDATA.DB verified - 8891 entries, 1 interval missing
+     Checksum: 0x2F7A1C88
+     Last modified: 2411-06-15 08:12:23
+
+Database integrity check complete.
+Total records validated: 8,992
+WARNING: NAVDATA.DB holds a log with no record between two jumps
+
+C:\DATABASE>cd \NETWORK\CONFIG
+
+C:\NETWORK\CONFIG>netstat -a
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State
+  TCP    192.168.1.100:1024     CONCORD-RING:80        ESTABLISHED
+  TCP    192.168.1.100:1025     CRUCIBLE-YARD:443      ESTABLISHED
+  TCP    192.168.1.100:1026     ORCHARD-PORT:21        TIME_WAIT
+  TCP    192.168.1.100:1027     GATE-CONTROL:3306      ESTABLISHED
+  TCP    192.168.1.100:1028     TIDE-SPINDLE:8080      ESTABLISHED
+  TCP    192.168.1.100:1029     BEACON-WATCH:9000      ESTABLISHED
+  UDP    192.168.1.100:53       *:*                    LISTENING
+  UDP    192.168.1.100:123      *:*                    LISTENING
+
+Total connections: 8 (5 established, 1 waiting, 2 listening)
+
+C:\NETWORK\CONFIG>D:
+
+D:\>cd SECTORS
+
+D:\SECTORS>matrix.exe
+
+STELLAR NAVIGATION MATRIX VIEWER
+=================================
+
+~Loading sector data
+
+System       | Sector | Planets | Status   | Last Scan
+-------------|--------|---------|----------|------------------
+SOL          | 01:01  |    8    | CHARTED  | 2411-06-14 18:42
+ASTERION     | 02:03  |    3    | CHARTED  | 2411-06-13 22:15
+CINDER       | 04:01  |    2    | CHARTED  | 2411-06-15 04:30
+VESPER       | 06:02  |    2    | CHARTED  | 2411-06-12 14:22
+PELAGOS      | 05:05  |    2    | CHARTED  | 2411-06-11 09:45
+HALCYON      | 02:06  |    2    | CHARTED  | 2411-06-14 21:33
+NACRE        | 03:04  |    1    | SCANNING | 2411-06-15 08:01
+SILENT REACH | 06:06  |    0    | NO DATA  | N/A
+
+Total: 8 systems | 20 planets | 9 gate routes
+Survey progress: 87.5%
+
+D:\SECTORS>cd \GALAXY\MAPS
+
+D:\GALAXY\MAPS>dir *.map
+
+ Volume in drive D is DATASTORE
+ Volume Serial Number is 8F2C-4B91
+
+ Directory of D:\GALAXY\MAPS
+
+SOL.MAP          ASTERION.MAP     CINDER.MAP
+VESPER.MAP       PELAGOS.MAP      HALCYON.MAP
+NACRE.MAP        GATES.MAP        TRADE.MAP
+CONVOYS.MAP      PATROLS.MAP      SILENT.MAP
+      12 file(s)    45,892,340 bytes
+       2 dir(s)   891,234,560 bytes free
+
+D:\GALAXY\MAPS>E:
+
+E:\>cd BACKUP\LOGS
+
+E:\BACKUP\LOGS>type system.log
+
+[2411-06-15 08:23:38] Docking ring power initialization
+[2411-06-15 08:23:39] Rotation stable at 1.9 rpm
+[2411-06-15 08:23:40] BIOS POST completed successfully
+[2411-06-15 08:23:41] System boot complete
+[2411-06-15 08:23:42] Loading star catalog...
+[2411-06-15 08:23:45] Catalog loaded: 8 systems
+[2411-06-15 08:23:46] Gate network status: CONNECTED
+[2411-06-15 08:23:47] PORTMASTER AI online
+[2411-06-15 08:23:48] Hydroponic gardens nominal
+[2411-06-15 08:23:49] Departure halls open
+[2411-06-15 08:23:50] All systems ready
+
+E:\BACKUP\LOGS>C:
+
+C:\>cd WINDOWS\SYSTEM32
+
+C:\WINDOWS\SYSTEM32>ping CONCORD-RING
+
+Pinging CONCORD-RING [192.168.2.50] with 32 bytes of data:
+
+Reply from 192.168.2.50: bytes=32 time=42ms TTL=64
+Reply from 192.168.2.50: bytes=32 time=38ms TTL=64
+Reply from 192.168.2.50: bytes=32 time=41ms TTL=64
+Reply from 192.168.2.50: bytes=32 time=39ms TTL=64
+
+Ping statistics for 192.168.2.50:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 38ms, Maximum = 42ms, Average = 40ms
+
+C:\WINDOWS\SYSTEM32>cd \NAVDATA\STELLAR
+
+C:\NAVDATA\STELLAR>scan.com /network
+
+NETWORK SCANNER v2.8
+====================
+
+~Scanning subnet 192.168.0.0/16
+
+Found: EXODUS-STATION [192.168.1.1]    Status: ONLINE
+Found: CONCORD-RING   [192.168.2.50]   Status: ONLINE
+Found: CRUCIBLE-YARD  [192.168.3.100]  Status: ONLINE
+Found: TIDE-SPINDLE   [192.168.4.25]   Status: ONLINE
+Found: BEACON-WATCH   [192.168.6.1]    Status: ONLINE
+Found: SURVEY-SHIP-04 [192.168.99.42]  Status: NO NAV LOG
+
+Scan complete. 6 hosts discovered.
+
+C:\NAVDATA\STELLAR>D:
+
+D:\>cd SCIENCE\RESEARCH
+
+D:\SCIENCE\RESEARCH>anomaly_scan.exe /deep
+
+ANOMALY DETECTION SYSTEM v4.2 (Joint Survey Protocol)
+==============================================================
+
+~Comparing recordings from Beacon Watch
+
+Record ID   | Type              | Source           | Confidence   | Received
+------------|-------------------|------------------|--------------|----------
+NB-0001     | Repeating Signal  | Reliquary ruins  | CONFIRMED    | 2411-03-02
+NB-0007     | Response Pattern  | Nacre approach   | HIGH         | 2411-03-19
+NB-0012     | Timing Offset     | Gate clock NACRE | MEDIUM       | 2411-04-05
+NB-0019     | Drive Resemblance | Calibration file | LOW          | 2411-04-28
+NB-0023     | Silent Interval   | Survey Ship 04   | UNKNOWN      | 2411-05-30
+NB-0031     | Echo on Departure | Exodus Station   | UNVERIFIED   | 2411-06-14
+
+Total records compared: 6
+WARNING: NB-0031 was received at this station
+
+D:\SCIENCE\RESEARCH>C:
+
+C:\>cd STATION\ATMOS
+
+C:\STATION\ATMOS>atmos_monitor.exe
+
+ATMOSPHERIC MONITORING SYSTEM [EXODUS Station Ring]
+============================================================
+
+~Checking life support systems
+
+Section      | O2 Level | N2 Level | CO2 Level | Temp (C) | Pressure (kPa) | Status
+-------------|----------|----------|-----------|----------|----------------|--------
+COMMAND DECK | 21.2%    | 78.1%    | 0.04%     | 22.4     | 101.3          | NOMINAL
+DRIVE SHOP   | 20.8%    | 78.5%    | 0.05%     | 24.1     | 101.1          | NOMINAL
+MEDBAY       | 21.5%    | 77.9%    | 0.03%     | 21.8     | 101.4          | NOMINAL
+CARGO BAY    | 19.2%    | 79.8%    | 0.08%     | 18.7     | 100.8          | WARNING
+HYDROPONICS  | 22.1%    | 76.3%    | 0.12%     | 26.3     | 101.2          | NOMINAL
+DEPARTURES   | 21.0%    | 78.3%    | 0.04%     | 22.1     | 101.3          | NOMINAL
+ARCHIVE      | 21.3%    | 78.0%    | 0.05%     | 21.5     | 101.4          | NOMINAL
+
+WARNING: O2 levels in CARGO BAY below optimal threshold
+Automated scrubber activation scheduled in 15 minutes
+
+C:\STATION\ATMOS>cd \SECURITY
+
+C:\SECURITY>motion_tracker.exe /scan
+
+DOCKING SECURITY ARRAY - Model M314
+====================================
+
+~Scanning all sections for movement
+
+PING... 5 contacts detected
+
+Contact #1  - Section: COMMAND DECK - Range: 12m  - Signature: CREW
+Contact #2  - Section: DRIVE SHOP   - Range: 34m  - Signature: CREW
+Contact #3  - Section: MEDBAY       - Range: 28m  - Signature: CREW
+Contact #4  - Section: CARGO BAY    - Range: 45m  - Signature: VISITOR
+Contact #5  - Section: DOCK 7       - Range: 67m  - Signature: UNREGISTERED
+
+WARNING: Unregistered signature at DOCK 7
+Recommend port security dispatch
+Camera feed: DOCK-07 - NO VISUAL CONTACT
+
+C:\SECURITY>telnet SURVEY-SHIP-04
+
+Connecting to SURVEY-SHIP-04 [192.168.99.42]...
+~Requesting navigation log
+
+ERROR: Log interval 2411-05-17 to 2411-05-29 is empty
+ERROR: No jump recorded between departure and return
+ERROR: Ship clock disagrees with gate clocks
+
+Returned from: SILENT REACH
+Crew aboard: 14 (as departed)
+Status: HOLD FOR REVIEW
+
+C:\SECURITY>D:
+
+D:\>cd CONCORD\STATUS
+
+D:\CONCORD\STATUS>concord_report.exe
+
+═══════════════════════════════════════════════════════════════
+          SOLAR CONCORD ASSEMBLY - NETWORK STATUS REPORT
+═══════════════════════════════════════════════════════════════
+
+Year: 2411.06.15          Session: 94          Day: 166
+
+RESOURCES:
+  Gate Fund:         [████████████░░░░░░░░] 12,450 / 20,000
+  Food Reserve:      [██████████████████░░] 15,230 / 18,000
+  Spare Gate Parts:  [██████████░░░░░░░░░░] 3,450 / 8,000
+  Rescue Supplies:   [███████████████░░░░░] 8,920 / 12,000
+  Open Departures:   [████████████████░░░░] 6,780 / 10,000
+
+PATROL STATUS:
+  Patrol Ships: 134                Active Escorts: 7
+  Gate Stations: 9                 Rescue Crews: 12
+
+RELATIONS:
+  ► Crucible Combine           [██████████░░] Passage fees disputed
+  ► Free Tide                  [████████░░░░] Rescue pact holding
+  ► Beacon Watch delegations   [█████░░░░░░░] Observation only
+  ► Nacre Beacon               [░░░░░░░░░░░░] Intent: ???
+
+ASSEMBLY AGENDA:
+  ► Open archive of all beacon recordings  [████████░░░░] Progress: 67%
+  ► Shared clock for every gate            [███░░░░░░░░░] Progress: 23%
+  ► Review of the Silent Reach log         [██████████░░] Progress: 81%
+
+Press any key to continue...
+
+D:\CONCORD\STATUS>cd \SENSORS
+
+D:\SENSORS>long_range_scan.exe /full
+
+LONG RANGE SENSOR ARRAY - GATE NETWORK SCAN
+==========================================
+
+~Initializing sensor array
+~Scanning frequency bands
+~Processing gate echoes
+
+Scan complete. Detected phenomena:
+
+  [✓] 8 Charted Systems           [✓] 9 Gate Routes
+  [✓] 20 Planets                  [✓] 9 Moons
+  [✓] 5 Stations                  [✓] 1 Empty System
+  [!] 1 Repeating Signal (NACRE)
+  [!] 1 Ship Log With No Record
+  [!] 1 Unregistered Docking Signature
+
+Signal Analysis:
+  Beacon signal strength: -78 dBm
+  Pattern: Repeats, changes when a ship arrives
+  Location: Reliquary, Nacre system
+
+WARNING: The signal answered our last departure
+WARNING: Pattern resembles an old drive calibration sequence
+
+D:\SENSORS>C:
+
+C:\>cd AICORE
+
+C:\AICORE>ai_status.exe
+
+ARTIFICIAL INTELLIGENCE CORE - Status Report
+==============================================
+
+AI Designation: PORTMASTER
+Version: 6.7.2.2411
+Uptime: 2,847 days, 14 hours, 23 minutes
+
+Core Functions:
+  [ACTIVE] Departure Scheduling     [ACTIVE] Life Support Management
+  [ACTIVE] Gate Clock Sync          [ACTIVE] Archive Management
+  [ACTIVE] Communications Relay     [ACTIVE] Docking Security
+  [IDLE]   Rescue Protocols         [LOCKED] Assembly Override 937
+
+Neural Network Integrity: 99.8%
+Query Response Time: 0.003ms
+Memory Usage: 4.2 TB / 16.8 TB (25%)
+Active Processes: 2,847
+
+Recent Activity Log:
+  [08:23:50] Scheduled 142 departures
+  [08:24:12] Compared 89 beacon recordings
+  [08:24:45] Rebalanced power to the departure halls
+
+All systems nominal. Standing by for instructions.
+
+C:\AICORE>cd \SYSTEM
+
+C:\SYSTEM>mem
+
+Memory Type        Total       Used       Free
+------------       -----       ----       ----
+Conventional       640K        128K       512K
+Extended         15744K      4096K     11648K
+Total memory     16384K      4224K     12160K
+
+C:\SYSTEM>cd \HARDWARE
+
+C:\HARDWARE>hwdiag.exe /full /verbose
+
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+                            EXODUS STATION HARDWARE DIAGNOSTIC UTILITY v8.42.2411
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+~Performing comprehensive hardware scan
+
+Component               | Status    | Model/ID                    | Serial Number      | Temp  | Power | Uptime        | Errors
+------------------------|-----------|-----------------------------|--------------------|-------|-------|---------------|-------
+PRIMARY CPU             | NOMINAL   | Quantum Core i9-24K         | QC-24K-891-AA-2411 | 42°C  | 125W  | 2847d 14h 23m | 0
+SECONDARY CPU           | NOMINAL   | Quantum Core i9-24K         | QC-24K-891-AB-2411 | 38°C  | 118W  | 2847d 14h 23m | 0
+MEMORY BANK A           | NOMINAL   | HyperRAM DDR8 64GB          | HR-DDR8-64G-01A    | 35°C  | 18W   | 2847d 14h 23m | 0
+MEMORY BANK B           | NOMINAL   | HyperRAM DDR8 64GB          | HR-DDR8-64G-01B    | 34°C  | 17W   | 2847d 14h 23m | 0
+ARCHIVE DRIVE 1         | NOMINAL   | StellarDrive 2048TB SSD     | SD-2048T-Q1-4429A  | 28°C  | 12W   | 2847d 14h 23m | 0
+ARCHIVE DRIVE 2         | NOMINAL   | StellarDrive 2048TB SSD     | SD-2048T-Q1-4429B  | 29°C  | 13W   | 2847d 14h 23m | 0
+RING REACTOR A          | NOMINAL   | Fusion Reactor MK-VII       | FR-MK7-RING-8821   | 1247°C| 8.2MW | 2847d 14h 23m | 0
+RING REACTOR B          | STANDBY   | Fusion Reactor MK-VII       | FR-MK7-RING-8822   | 892°C | 2.1MW | 2847d 14h 23m | 0
+GATE CLOCK RECEIVER     | NOMINAL   | DeepSpace Scanner X2000     | DSS-X2000-LS-9184  | 18°C  | 245W  | 2847d 14h 23m | 0
+DOCKING RADAR           | NOMINAL   | ProxScan 8000 Array         | PS-8000-SR-1142    | 22°C  | 180W  | 2847d 14h 23m | 0
+NAVIGATION COMPUTER     | NOMINAL   | NavCore Quantum-XII         | NC-QXII-NAV-7742   | 39°C  | 95W   | 2847d 14h 23m | 0
+COMMUNICATIONS ARRAY    | NOMINAL   | SubSpace Transceiver Ultra  | SST-ULTRA-COM-3891 | 31°C  | 420W  | 2847d 14h 23m | 0
+LIFE SUPPORT SYSTEM A   | NOMINAL   | AtmoGen 9000 Series         | AG-9000-LSA-5523   | 24°C  | 1.2kW | 2847d 14h 23m | 0
+LIFE SUPPORT SYSTEM B   | NOMINAL   | AtmoGen 9000 Series         | AG-9000-LSB-5524   | 23°C  | 1.1kW | 2847d 14h 23m | 0
+RING ROTATION DRIVE     | NOMINAL   | SpinCore GT-800             | AGT-800-SPIN-6651  | 67°C  | 3.4kW | 2847d 14h 23m | 0
+DEBRIS SHIELD           | STANDBY   | DefenseField Alpha-Class    | DF-AC-SHIELD-9923  | 41°C  | 850W  | 2847d 14h 23m | 0
+DRIVE TEST BENCH        | OFFLINE   | Gate Drive Calibrator XII   | GD-CXII-TST-3349   | 19°C  | 0W    | 0d 0h 0m      | 0
+
+Total Power Consumption: 15.847 MW  |  Available: 18.200 MW  |  Reserve Capacity: 2.353 MW (12.9%)
+All critical systems operational. No hardware faults detected.
+
+C:\HARDWARE>cd \NETWORK\TOPOLOGY
+
+C:\NETWORK\TOPOLOGY>netmap.exe /all /detailed
+
+NETWORK TOPOLOGY VISUALIZATION - Gate Relay Network
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+~Mapping network nodes
+
+Node ID   | Hostname            | IP Address       | MAC Address         | Latency | Bandwidth  | Packets TX/RX      | Status
+----------|---------------------|------------------|---------------------|---------|------------|--------------------|---------
+NODE-001  | EXODUS-STATION      | 192.168.1.1      | 00:1A:2B:3C:4D:5E   | 2ms     | 10 Gb/s    | 8,942,334/9,123,891| ONLINE
+NODE-002  | CONCORD-RING        | 192.168.2.50     | 00:1A:2B:3C:4D:6F   | 184ms   | 1 Gb/s     | 3,421,889/3,892,441| ONLINE
+NODE-003  | CRUCIBLE-YARD       | 192.168.3.100    | 00:1A:2B:3C:4D:7A   | 4221ms  | 100 Mb/s   | 892,334/1,234,567  | ONLINE
+NODE-004  | ORCHARD-PORT        | 192.168.3.101    | 00:1A:2B:3C:4D:8B   | 4318ms  | 100 Mb/s   | 743,221/987,654    | ONLINE
+NODE-005  | TIDE-SPINDLE        | 192.168.4.25     | 00:1A:2B:3C:4D:9C   | 2847ms  | 500 Mb/s   | 1,892,441/2,334,556| ONLINE
+NODE-006  | DUSK-CONVOY-HUB     | 192.168.4.26     | 00:1A:2B:3C:4D:AD   | 4129ms  | 100 Mb/s   | 445,678/623,891    | ONLINE
+NODE-007  | ASH-SURVEY-CAMP     | 192.168.5.142    | 00:1A:2B:3C:4D:BE   | 8942ms  | 10 Mb/s    | 89,234/112,445     | ONLINE
+NODE-008  | BEACON-WATCH        | 192.168.6.1      | 00:1A:2B:3C:4D:CF   | 12447ms | 50 Mb/s    | 234,556/298,771    | ONLINE
+NODE-009  | HAVEN-RESCUE        | 192.168.7.88     | 00:1A:2B:3C:4D:D0   | 9821ms  | 50 Mb/s    | 156,789/189,234    | ONLINE
+NODE-010  | SILENT-REACH-RELAY  | 192.168.99.42    | 00:1A:2B:3C:4D:E1   | TIMEOUT | N/A        | 0/0                | OFFLINE
+NODE-011  | SHOAL-DRY-DOCK      | 192.168.8.200    | 00:1A:2B:3C:4D:F2   | 7123ms  | 100 Mb/s   | 678,912/734,223    | ONLINE
+NODE-012  | WISP-SUPPLY-CACHE   | 192.168.9.50     | 00:1A:2B:3C:4D:03   | 15892ms | 10 Mb/s    | 45,678/56,891      | ONLINE
+
+Network Health: 91.7% (11/12 nodes operational)  |  Total Throughput: 12.97 Gb/s  |  Avg Latency: 5,893ms
+WARNING: NODE-010 (SILENT-REACH-RELAY) unreachable - Last seen 17 days ago
+
+C:\NETWORK\TOPOLOGY>D:
+
+D:\>cd LOGISTICS\CARGO
+
+D:\LOGISTICS\CARGO>manifest.exe /show /verbose
+
+╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                              STATION CARGO MANIFEST - CURRENT INVENTORY STATUS                                    ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+~Loading cargo database
+
+Cargo ID  | Item Description                      | Quantity | Unit    | Weight (kg) | Volume (m³) | Location    | Status
+----------|---------------------------------------|----------|---------|-------------|-------------|-------------|----------
+CRG-00142 | Gate Housing Plates (Cinder Foundry)  | 45,892   | tons    | 45,892,000  | 8,234       | BAY-A-12    | STORED
+CRG-00891 | Water Reclamation Filters             | 1,240    | units   | 3,720       | 124         | BAY-B-03    | STORED
+CRG-01423 | Medical Supplies (Class-A Sterile)    | 8,942    | crates  | 89,420      | 2,234       | BAY-C-07    | STORED
+CRG-02156 | Fusion Reactor Fuel Cells             | 420      | units   | 84,000      | 840         | BAY-A-01    | SECURED
+CRG-03387 | Field Coils (Crucible Yard)           | 2,847    | units   | 142,350     | 1,124       | BAY-B-08    | STORED
+CRG-04521 | Atmospheric Scrubber Components       | 891      | crates  | 26,730      | 445         | BAY-C-12    | STORED
+CRG-05689 | Seed Stock (Orchard Common Charter)   | 15,234   | packets | 762         | 38          | BAY-D-02    | CLIMATE
+CRG-06721 | Navigation Clocks (Spare, Sealed)     | 3,421    | crates  | 34,210      | 856         | BAY-A-08    | SECURED
+CRG-07834 | Fabricator Raw Materials              | 12,445   | tons    | 12,445,000  | 3,892       | BAY-A-15    | STORED
+CRG-08912 | Rescue Pods (Free Tide Pattern)       | 124      | units   | 18,600      | 620         | BAY-E-01    | STANDBY
+CRG-09045 | Emergency Rations (5-year shelf life) | 89,234   | crates  | 892,340     | 8,923       | BAY-D-09    | STORED
+CRG-10234 | Replacement Parts (Life Support)      | 4,892    | units   | 48,920      | 1,223       | BAY-C-04    | STORED
+CRG-11387 | Beacon Receivers (Beacon Watch Order) | 891      | modules | 445,500     | 2,673       | BAY-F-01    | STORED
+CRG-12456 | Scientific Equipment (Research Grade) | 234      | crates  | 4,680       | 234         | BAY-C-11    | STORED
+
+TOTALS: 14 cargo types  |  Total Weight: 58,599,232 kg (58,599 tons)  |  Total Volume: 31,460 m³  |  Bay Capacity: 65%
+Next scheduled resupply: 23 days  |  Critical items: 2 (Fuel Cells at 42% capacity, Medical at 71% capacity)
+

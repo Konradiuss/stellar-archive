@@ -1,0 +1,19 @@
+'''Jump Ships''' carry their own [[Gate Drive]], allowing journeys beyond the fixed [[Quantum Gates|gate network]]. They transport survey teams, urgent dispatches and small cargoes that cannot wait for a public departure slot.
+
+== Design ==
+A reinforced hull surrounds the drive and its energy stores. The ship must prepare an independent navigation solution; a route recorded by another captain is useful evidence but not an automatic clearance. Long recharge periods make conventional gates preferable for ordinary commerce.
+
+{| class="wikitable"
+|+ Common ship roles
+! Role !! Departure port !! Cargo
+|-
+| Survey || [[Beacon Watch]] || instruments and researchers
+|-
+| Courier || [[Concord Ring]] || dispatches and medical supplies
+|-
+| Escort || [[Crucible Yard]] || repair crews and security teams
+|}
+
+== Service ==
+[[Tide Spindle]] repairs civilian ships without asking their crews to join a faction. Its engineers are studying the damaged log brought back from [[Silent Reach]], hoping to find a cause other than deliberate interference.
+[[Category:Technology]]

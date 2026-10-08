@@ -1,0 +1,12 @@
+{{Faction|name=Crucible Combine|capital=[[Forge]]|government=Foundry Directorate|fleet=Contract Flotillas}}
+'''Crucible Combine''' controls [[Cinder]] and [[Vesper]], the workshops of the eight-star network. Its foundries manufacture the housings, reactor coils and replacement parts that keep [[Quantum Gates]] running. Every shipment carries a contract; every contract carries a debt.
+
+== Industry ==
+[[Crucible Yard]] assembles long-range hulls above Forge. [[Anvil]] produces heavy components, while the crews of [[Dusk]] manage convoys across the border to [[Pelagos]]. The Combine argues that charging passage fees is the only way to pay for reliable maintenance.
+
+== Directorate ==
+The foundries elect a directorate in proportion to their deliveries. Workers can purchase shares, but few hold enough to influence a gate concession. This imbalance is a recurring source of conflict with the [[Free Tide]].
+
+== The Nacre contract ==
+The directorate offers equipment to [[Beacon Watch]] in exchange for first access to the [[Nacre Beacon]]'s measurements. The [[Solar Concord]] insists that any resulting discovery must be published.
+[[Category:Factions]]

@@ -1,0 +1,125 @@
+{{Planet|name=Titan|class=Natural satellite}}
+[[File:solar/titan-overview.jpg|thumb|right|220px|alt=Titan covered by orange atmospheric haze|Processed natural-colour Cassini view of Titan's hazy atmosphere. Credit: NASA/JPL-Caltech/SSI/Kevin M. Gill. [https://commons.wikimedia.org/wiki/File:Titan_in_true_color_by_Kevin_M._Gill.jpg Source]; [https://creativecommons.org/licenses/by/2.0 CC BY 2.0].]]
+'''Titan''' is [[Saturn]]'s largest moon and one of the largest satellites in [[Sol]]. Its dense atmosphere obscures much of the surface in ordinary visible light, but spacecraft observations have revealed dunes, channels, lakes and seas. The landscape is shaped by a cycle of methane and other hydrocarbons under temperatures far below those familiar on [[Earth]].
+
+Titan combines features that invite terrestrial comparison with materials that make the comparison incomplete. Nitrogen dominates the atmosphere, but oxygen is not a substantial breathable component. Liquid methane and ethane can occupy surface reservoirs, while water ice forms part of the solid ground. The moon is scientifically important for studying atmospheric chemistry, climate, sediment transport and the possible interactions among organic compounds, liquid water and interior processes. Its significance does not depend on treating it as an Earth-like world: the differences reveal how familiar physical mechanisms operate with different substances and energy supplies.<ref name="overview">[https://science.nasa.gov/saturn/moons/titan/ NASA Science: Titan]. Atmosphere, surface liquids and exploration.</ref>
+
+{| class="wikitable"
+|+ Selected physical and orbital characteristics
+! Quantity !! Approximate value
+|-
+| Mean radius || 2,575 km
+|-
+| Mean orbital distance from Saturn's centre || About 1.22 million km
+|-
+| Orbital period || About 15.95 Earth days
+|-
+| Rotation || Synchronous
+|-
+| Surface temperature || Around 94 kelvin
+|-
+| Surface atmospheric pressure || About 1.5 bars
+|-
+| Main atmospheric gas || Nitrogen
+|}
+
+== Discovery and atmospheric recognition ==
+Christiaan Huygens discovered Titan in 1655 using a telescope that improved the ability to identify faint companions near Saturn. Establishing its motion showed that the point of light belonged to the Saturnian system. Its name draws from the Titans of Greek mythology, following a tradition associated with the giant planet.
+
+Titan is large enough to exceed [[Mercury]] in diameter, but diameter alone does not establish mass or composition. The moon contains a substantial contribution from ice and has a lower density than Mercury. Size comparisons are useful only when the quantity being compared is stated.
+
+Observations of an atmosphere transformed the scientific questions surrounding Titan. A moon with a substantial gaseous envelope can support weather, photochemistry and exchanges between atmosphere and surface that are absent on airless satellites. Before detailed exploration, that atmosphere also limited direct knowledge of the ground.
+
+Spacecraft and telescopes observed haze and chemical signatures, while later infrared and radar measurements revealed structures beneath the obscuring layers. The discovery history therefore continued well beyond recognising the moon's existence. Its orbit was known long before its surface landscapes or atmospheric interactions could be investigated in detail.
+
+== Orbit, rotation and seasons ==
+Titan orbits Saturn in roughly sixteen Earth days and rotates synchronously, keeping approximately the same hemisphere towards the planet. That orientation does not make one side permanently dark. The changing direction of sunlight produces a day-night cycle, while Saturn's long year controls the broader seasonal rhythm.
+
+The moon's climate experiences seasons lasting several Earth years. Changing illumination affects temperature, atmospheric circulation and the transport of methane. The responses can lag behind solar forcing because the atmosphere and surface reservoirs store heat and material.
+
+=== Observing part of a long cycle ===
+Cassini's mission spanned a substantial interval but not every possible seasonal configuration. Observations obtained at different times need to be interpreted within the changing geometry. A cloud pattern or lake condition recorded in one season should not automatically be assumed to persist indefinitely.
+
+Saturn's gravity also produces tidal effects, and Titan interacts with the wider satellite system. Long-term orbital evolution constrains the history of the planet and moons. The relationship between tidal dissipation and interior structure remains relevant to models of Titan's formation and subsequent change. Orbit, rotation and climate are consequently connected rather than independent properties listed solely for a table.
+
+== Interior, ice and possible liquid layers ==
+Titan's density supports an interior containing both rocky material and substantial water-related layers. Differentiation can organise denser material below lighter layers, while pressure and temperature determine the physical state of water at different depths. The present structure remains inferred rather than directly observed.
+
+Gravity, rotation and other measurements have motivated models involving liquid-water layers beneath the ice shell. Their thickness, composition and degree of connection to the deeper interior remain uncertain, and alternative arrangements continue to be examined. A single simplified diagram should not be treated as a uniquely established map.
+
+High-pressure ice can also form under conditions unlike ordinary surface ice. The possibility of such layers matters because they can affect contact between a liquid reservoir and rocky material. That contact influences which chemical exchanges might occur. An inferred liquid layer is therefore only part of the question.
+
+Titan's surface temperature is far too low for ordinary exposed liquid water to remain stable for long. Water-related activity, if present, must be evaluated in terms of location, energy and material mixtures. The interior investigation aims to connect those possibilities with measurable gravity and mechanical behaviour, distinguishing physically plausible models from processes already confirmed at a particular surface feature.
+
+== Nitrogen atmosphere and vertical structure ==
+Nitrogen dominates Titan's atmosphere, with methane and smaller chemical constituents participating in a complex environment. The pressure at the surface is greater than Earth's typical sea-level pressure, but the gases and temperature make the setting very different from a terrestrial climate.
+
+Pressure and temperature vary with altitude. The upper atmosphere is exposed to ultraviolet light and energetic particles, while lower regions interact with clouds and surface reservoirs. Treating the atmosphere as one uniform composition and temperature would miss those distinct processes.
+
+Methane is especially important because it connects atmospheric chemistry with surface weather. It can condense, precipitate and evaporate under Titan's conditions. Other gases and haze particles are produced through reactions, some initiated high above the ground.
+
+The dense atmosphere also changes the behaviour of falling particles and moving vehicles. Low gravity and dense cold air offer different aerodynamic conditions from Earth, which helps explain the interest in a rotorcraft mission. However, engineering suitability does not make the atmosphere biologically equivalent to Earth's. Scientific descriptions need to preserve the distinction between similar pressure, different chemistry and the exceptionally low temperatures governing material behaviour.
+
+== Haze and organic chemistry ==
+Sunlight and energetic particles can drive reactions involving methane and nitrogen. The resulting chemistry produces a range of organic compounds and aerosols. Here organic means carbon-related chemistry; it does not mean the compounds necessarily came from organisms.
+
+Haze particles affect how radiation enters and leaves the atmosphere and help obscure the surface at visible wavelengths. Their optical properties depend on composition, size and arrangement. A visually opaque atmosphere can nevertheless permit observation through selected infrared windows or with radar.
+
+Particles formed aloft can settle towards the ground, supplying material to the surface environment. The mixture then undergoes further processing, transport and possible interaction with other reservoirs. Atmospheric production and surface accumulation occur on different timescales and need not create the same material everywhere.
+
+Titan's chemistry is interesting because it offers a natural setting for studying the formation and alteration of complex carbon compounds. Comparisons with early Earth can generate useful questions, but the two environments differ substantially in temperature, available liquids and energy. A chemically complex atmosphere does not establish life, and similarity in a few molecules does not reproduce the entire history of a living planet.
+
+== Methane weather and circulation ==
+Methane participates in a cycle that has physical similarities to Earth's water cycle. Evaporation adds vapour to the atmosphere, cooling can form clouds, and precipitation returns liquid to the surface. The substances and environmental temperatures differ, while condensation and gravity remain relevant physical mechanisms.
+
+Clouds and storms vary with latitude and season. Atmospheric circulation transports gases and particles, influencing where rain is likely and where materials accumulate. A landscape shaped by past rainfall does not mean precipitation occurs continuously at that location.
+
+=== Rainfall and long-term reservoirs ===
+Channels and other surface features provide evidence of liquid transport, while changes observed over time help connect those structures with present processes. Reconstructing the frequency and intensity of rain requires more than identifying one cloud or one channel in an image.
+
+Methane is also broken down by atmospheric chemistry. The continued presence of substantial methane raises questions about replenishment and the duration of the current cycle. Possible reservoirs and release mechanisms must be consistent with interior and surface evidence. The atmosphere, lakes and deeper material therefore form a connected inventory whose evolution cannot be explained solely by describing one season of visible weather.
+
+== Lakes, seas and drainage systems ==
+[[File:solar/titan-lakes.jpg|thumb|center|480px|alt=Radar map showing Punga Mare and nearby lakes on Titan|Colourized Cassini radar mosaic around Punga Mare, one of Titan's northern seas. Assigned colours distinguish liquid-filled areas from surrounding terrain. Credit: NASA/JPL-Caltech/ASI/USGS. [https://commons.wikimedia.org/wiki/File:PIA17655_Punga_Mare_crop.jpg Source]; [https://commons.wikimedia.org/wiki/File:PIA17655_Punga_Mare_crop.jpg#Licensing Public domain].]]
+
+Radar and other Cassini measurements identified extensive liquid reservoirs, particularly in high-latitude regions. Methane and ethane contribute to those lakes and seas, with composition potentially differing among locations. The dark appearance in a radar image depends on smoothness and measurement geometry as well as on material properties.
+
+Shorelines, channels and basin shapes reveal how liquids move and accumulate. Some basins may be linked to dissolution or other geological processes, while others reflect different structural histories. A depression holding liquid need not have the same origin as every nearby dry basin.
+
+Large northern seas provide important targets for investigating depth, waves and composition. Those properties constrain the exchange of material with the atmosphere and the energy available for surface motion. A smooth surface recorded at one time does not prove that waves never occur under any conditions.
+
+The distribution of liquids is also seasonal and evolutionary. Observed northern-southern differences motivate questions about circulation and transport over Saturn's long year. Interpreting a lake map therefore requires considering time, geology and climate together. Titan supplies an extraordinary comparison for Earth not because its seas are water, but because a different liquid can form drainage systems and reservoirs through broadly recognisable physical processes.
+
+== Dunes, sediments and erosion ==
+Large dune fields occupy parts of Titan's lower-latitude regions. Their shapes and orientations provide evidence of wind and sediment transport. The composition of the grains remains an investigation informed by atmospheric chemistry, spectra and physical models rather than directly established for every dune.
+
+Sediment can originate from deposited atmospheric particles, erosion of surface material and further chemical or physical processing. Transport then sorts and redistributes it. A grain may therefore have a history connecting the upper atmosphere with a surface river or wind-driven dune.
+
+Water ice can act as a mechanically solid landscape material at Titan's temperature. Hydrocarbon liquids can modify that landscape through erosion and deposition, but their interaction with ice and organic deposits differs from water flowing over terrestrial silicate rocks. Familiar shapes do not guarantee identical material properties.
+
+Topography, grain cohesion, liquid flow and atmospheric winds jointly determine where sediment accumulates. Comparing dunes, channels and deposits helps reconstruct those pathways. This is a substantive geological problem rather than simply a visual analogy with a desert on Earth. Titan demonstrates how sedimentary processes can organise a surface even when the constituent materials differ markedly from the rocks and water of the home planet.
+
+== Huygens and surface measurements ==
+[[File:solar/titan-surface.jpg|thumb|center|480px|alt=Rounded icy pebbles on Titan seen by Huygens|Huygens view from Titan's surface in January 2005. This composite has been coloured using the measured surface illumination. Credit: ESA/NASA/JPL/University of Arizona. [https://commons.wikimedia.org/wiki/File:Huygens_surface_color.jpg Source]; [https://commons.wikimedia.org/wiki/File:Huygens_surface_color.jpg#Licensing Public domain].]]
+
+The Huygens probe descended through Titan's atmosphere in January 2005 after travelling with Cassini. It measured atmospheric conditions and obtained images during descent, then transmitted observations from the surface. The landing supplied direct information from one location within a much larger and varied world.<ref name="huygens">[https://www.esa.int/Science_Exploration/Space_Science/Cassini-Huygens ESA: Cassini-Huygens]. The probe's descent and landing investigation.</ref>
+
+Images revealed drainage-like features and a landscape containing rounded objects interpreted as icy material modified by surface processes. Instrument measurements added pressure, temperature and other environmental context. Combining these observations helped establish that the surface had experienced processes more complex than a static blanket of frozen particles.
+
+A single landing site cannot represent every lake, dune field or geological province. Orbital data are needed to connect local measurements with regional patterns, while the local record helps test interpretations based solely on remote sensing.
+
+Cassini's repeated flybys added radar maps, spectra and observations of changing clouds and illumination. Together, orbital and surface measurements transformed Titan from an atmosphere-shrouded point into a world with a developing geological and climatic account. Their limitations remain scientifically useful because they identify which properties require broader sampling, more direct chemistry or longer monitoring.
+
+== Dragonfly and scientific questions ==
+NASA's Dragonfly mission is designed to investigate Titan using a rotorcraft capable of travelling among surface sites. Its objectives include examining chemical ingredients, local environments and processes relevant to the development of complex organic chemistry. Mobility would allow measurements in more than one geological setting.<ref name="dragonfly">[https://science.nasa.gov/mission/dragonfly/ NASA Science: Dragonfly], checked 7 October 2026.</ref>
+
+As of the preparation date, the mission lists a planned launch no earlier than July 2028 and arrival in late 2034. Those dates and the intended measurements are plans, not completed milestones. The long travel time reflects both distance and mission design.
+
+Key questions include how surface organic materials formed and changed, how methane is replenished, and whether liquid water or other processes have interacted with those materials. Some investigations address prebiotic chemistry, which concerns processes that can occur before or without life. That topic should not be confused with an already established biological environment.
+
+Titan's broader value lies in linking atmosphere, surface and interior through a different set of working fluids and solids. It shows that climate and sedimentary geology are not exclusive to Earth, while emphasising the importance of material properties. Detailed measurements can turn appealing analogies into tested explanations and clarify which chemical opportunities actually exist on this cold, complex moon.
+
+== Sources ==
+<references />
+
+Written and reorganised using [https://en.wikipedia.org/wiki/Titan_(moon) Titan (moon)] by Wikipedia contributors ([https://en.wikipedia.org/w/index.php?title=Titan_(moon)&action=history page history]), checked 7 October 2026, with primary sources cited above. Changes include new explanatory prose, restructuring, a summary table and local atlas links. Adapted article text: [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0].

@@ -1,0 +1,97 @@
+/* Put `.reading-text` on the RichText: `.rich-text.reading-text` outweighs its own scoped rules. */
+
+.reading-text {
+  --rt-text: var(--ui-text);
+  --rt-bright: var(--ui-text);
+  --rt-dim: var(--ui-dim);
+  --rt-accent: var(--ui-accent);
+
+  font-family: 'Ark Pixel 10', 'Tiny5', monospace;
+  font-size: var(--reading-size, 16px);
+  line-height: var(--reading-line, 24px);
+  /* Hyphenation follows the lang of the text, where the browser knows it */
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Under ~50 letters a line, justify leaves holes between words. The container is the RichText itself, em its text size. */
+@container (max-width: 30em) {
+  .rich-text.reading-text .rt-p,
+  .rich-text.reading-text .rt-list,
+  .rich-text.reading-text .rt-definitions,
+  .rich-text.reading-text .rt-quote {
+    text-align: left;
+  }
+}
+
+.rich-text.reading-text > .rt-p {
+  text-indent: 2em;
+}
+
+.rich-text.reading-text .rt-p,
+.rich-text.reading-text .rt-list,
+.rich-text.reading-text .rt-definitions,
+.rich-text.reading-text .rt-quote,
+.rich-text.reading-text .rt-pre,
+.rich-text.reading-text .rt-table-wrap,
+.rich-text.reading-text .rt-notice,
+.rich-text.reading-text .rt-gallery,
+.rich-text.reading-text .rt-references {
+  margin: 0 0 1em;
+}
+
+.rich-text.reading-text .rt-hatnote {
+  margin: -0.2em 0 0.8em;
+}
+
+.rich-text.reading-text .rt-notice .rt-p,
+.rich-text.reading-text .rt-table .rt-p,
+.rich-text.reading-text .rt-list .rt-p,
+.rich-text.reading-text .rt-definitions .rt-p,
+.rich-text.reading-text .rt-infobox .rt-p {
+  margin: 0;
+}
+
+/* Cells of a card are short: by the width they came apart ("Cradle      of humanity") */
+.rich-text.reading-text .rt-infobox {
+  text-align: left;
+}
+
+.rich-text.reading-text .rt-list .rt-list,
+.rich-text.reading-text .rt-list .rt-definitions,
+.rich-text.reading-text .rt-definitions .rt-definitions {
+  margin-bottom: 0;
+}
+
+.rich-text.reading-text .rt-heading {
+  margin: 1.8em 0 0.8em;
+  scroll-margin-top: 8px;
+}
+
+/* 24px: the Tiny5 grid, a font pixel is 3px */
+.rich-text.reading-text .rt-h1,
+.rich-text.reading-text .rt-h2 {
+  font-family: 'Tiny5', 'Press Start 2P', monospace;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.rich-text.reading-text .rt-h3,
+.rich-text.reading-text .rt-h4,
+.rich-text.reading-text .rt-h5,
+.rich-text.reading-text .rt-h6 {
+  font-size: var(--reading-size, 16px);
+  line-height: var(--reading-line, 24px);
+}
+
+.rich-text.reading-text .rt-heading:first-child {
+  margin-top: 0;
+}
+
+@container wiki-view (max-width: 720px) {
+  .rich-text.reading-text .rt-h1,
+  .rich-text.reading-text .rt-h2 {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}

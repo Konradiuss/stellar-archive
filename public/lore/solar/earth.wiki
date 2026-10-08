@@ -1,0 +1,117 @@
+{{Planet|name=Earth|class=Rocky planet}}
+[[File:earth.jpg|thumb|right|220px|alt=Earth showing Africa, Antarctica, oceans and clouds|Earth photographed by the Apollo 17 crew in 1972. Credit: NASA/Apollo 17 crew; taken by either Harrison Schmitt or Ron Evans. [https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg Source]; [https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg#Licensing Public domain].]]
+'''Earth''' is the third planet from the Sun and the only world presently known to support life. It has a rocky interior, a substantial atmosphere and a surface dominated by liquid-water oceans. Continents, ocean basins, ice sheets and ecosystems change on different timescales, while energy from the Sun and the interior links them into a connected planetary system. Earth's familiar landscapes are therefore products of ongoing processes rather than a fixed stage on which life happens to exist.
+
+Earth provides the reference against which other planets are often described, but that familiarity can hide how unusual its combination of properties is. An active water cycle, plate tectonics, atmospheric oxygen and a global magnetic environment coexist here. Their development was neither instantaneous nor independent. This article describes the real planet and its scientific history; the [[Solar Concord]] and [[Exodus Station]] belong to the atlas's fictional future.<ref name="overview">[https://science.nasa.gov/earth/facts/ NASA Science: facts about Earth]. Planetary characteristics and observational context.</ref>
+
+{| class="wikitable"
+|+ Selected physical and orbital characteristics
+! Quantity !! Approximate value
+|-
+| Mean radius || 6,371 km
+|-
+| Mean solar distance || 1 astronomical unit
+|-
+| Sidereal orbital period || 365.256 days
+|-
+| Sidereal rotation period || 23 hours 56 minutes
+|-
+| Axial tilt || 23.4 degrees
+|-
+| Ocean-covered surface || About 71 percent
+|-
+| Natural satellites || One: the Moon
+|}
+
+== Orbit, rotation and seasons ==
+Earth moves around the Sun on a slightly elliptical orbit. The astronomical unit provides a convenient scale for describing distances within [[Sol]], although a planet's actual distance varies during its orbit. Earth's rotation establishes the daily cycle of illumination, while its axial tilt changes the distribution of sunlight between hemispheres over a year. The seasons are primarily a result of that tilt, not a result of Earth being dramatically closer to the Sun during one hemisphere's summer.
+
+=== Solar and sidereal time ===
+A turn measured relative to distant stars takes a little less than twenty-four hours. Earth must rotate slightly farther for the Sun to return to the same apparent direction, because the planet has also moved along its orbit. The ordinary solar day consequently differs from the sidereal rotation period. Similar distinctions become especially striking on [[Mercury]] and [[Venus]].
+
+The axis and orbital geometry also change over longer intervals. Precession, changes in tilt and changes in orbital shape alter patterns of solar energy reaching the surface. These variations matter when studying past climate, but they operate within a system that also includes greenhouse gases, ice and ocean circulation. Orbital forcing is not a complete explanation for every observed climatic change. The gravitational influence of the [[Moon]] affects Earth's rotation and helps organise the dynamics of the Earth-Moon system.
+
+== Origin and early differentiation ==
+Earth formed about 4.5 billion years ago from material in the young Solar System. Collisions among smaller bodies built an increasingly massive planet, and those impacts released heat. Additional heating came from radioactive decay and the gravitational consequences of differentiation. Dense metal moved towards the centre while less dense silicate material occupied outer regions.
+
+The early Earth did not emerge with modern continents, an oxygen-rich atmosphere and mature ecosystems. Its surface and surrounding gases evolved as the planet cooled, exchanged material with space and released gases from the interior. Determining how water arrived and how much was retained requires chemical and isotopic evidence from rocks, meteorites and other reservoirs. Different sources may have contributed at different stages.
+
+A major impact is central to the leading explanation of the Moon's formation. Debris from an early collision could have assembled into a satellite while the Earth itself changed in composition and rotation. Details of that event remain subjects of research; identifying a general mechanism does not settle the impact geometry or every subsequent step. Rocks preserve only fragments of Earth's earliest history because later geological activity has recycled much of the surface. Meteorites and lunar samples therefore complement terrestrial evidence rather than merely duplicate it.
+
+== Interior and magnetic field ==
+[[File:solar/earth-interior.png|thumb|center|480px|alt=Diagram of the layered interior of Earth|Schematic cutaway of Earth showing the crust, mantle and core; layer thicknesses are simplified. Credit: derivative work: Srimadhav Earth cutaway schematic-en.png: USGS. [https://commons.wikimedia.org/wiki/File:Earth_cutaway_schematic-en.svg Source]; [https://commons.wikimedia.org/wiki/File:Earth_cutaway_schematic-en.svg#Licensing Public domain].]]
+
+Earth has a crust, a rocky mantle and a metal-rich core. The outer core is liquid, while the inner core is solid under its high pressure. Those statements are supported by several kinds of observations, especially the behaviour of seismic waves. Different wave types respond differently to solid and liquid materials, allowing earthquakes to probe regions no borehole can reach.
+
+Mantle rock is mostly solid but can deform and flow over long intervals. Calling the mantle a global ocean of liquid magma would obscure this important difference between everyday rigidity and geological movement. Temperature, pressure and composition determine where partial melting occurs and how material transfers heat. The interior is therefore layered without being divided into perfectly uniform, motionless shells.
+
+Motion of electrically conducting fluid in the outer core contributes to Earth's magnetic dynamo. The resulting field changes over time and has reversed polarity repeatedly in geological history. Records preserved in cooling rocks help reconstruct those changes. The magnetosphere deflects much of the incoming solar wind, but magnetic protection is not absolute and the field is not a guarantee against every energetic particle. Understanding the magnetic environment requires considering the ionosphere, atmosphere and changing conditions around the Sun as well as the core generating the field.
+
+== Plate tectonics and the rock cycle ==
+Earth's lithosphere is divided into plates that move relative to one another. New oceanic crust forms at spreading centres, while subduction carries some older crust into the mantle. Transform boundaries accommodate lateral movement. These processes produce characteristic distributions of earthquakes, volcanoes and mountain ranges, connecting local hazards to global geology.
+
+Continental and oceanic crust differ in thickness, composition and typical density. Those differences influence which material is subducted and how continents persist while ocean floors are repeatedly renewed. Mountain building can involve collisions, deformation and the addition of material over long intervals. Erosion then redistributes rock, and sediments preserve evidence of environments far from the places where the original minerals formed.
+
+=== A changing surface archive ===
+The rock cycle links melting, crystallisation, weathering, deposition and metamorphism. A rock's present location may therefore be distant from the environment in which it originated. Tectonic reconstruction combines magnetic patterns, fossil distributions, sedimentary records and structural relationships rather than relying on a single matching coastline.
+
+Plate tectonics also participates in long-term chemical exchange between the interior and surface. Weathering and the burial or release of carbon influence atmospheric composition over geological time. These interactions do not force the climate to remain unchanged, but they help explain why geology and climate cannot be studied as completely isolated subjects.
+
+== Oceans and the water cycle ==
+[[File:solar/earth-clouds.jpg|thumb|center|480px|alt=Oceans and the cloud band of the Intertropical Convergence Zone|GOES-11 cloud observations combined with a land-cover map, showing the Intertropical Convergence Zone over the oceans. Credit: NASA Earth Observatory / NOAA GOES-11. [https://commons.wikimedia.org/wiki/File:IntertropicalConvergenceZone-EO.jpg Source]; [https://commons.wikimedia.org/wiki/File:IntertropicalConvergenceZone-EO.jpg#Licensing Public domain].]]
+
+Liquid water covers roughly seventy-one percent of Earth's surface. The oceans store and transport heat, provide habitats and exchange gases with the atmosphere. Their influence extends far beyond the coastline. Currents carry energy between regions, and the density of seawater changes with temperature and salinity, helping organise circulation at different depths.
+
+Evaporation transfers water to the atmosphere, where cooling can lead to condensation and precipitation. Water returns through streams, groundwater and ice, while some remains stored for long intervals in glaciers, aquifers or sediments. The cycle is powered largely by solar energy and gravity, but its routes are modified by vegetation, terrain and human activity.
+
+Freshwater and seawater are not interchangeable reservoirs. Salts accumulate through processes including weathering and interactions with the seafloor, while evaporation removes water without removing most dissolved salts. Ocean chemistry also responds to biological production and to gases exchanged across the sea surface. Increasing dissolved carbon dioxide can change seawater's carbonate chemistry.
+
+Earth's oceans offer comparisons with the proposed subsurface ocean of [[Europa]] and the methane-rich surface liquids of [[Titan]]. Similar-looking words such as ocean or rainfall can describe different substances and energy sources. Earth's exposed, sunlit water environment is one particular arrangement among several planetary possibilities, not a template that every liquid-bearing world must follow.
+
+== Atmosphere and weather ==
+Nitrogen and oxygen dominate Earth's lower atmosphere, with argon, carbon dioxide, water vapour and other gases providing smaller contributions. A small abundance does not imply a small physical effect. Water vapour and carbon dioxide are important for radiative energy exchange, while ozone affects the penetration of ultraviolet sunlight.
+
+The atmosphere becomes less dense with altitude and contains regions with different temperature trends and chemistry. Most familiar weather occurs in the troposphere. The stratosphere and higher layers play different roles in radiation, chemistry and interactions with space. Atmospheric boundaries are useful descriptions, although their height and properties vary with latitude, season and conditions.
+
+Winds arise as air responds to pressure differences within a rotating system. Solar heating, evaporation, condensation and terrain help produce local and global patterns. The Coriolis effect changes the apparent path of moving air relative to the surface, contributing to large-scale circulation. Weather systems consequently depend on several interacting influences rather than a single cause.
+
+Weather describes particular conditions and events, whereas climate describes their statistical patterns over longer intervals. A cold day does not by itself establish a long-term climatic trend, just as one hot day does not define an entire climate. Observations become more informative when they are compared across years, locations and independent measurement systems.
+
+== Climate and the planetary energy budget ==
+Earth receives solar energy and returns energy to space, mainly as thermal radiation. Clouds, snow, ice and other surfaces reflect part of the incoming sunlight. Greenhouse gases absorb and emit radiation, raising the temperature of the lower atmosphere and surface relative to an otherwise similar world without that effect. The natural greenhouse effect is essential to Earth's present environment.
+
+Changes in greenhouse-gas concentrations, surface reflectivity and other influences alter the energy budget. Feedbacks can amplify or moderate a change: melting reflective ice, for example, can increase absorption of sunlight. Oceans also absorb heat, creating a difference between the timing of an external influence and the full response of the climate system.
+
+Human activities have increased atmospheric greenhouse-gas concentrations, and the resulting warming affects the atmosphere, oceans and cryosphere. Understanding that change depends on physical mechanisms and extensive observations, not solely on the temperature at an individual weather station.<ref name="climate">[https://science.nasa.gov/climate-change/ NASA Science: climate change]. Observations and explanations of Earth's changing energy balance.</ref>
+
+Earth's climate has also varied naturally in the past. Geological records reveal changes associated with orbital variations, tectonics, volcanism and other processes. Those histories provide tests of climate physics, but a past natural cause is not automatically the cause of a modern change. Attribution requires comparing the timing, magnitude and physical signatures of the influences being investigated.
+
+== Biosphere and biological evolution ==
+Life occupies environments ranging from sunlit surface waters to soils and deep subsurface habitats. Organisms exchange matter and energy with their surroundings, and their collective activity can change atmospheric and oceanic chemistry. Photosynthesis, respiration, decomposition and nutrient cycling connect the biosphere to the other parts of the planet.
+
+The oxygen-rich atmosphere developed through a long evolutionary history rather than appearing at Earth's formation. Biological production and geological sinks influenced how much oxygen accumulated. The fossil record, chemical signatures and the relationships among living organisms provide complementary evidence about changes in life through time. No one archive captures every ecosystem or every stage of evolution.
+
+The conditions supporting life are not identical everywhere. Temperature, available water, chemical energy and nutrients constrain different organisms in different ways. Organisms adapted to an extreme terrestrial environment demonstrate the range of known biology, but their existence does not prove that a superficially similar extraterrestrial environment is inhabited. Direct evidence would still be required.
+
+Earth is thus both a rich example of a living planet and the only confirmed example available. Searches for life elsewhere must distinguish potentially favourable conditions from a detection of organisms. [[Mars]], Europa and Titan raise different scientific questions because their histories, chemistry and access to energy differ. Comparing them with Earth is informative when similarities and differences are both examined carefully.
+
+== The Moon, tides and near-Earth space ==
+The Moon is Earth's sole natural satellite. Its gravity contributes to tides, while the Sun also influences the tidal system. Real tides depend on ocean-basin shapes, depth, coastline geometry and the Earth's rotation, so a simple diagram of two ideal tidal bulges does not predict every local high tide.
+
+Earth and Moon exchange angular momentum through tidal interactions. Over long intervals, Earth's rotation slows and the Moon moves outward. Measurements using reflected laser signals provide precise information about the Earth-Moon distance. This gradual evolution connects modern observations with geological records and models of earlier conditions.
+
+Near-Earth space contains artificial satellites as well as natural particles and plasma. Satellites support communications, navigation and environmental observation, but they are different from natural moons. In the atlas, Exodus Station is a fictional artificial structure added to demonstrate the station interface; its presence does not alter the scientific count of Earth's natural satellites.
+
+The ionosphere and magnetosphere form important parts of Earth's extended environment. Their response to solar activity can affect radio propagation and technological systems. An orbiting spacecraft therefore operates within a changing physical setting rather than an empty, perfectly static vacuum. Studying that setting helps connect planetary science with observations made above the familiar atmosphere.
+
+== Observing Earth and future research ==
+Earth science draws on measurements from the ground, oceans, aircraft and space. Each platform offers different coverage and precision. Satellites can repeatedly observe broad regions, while field measurements provide local detail and help calibrate remotely inferred quantities. Combining them is more powerful than treating either source as a complete substitute for the other.
+
+Remote sensors measure reflected sunlight, emitted radiation, radar returns or gravitational effects, depending on the instrument. Those signals must be interpreted to estimate quantities such as temperature, vegetation, ice thickness or ocean conditions. Calibration, uncertainty estimates and comparisons among independent records are essential parts of the process. A colourful satellite image is a presentation of measurements, not automatically a direct photograph of every variable it represents.
+
+Open questions include details of the earliest crust, the exchange of material between mantle and surface, and the responses of ecosystems and ice sheets to a changing climate. Improved observations can reduce uncertainty while also revealing new complexity. Earth remains scientifically valuable even though it is humanity's home: access to samples and repeated measurements makes it the best-tested planetary laboratory. That foundation supports comparisons throughout the Solar System and helps researchers separate the properties shared by rocky planets from the particular history of a living ocean world.
+
+== Sources ==
+<references />
+
+Written and reorganised using [https://en.wikipedia.org/wiki/Earth Earth] by Wikipedia contributors ([https://en.wikipedia.org/w/index.php?title=Earth&action=history page history]), checked 7 October 2026, with NASA material cited above. Changes include new explanatory prose, restructuring, a summary table and local atlas links. Adapted article text: [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0].

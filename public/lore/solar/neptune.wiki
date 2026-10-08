@@ -1,0 +1,125 @@
+{{Planet|name=Neptune|class=Ice giant}}
+[[File:solar/neptune-overview.jpg|thumb|right|220px|alt=Blue-green disc of Neptune|Colour-calibrated Voyager 2 view of Neptune, reconstructed to approximate its visible appearance. Credit: NASA / Voyager 2 / PDS / OPUS / Ardenau4. [https://commons.wikimedia.org/wiki/File:Neptune_Voyager2_color_calibrated.png Source]; [https://creativecommons.org/publicdomain/zero/1.0/deed.en CC0 1.0].]]
+'''Neptune''' is the eighth planet from the Sun and the outermost of the eight planets in [[Sol]]. It is an ice giant with a hydrogen-and-helium atmosphere containing methane, strong winds and changing storm systems. Its great distance makes it faint in Earth's sky, while its internal energy helps sustain atmospheric activity despite the limited sunlight reaching it.
+
+Neptune is closely comparable in size to [[Uranus]], but the two planets differ in thermal output, atmospheric appearance and aspects of their magnetic environments. Those contrasts help researchers test how similar planetary materials can evolve into different systems. Neptune also hosts faint rings and moons, including [[Triton]], whose retrograde orbit points towards a capture history. Much of the detailed close-range record comes from Voyager 2's 1989 encounter, complemented by telescope observations before and after that visit. The atlas includes Triton as a selected example rather than representing every member of the Neptunian satellite system.<ref name="overview">[https://science.nasa.gov/neptune/neptune-facts/ NASA Science: Neptune facts]. Planetary properties and the Neptunian system.</ref>
+
+{| class="wikitable"
+|+ Selected physical and orbital characteristics
+! Quantity !! Approximate value
+|-
+| Mean radius || 24,622 km
+|-
+| Mean solar distance || 30.1 astronomical units
+|-
+| Orbital period || About 165 Earth years
+|-
+| Reference rotation period || Approximately 16 hours
+|-
+| Axial tilt || About 28 degrees
+|-
+| Classification || Ice giant
+|-
+| Selected moon in this atlas || Triton
+|}
+
+== Mathematical discovery ==
+Neptune's discovery is closely associated with calculations of the gravitational influence required to explain discrepancies in Uranus's observed motion. Urbain Le Verrier developed predictions that guided observations by Johann Galle and Heinrich d'Arrest in 1846. John Couch Adams independently investigated the problem, and the historical circumstances surrounding prediction and observation have received extensive study.
+
+The episode demonstrates how a physical model can suggest an object before it is securely identified. Observations of an existing planet supplied constraints on an unseen perturber, and a search then tested the prediction. The discovery was not simply an arbitrary point appearing at a perfectly predetermined location; it involved measurement uncertainty, assumptions and the practical work of identifying motion among background stars.
+
+Earlier observers had recorded Neptune without recognising its planetary nature. Those observations later became useful as additional orbital evidence. As with Uranus, the significance of an observation can change when its interpretation improves.
+
+Neptune cannot normally be seen without optical aid, unlike the brighter planets known in antiquity. Its faintness and small apparent disc limit the detail available through modest telescopes. Modern instruments observe it across several wavelengths, allowing atmospheric and satellite research to continue even though no later spacecraft has repeated Voyager 2's close encounter.
+
+== Orbit, spin and seasons ==
+Neptune takes roughly 165 Earth years to orbit the Sun. An extended observing record therefore samples only part of its seasonal cycle. Its axial tilt produces changing illumination between hemispheres, while the planet's distance makes solar energy weak compared with conditions near Earth.
+
+Rotation occurs much faster than orbital motion. As on other giant planets, the reference rotation period cannot be read from a solid visible surface. Clouds move within atmospheric circulation and can have different apparent rates at different latitudes. Magnetic observations and other measurements help establish a useful framework, but they do not make every cloud a fixed longitude marker.
+
+=== Seasonal response at great distance ===
+Seasonal heating can influence atmospheric structure, yet the response is complicated by internal heat and the time needed for gases and clouds to adjust. A change in brightness or temperature may involve both evolving illumination and atmospheric dynamics. Observations spanning many years help separate those possibilities.
+
+Neptune's orbit also interacts gravitationally with objects in the outer Solar System. Some bodies occupy resonant configurations in which orbital periods are related, while others can be scattered or destabilised. Those relationships are clues to a larger history of planetary migration. A stable orbit today need not indicate that a small body's position has remained unchanged since its formation.
+
+== Interior and bulk composition ==
+Neptune is classified as an ice giant because heavier compounds are expected to contribute a larger fraction of its bulk composition than they do in Jupiter or Saturn. Hydrogen and helium remain important in the outer atmosphere, but the planet is not simply a smaller gas giant with an identical internal arrangement.
+
+Water, ammonia and methane figure prominently in models of the deeper interior. At high temperature and pressure they do not necessarily exist as ordinary ice. Fluid behaviour, chemical changes and other high-pressure states can alter density and conductivity. The name of the planetary class therefore describes formation materials and bulk proportions more than a familiar frozen landscape.
+
+Gravity measurements, size, rotation and atmospheric properties constrain possible internal structures. However, limited close-range observations leave several distributions of material consistent with the broad evidence. Diagrams showing a rocky centre beneath a uniform water-rich mantle should be treated as schematic representations.
+
+Understanding the interior would improve explanations of Neptune's thermal output and magnetic field. Those properties depend on where heat and conducting material are located and how they move. Models must explain several observations simultaneously rather than identify a single layer from one measurement. Comparison with Uranus is especially useful because similar sizes do not erase their different energy budgets.
+
+== Internal heat and thermal evolution ==
+Neptune emits significantly more energy than it absorbs from sunlight. Interior heat is consequently important for atmospheric behaviour, supplementing the weak external energy supply. The outgoing radiation represents energy transported through several layers, not a direct thermometer inserted into the central region.
+
+Cooling depends on initial conditions, composition and the efficiency of heat transport. Convection can move energy outward, while stable compositional layering could modify that flow. High-pressure material properties affect which processes are possible. Planetary cooling is therefore connected to the internal arrangement of substances as well as to the amount of heat initially present.
+
+The contrast with Uranus is a central scientific problem. A theory that treats the two as identical scaled objects struggles to reproduce their different intrinsic luminosities. Researchers investigate whether distinct formation histories, impacts or internal structures can account for the difference.
+
+Thermal measurements also help interpret distant exoplanets. Their infrared brightness can depend on retained internal energy as well as on illumination by their stars. Neptune offers a nearby example with an atmosphere, orbit and radius that can be studied more directly. However, its deep interior remains insufficiently constrained to serve as a completely solved reference. Its value includes the unresolved questions that reveal where simplified evolutionary models need further physical detail.
+
+== Atmosphere, methane and observed colour ==
+Hydrogen and helium dominate Neptune's atmosphere, while methane absorbs red light and contributes to its blue appearance. Aerosols and cloud structure influence the spectrum as well. Published images may use colour processing to emphasise particular features, so the apparent difference between Neptune and Uranus in a pair of photographs can exceed their difference under comparable viewing conditions.
+
+Spectroscopy identifies atmospheric constituents through wavelength-dependent absorption and emission. Different wavelengths probe different depths, making simultaneous observations valuable. A bright cloud seen in an infrared image may occupy a different altitude from a feature prominent in visible light.
+
+Methane can condense under suitable conditions and form clouds above deeper atmospheric structures. Photochemistry and circulation affect the gases and particles observed at different levels. Determining the abundance of an element throughout the planet is much harder than detecting one molecule near the cloud tops.
+
+The atmosphere therefore needs to be described as a vertical and changing system. A single composition list is useful orientation but does not specify every cloud layer or chemical reaction. Observations of temperature, cloud position and circulation supply additional constraints. Their interpretation depends on radiation physics and atmospheric models, not merely on choosing names for the colours in a photograph.
+
+== Winds and dark vortices ==
+[[File:solar/neptune-clouds.jpg|thumb|center|480px|alt=Bright clouds above Neptune's atmosphere|Voyager 2 observations of bright cloud formations in Neptune's atmosphere. Credit: NASA / Jet Propulsion Lab. [https://commons.wikimedia.org/wiki/File:Neptune_clouds.jpg Source]; [https://commons.wikimedia.org/wiki/File:Neptune_clouds.jpg#Licensing Public domain].]]
+
+Neptune supports powerful atmospheric winds, among the fastest measured on a planet. Their speeds are inferred by tracking cloud features relative to an adopted rotation frame. Measurement uncertainties and the altitude of the tracked feature affect the interpretation, so a maximum quoted speed is not the wind experienced everywhere.
+
+Voyager 2 observed a large dark feature commonly called the Great Dark Spot. Later observations showed that the particular feature did not remain unchanged, while other dark vortices appeared. Those changes distinguish Neptune's storm history from a simplistic account of one permanent spot.
+
+=== Storms and accompanying clouds ===
+Dark vortices can be associated with bright companion clouds formed as atmospheric motions lift and cool gases. The dark region and a bright neighbouring cloud are not necessarily the same physical structure or at the same height. Their relationship provides evidence about atmospheric flow that a single colour map cannot resolve.
+
+Repeated observations help establish how storms grow, migrate and disappear. The energy maintaining the circulation comes from a combination of internal heat, solar heating and fluid dynamics within a rotating atmosphere. Large wind speeds despite weak sunlight show why distance from the Sun alone does not predict meteorological activity. Neptune offers a useful test for models of jets and vortices under conditions unlike those at Earth's surface.
+
+== Magnetic field and plasma environment ==
+Neptune's magnetic field is tilted relative to the rotation axis and displaced from the planet's centre. Its geometry differs from the approximately axis-centred dipole often used in elementary diagrams of Earth's field. As the planet rotates, that unusual arrangement changes how the magnetic environment meets the incoming solar wind.
+
+The field is associated with conducting material and fluid motion in the interior. The precise region responsible remains a modelling question. Measurements can constrain dynamo explanations, but they do not uniquely identify the chemistry or thickness of the generating layer.
+
+Voyager 2 measured plasma and magnetic properties during its encounter, providing a detailed but limited record. A moving spacecraft observes different places at different times, making it difficult to distinguish spatial structure from temporal variation without repeated visits. Neptune's changing rotation geometry adds to that challenge.
+
+The magnetosphere influences charged particles near the planet and satellites. Radiation and plasma processing can alter exposed material, while the solar wind changes the boundary conditions around the system. The magnetic environment therefore matters for both planetary physics and surface interpretation. Future extended observations would help compare Neptune's dynamo with Uranus's similarly unusual field and determine which similarities reflect shared internal processes.
+
+== Rings and orbital arcs ==
+[[File:solar/neptune-rings.jpg|thumb|center|480px|alt=Infrared image of Neptune surrounded by faint rings|James Webb Space Telescope infrared view of Neptune and its rings; infrared wavelengths are mapped to visible colours. Credit: IMAGE: NASA, ESA, CSA, STScI IMAGE PROCESSING: Joseph DePasquale (STScI). [https://commons.wikimedia.org/wiki/File:New_Webb_Image_Captures_Clearest_View_of_Neptune%E2%80%99s_Rings_in_Decades.png Source]; [https://commons.wikimedia.org/wiki/File:New_Webb_Image_Captures_Clearest_View_of_Neptune%E2%80%99s_Rings_in_Decades.png#Licensing Public domain].]]
+
+Neptune has faint rings containing dark material and dust. They are much less conspicuous than Saturn's broad icy rings, but they preserve important evidence of particle transport and interactions with moons. Observation at suitable illumination angles can emphasise dust that is otherwise difficult to detect.
+
+Parts of the ring system contain arcs, where material is concentrated along limited portions of an orbit rather than spread uniformly. Maintaining such concentrations is a dynamical problem because particles at slightly different distances move at different orbital speeds. Without some influence, a concentration tends to spread.
+
+Researchers investigate gravitational resonances and satellite interactions as mechanisms that can help organise ring material. Changes observed over time also constrain those explanations. The arcs should not be described as permanently fixed decorations; their brightness and distribution are subjects of measurement.
+
+The rings may receive new material from impacts on small satellites, while radiation and collisions affect how particles are removed or redistributed. That balance helps explain why a faint ring can persist while individual particles have finite lifetimes. Studying the rings connects small-scale collisions with the gravitational organisation of the entire system. Their physical importance is therefore not proportional to their visibility in the familiar portrait of the planet.
+
+== Triton and the other moons ==
+Triton is Neptune's largest moon and travels on a retrograde orbit, opposite to the planet's usual rotational sense. That geometry strongly supports a capture origin rather than simple formation in a prograde circumplanetary disc. Capture would have changed both Triton's orbit and the pre-existing satellite system.
+
+The moon has a thin atmosphere and a cold surface with nitrogen-related seasonal processes. Voyager 2 observed active plumes, demonstrating that a distant, cold body can display surface activity. The source of energy and the transport of volatile materials differ from the mechanisms driving silicate volcanism on Io.
+
+Other moons occupy diverse orbital arrangements, including inner regular satellites and more distant objects. Their present distribution provides constraints on the disruption and rebuilding that might have accompanied Triton's capture. A successful account must explain more than the existence of one retrograde moon.
+
+Triton also offers a comparison with objects beyond Neptune because a captured outer-Solar-System body may retain information about conditions outside the planet's original satellite-forming environment. Its geological and atmospheric history is discussed on its own page. The selection of Triton for display in the atlas is intended to highlight that unusual history, while avoiding the impression that Neptune has only one natural satellite.
+
+== Voyager 2 and continuing research ==
+Voyager 2 passed Neptune in 1989 and supplied the only close spacecraft encounter so far. Its instruments investigated weather, magnetic behaviour, rings and satellites. The encounter also transformed the understanding of Triton by revealing detailed terrain and plumes that had not been accessible from Earth.<ref name="voyager">[https://science.nasa.gov/mission/voyager/ NASA Science: Voyager]. Historical exploration of the outer planets.</ref>
+
+A flyby provides high-quality observations along a limited trajectory, so it cannot monitor every seasonal condition or determine all properties of the deep interior. Ground-based and space-based telescopes have continued to track storms, temperature changes and other features, extending the record beyond that brief visit.
+
+Possible future investigations include prolonged orbital monitoring and detailed satellite encounters. Such objectives remain proposals or mission concepts until a spacecraft actually obtains the relevant measurements. An orbiter could provide repeated gravity and magnetic observations, while atmospheric sampling would add direct composition information at a known location.
+
+Neptune's scientific significance comes from the connections among these observations. Its heat output tests evolutionary models, atmospheric motions test fluid dynamics, and satellite orbits constrain capture and migration histories. Those topics also affect understanding of planetary systems around other stars. The distant ice giant is therefore much more than the last label on a diagram of Sol: it is a partly explored laboratory for the formation, energy transport and long-term evolution of planets.
+
+== Sources ==
+<references />
+
+Written and reorganised using [https://en.wikipedia.org/wiki/Neptune Neptune] by Wikipedia contributors ([https://en.wikipedia.org/w/index.php?title=Neptune&action=history page history]), checked 7 October 2026, with NASA material cited above. Changes include new explanatory prose, restructuring, a summary table and local atlas links. Adapted article text: [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0].

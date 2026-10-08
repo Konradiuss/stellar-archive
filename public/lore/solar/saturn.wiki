@@ -1,0 +1,125 @@
+{{Planet|name=Saturn|class=Gas giant}}
+[[File:solar/saturn-overview.jpg|thumb|right|220px|alt=Saturn and its broad ring system|Cassini global view of Saturn with its rings open to the camera. Credit: NASA / JPL-Caltech / SSI / color composite by Gordan Ugarkovic. [https://commons.wikimedia.org/wiki/File:Saturn_global_view_from_Cassini,_rings_open_Better_Colour.png Source]; [https://commons.wikimedia.org/wiki/File:Saturn_global_view_from_Cassini,_rings_open_Better_Colour.png#Licensing Public domain].]]
+'''Saturn''' is the sixth planet from the Sun and the second-largest planet in [[Sol]]. It is a hydrogen-and-helium gas giant best known for its bright rings, but the rings are only one part of a complex planetary system. A deep fluid interior, a changing atmosphere, a large magnetic environment and many satellites make Saturn an important comparison with [[Jupiter]].
+
+The planet's pale appearance can conceal active weather and strong winds. Its rings contain innumerable particles rather than a single solid disc, while its moons range from small irregular objects to [[Titan]], a world with a thick atmosphere. Studying Saturn requires connecting processes across those very different scales. Spacecraft observations have revealed details that are inaccessible from Earth, yet questions about the interior, ring history and satellite formation remain open. The visible rings preserved in the atlas represent a real physical feature, although the displayed sizes and orbital distances are schematic.<ref name="overview">[https://science.nasa.gov/saturn/facts/ NASA Science: Saturn facts]. Physical overview and the Saturnian system.</ref>
+
+{| class="wikitable"
+|+ Selected physical and orbital characteristics
+! Quantity !! Approximate value
+|-
+| Mean radius || 58,232 km
+|-
+| Mean solar distance || 9.58 astronomical units
+|-
+| Orbital period || About 29.4 Earth years
+|-
+| Rotation period || Approximately 10.7 hours
+|-
+| Principal atmospheric gases || Hydrogen and helium
+|-
+| Mean density || Lower than that of liquid water
+|-
+| Selected moon in this atlas || Titan
+|}
+
+== Observation and historical understanding ==
+Saturn has been known since antiquity, but its rings required telescopic investigation. Early telescopes did not resolve their geometry clearly, producing descriptions that were difficult to reconcile as the appearance changed. Better observations established that a ring surrounds the planet without forming an ordinary pair of neighbouring bodies.
+
+The viewing angle changes because Saturn's equator and rings are tilted relative to its orbit. From Earth, the rings can appear widely open or nearly edge-on. Their enormous diameter contrasts with their small vertical thickness, so an edge-on view can make them much less conspicuous. That change reflects geometry rather than the disappearance of all ring material.
+
+Observers can identify larger divisions and track atmospheric features with suitable instruments. However, fine ring structure and faint moons are difficult to distinguish through Earth's atmosphere. Long-term monitoring remains valuable because it supplies a history against which close spacecraft observations can be compared.
+
+The name Saturn comes from Roman mythology, but modern research concerns measurable properties rather than the associations attached to the planet in historical traditions. A telescope provides a recognisable silhouette; spectroscopy, radio measurements and spacecraft instruments add information about composition, temperature and motion. Those different observations explain why Saturn cannot be understood solely from its most familiar photograph.
+
+== Orbit, spin and seasonal geometry ==
+Saturn takes almost thirty Earth years to complete an orbit around the Sun. Its tilted axis produces seasons lasting several Earth years, and the ring plane follows the equatorial orientation. The changing sunlight affects both atmospheric heating and illumination within the ring system.
+
+The planet rotates rapidly, producing an oblate shape with a broad equator. As on Jupiter, an exact rotation period is not simply read from a solid surface. Clouds move relative to the deeper planet, and radio emissions do not provide an entirely constant clock. Different methods therefore need to be reconciled when estimating internal rotation.
+
+=== Measuring a fluid planet's rotation ===
+Gravity, shape and patterns in the rings can contribute constraints on Saturn's rotation. Each method depends on physical models, so a quoted period should be treated as an estimate with context rather than an infinitely precise universal value. Wind speeds likewise require a reference frame against which atmospheric motion is measured.
+
+Seasonal changes influence the atmosphere over intervals much longer than a spacecraft flyby. They also affect temperatures and particle behaviour in the rings. A mission covering several years observes part of that seasonal cycle, not every possible configuration. Comparisons among observations need to account for the changing direction and intensity of sunlight.
+
+== Composition and interior ==
+Hydrogen and helium dominate Saturn's bulk composition. Pressure increases inward, producing fluid conditions far removed from the dilute atmosphere sampled by visible light. Conducting material at depth supports magnetic-field generation, while heavier elements influence density and the structure of the interior.
+
+The core region may be extended and mixed with surrounding material rather than sharply separated into a compact solid centre. Ring waves provide useful clues because gravitational changes associated with motions inside Saturn can affect nearby ring particles. Interpreting those patterns connects an externally visible structure with processes deep inside the planet.
+
+Saturn emits more energy than it absorbs from sunlight. Cooling and gravitational energy contribute, and separation of helium from hydrogen at suitable internal conditions can release additional energy. The phrase helium rain refers to that proposed internal separation and descent, not to ordinary raindrops falling through the visible sky.
+
+Interior models have to reproduce several measurements together, including gravity, shape, luminosity and atmospheric composition. Uncertainties in the behaviour of materials at high pressure affect the interpretation. A simplified illustration of distinct layers is useful for orientation, but it should not suggest that every boundary is sharply known or that the interior can be described by familiar room-temperature substances.
+
+== Atmosphere, clouds and storms ==
+[[File:solar/saturn-hexagon.jpg|thumb|center|480px|alt=Saturn's hexagonal north-polar cloud pattern|Cassini near-infrared view of Saturn's north-polar hexagon, photographed in November 2012. Credit: NASA/JPL-Caltech/Space Science Institute. [https://commons.wikimedia.org/wiki/File:Saturn%27s_North_Polar_Hexagon.jpg Source]; [https://commons.wikimedia.org/wiki/File:Saturn%27s_North_Polar_Hexagon.jpg#Licensing Public domain].]]
+
+Saturn's visible atmosphere is less strongly coloured than Jupiter's, partly because of differences in haze and cloud structure. Bands and jets are nevertheless present, along with vortices and large storms. Winds vary with latitude and altitude, making a single wind speed an incomplete description of the circulation.
+
+Cloud models involve different condensates at different depths. Ammonia contributes to upper cloud structures, while water-related processes can occur much farther down. Observations at different wavelengths therefore reveal different portions of the atmosphere. A feature bright in one image may be dark in another because the instruments measure different physical signals.
+
+Large storm outbreaks can disturb broad regions and persist through extended intervals. Their development involves convection, changing temperatures and interactions with the surrounding jets. Lightning provides evidence for energetic activity within deeper clouds. An unusually large visible storm is the atmospheric expression of processes not all directly accessible to a camera.
+
+The north polar hexagon is a distinctive pattern associated with a jet. Its geometry does not imply a rigid structure or an artificial boundary on the planet. Waves and fluid dynamics can produce organised patterns in a circulating atmosphere. Studying the hexagon helps test explanations of large-scale flow, particularly when observations span changing seasons and reveal how conditions evolve above and around it.
+
+== Ring particles and orbital motion ==
+[[File:solar/saturn-rings.jpg|thumb|center|480px|alt=Detailed view of Saturn's rings and dark gaps|Voyager 1 close-up of Saturn's rings, showing divisions and fine radial structure. Credit: NASA. [https://commons.wikimedia.org/wiki/File:Saturn%27s_Rings_Close_Up_from_Voyager_1.jpg Source]; [https://commons.wikimedia.org/wiki/File:Saturn%27s_Rings_Close_Up_from_Voyager_1.jpg#Licensing Public domain].]]
+
+Saturn's main rings consist predominantly of water-ice particles with additional non-ice material. Their sizes vary widely, and particles continually interact through collisions and gravity. The rings are neither a rigid plate nor a collection of particles all completing an orbit at the same speed.
+
+Particles closer to Saturn orbit faster than those farther away. This differential motion stretches disturbances and helps generate characteristic structures. Collisions exchange energy and momentum, while collective gravitational effects influence local arrangements. An apparently smooth ring in a distant image can contain fine-scale organisation invisible at that resolution.
+
+Ring divisions and variations in optical depth distinguish regions, but an optically dark gap is not necessarily perfectly empty. Small amounts of material can remain difficult to detect, and the brightness depends on illumination and particle scattering. Forward-scattering and reflected-light observations emphasise different components.
+
+=== Thickness and changing perspective ===
+The rings are thin compared with their diameter, yet local structures and disturbances can extend vertically. Their appearance changes with season and observing geometry, including shadows cast by the planet or by raised ring features. Those shadows supply information about height that would otherwise be difficult to measure. A ring image is consequently both a picture of material and a record of the illumination conditions under which that material was observed.
+
+== Moons, resonances and ring structure ==
+Satellites exert gravitational forces on the rings, creating resonances and disturbing nearby particles. Repeated interactions at particular orbital relationships can organise waves or affect the distribution of material. Some small moons orbit within or near ring regions, producing especially localised changes.
+
+Density waves and bending waves respond to different kinds of perturbation. They can reveal properties of the ring material as well as information about the perturbing satellite or Saturn itself. The pattern is not simply an imprint of a moon's visible shape; it develops through orbital dynamics and collective responses among particles.
+
+Small embedded objects can create distinctive disturbances, including propeller-like patterns. Their visibility helps researchers investigate bodies too small to resolve easily as isolated moons. Interpreting those features requires considering particle density, collision rates and the object's gravitational influence.
+
+The interactions also redistribute angular momentum. Over long times, rings and satellites can evolve together rather than retaining fixed orbits and unchanged masses. Some proposals link the origin of certain moons to spreading ring material, although details depend on the history of the system. Ring structure therefore connects immediate observations with questions about long-term satellite formation and the gradual transport of material around a giant planet.
+
+== Ring origin, age and evolution ==
+The origin and age of Saturn's rings remain important research questions. Possible histories involve disrupted bodies, collisions or the redistribution of satellite material. A convincing explanation has to account for the rings' present mass, composition and dynamical behaviour, not only for their attractive appearance.
+
+Measurements of non-ice material and incoming dust can help estimate how the rings changed over time. However, converting those measurements into a unique age requires assumptions about contamination, removal and the history of external material. Bright icy particles do not by themselves establish a precise formation date.
+
+Cassini measurements provided improved constraints on ring mass and interactions between the rings and Saturn. Material is lost through processes that transport it towards the planet, while particles and associated moons continue to exchange momentum. The rings are therefore evolving, and their present arrangement is not guaranteed to survive indefinitely.<ref name="cassini">[https://science.nasa.gov/mission/cassini/ NASA Science: Cassini]. Investigations of Saturn, its rings and its moons during 2004–2017.</ref>
+
+Different scientific arguments can favour younger or older ring histories depending on the assumptions and evidence emphasised. Reporting that debate is more accurate than assigning an unquestioned birthday to the entire ring system. Future analyses must examine how observed chemistry and dynamics could arise under several plausible histories.
+
+== Magnetic field and space environment ==
+Saturn has an intrinsic magnetic field and an extended magnetosphere. Rotation, charged particles supplied within the system and interaction with the solar wind influence its structure. The environment changes with external conditions and with the planet's internal plasma circulation.
+
+The field is unusually well aligned with Saturn's rotation axis, which creates interesting challenges for understanding the dynamo and determining rotation. A field's strength and orientation provide information about its source, but external currents and changing plasma also contribute to what a spacecraft measures. Separating those effects requires observations over different positions and times.
+
+Auroras occur when energetic particles interact with the upper atmosphere. Their variability connects solar-wind conditions with processes inside Saturn's magnetosphere. The rings and moons also participate in the exchange of particles and gases, making the magnetic environment part of the larger planetary system.
+
+Radiation and plasma interactions can change surface chemistry on moons and ring particles. Those effects influence how observations of exposed material should be interpreted. A chemical compound measured on the surface may reflect both the original material and subsequent processing. Studies of the magnetosphere therefore support geological and atmospheric research as well as addressing plasma physics in its own right.
+
+== Titan, Enceladus and other moons ==
+Titan is Saturn's largest moon and has a substantial nitrogen-rich atmosphere. Methane participates in a surface cycle involving clouds, rain and lakes, while water ice forms an important part of the solid landscape. Its chemistry and weather make it a distinctive planetary environment rather than a smaller version of Earth's Moon.
+
+Enceladus provides another extraordinary comparison. Plumes emerging from its south polar region contain material associated with a subsurface ocean. Spacecraft measurements of those particles and gases help investigate the ocean's chemistry and possible exchanges with the rocky interior. Potentially favourable conditions for life are scientifically interesting, but they are not a detection of organisms.
+
+Other Saturnian moons preserve varied records of impacts, tectonics and surface modification. Differences in size, composition and orbital history influence how much internal activity can occur and how long it persists. A common parent planet does not impose an identical evolutionary path on every satellite.
+
+The number of known moons changes as observations improve, so this atlas displays a selected example rather than a complete catalogue. Comparisons among moons help test models of satellite formation, tidal heating and orbital evolution. They also place ring research in context: Saturn's rings, smaller satellites and large moons are interacting components of one system, even when they are presented separately for convenience.
+
+== Spacecraft exploration ==
+Pioneer 11 and the Voyager spacecraft supplied important flyby observations before Cassini became the first spacecraft to orbit Saturn. Flybys revealed broad properties and unexpected features, but repeated observations from orbit allowed a much richer investigation of changing weather, rings and satellite environments.
+
+Cassini arrived in 2004 and carried the Huygens probe, which descended to Titan in 2005. The combination connected orbital measurements with direct sampling of a moon's atmosphere and surface. Cassini's later observations spanned enough time to investigate changing seasonal conditions, although not a complete Saturnian year.
+
+The mission ended in 2017 with a planned descent into Saturn. Its final trajectories provided observations near the planet and between Saturn and its rings. Ending the mission deliberately also reduced the risk of an uncontrolled later collision with a scientifically sensitive moon.
+
+Saturn remains valuable because its different components offer complementary evidence. Atmospheric chemistry constrains formation, ring dynamics probes gravity, and moons reveal tidal and chemical histories. Researchers continue to analyse archived measurements alongside new telescope observations. The largest unanswered questions concern not merely what the planet contains, but how the atmosphere, interior, rings and satellites arrived at their present interconnected state.
+
+== Sources ==
+<references />
+
+Written and reorganised using [https://en.wikipedia.org/wiki/Saturn Saturn] by Wikipedia contributors ([https://en.wikipedia.org/w/index.php?title=Saturn&action=history page history]), checked 7 October 2026, with NASA material cited above. Changes include new explanatory prose, restructuring, a summary table and local atlas links. Adapted article text: [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0].

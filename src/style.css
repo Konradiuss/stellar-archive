@@ -1,0 +1,62 @@
+/* The wiki article font: Ark Pixel 10px by TakWolf (github.com/TakWolf/ark-pixel-font), SIL OFL 1.1, public/fonts/ArkPixel-OFL.txt. */
+@font-face {
+  font-family: 'Ark Pixel 10';
+  src: url('/fonts/ArkPixel-10.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* Defaults of the theme (src/theme/index.js); a -rgb twin gives alpha: rgb(var(--ui-text-rgb) / 0.5). */
+:root {
+  /* Also the font of the Pixi labels (PIXEL_FONT, utils/fontLoader.js) */
+  --font-pixel: 'Press Start 2P', monospace;
+  --ui-text: #ffffff;
+  --ui-text-rgb: 255 255 255;
+  --ui-dim: #9a9a9a;
+  --ui-dim-rgb: 154 154 154;
+  --ui-line: #555555;
+  --ui-line-rgb: 85 85 85;
+  --ui-screen: #000000;
+  --ui-screen-rgb: 0 0 0;
+  --ui-accent: #cfe0ff;
+  --ui-accent-rgb: 207 224 255;
+  --ui-ok: #66ff66;
+  --ui-ok-rgb: 102 255 102;
+  --ui-warn: #ffc24a;
+  --ui-warn-rgb: 255 194 74;
+  --ui-error: #ff5555;
+  --ui-error-rgb: 255 85 85;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: monospace;
+  background-color: #000;
+  /* The pixel fonts have one weight: a synthetic bold (h1-h6, th, b) smears their glyphs */
+  font-synthesis-weight: none;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  /* The visible height: on a phone the toolbar of the browser does not cover the bottom */
+  height: 100dvh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
