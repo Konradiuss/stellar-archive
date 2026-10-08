@@ -1,0 +1,125 @@
+{{Planet|name=Deimos|class=Natural satellite}}
+[[File:solar/deimos-overview.jpg|thumb|right|220px|alt=Small irregular moon Deimos|Mars Reconnaissance Orbiter colour observations of Deimos; subtle surface colours are enhanced. Credit: NASA/JPL/University of Arizona. [https://commons.wikimedia.org/wiki/File:NASA-Deimos-MarsMoon-20090221.jpg Source]; [https://commons.wikimedia.org/wiki/File:NASA-Deimos-MarsMoon-20090221.jpg#Licensing Public domain].]]
+'''Deimos''' is the smaller and more distant of [[Mars]]'s two natural moons. It is an irregular, dark body whose subdued-looking surface contrasts with the more prominently grooved terrain of [[Phobos]]. Its small size gives it weak gravity, while its orbital position produces a different relationship with Mars's rotation and tidal evolution.
+
+The moon's scientific importance lies partly in that contrast. A proposed origin for the Martian satellites must explain both objects, including their composition, orbital arrangement and different surface records. Deimos is not simply an interchangeable smaller copy of Phobos. Images, spectra and orbital measurements provide useful constraints, but its interior and material history remain uncertain. Studying this small satellite therefore links observational limits with the broader questions of capture, impact-generated debris and the survival of moons around terrestrial planets.<ref name="overview">[https://science.nasa.gov/mars/moons/deimos/ NASA Science: Deimos]. Discovery, dimensions and surface characteristics.</ref>
+
+{| class="wikitable"
+|+ Selected physical and orbital characteristics
+! Quantity !! Approximate value
+|-
+| Approximate dimensions || 15 × 12 × 11 km
+|-
+| Mean radius || About 6 km
+|-
+| Mean orbital distance from Mars's centre || About 23,460 km
+|-
+| Orbital period || About 30 hours 18 minutes
+|-
+| Rotation || Synchronous
+|-
+| Parent planet || Mars
+|-
+| Atmosphere || None of substantial density
+|}
+
+== Discovery and the Martian moon search ==
+Asaph Hall discovered Deimos in 1877 during an observing campaign at the United States Naval Observatory. The detection preceded his identification of Phobos during the same campaign. Both moons were difficult targets because they are small, faint and located near the glare of a much brighter planet.
+
+Following their motion established that the objects belonged to Mars rather than to the distant stellar background. Discovery did not immediately establish their detailed shapes or compositions. Those required later observations and, eventually, spacecraft measurements with far higher spatial resolution.
+
+The name Deimos refers to a figure associated with Ares in Greek mythology and is traditionally connected with terror. Together with Phobos, it follows the mythological theme associated with Mars's name. This historical naming convention is distinct from any physical description of the moon.
+
+Deimos illustrates the difference between observing a planet and completely inventorying its surroundings. A well-known bright planet can host satellites that remain difficult to detect. Improvements in instruments, observing conditions and analysis can reveal bodies already present for immense intervals. Historical observations also supply a long time baseline for orbit calculations, even when they contain little direct information about surface geology.
+
+== Orbital distance and motion ==
+[[File:solar/deimos-orbit.png|thumb|center|480px|alt=Diagram comparing the orbits of Phobos and Deimos|NASA schematic comparing the orbits of Phobos and Deimos around Mars. Credit: NASA. [https://commons.wikimedia.org/wiki/File:Phobos_Deimos_orbit_Mars.jpg Source]; [https://commons.wikimedia.org/wiki/File:Phobos_Deimos_orbit_Mars.jpg#Licensing Public domain].]]
+
+Deimos follows a nearly circular orbit close to Mars's equatorial plane. Its quoted orbital distance is measured from the planet's centre, not from the surface. That distinction matters because the radius of Mars contributes substantially to the geometry of both Martian moons.
+
+Its orbital period is slightly longer than a Martian day. Consequently, its movement relative to an observer on Mars differs greatly from the rapid westward rising and eastward setting associated with Phobos. Deimos appears to drift slowly across the sky because orbital motion and planetary rotation nearly offset in the observer's frame.
+
+=== The synchronous-orbit comparison ===
+A satellite orbiting at the synchronous distance would match Mars's rotational period. Deimos is beyond that distance, while Phobos is inside it. This places the two moons on opposite sides of an important dynamical boundary and affects the direction of tidal exchange.
+
+Visibility also depends on the observer's location and on the moon's orbital geometry. A close satellite is not equally visible from every point on a spherical planet. Deimos's greater distance improves its visibility from higher latitudes compared with Phobos, but its smaller apparent size makes detailed observation more difficult. The sky seen from Mars therefore contains two moons with strikingly different patterns rather than a pair of miniature terrestrial Moons.
+
+== Rotation and tidal behaviour ==
+Deimos rotates synchronously, so roughly the same hemisphere remains directed towards Mars. Its rotation is real even though that orientation can make it appear fixed relative to the parent planet. Small variations can arise from the orbit and the moon's irregular figure.
+
+Tidal interactions couple rotation, orbit and material deformation. Because Deimos lies outside Mars's synchronous orbit, its long-term evolution differs from Phobos's inward migration. The magnitude of any change depends on dissipation within Mars and the moon, as well as their masses and distances.
+
+The small size and comparatively distant orbit make some effects weak and difficult to measure. A physically expected tendency does not automatically yield a precise, observationally established rate. Models can explore possible long-term paths while remaining sensitive to assumptions about material properties and past conditions.
+
+The current orbit also constrains origin explanations. Capturing a body into a planet's gravitational domain is not enough to produce a nearly circular equatorial orbit without additional processes. Debris formation and subsequent evolution provide different possibilities. Researchers therefore examine whether a proposed history can produce the entire observed system. Rotation and tides are part of that account, not isolated details added after composition and shape have already determined the answer.
+
+== Shape, mass and internal uncertainty ==
+Deimos is far from spherical because its weak gravity has not overcome the strength and structural history of its material. Impacts, fractures and internal arrangement can all influence the outline. The visible shape supplies a volume estimate, but deriving a density also requires knowledge of mass.
+
+For very small satellites, mass is more difficult to constrain than for large planets because the gravitational effect on a passing spacecraft is modest. Trajectory knowledge and encounter geometry therefore matter. Uncertainty in either mass or volume affects conclusions about porosity and composition.
+
+A low bulk density can reflect internal voids, a particular mixture of materials or both. It does not uniquely prove that the body is a loosely connected pile of rubble. Images of an external surface likewise cannot reveal the strength or continuity of material deep inside.
+
+Detailed gravity and rotational measurements would help distinguish structural models. Their interpretation has to account for the irregular figure and the influence of Mars. Deimos's internal uncertainty is scientifically significant because the origin and impact history depend partly on how such a small body holds together. A complete explanation requires connecting the measured exterior to physically plausible arrangements beneath it rather than assigning a familiar small-body label on appearance alone.
+
+== Surface texture and subdued terrain ==
+[[File:solar/deimos-surface.jpg|thumb|center|480px|alt=Close view of craters and regolith on Deimos|High-resolution Viking 2 view of the surface of Deimos, taken from about 30 kilometres away. Credit: NASA, Viking 2 Orbiter. [https://commons.wikimedia.org/wiki/File:Deimos_Surface.png Source]; [https://commons.wikimedia.org/wiki/File:Deimos_Surface.png#Licensing Public domain].]]
+
+Deimos often appears smoother than Phobos in comparable descriptions, but that impression needs scale and resolution. A feature smaller than an image pixel cannot be judged absent simply because it is not resolved. Illumination also changes how sharply crater rims and slopes appear.
+
+The surface contains craters, while loose deposits can soften or bury their outlines. Regolith accumulated and redistributed through repeated impacts provides one explanation for the subdued appearance of parts of the terrain. The amount and depth of that material vary and are not established uniformly across the moon.
+
+=== Comparing like with like ===
+A reliable comparison with Phobos requires images of similar resolution and viewing geometry. Different lighting can make the same terrain look dramatically rougher or smoother, and different spatial scales reveal different structures. Researchers use shape models and repeated observations to separate those effects.
+
+Surface texture also influences thermal behaviour. Fine porous material responds to changing sunlight differently from exposed coherent rock. Thermal measurements can consequently supply information that an ordinary photograph lacks. Combining temperature response with images and spectra provides a better account of the ground. The smooth-looking exterior should therefore be treated as evidence to investigate, not as proof that Deimos escaped impacts or possesses a uniformly unbroken crust.
+
+== Impact craters and ejecta ==
+Impacts dominate the documented geological record of Deimos. In a weak gravitational field, excavated particles can travel far from their source and some can escape. Their later trajectories also depend on the nearby planet and the changing geometry of the system.
+
+Ejecta retention influences the appearance of crater surroundings. Material that returns can coat terrain and partly bury older structures, while material that leaves contributes less to a local ejecta blanket. Those possibilities help explain why crater morphology on a small moon need not match an equally sized crater on Earth or Mars.
+
+Crater counts can suggest relative surface ages, but Deimos's small area and uncertain resurfacing complicate the interpretation. The impact population at Mars also differs from populations elsewhere in the Solar System. Assigning an absolute age requires assumptions beyond simply counting visible circular depressions.
+
+The moon can preserve information about bombardment while also losing or redistributing part of that record. A crater is therefore evidence of an event embedded in subsequent modification. Future observations that resolve small craters and map buried relationships would help establish how the present surface developed. They could also test whether differences from Phobos result primarily from size, orbital position, material properties or a distinct sequence of impacts.
+
+== Regolith and microgravity physics ==
+Loose surface material on Deimos responds to a combination of weak gravity and contact forces among grains. Cohesion can be important where the weight of a particle is small. Behaviour that seems straightforward for terrestrial sand can therefore become difficult to predict on a tiny moon.
+
+A lander or sampling device transfers momentum to the surface. Without appropriate control, that momentum could dislodge material or disturb the spacecraft's position. Low gravity does not mean landing is automatically easier: it changes the problem from surviving strong downward force to establishing and maintaining controlled contact.
+
+Electrical charging and exposure to energetic particles also influence surface conditions. There is no dense atmosphere to produce familiar weather or shield the ground. Daylight, shadows and eclipses affect temperature, while impact gardening mixes material over time.
+
+Regolith records can include the original source material, fragments produced by later impacts and particles altered through prolonged exposure to space. Interpreting a sample therefore requires information about its collection location and exposure history. The physical properties of grains are scientific measurements as well as engineering concerns. They help connect Deimos's subdued terrain with its low-gravity environment and constrain how material can be retained, lost or redistributed across a small irregular body.
+
+== Colour, spectra and material interpretation ==
+Deimos has low reflectivity and a spectral appearance that invites comparison with some dark small bodies. Those comparisons are useful but do not by themselves identify the moon's bulk composition or establish a capture origin. Surface processing can modify the signal produced by the original material.
+
+Spectra depend on mineralogy, particle size, mixing and exposure history. An absence of a strong absorption feature may limit an interpretation without proving that no corresponding material exists anywhere. Different observational wavelengths and illumination geometries provide complementary information.
+
+Remote compositional measurements principally probe accessible surface layers. Material deeper inside may differ or may be covered by deposits with different properties. The relationship between a spectral surface and an inferred bulk density therefore needs physical modelling and additional observations.
+
+Laboratory analysis of well-contextualised material would be especially valuable for distinguishing origin scenarios. Deimos itself is not the primary sampling target of JAXA's MMX mission, but comparative observations can help connect returned Phobos material to the broader Martian moon system. Differences between the two moons would be informative rather than inconvenient: a formation explanation must allow for both shared source conditions and distinct subsequent histories.<ref name="science">[https://www.mmx.jaxa.jp/en/science/ JAXA: MMX science]. Comparative investigation of the Martian moons and the value of sample analysis.</ref>
+
+== Capture and impact-origin scenarios ==
+A capture scenario begins with an independently formed small body entering a gravitationally bound relationship with Mars. The physical challenge is how to remove sufficient energy and produce the observed orbital arrangement. The present nearly circular, equatorial orbit places constraints on whatever mechanism is proposed.
+
+Impact-origin scenarios instead generate material near Mars through a major collision. Debris can form a disc and assemble into satellites, with later tidal and dynamical evolution altering the system. These models must explain the current small moons, not merely demonstrate that a temporary disc could exist.
+
+Neither family of explanations is settled solely by the moons' colour. Spectral resemblance motivates hypotheses, while orbital behaviour tests their dynamical feasibility. Chemical composition and isotopic relationships can supply additional constraints that remote images cannot provide.
+
+Deimos is particularly useful because it prevents the discussion from focusing exclusively on Phobos. A theory that fits one moon but cannot account for the other's orbit, size or material record is incomplete. Its comparatively distant location may also preserve a different history of interactions with earlier satellites or debris. Studying both bodies together helps reconstruct which properties were inherited at formation and which developed through later evolution.
+
+== Exploration priorities and MMX ==
+Deimos has been photographed by spacecraft investigating Mars, but its close-range record is less extensive than that of some larger and more accessible planetary bodies. Improved imaging, spectra and gravity measurements would help resolve questions about terrain, material properties and internal structure.
+
+JAXA's Martian Moons eXploration mission is designed to observe Deimos as well as Phobos, while collecting return samples from Phobos. As of 7 October 2026, launch is announced for 20 October 2026 and remains a future event in this dated account.<ref name="schedule">[https://www.mmx.jaxa.jp/en/ JAXA: MMX mission updates], checked 7 October 2026.</ref> Scientific objectives should not be described as measurements already completed.
+
+Comparative data could test whether both moons share similar source materials and how their different environments modified them. Better shape and rotation information would also improve predictions of local gravity and surface behaviour. Those priorities connect immediate observations with the longer history of the Martian satellite system.
+
+Deimos matters because it preserves constraints that a planet-only description would miss. Mars's geology can reveal atmospheric and surface evolution, while its small moons supply a separate record of accretion, capture, impacts and orbital change. The quieter-looking satellite is therefore an essential part of the scientific comparison, even when its small size makes it less visually dramatic than Phobos or the parent planet.
+
+== Sources ==
+<references />
+
+Written and reorganised using [https://en.wikipedia.org/wiki/Deimos_(moon) Deimos (moon)] by Wikipedia contributors ([https://en.wikipedia.org/w/index.php?title=Deimos_(moon)&action=history page history]), checked 7 October 2026, with primary sources cited above. Changes include new explanatory prose, restructuring, a summary table and local atlas links. Adapted article text: [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0].

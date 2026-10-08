@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 import { readFileSync } from 'node:fs'
 import { DEFAULT_STRINGS } from '../src/i18n/strings.js'
-import { openHash, releaseMap, serveMap, watchConsole, withStores } from './helpers'
+import { openHash, worldMap, serveMap, watchConsole, withStores } from './helpers'
 const BUILT_IN_SCRIPT = readFileSync(new URL('../src/data/terminal.txt', import.meta.url), 'utf8')
 
 const LETTERS = 'abcdefghijklmnopqrstuvwxyz'
@@ -17,7 +17,7 @@ const pseudoTree = value => (typeof value === 'string'
 
 // No article files (their markup stays Latin): any Latin left on screen is an interface text outside src/i18n.
 function pseudoMap() {
-  const map = releaseMap()
+  const map = worldMap()
   const named = item => {
     for (const field of ['name', 'lore', 'tabTitle', 'description']) if (typeof item[field] === 'string') item[field] = pseudoText(item[field])
     delete item.loreFile
@@ -166,7 +166,7 @@ test('every text of the interface comes from the strings of the map', async ({ p
 
 test('a map in Russian with an amber theme', async ({ page }) => {
   const consoleIsClean = watchConsole(page)
-  const map = releaseMap()
+  const map = worldMap()
   map.site.language = 'ru'
   map.strings = {
     breaker: { plate: 'Режим', map: 'Карта', wiki: 'Вики', ariaOnMap: 'Режим: карта. Включить вики' },
@@ -209,7 +209,7 @@ test('a map in Russian with an amber theme', async ({ page }) => {
 })
 
 test('a text the map gets wrong is named on Special:Map check', async ({ page }) => {
-  const map = releaseMap()
+  const map = worldMap()
   map.strings = { wiki: { serach: '[ НАЙТИ ]' }, breaker: { map: '地图' } }
   map.theme = { colors: { text: 'orange' } }
   await serveMap(page, map)

@@ -1,0 +1,125 @@
+{{Planet|name=Io|class=Natural satellite}}
+[[File:solar/io-overview.jpg|thumb|right|220px|alt=Io with yellow and white terrain and dark volcanic centres|Approximately natural-colour Galileo mosaic of Io, showing volcanic deposits. Credit: NASA. [https://commons.wikimedia.org/wiki/File:Io_highest_resolution_natural_color.png Source]; [https://commons.wikimedia.org/wiki/File:Io_highest_resolution_natural_color.png#Licensing Public domain].]]
+'''Io''' is a large natural satellite of [[Jupiter]] and the most volcanically active world known in [[Sol]]. Its surface is repeatedly altered by eruptions, lava flows and deposits from volcanic plumes. Yellow, orange, white and dark regions reflect changing materials and conditions rather than a stable colour scheme fixed to an ancient landscape.
+
+The principal energy source behind that activity is tidal heating. Jupiter's gravity and resonant interactions with neighbouring moons sustain deformation that dissipates energy inside Io. The moon consequently provides a striking example of geology driven by orbital dynamics rather than mainly by retained formation heat or radioactive decay. Its volcanic gases also feed Jupiter's plasma environment, connecting events on a solid satellite with processes across the planet's magnetosphere. Although Io is similar in size to Earth's [[Moon]], its continually renewed surface preserves a very different kind of geological record.<ref name="overview">[https://science.nasa.gov/jupiter/jupiter-moons/io/ NASA Science: Io]. Volcanism, tidal heating and the Jovian environment.</ref>
+
+{| class="wikitable"
+|+ Selected physical and orbital characteristics
+! Quantity !! Approximate value
+|-
+| Mean radius || 1,822 km
+|-
+| Mean orbital distance from Jupiter's centre || 421,700 km
+|-
+| Orbital period || About 1.77 Earth days
+|-
+| Rotation || Synchronous
+|-
+| Principal interior materials || Rock and a metal-rich core
+|-
+| Atmosphere || Thin, largely sulphur dioxide
+|-
+| Main geological activity || Extensive volcanism
+|}
+
+== Discovery and historical observations ==
+Io is one of the four major Jovian moons identified during Galileo's telescopic observations in 1610. Its rapid movement relative to Jupiter helped demonstrate that bodies could orbit a planet other than Earth. The historical observation transformed the understanding of celestial organisation without revealing the moon's extraordinary geology.
+
+The name comes from Greek mythology and forms part of the naming tradition associated with Jupiter. Io is also called the innermost Galilean moon, distinguishing its location among the four large satellites rather than implying it is the closest of every small moon orbiting the planet.
+
+Timing Io's eclipses played an important role in the history of measuring the speed of light. Changes in the expected timing as Earth-Jupiter distance varied helped show that light does not travel instantaneously. The interpretation required orbital predictions and a changing observation geometry, not simply a stopwatch measurement over a short terrestrial distance.
+
+For centuries, observations primarily established motion and brightness. Only improved remote measurements and spacecraft encounters revealed detailed surface features and active plumes. This progression illustrates a recurring astronomical distinction: precise knowledge of an orbit can coexist with very limited knowledge of the physical processes occurring on the orbiting body.
+
+== Orbit and the Laplace resonance ==
+Io completes an orbit around Jupiter in less than two Earth days and rotates synchronously, generally keeping the same hemisphere towards the planet. Its orbit is slightly eccentric, so the strength and direction of tidal forces vary during each circuit.
+
+Io, [[Europa]] and Ganymede participate in a resonance in which their orbital periods are approximately in a one-to-two-to-four relationship. The repeated gravitational interactions help maintain eccentricity rather than allowing tides to circularise Io's orbit completely. The relationship is dynamical, not merely a numerical pattern that happens to be convenient for a diagram.
+
+=== Maintaining a source of deformation ===
+Without a mechanism sustaining orbital differences, dissipation would reduce some of the very deformations producing heat. Resonant interactions supply a way for the system to continue exchanging energy and angular momentum. The resulting behaviour depends on the response of all participating bodies and on their evolution over time.
+
+Synchronous rotation does not prevent a moon from experiencing changing tides. Its distance from Jupiter and the detailed orientation of forces still vary during an eccentric orbit. That point is essential for explaining Io: maintaining one average facing direction is entirely compatible with repeated internal deformation and substantial geological activity.
+
+== Tidal heating and energy dissipation ==
+Tidal forces arise because Jupiter's gravitational pull differs across Io. The changing deformation of the moon is not perfectly elastic, so some mechanical energy becomes heat. The amount generated depends on orbital eccentricity and on how the interior responds to stress.
+
+Material properties change with temperature and melting, creating feedbacks. An interior that becomes softer or partly molten can deform differently, affecting the subsequent heating pattern. Tidal models therefore need to connect orbital mechanics with rock behaviour rather than assume an unchanging solid sphere.
+
+Heat is released at the surface through volcanoes and other thermal processes. Infrared observations identify hot regions and estimate their contribution to the energy budget. Visible photographs provide a complementary record of deposits and flows but do not alone determine temperatures or total heat output.
+
+The spatial pattern of eruptions helps test proposed locations of dissipation within the interior. However, magma can travel before reaching the surface, so a volcano's position does not uniquely identify where its energy originated. Researchers compare global thermal maps, gravity constraints and deformation models to narrow the possibilities. Io demonstrates how geological evidence can constrain orbital physics while also showing why a single spectacular plume is not a complete measurement of the moon's energy balance.
+
+== Interior, melting and mechanical structure ==
+Io is composed mainly of silicate rock with a metal-rich core, unlike outer satellites in which water ice is a major structural material. Its strong heating affects the mantle and the generation of magma. Gravity and magnetic observations provide indirect information about the distribution of material and possible conducting regions.
+
+The extent and arrangement of molten material remain important modelling questions. A local magma reservoir, distributed partial melting and a globally connected layer predict different mechanical and electromagnetic behaviour. Observations must be tested against those predictions before a simple illustration is treated as an established internal map.
+
+The outer shell can support large mountains despite intense volcanic activity elsewhere. That combination shows that a highly active world need not have every part of its surface continuously molten. Strong crust, faults and material movement can coexist with localised pathways transporting magma.
+
+An interior model must also explain the observed heat loss and the moon's tidal response. Chemistry, temperature and structural connectivity influence both. These constraints make Io valuable beyond the study of individual eruptions: it is a test of how rocky material behaves when subjected to strong, sustained deformation. Comparing it with less active moons helps distinguish the effects of orbital energy from those of composition and size.
+
+== Lava flows and volcanic centres ==
+[[File:solar/io-volcanoes.jpg|thumb|center|480px|alt=Volcanic deposits surrounding Pele and Pillan on Io|Enhanced-colour Galileo view of Io's Pele hemisphere after the 1997 Pillan eruption, showing changed volcanic deposits. Credit: NASA/JPL/University of Arizona. [https://commons.wikimedia.org/wiki/File:PIA01667-Io%27s_Pele_Hemisphere_After_Pillan_Changes.jpg Source]; [https://commons.wikimedia.org/wiki/File:PIA01667-Io%27s_Pele_Hemisphere_After_Pillan_Changes.jpg#Licensing Public domain].]]
+
+Io's volcanoes produce lava flows and large depressions commonly called paterae. Their shapes and changing thermal emissions provide evidence for a range of eruption styles. Some activity persists at particular centres, while other events rapidly change local deposits or initiate new flows.
+
+High-temperature observations support silicate volcanism, but identifying the composition of every flow requires more than the brightest pixel in an infrared image. Multiple temperatures can be present within one unresolved area, and cooled crust can cover hotter material. Observational geometry and spatial resolution affect the inferred values.
+
+=== Watching a changing volcanic landscape ===
+Comparing observations from different times reveals new deposits, changing flow boundaries and variations in heat output. A surface that is continually renewed retains fewer obvious ancient impact structures than a geologically quiet world. That does not mean impacts never occur; it means their visible record can be covered or altered.
+
+Named centres such as Loki and Pele are targets for repeated study because their behaviour can be followed across observing campaigns. Their individual histories should not be assumed identical. Studying both persistent and episodic activity helps determine how magma supply, crustal structure and heat transport interact, rather than reducing Io's volcanism to one representative eruption.
+
+== Plumes and colourful deposits ==
+[[File:solar/io-plume.jpg|thumb|center|480px|alt=Volcanic plume rising above the edge of Io|New Horizons view of a volcanic plume above Io's limb in 2007; the faint night side is illuminated by Jupiter. Credit: NASA. [https://commons.wikimedia.org/wiki/File:NewHorizonsIo.jpg Source]; [https://commons.wikimedia.org/wiki/File:NewHorizonsIo.jpg#Licensing Public domain].]]
+
+Volcanic plumes launch gases and particles above the surface. Some are associated with active eruptions, while others involve interactions between hot material and volatile deposits. Their size and appearance vary, so a plume is not a uniform physical structure repeated everywhere.
+
+The particles and gases can settle onto surrounding terrain, creating bright or colourful deposits. Sulphur and sulphur compounds contribute to the appearance, while the age, temperature and chemical processing of material affect its colour. White areas can contain sulphur dioxide frost, whereas dark regions can include relatively fresh or hot volcanic material.
+
+Weak gravity and the lack of a dense atmosphere allow ejecta to follow trajectories unlike those of terrestrial volcanic clouds. A plume's shape and extent consequently depend on both eruption conditions and the surrounding environment. Interpreting a ring-shaped deposit requires consideration of where material travelled and subsequently condensed or fell.
+
+Colour photographs are useful for mapping changes but cannot replace spectroscopy or thermal measurements. A newly coloured region establishes a surface change; attributing it to a particular substance or eruption mechanism is a separate inference. The changing deposits nevertheless provide an accessible record of how internal heat is translated into surface chemistry and redistributed around volcanic centres.
+
+== Mountains, faults and surface renewal ==
+Io has tall mountains whose development is not explained simply by piling up lava into ordinary volcanic cones. Faulting and compression of the crust contribute to their formation. Understanding their relationships with surrounding deposits helps distinguish tectonic structures from volcanic construction.
+
+Repeated addition of surface material can bury older layers and influence stresses in the outer shell. Heat also changes how materials deform and where fractures may develop. Those interactions produce a landscape containing strong elevated blocks as well as volcanic depressions and flows.
+
+Mountain slopes can fail, redistributing material and modifying the terrain. In an airless or nearly airless setting, such movement is not driven by rainfall in the terrestrial sense. Gravity, structural weakness and thermal or volcanic processes provide different pathways to slope change.
+
+The scarcity of clearly preserved impact craters reflects rapid renewal over much of the observable surface. Dating such terrain requires attention to coverage and process rates rather than assuming a conventional crater-count chronology works unchanged. Io therefore offers a useful contrast with the Moon: both are rocky satellites, but one preserves a long impact archive while the other records vigorous replacement of much of its upper surface. Their differences emerge from energy sources and geological behaviour, not size alone.
+
+== Atmosphere and volatile cycling ==
+Io has a thin atmosphere dominated by sulphur dioxide. Volcanic release and sublimation of surface frost contribute, while condensation and escape remove material. The balance changes with sunlight, location and time.
+
+Eclipses by Jupiter can reduce surface heating and cause atmospheric gases to condense. Sunlight later restores conditions favouring sublimation. The atmosphere therefore responds on short timescales as well as to changes in volcanic activity. It is not a dense, stable envelope supporting familiar terrestrial weather.
+
+Surface frost acts as a volatile reservoir, but its distribution is influenced by deposition, temperature and processing by energetic particles. Atmospheric chemistry is consequently connected to both geology and the Jovian radiation environment. A measured gas abundance at one place and time should not be treated as a permanent global value.
+
+The word atmosphere also requires scale: a tenuous gas layer can be scientifically important despite exerting little surface pressure. It participates in the transfer of sulphur and oxygen into surrounding space, alters spectral measurements and helps explain how frost and plume deposits evolve. Io's environment links condensed material, gases and plasma, with each component responding differently to radiation, temperature and gravity.
+
+== Plasma torus and Jupiter's magnetosphere ==
+Material originating from Io becomes ionised and contributes to a torus of plasma around Jupiter near the moon's orbit. That plasma is carried and accelerated within the planet's rotating magnetic environment. Volcanic and atmospheric processes on Io thus influence a region vastly larger than the satellite itself.
+
+The interaction produces electrical currents and energy exchange between the moon and Jupiter. Auroral features associated with Io provide evidence of that connection in the giant planet's upper atmosphere. Their behaviour cannot be explained solely by treating the moon as an electrically passive rock moving through empty space.
+
+Energetic particles also process the surface and atmosphere. They can alter chemistry, remove particles and contribute to emissions observed remotely. Interpreting a surface compound therefore requires considering both its geological source and subsequent exposure to the surrounding plasma.
+
+The relationship provides a natural laboratory for electrodynamics and plasma transport. Measurements of gases, particles, fields and auroras describe different aspects of one connected system. Coordinated observations are especially useful for separating changes in Io's source material from changes in Jupiter's magnetospheric conditions. An observed brightening in one component is meaningful evidence, but it does not automatically identify which physical process changed first.
+
+== Spacecraft exploration and unresolved questions ==
+Voyager observations in 1979 revealed active volcanic plumes and transformed the understanding of Io. Galileo later supplied repeated close investigations within the Jovian system. Juno observations added further information from changing encounter geometries and instruments designed to study Jupiter and its surroundings.<ref name="missions">[https://science.nasa.gov/mission/voyager/ NASA Science: Voyager] and [https://science.nasa.gov/mission/juno/ NASA Science: Juno]. Historical spacecraft investigations of the Jovian system.</ref>
+
+Ground-based and space-based telescopes continue to provide thermal and spectral monitoring. Those observations can cover intervals between spacecraft encounters, although their resolution and sensitivity differ. Combining data requires attention to calibration, geometry and the changing nature of individual volcanic centres.
+
+Open questions concern the distribution of tidal dissipation, the arrangement of melt, the mechanisms of different plumes and the exchange of material with Jupiter's environment. Better constraints on interior structure would improve models of both heating and orbital evolution. Longer monitoring would clarify which patterns persist and which are episodic.
+
+Io's importance extends to other tidally heated worlds, including rocky exoplanets in close or resonant orbits. It demonstrates that a small body can remain intensely active when orbital energy is continually dissipated inside it. That lesson does not make every heated moon an Io analogue: composition, heat transport and surface conditions still determine the geological outcome.
+
+== Sources ==
+<references />
+
+Written and reorganised using [https://en.wikipedia.org/wiki/Io_(moon) Io (moon)] by Wikipedia contributors ([https://en.wikipedia.org/w/index.php?title=Io_(moon)&action=history page history]), checked 7 October 2026, with NASA material cited above. Changes include new explanatory prose, restructuring, a summary table and local atlas links. Adapted article text: [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0].

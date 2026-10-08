@@ -1,0 +1,125 @@
+{{Planet|name=Jupiter|class=Gas giant}}
+[[File:solar/jupiter-overview.jpg|thumb|right|220px|alt=Jupiter with atmospheric bands and the Great Red Spot|Jupiter observed by the Hubble Space Telescope in 2024. Credit: NASA/STSCI (S.T.A.R.S). [https://commons.wikimedia.org/wiki/File:Jupiter_OPAL_2024.png Source]; [https://commons.wikimedia.org/wiki/File:Jupiter_OPAL_2024.png#Licensing Public domain].]]
+'''Jupiter''' is the fifth planet from the Sun and the largest planet in [[Sol]]. Its mass is greater than the combined mass of the other seven planets, making its gravitational influence important throughout the Solar System. It is a gas giant whose visible bands and storms belong to an atmosphere above progressively deeper, denser material. The edge of the disc seen through a telescope does not mark a solid surface on which a spacecraft could land.
+
+Jupiter combines several connected systems: an atmosphere driven by sunlight and internal heat, a powerful magnetic environment, faint rings and a diverse collection of moons. [[Io]] and [[Europa]] illustrate two very different outcomes of tidal interactions within that system. Studying Jupiter therefore addresses both the formation of giant planets and the evolution of satellite worlds. Its familiar striped appearance is a starting point for investigation, rather than a complete picture of what happens beneath the cloud tops.<ref name="overview">[https://science.nasa.gov/jupiter/jupiter-facts/ NASA Science: Jupiter facts]. Physical characteristics and the Jovian system.</ref>
+
+{| class="wikitable"
+|+ Selected physical and orbital characteristics
+! Quantity !! Approximate value
+|-
+| Mean radius || 69,911 km
+|-
+| Mean solar distance || 5.20 astronomical units
+|-
+| Orbital period || 11.86 Earth years
+|-
+| Rotation period || Approximately 10 hours
+|-
+| Principal atmospheric gases || Hydrogen and helium
+|-
+| Selected moons in this atlas || Io and Europa
+|-
+| Ring system || Faint, primarily dusty
+|}
+
+== Appearance and historical observation ==
+Jupiter is bright enough to have been known since antiquity and can be observed well with modest astronomical instruments. Its apparent diameter changes with distance from Earth, and oppositions provide favourable viewing geometry. Telescopes reveal cloud bands, larger storms and the changing positions of its most conspicuous moons.
+
+Galileo's observations in 1610 identified four major satellites orbiting Jupiter. Their motion demonstrated that not every celestial body revolved directly around Earth, contributing to the changing understanding of planetary systems. Those satellites are now known as Io, Europa, Ganymede and Callisto. Only two are selected for individual display in this atlas; that selection is not a scientific inventory of the full system.
+
+Cloud features change on much shorter timescales than a planet's geological history. A drawing or photograph records a particular state, not an arrangement that must recur exactly during every rotation. Long-term monitoring by amateur and professional observers helps track changes in belts and storms, adding context to detailed but time-limited spacecraft observations.
+
+Visible-light observations principally describe upper clouds. Infrared, radio and ultraviolet measurements investigate different layers and processes. Combining wavelengths is essential because similar-looking features can have different temperatures, altitudes or compositions. Jupiter's brightness makes it accessible, but accessibility at one wavelength does not remove the difficulty of probing its deep interior.
+
+== Orbit, rotation and shape ==
+Jupiter takes nearly twelve Earth years to travel around the Sun, while rotating in approximately ten hours. Its fast spin contributes to an oblate shape: the equatorial radius is larger than the polar radius. That shape matters when quoting a diameter or interpreting gravity measurements. A mean radius and an equatorial radius describe different quantities.
+
+Because Jupiter has no exposed solid surface, different rotation rates can be associated with different atmospheric regions. Cloud motions also include winds relative to the underlying rotation. Measurements linked to magnetic behaviour help establish a useful rotational reference, but an individual cloud does not necessarily move at that reference speed.
+
+=== Rotation and atmospheric dynamics ===
+Fast rotation affects the movement of air and the organisation of large-scale jets. The atmosphere's changing pressure and temperature fields interact with rotational influences, producing flows unlike the familiar circulation on a slowly rotating rocky world. Jupiter's small axial tilt limits the simple seasonal contrast associated with tilt on Earth, but the weather remains variable.
+
+The orbit also connects Jupiter to the broader Solar System. Its gravity perturbs nearby bodies and contributes to resonances in the asteroid population. Those effects operate over long intervals and depend on orbital geometry. A resonance is not merely a coincidence in periods; repeated gravitational interactions can change the stability or evolution of an orbit.
+
+== Composition and deep interior ==
+Hydrogen and helium dominate Jupiter's bulk composition, connecting the planet to the abundant gases in the early Solar System. Heavier elements are present as well, although their distribution and total abundance require measurement and modelling. The atmospheric composition sampled at one location is not automatically identical to the composition of the whole planet.
+
+Pressure and temperature increase inward. Hydrogen passes through regimes whose properties differ greatly from those of ordinary gas near the cloud tops. At sufficient pressure, it becomes electrically conducting in a metallic state. This does not mean Jupiter contains a conventional exposed metal surface; the transition occurs within a deep, hot fluid interior.
+
+Measurements from the Juno mission have strengthened evidence that Jupiter's heavy-element-rich central region may be extended and mixed rather than a small, sharply bounded solid object. Scientists sometimes describe this as a dilute core. Its interpretation depends on equations of state, rotation and the distribution of material, so simplified cutaway diagrams should not be taken literally.
+
+A central question is how formation and subsequent mixing produced the present arrangement. Material may have been added through accretion, redistributed by convection or affected by early impacts and other processes. Interior models must agree with gravity, composition and energy measurements simultaneously. Reproducing one observation alone does not establish the whole internal structure.
+
+== Internal heat and energy transport ==
+Jupiter radiates more energy than it receives from sunlight. Retained formation heat and the continuing release of gravitational energy contribute to that excess. The atmosphere is therefore influenced by both external solar heating and energy moving outward from the interior, unlike an idealised world warmed only from above.
+
+Convection transports heat where rising and sinking fluid efficiently exchanges energy. Elsewhere, radiation and more complicated layered behaviour can influence the flow. Composition affects density and can change the conditions under which convection operates. The interior's thermal history is consequently connected to its chemical structure.
+
+This energy supply helps support atmospheric activity, but a storm cannot be explained solely by assigning it a share of the planet's total heat. Local temperature differences, condensation, jets and rotational effects determine how energy enters and moves through a particular feature. A global energy balance and a local weather event concern related but different scales.
+
+Understanding cooling also informs estimates of giant-planet age and evolution beyond the Solar System. Young massive planets can be bright in infrared light because they retain substantial heat from formation. Jupiter supplies a nearby example against which models of those distant objects can be tested. Its current luminosity is one stage in a long thermal evolution, not a constant property that has always had the same value.
+
+== Cloud layers and atmospheric chemistry ==
+[[File:solar/jupiter-cyclones.jpg|thumb|center|480px|alt=Infrared image of cyclones surrounding Jupiter's north pole|Juno infrared composite of Jupiter's north-polar cyclones. Assigned colours represent thermal emission, not visible light. Credit: NASA. [https://commons.wikimedia.org/wiki/File:Cyclone_storms_encircle_Jupiter%27s_North_Pole,_captured_in_infrared_light_by_NASA%27s_Juno_spacecraft.png Source]; [https://commons.wikimedia.org/wiki/File:Cyclone_storms_encircle_Jupiter%27s_North_Pole,_captured_in_infrared_light_by_NASA%27s_Juno_spacecraft.png#Licensing Public domain].]]
+
+The visible atmosphere contains bands commonly described as bright zones and darker belts. Their appearance reflects differences in clouds, aerosols, circulation and chemistry. A colour change does not necessarily mean that a new substance has been detected directly; illumination and the altitude or thickness of particles can also affect the observation.
+
+Models of the cloud structure include condensates associated with ammonia, ammonium hydrosulphide and water at different depths. The actual arrangement varies by location and meteorological conditions. Water is especially important for atmospheric chemistry and for reconstructing how the planet acquired material, but measuring its abundance is difficult when some reservoirs lie beneath optically thick layers.
+
+Galileo's atmospheric probe supplied direct measurements along one descent path. That path entered a particular meteorological region, making some results unrepresentative of the planet's entire atmosphere. A local measurement remains valuable while requiring context. Remote observations and repeated sampling of different locations help determine whether a feature is local or widespread.
+
+Lightning and convective clouds demonstrate that vigorous weather occurs within the atmosphere. The relevant conditions differ from those on Earth, but phase changes and fluid motions remain central physical processes. Spectroscopy, microwave observations and imaging each reveal part of this environment. Agreement among different methods provides stronger evidence than an inference based on colour alone.
+
+== Jets, vortices and the Great Red Spot ==
+[[File:solar/jupiter-red-spot.jpg|thumb|center|480px|alt=Close view of Jupiter's Great Red Spot and swirling clouds|Voyager 1 mosaic of the Great Red Spot and neighbouring cloud formations in 1979. Credit: NASA/JPL. [https://commons.wikimedia.org/wiki/File:PIA00022_Jupiter_Great_Red_Spot_Mosaic.jpg Source]; [https://commons.wikimedia.org/wiki/File:PIA00022_Jupiter_Great_Red_Spot_Mosaic.jpg#Licensing Public domain].]]
+
+Jupiter's eastward and westward jets organise atmospheric movement into alternating bands. Large vortices interact with those flows, and their behaviour can be tracked through repeated observations. Some storms survive for long intervals while others merge, weaken or change appearance. Stability depends on the surrounding circulation as well as on the storm itself.
+
+=== A persistent but changing storm ===
+The Great Red Spot is an especially prominent anticyclonic vortex. Its existence over a long observational record makes it a valuable target for studying the dynamics of persistent storms. Its size and shape have changed, and interpreting that evolution requires carefully comparing measurements obtained with different instruments and observing conditions.
+
+The storm is not simply a hole through the atmosphere or a feature fixed to a solid ground. It is a rotating weather system embedded within surrounding jets. Its distinctive colour has motivated chemical investigations, but the exact colouring mechanisms should not be presented as completely settled by its familiar name.
+
+The depth of jets and storms is another major research subject. Juno observations connect visible atmospheric patterns with measurements that probe below the upper clouds.<ref name="juno">[https://science.nasa.gov/mission/juno/ NASA Science: Juno]. Gravity, magnetic and atmospheric investigations following arrival at Jupiter in 2016.</ref> Those results illustrate how surface appearance, in the observational sense of cloud tops, can be linked to deeper fluid structures without assuming every visible band extends unchanged through the entire planet.
+
+== Magnetic field and radiation environment ==
+Jupiter's strong magnetic field is associated with electrically conducting material in its interior. The resulting magnetosphere is very large and continually interacts with the solar wind. Its boundary moves as external conditions change, so there is no single fixed edge applicable to every observation.
+
+Charged particles trapped and accelerated within the system create a severe radiation environment. That environment affects spacecraft design and the chemistry of nearby moons. Shielding, trajectory selection and the duration of exposure matter when planning observations close to Jupiter. The radiation environment also influences which satellite surfaces can preserve unaltered material for long periods.
+
+Auroras occur as energetic particles interact with the upper atmosphere. Jupiter's rotation and interactions with its moons contribute to processes that differ from a simple copy of Earth's solar-wind-driven auroras. Io releases material that becomes ionised and distributed through the system, creating a connection between volcanism on a moon and plasma physics around the planet.
+
+Magnetic measurements also help constrain the interior, but the internal field and the changing magnetosphere must be distinguished in data analysis. A spacecraft measures their combined influence along a moving path. Repeated observations and coordinated measurements are needed to separate spatial structure from variations over time, rather than assigning every change to the dynamo deep inside Jupiter.
+
+== Rings and smaller satellites ==
+Jupiter has a faint ring system discovered during spacecraft exploration. Unlike the brilliant icy rings of [[Saturn]], the Jovian rings are largely dusty and difficult to observe in ordinary reflected light. Viewing geometry strongly affects their visibility because small particles scatter light in characteristic ways.
+
+Dust can be supplied when impacts strike nearby small moons and eject material into orbit. Radiation forces and interactions with charged particles subsequently affect that material. The rings are therefore maintained within a changing environment rather than composed of particles that remain on perfectly identical paths indefinitely.
+
+The system contains both regular satellites and more distant irregular moons. Their orbital patterns and compositions provide clues to accretion and capture. Different populations need not share a single origin. A small object on a distant inclined orbit poses different evolutionary questions from a large moon orbiting close to the equatorial plane.
+
+Published counts of known moons change as new objects are discovered and their orbits confirmed. This atlas deliberately avoids treating a selected display as a complete catalogue. Rings and small satellites matter even when they do not dominate a picture: they trace collisions, transport and gravitational interactions that help researchers understand how material circulates within a giant planet's extended system.
+
+== The Galilean moons and tidal interactions ==
+The four Galilean moons differ greatly in their surfaces and interiors. Io is intensely volcanic, Europa has an icy exterior above strong evidence for a subsurface ocean, Ganymede is a large differentiated world, and Callisto preserves a heavily cratered surface. Their differences show that orbiting the same giant planet does not guarantee the same geological outcome.
+
+Orbital resonances link the motions of Io, Europa and Ganymede. Those interactions help maintain orbital eccentricity and allow tidal deformation to continue. Deformation can turn orbital energy into internal heat when material responds dissipatively to changing forces. The efficiency depends on internal properties, making thermal evolution and orbital dynamics mutually connected.
+
+For Io, tidal heating is central to the explanation of extensive volcanism. For Europa, the balance among heat production, heat transport and surface cooling is important for understanding an ocean beneath ice. An ocean is evidence for liquid water under particular conditions, not evidence by itself for organisms.
+
+ESA's Juice mission, launched in 2023, is designed to investigate Jupiter and several icy moons, with arrival at Jupiter planned for 2031 as of this article's preparation.<ref name="juice">[https://www.cosmos.esa.int/web/juice/overview ESA: Juice overview], checked 7 October 2026.</ref> Its measurements are intended to improve comparisons among environments that spacecraft have so far sampled with limited coverage.
+
+== Exploration and planetary formation ==
+Pioneer and Voyager flybys established much of the early spacecraft picture of Jupiter and its satellites. Galileo subsequently orbited Jupiter and delivered an atmospheric probe, allowing repeated investigations that a brief flyby could not provide. Juno entered orbit in 2016 and added measurements focused on the planet's atmosphere, gravity and magnetic properties.
+
+These missions address how Jupiter formed as well as what it looks like now. The timing of solid-core growth, the acquisition of gas and possible redistribution of heavy elements remain important topics. Atmospheric abundances help constrain the materials incorporated during formation, while gravity measurements constrain their present arrangement.
+
+Jupiter also influenced the evolution of surrounding smaller bodies. Its gravity can redirect or destabilise some orbits and support other long-lived configurations. Describing it simply as a universal protective shield for Earth would overlook that complicated behaviour. The effect depends on the incoming population and its orbital geometry.
+
+The planet is thus a nearby test case for a broad class of worlds. Giant exoplanets can have different masses, temperatures and orbits, yet many physical questions about composition, cooling and atmospheric dynamics overlap. Jupiter provides detailed observations unavailable for most distant planets, while its unresolved interior and formation history remind researchers that even the largest familiar world still contains substantial scientific uncertainty.
+
+== Sources ==
+<references />
+
+Written and reorganised using [https://en.wikipedia.org/wiki/Jupiter Jupiter] by Wikipedia contributors ([https://en.wikipedia.org/w/index.php?title=Jupiter&action=history page history]), checked 7 October 2026, with primary sources cited above. Changes include new explanatory prose, restructuring, a summary table and local atlas links. Adapted article text: [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0].

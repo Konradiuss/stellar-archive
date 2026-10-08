@@ -1,0 +1,35 @@
+{{Box|Wikitext example|color=green|icon=book|This page demonstrates article markup. Its Latin text is placeholder content, not part of the setting.}}
+'''Wikitext Example''' combines links, headings, lists, tables and footnotes. Compare it with [[Markdown Example]] or open [[Long Article Example]] to try the reading controls.
+
+== Typography ==
+Lorem ipsum dolor sit amet, ''consectetur adipiscing elit''. Integer vitae ligula ut nibh dictum consequat.<ref name="sample">Demonstration footnote: no factual claim is attached to this placeholder.</ref>
+
+=== Lists ===
+* A route begins at [[Sol]].
+* A story continues at [[Nacre]].
+** A nested item can lead to [[Nacre Beacon]].
+# Read the introduction.
+# Follow a link.
+# Return through the navigation panel.
+
+== Table ==
+{| class="wikitable"
+|+ Sample archive entries
+! Entry !! Role
+|-
+| [[Daybreak]] || inhabited world
+|-
+| [[Forge]] || industrial world
+|-
+| [[Thalassa]] || ocean world
+|}
+
+== Picture and quotation ==
+[[File:earth.jpg|thumb|right|An existing NASA image used to demonstrate a caption.]]
+{{Quote|Lorem ipsum dolor sit amet, consectetur adipiscing elit.|Placeholder quotation}}
+{{See also|Markdown Example|Long Article Example}}
+
+== Notes ==
+Another reference can reuse the first note.<ref name="sample" />
+<references />
+[[Category:Examples]]

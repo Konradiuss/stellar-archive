@@ -1,10 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { readFileSync } from 'node:fs'
 import { formatTime, nextIndex, normalizeMusicConfig, previousIndex, spectrumBars } from '../musicPlaylist.js'
 
-const mapData = JSON.parse(
-  readFileSync(new URL('../../../public/map.json', import.meta.url), 'utf8')
-)
 const BASE = 'https://example.org/maps/map.json'
 
 describe('music playlist', () => {
@@ -31,16 +27,6 @@ describe('music playlist', () => {
     expect(tracks).toEqual([expect.objectContaining({ title: 'a.mp3', url: null, duration: null })])
     expect(normalizeMusicConfig(undefined, BASE)).toEqual([])
     expect(normalizeMusicConfig({ tracks: 'x' }, BASE)).toEqual([])
-  })
-
-  it('credits the author and the licence of every track of the sample map', () => {
-    const tracks = normalizeMusicConfig(mapData.music, BASE)
-    expect(tracks).toHaveLength(8)
-    for (const track of tracks) {
-      expect(track.author, track.title).toBe('Duke Gneiss')
-      expect(track.license, track.title).toBe('CC BY-NC-SA 3.0')
-      expect(track.url, track.title).toMatch(/^https:\/\/soundcloud\.com\/dukegneiss\//)
-    }
   })
 
   it('formats times', () => {

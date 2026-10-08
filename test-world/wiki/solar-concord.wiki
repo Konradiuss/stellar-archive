@@ -1,0 +1,14 @@
+{{Faction|name=Solar Concord|capital=[[Daybreak]]|government=Assembly of Worlds|fleet=Concord Patrol}}
+'''Solar Concord''' joins [[Sol]] and [[Asterion]] under a charter of shared passage. It considers an open gate network the inheritance of every settled world. The older colonies distrust the [[Crucible Combine]]'s tolls but depend on its engines.
+
+== Charter ==
+Each inhabited world sends delegates to the assembly on [[Concord Ring]]. The Concord maintains common navigation charts, rescue services and a patrol funded by its members. [[Orchard]] supplies food for the stations while [[Daybreak]] hosts the civilian administration.
+
+=== The price of peace ===
+The assembly has forbidden a unilateral occupation of [[Nacre]]. Its admirals worry that the [[Nacre Beacon]] could redraw the entire network before any treaty is signed.
+
+== Neighbours ==
+The [[Free Tide]] accepts rescue cooperation but rejects permanent patrol bases. Combine merchants may cross Concord gates if their cargo records remain open to inspection.
+
+{{Quote|A route belongs to everyone who must come home.|Concord charter}}
+[[Category:Factions]]

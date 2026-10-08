@@ -1,10 +1,10 @@
 import { expect, test } from '@playwright/test'
-import { openHash, releaseMap, waitForView } from './helpers.js'
+import { openHash, worldMap, waitForView } from './helpers.js'
 
 const serveText = (page, body, status = 200) => page.route('**/map.json', route => route.fulfill({ status, contentType: 'application/json', body }))
 
 test('a broken map file is shown with its line, a ^ under the place and the reason', async ({ page }) => {
-  const text = JSON.stringify(releaseMap(), null, 2).replace('"name": "Sol",', '"name": "Sol",,')
+  const text = JSON.stringify(worldMap(), null, 2).replace('"name": "Sol",', '"name": "Sol",,')
   const rows = text.split('\n')
   const line = rows.findIndex(row => row.includes('"name": "Sol",,')) + 1
   const column = rows[line - 1].indexOf(',,') + 2
@@ -29,7 +29,7 @@ test('a missing map file says where it is looked for', async ({ page }) => {
 test('broken parts are left out, the map opens, and Special:Map check lists them', async ({ page }) => {
   const errors = []
   page.on('pageerror', error => errors.push(error.message))
-  const map = releaseMap()
+  const map = worldMap()
   delete map.stars.find(star => star.id === 'halcyon').id
   delete map.systems.sol.planets[0].name
   // Was: a colour written as the web writes it broke the whole galaxy.
@@ -52,7 +52,7 @@ test('broken parts are left out, the map opens, and Special:Map check lists them
   expect(errors).toEqual([])
 })
 
-test('the map that comes with the site has no problems', async ({ page }) => {
+test('a map without problems: Special:Map check says so', async ({ page }) => {
   await openHash(page, '#/wiki/Special:Map_check')
   await expect(page.locator('.wiki-view .special-note')).toHaveText('No problems found in map.json.')
   await expect(page.locator('.wiki-view .map-issue')).toHaveCount(0)
@@ -62,7 +62,7 @@ test('the map that comes with the site has no problems', async ({ page }) => {
 // Was: the map check said nothing of a picture from another site, whose owner sees every reader of the page.
 test('pictures of another site are a note of the map check, not a problem', async ({ page }) => {
   await page.route('https://img.example/**', route => route.fulfill({ status: 404, body: '' }))
-  const map = releaseMap()
+  const map = worldMap()
   Object.assign(map.stars.find(star => star.id === 'halcyon'), { lore: '![Halcyon](https://img.example/halcyon.png)', loreFormat: 'markdown' })
   await serveText(page, JSON.stringify(map))
   const warnings = []

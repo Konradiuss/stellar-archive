@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs'
 import { findGridPath, routeHyperlines } from '../hyperlineRouter.js'
 
 const mapData = JSON.parse(
-  readFileSync(new URL('../../../public/map.json', import.meta.url), 'utf8')
+  readFileSync(new URL('../../../test-world/map.json', import.meta.url), 'utf8')
 )
 const grid = { columns: mapData.galaxy.columns, rows: mapData.galaxy.rows }
 

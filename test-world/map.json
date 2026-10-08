@@ -1,0 +1,983 @@
+{
+  "site": {
+    "title": "SpaceMap",
+    "titleTemplate": "{page} — {site}",
+    "favicon": "favicon.gif"
+  },
+  "galaxy": {
+    "columns": 8,
+    "rows": 8
+  },
+  "music": {
+    "tracks": [
+      {
+        "title": "Codebrain",
+        "author": "Duke Gneiss",
+        "file": "music/gneiss/codebrain.wav",
+        "url": "https://soundcloud.com/dukegneiss/codebrain",
+        "license": "CC BY-NC-SA 3.0",
+        "duration": 12
+      },
+      {
+        "title": "Get Set",
+        "author": "Duke Gneiss",
+        "file": "music/gneiss/get-set.wav",
+        "url": "https://soundcloud.com/dukegneiss/get-set",
+        "license": "CC BY-NC-SA 3.0",
+        "duration": 13
+      },
+      {
+        "title": "Gneiss",
+        "author": "Duke Gneiss",
+        "file": "music/gneiss/gneiss.wav",
+        "url": "https://soundcloud.com/dukegneiss/gneiss",
+        "license": "CC BY-NC-SA 3.0",
+        "duration": 14
+      },
+      {
+        "title": "Intruder",
+        "author": "Duke Gneiss",
+        "file": "music/gneiss/intruder.wav",
+        "url": "https://soundcloud.com/dukegneiss/intruder",
+        "license": "CC BY-NC-SA 3.0",
+        "duration": 15
+      },
+      {
+        "title": "Night at the Citadel",
+        "author": "Duke Gneiss",
+        "file": "music/gneiss/night-at-the-citadel.wav",
+        "url": "https://soundcloud.com/dukegneiss/night-at-the-citadel",
+        "license": "CC BY-NC-SA 3.0",
+        "duration": 16
+      },
+      {
+        "title": "O.W.L",
+        "author": "Duke Gneiss",
+        "file": "music/gneiss/owl.wav",
+        "url": "https://soundcloud.com/dukegneiss/o-w-l",
+        "license": "CC BY-NC-SA 3.0",
+        "duration": 17
+      },
+      {
+        "title": "Oxygen Facility",
+        "author": "Duke Gneiss",
+        "file": "music/gneiss/oxygen-facility.wav",
+        "url": "https://soundcloud.com/dukegneiss/oxygen-facility",
+        "license": "CC BY-NC-SA 3.0",
+        "duration": 18
+      },
+      {
+        "title": "Quantum",
+        "author": "Duke Gneiss",
+        "file": "music/gneiss/quantum.wav",
+        "url": "https://soundcloud.com/dukegneiss/quantum",
+        "license": "CC BY-NC-SA 3.0",
+        "duration": 19
+      }
+    ]
+  },
+  "worldLore": "'''Eight stars form a fragile network.''' The [[Solar Concord]] keeps the old charter of open passage, the [[Crucible Combine]] builds the machinery that makes it possible, and the [[Free Tide]] refuses to let either power own the frontier.\n\nThe first expedition travelled from [[Sol]] to [[Asterion]]. Foundries later spread into [[Cinder]] and [[Vesper]], while independent ports grew around [[Pelagos]] and [[Halcyon]]. Their history is recorded in the [[Settlement Chronicle]]. Freight, patrols and survey vessels share the [[Quantum Gates]], each under a different agreement.\n\nNow the ruins of [[Reliquary]] broadcast the [[Nacre Beacon]]. A ship returning from [[Silent Reach]] has lost part of its navigation log. Three delegations share the laboratories of [[Beacon Watch]], but none agrees on what the signal means or who should control the next passage.\n\nThis is a fictional demonstration setting. [[Sol]] preserves eight real planets and selected moons with scientific descriptions; the surrounding systems, settlements and political history are invented. To explore article formatting, visit [[Wikitext Example]], [[Markdown Example]] and [[Long Article Example]].",
+  "legend": "Blue — Solar Concord | Red — Crucible Combine | Green — Free Tide | Yellow — Neutral Territories",
+  "wiki": {
+    "home": "Main Page",
+    "groups": [
+      {
+        "id": "history",
+        "title": "History",
+        "icon": "book"
+      },
+      {
+        "id": "factions",
+        "title": "Factions",
+        "icon": "flag"
+      },
+      {
+        "id": "tech",
+        "title": "Technology",
+        "icon": "gear",
+        "groups": [
+          {
+            "id": "ships",
+            "title": "Ships",
+            "icon": "rocket",
+            "groups": [
+              {
+                "id": "drives",
+                "title": "Drives",
+                "icon": "bolt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "examples",
+        "title": "Examples",
+        "icon": "question"
+      }
+    ],
+    "articles": [
+      {
+        "title": "Main Page",
+        "file": "wiki/main.wiki"
+      },
+      {
+        "title": "Solar Concord",
+        "file": "wiki/solar-concord.wiki",
+        "group": "factions",
+        "aliases": [
+          "Concord"
+        ]
+      },
+      {
+        "title": "Crucible Combine",
+        "file": "wiki/crucible-combine.wiki",
+        "group": "factions",
+        "aliases": [
+          "Combine"
+        ]
+      },
+      {
+        "title": "Free Tide",
+        "file": "wiki/free-tide.md",
+        "group": "factions",
+        "aliases": [
+          "Tide"
+        ]
+      },
+      {
+        "title": "Settlement Chronicle",
+        "file": "wiki/settlement-chronicle.wiki",
+        "group": "history"
+      },
+      {
+        "title": "Nacre Beacon",
+        "file": "wiki/nacre-beacon.wiki",
+        "group": "history",
+        "place": "Reliquary"
+      },
+      {
+        "title": "Quantum Gates",
+        "file": "wiki/quantum-gates.wiki",
+        "group": "tech"
+      },
+      {
+        "title": "Jump Ships",
+        "file": "wiki/jump-ships.wiki",
+        "group": "ships"
+      },
+      {
+        "title": "Gate Drive",
+        "file": "wiki/gate-drive.wiki",
+        "group": "drives"
+      },
+      {
+        "title": "Wikitext Example",
+        "file": "wiki/wikitext-example.wiki",
+        "group": "examples"
+      },
+      {
+        "title": "Markdown Example",
+        "file": "wiki/markdown-example.md",
+        "group": "examples"
+      },
+      {
+        "title": "Long Article Example",
+        "file": "wiki/long-article-example.wiki",
+        "group": "examples"
+      }
+    ]
+  },
+  "stars": [
+    {
+      "id": "sol",
+      "name": "Sol",
+      "sectorX": 1,
+      "sectorY": 1,
+      "faction": "concord",
+      "lore": "'''Sol''' is the real Solar System: eight planets orbit the Sun. This atlas includes [[Mercury]], [[Venus]], [[Earth]], [[Mars]], [[Jupiter]], [[Saturn]], [[Uranus]] and [[Neptune]], with a selection of real moons. Distances, sizes and orbital speeds are schematic, not to scale. The [[Solar Concord]] and [[Exodus Station]], a fictional orbital port at [[Earth]], belong to the demonstration setting; the planetary articles describe real astronomy.",
+      "starVisualization": {
+        "size": 60,
+        "color1": "0xffdd00",
+        "color2": "0xffdd00",
+        "color3": "0xfff0d4"
+      }
+    },
+    {
+      "id": "asterion",
+      "name": "Asterion",
+      "sectorX": 2,
+      "sectorY": 3,
+      "faction": "concord",
+      "lore": "'''Asterion''' was the first settlement beyond [[Sol]]. [[Daybreak]] holds the assembly, [[Orchard]] supplies its food and [[Crown]] marks the outer approach. The [[Solar Concord]] maintains the gate, but its patrols now spend as much time negotiating passage rights as guiding civilian ships.",
+      "starVisualization": {
+        "size": 60,
+        "color1": "0xffe3ac",
+        "color2": "0xffe3ac",
+        "color3": "0xfff0d4"
+      }
+    },
+    {
+      "id": "cinder",
+      "name": "Cinder",
+      "sectorX": 4,
+      "sectorY": 1,
+      "faction": "combine",
+      "lore": "'''Cinder''' is the industrial heart of the [[Crucible Combine]]. [[Forge]] and [[Crucible Yard]] build ships and gate components from materials surveyed on [[Ash]]. Its direct connection to [[Sol]] keeps rival governments talking even when customs disputes threaten the network.",
+      "starVisualization": {
+        "size": 60,
+        "color1": "0xff8844",
+        "color2": "0xff8844",
+        "color3": "0xfff0d4"
+      }
+    },
+    {
+      "id": "vesper",
+      "name": "Vesper",
+      "sectorX": 6,
+      "sectorY": 2,
+      "faction": "combine",
+      "lore": "'''Vesper''' carries freight between the foundries of [[Cinder]] and the ports of [[Pelagos]]. [[Anvil]] makes heavy components; [[Dusk]] organizes convoys. The [[Crucible Combine]] considers this corridor indispensable, and the [[Free Tide]] refuses to grant it exclusive passage.",
+      "starVisualization": {
+        "size": 60,
+        "color1": "0xffb677",
+        "color2": "0xffb677",
+        "color3": "0xfff0d4"
+      }
+    },
+    {
+      "id": "pelagos",
+      "name": "Pelagos",
+      "sectorX": 5,
+      "sectorY": 5,
+      "faction": "tide",
+      "lore": "'''Pelagos''' is the maritime centre of the [[Free Tide]]. Ships call at [[Thalassa]], [[Shoal]] and [[Tide Spindle]] before heading toward [[Nacre]] or the one-way survey supply run to [[Silent Reach]]. Its councils will share charts with anyone, but will not sell ownership of the route.",
+      "starVisualization": {
+        "size": 60,
+        "color1": "0x9ad5ef",
+        "color2": "0x9ad5ef",
+        "color3": "0xfff0d4"
+      }
+    },
+    {
+      "id": "halcyon",
+      "name": "Halcyon",
+      "sectorX": 2,
+      "sectorY": 6,
+      "faction": "tide",
+      "lore": "'''Halcyon''' shelters the quiet worlds [[Haven]] and [[Pale]]. Rescue crews watch the approach from [[Nacre]] and maintain supplies on [[Wisp]]. The [[Free Tide]] regards this system as a refuge rather than a fortress, even as the dispute over the [[Nacre Beacon]] brings new visitors.",
+      "starVisualization": {
+        "size": 60,
+        "color1": "0xb5edc2",
+        "color2": "0xb5edc2",
+        "color3": "0xfff0d4"
+      }
+    },
+    {
+      "id": "nacre",
+      "name": "Nacre",
+      "sectorX": 3,
+      "sectorY": 4,
+      "faction": "neutral",
+      "lore": "'''Nacre''' is a neutral system centred on [[Reliquary]] and the research outpost [[Beacon Watch]]. Its [[Nacre Beacon|unexplained signal]] has drawn representatives of all three powers. The joint survey agreement allows observation but forbids any one delegation from occupying the ruins.",
+      "starVisualization": {
+        "size": 60,
+        "color1": "0xffeab8",
+        "color2": "0xffeab8",
+        "color3": "0xfff0d4"
+      }
+    },
+    {
+      "id": "silent-reach",
+      "name": "Silent Reach",
+      "sectorX": 6,
+      "sectorY": 6,
+      "faction": "neutral",
+      "lore": "'''Silent Reach''' is a surveyed star with no recorded planets. A supply expedition from [[Pelagos]] returned with a gap in its navigation log, leaving the system under renewed observation. The archive does not invent worlds to fill that silence: this is the map's single example of a star without planets.",
+      "starVisualization": {
+        "size": 60,
+        "color1": "0xe4d8ff",
+        "color2": "0xe4d8ff",
+        "color3": "0xfff0d4"
+      }
+    }
+  ],
+  "systems": {
+    "sol": {
+      "planets": [
+        {
+          "name": "Mercury",
+          "orbitRadius": 45,
+          "angle": 25,
+          "speed": 0.0016,
+          "visualization": {
+            "seed": "mercury",
+            "size": 50
+          },
+          "loreFile": "lore/solar/mercury.wiki"
+        },
+        {
+          "name": "Venus",
+          "orbitRadius": 71,
+          "angle": 162,
+          "speed": 0.001143,
+          "visualization": {
+            "seed": "venus",
+            "size": 62
+          },
+          "loreFile": "lore/solar/venus.wiki"
+        },
+        {
+          "name": "Earth",
+          "orbitRadius": 97,
+          "angle": 299,
+          "speed": 0.000889,
+          "visualization": {
+            "seed": "earth",
+            "size": 65
+          },
+          "loreFile": "lore/solar/earth.wiki",
+          "satellites": [
+            {
+              "name": "Moon",
+              "kind": "moon",
+              "distance": 2.4,
+              "size": 0.22,
+              "speed": 0.008,
+              "visualization": {
+                "seed": "moon",
+                "size": 60,
+                "landColor": "0x9a9a9a",
+                "waterAmount": 0
+              },
+              "loreFile": "lore/solar/moon.wiki"
+            },
+            {
+              "name": "Exodus Station",
+              "kind": "station",
+              "type": "ring",
+              "distance": 3.2,
+              "size": 0.18,
+              "speed": 0.006,
+              "lore": "'''Exodus Station''' is the orbital gateway of [[Earth]] and a major civilian port of the [[Solar Concord]]. Its rotating ring houses departure halls, hydroponic gardens and temporary quarters for expedition crews. Service docks prepare [[Jump Ships]] for journeys beyond [[Sol]], while returning explorers bring their discoveries to the station's public archive."
+            }
+          ]
+        },
+        {
+          "name": "Mars",
+          "orbitRadius": 123,
+          "angle": 76,
+          "speed": 0.000727,
+          "visualization": {
+            "seed": "mars",
+            "size": 55
+          },
+          "loreFile": "lore/solar/mars.wiki",
+          "satellites": [
+            {
+              "name": "Phobos",
+              "kind": "moon",
+              "distance": 2.4,
+              "size": 0.22,
+              "speed": 0.008,
+              "visualization": {
+                "seed": "phobos",
+                "size": 60,
+                "landColor": "0x9a9a9a",
+                "waterAmount": 0
+              },
+              "loreFile": "lore/solar/phobos.wiki"
+            },
+            {
+              "name": "Deimos",
+              "kind": "moon",
+              "distance": 3.2,
+              "size": 0.22,
+              "speed": 0.008,
+              "visualization": {
+                "seed": "deimos",
+                "size": 60,
+                "landColor": "0x9a9a9a",
+                "waterAmount": 0
+              },
+              "loreFile": "lore/solar/deimos.wiki"
+            }
+          ]
+        },
+        {
+          "name": "Jupiter",
+          "orbitRadius": 149,
+          "angle": 213,
+          "speed": 0.000615,
+          "visualization": {
+            "seed": "jupiter",
+            "size": 88
+          },
+          "loreFile": "lore/solar/jupiter.wiki",
+          "satellites": [
+            {
+              "name": "Io",
+              "kind": "moon",
+              "distance": 2.4,
+              "size": 0.22,
+              "speed": 0.008,
+              "visualization": {
+                "seed": "io",
+                "size": 60,
+                "landColor": "0xd9b542",
+                "waterAmount": 0
+              },
+              "loreFile": "lore/solar/io.wiki"
+            },
+            {
+              "name": "Europa",
+              "kind": "moon",
+              "distance": 3.2,
+              "size": 0.22,
+              "speed": 0.008,
+              "visualization": {
+                "seed": "europa",
+                "size": 60,
+                "landColor": "0xd4cab0",
+                "waterAmount": 0
+              },
+              "loreFile": "lore/solar/europa.wiki"
+            }
+          ]
+        },
+        {
+          "name": "Saturn",
+          "orbitRadius": 175,
+          "angle": 350,
+          "speed": 0.000533,
+          "visualization": {
+            "seed": "saturn",
+            "size": 80,
+            "ring": {
+              "color": "0xcbbd94",
+              "size": "medium"
+            }
+          },
+          "loreFile": "lore/solar/saturn.wiki",
+          "satellites": [
+            {
+              "name": "Titan",
+              "kind": "moon",
+              "distance": 3.8,
+              "size": 0.22,
+              "speed": 0.008,
+              "visualization": {
+                "seed": "titan",
+                "size": 60,
+                "landColor": "0xc89c60",
+                "waterAmount": 0
+              },
+              "loreFile": "lore/solar/titan.wiki"
+            }
+          ]
+        },
+        {
+          "name": "Uranus",
+          "orbitRadius": 201,
+          "angle": 127,
+          "speed": 0.000471,
+          "visualization": {
+            "seed": "uranus",
+            "size": 72
+          },
+          "loreFile": "lore/solar/uranus.wiki"
+        },
+        {
+          "name": "Neptune",
+          "orbitRadius": 227,
+          "angle": 264,
+          "speed": 0.000421,
+          "visualization": {
+            "seed": "neptune",
+            "size": 72
+          },
+          "loreFile": "lore/solar/neptune.wiki",
+          "satellites": [
+            {
+              "name": "Triton",
+              "kind": "moon",
+              "distance": 2.4,
+              "size": 0.22,
+              "speed": 0.008,
+              "visualization": {
+                "seed": "triton",
+                "size": 60,
+                "landColor": "0xc4c7ce",
+                "waterAmount": 0
+              },
+              "loreFile": "lore/solar/triton.wiki"
+            }
+          ]
+        }
+      ]
+    },
+    "asterion": {
+      "planets": [
+        {
+          "name": "Daybreak",
+          "orbitRadius": 45,
+          "angle": 25,
+          "speed": 0.0016,
+          "lore": "'''Daybreak''' is the assembly world of the [[Solar Concord]]. Its coastal cities overlook a shallow equatorial sea. Delegates meet on [[Concord Ring]] so that no surface nation controls the chamber. The first settlers arrived from [[Sol]], as recorded in the [[Settlement Chronicle]].",
+          "visualization": {
+            "seed": "daybreak",
+            "size": 65,
+            "landColor": "0x60a35d",
+            "waterColor": "0x276fa5",
+            "waterAmount": 0.6
+          },
+          "satellites": [
+            {
+              "name": "Concord Ring",
+              "kind": "station",
+              "type": "ring",
+              "distance": 2.8,
+              "size": 0.18,
+              "speed": 0.006,
+              "lore": "'''Concord Ring''' hosts the assembly of the [[Solar Concord]] above [[Daybreak]]. A public docking hall welcomes delegations from [[Free Tide]] ports and [[Crucible Combine]] foundries. Its charter requires every arrival slot and council vote to be recorded in the open archive."
+            }
+          ]
+        },
+        {
+          "name": "Orchard",
+          "orbitRadius": 71,
+          "angle": 162,
+          "speed": 0.001143,
+          "lore": "'''Orchard''' feeds the settlements of [[Asterion]]. Broad river plains support farms under the Concord's common seed charter. Cargo crews send preserved food to [[Daybreak]] and sell the surplus at [[Pelagos]]. The harvest council measures prosperity in reserve supplies rather than gate tolls.",
+          "visualization": {
+            "seed": "orchard",
+            "size": 65,
+            "landColor": "0x91b84d",
+            "waterColor": "0x3a7a89",
+            "waterAmount": 0.35
+          }
+        },
+        {
+          "name": "Crown",
+          "orbitRadius": 97,
+          "angle": 299,
+          "speed": 0.000889,
+          "lore": "'''Crown''' is a ringed giant at the edge of [[Asterion]]'s settled orbits. Navigation crews use its rings as a calibration landmark before travelling to [[Nacre]]. Its small moon [[Mote]] carries an automated weather receiver maintained by the [[Solar Concord]].",
+          "visualization": {
+            "seed": "crown",
+            "size": 88,
+            "landColor": "0xb49bd6",
+            "waterColor": "0x70568d",
+            "waterAmount": 0.2,
+            "ring": {
+              "color": "0xd8cee4",
+              "size": "medium"
+            }
+          },
+          "satellites": [
+            {
+              "name": "Mote",
+              "kind": "moon",
+              "distance": 3.8,
+              "size": 0.22,
+              "speed": 0.008,
+              "visualization": {
+                "seed": "mote",
+                "size": 60,
+                "landColor": "0x9a9a9a",
+                "waterAmount": 0
+              },
+              "lore": "'''Mote''' is a small cratered moon of [[Crown]]. A remote receiver relays storm measurements to the navigators of [[Asterion]]. No permanent crew lives here; service ships visit between scheduled departures through the [[Quantum Gates]]."
+            }
+          ]
+        }
+      ]
+    },
+    "cinder": {
+      "planets": [
+        {
+          "name": "Forge",
+          "orbitRadius": 45,
+          "angle": 25,
+          "speed": 0.0016,
+          "lore": "'''Forge''' houses the foundries of the [[Crucible Combine]]. Iron-coloured plateaus surround deep industrial basins, while [[Crucible Yard]] keeps the largest hulls away from the surface. The directorate claims that its gate tolls pay for the machinery on which every other faction depends.",
+          "visualization": {
+            "seed": "forge",
+            "size": 65,
+            "landColor": "0xb95b3e",
+            "waterColor": "0x6d342b",
+            "waterAmount": 0.12,
+            "waterType": "lava"
+          },
+          "satellites": [
+            {
+              "name": "Crucible Yard",
+              "kind": "station",
+              "type": "shipyard",
+              "distance": 2.8,
+              "size": 0.18,
+              "speed": 0.006,
+              "lore": "'''Crucible Yard''' assembles [[Jump Ships]] above [[Forge]]. Its docks also wind the field coils used in a [[Gate Drive]]. The [[Crucible Combine]] guards the manufacturing records, but civilian repair crews may lease a berth when military contracts leave room."
+            }
+          ]
+        },
+        {
+          "name": "Ash",
+          "orbitRadius": 71,
+          "angle": 162,
+          "speed": 0.001143,
+          "lore": "'''Ash''' is a dry, wind-scoured world in [[Cinder]]. Survey crews work beneath sealed shelters and send mineral samples to [[Forge]]. Long abandoned prospecting trails remind visitors that the Combine's industrial wealth began with small expeditions and uncertain claims.",
+          "visualization": {
+            "seed": "ash",
+            "size": 65,
+            "landColor": "0xa99b83",
+            "waterAmount": 0
+          }
+        }
+      ]
+    },
+    "vesper": {
+      "planets": [
+        {
+          "name": "Dusk",
+          "orbitRadius": 45,
+          "angle": 25,
+          "speed": 0.0016,
+          "lore": "'''Dusk''' is the convoy port of [[Vesper]]. Its dim blue seas reflect a sky veiled with dust. Crews gather here before the supply crossing to [[Pelagos]], carrying replacement gate parts and returning with food. Combine inspectors check every departure against a signed cargo contract.",
+          "visualization": {
+            "seed": "dusk",
+            "size": 65,
+            "landColor": "0x6f789a",
+            "waterColor": "0x304775",
+            "waterAmount": 0.45
+          }
+        },
+        {
+          "name": "Anvil",
+          "orbitRadius": 71,
+          "angle": 162,
+          "speed": 0.001143,
+          "lore": "'''Anvil''' produces the heavy components shipped from [[Vesper]] to [[Cinder]]. Excavation belts cut through its dark rocky plains. The [[Crucible Combine]] operates the mines through rotating crews, who spend their leave on [[Dusk]] rather than in Anvil's sealed surface settlements.",
+          "visualization": {
+            "seed": "anvil",
+            "size": 65,
+            "landColor": "0x626370",
+            "waterAmount": 0
+          }
+        }
+      ]
+    },
+    "pelagos": {
+      "planets": [
+        {
+          "name": "Thalassa",
+          "orbitRadius": 45,
+          "angle": 25,
+          "speed": 0.0016,
+          "lore": "'''Thalassa''' is an ocean world of the [[Free Tide]]. Floating cities follow sheltered current systems, trading with the docking crews of [[Tide Spindle]]. Its port councils oppose permanent borders on the water and exclusive concessions on the [[Quantum Gates]]. Life here is fictional; [[Europa]] describes a real moon with a possible subsurface ocean.",
+          "visualization": {
+            "seed": "thalassa",
+            "size": 65,
+            "landColor": "0x69bda6",
+            "waterColor": "0x167ea8",
+            "waterAmount": 0.9
+          },
+          "satellites": [
+            {
+              "name": "Tide Spindle",
+              "kind": "station",
+              "type": "spindle",
+              "distance": 2.8,
+              "size": 0.18,
+              "speed": 0.006,
+              "lore": "'''Tide Spindle''' turns above [[Thalassa]], balancing workshops along a narrow rotating hull. It provides repairs, medical aid and meeting rooms to [[Free Tide]] crews. Engineers here are examining the navigation log returned from [[Silent Reach]] and comparing it with recordings of the [[Nacre Beacon]]."
+            }
+          ]
+        },
+        {
+          "name": "Shoal",
+          "orbitRadius": 71,
+          "angle": 162,
+          "speed": 0.001143,
+          "lore": "'''Shoal''' offers quiet harbours and low-gravity repair basins in [[Pelagos]]. Small independent yards rebuild survey vessels that cannot afford Combine docks. The port council keeps a reserve of spare navigation clocks after the unexplained voyage to [[Silent Reach]].",
+          "visualization": {
+            "seed": "shoal",
+            "size": 65,
+            "landColor": "0xc8ad72",
+            "waterColor": "0x4c9aab",
+            "waterAmount": 0.45
+          }
+        }
+      ]
+    },
+    "halcyon": {
+      "planets": [
+        {
+          "name": "Haven",
+          "orbitRadius": 45,
+          "angle": 25,
+          "speed": 0.0016,
+          "lore": "'''Haven''' shelters rescue crews and migrant families in [[Halcyon]]. Its wooded continents support modest settlements connected by public landing fields. Volunteers watch the trade approaches and keep emergency supplies on the moon [[Wisp]]. The [[Free Tide]] regards rescue as a duty that carries no political debt.",
+          "visualization": {
+            "seed": "haven",
+            "size": 65,
+            "landColor": "0x588659",
+            "waterColor": "0x477fac",
+            "waterAmount": 0.55
+          },
+          "satellites": [
+            {
+              "name": "Wisp",
+              "kind": "moon",
+              "distance": 2.4,
+              "size": 0.22,
+              "speed": 0.008,
+              "visualization": {
+                "seed": "wisp",
+                "size": 60,
+                "landColor": "0x9a9a9a",
+                "waterAmount": 0
+              },
+              "lore": "'''Wisp''' circles [[Haven]] with little more than an automated landing beacon and a buried store of emergency supplies. Volunteer crews replenish the cache before the storm season. The moon demonstrates an uninhabited satellite with a practical place in the [[Free Tide]]'s rescue network."
+            }
+          ]
+        },
+        {
+          "name": "Pale",
+          "orbitRadius": 71,
+          "angle": 162,
+          "speed": 0.001143,
+          "lore": "'''Pale''' is an icy world beyond [[Haven]]. Seasonal crews map its fractured plains and collect frozen samples for the laboratories at [[Beacon Watch]]. Visits are short, and the rescue service of [[Halcyon]] requires every expedition to leave a return plan before departure.",
+          "visualization": {
+            "seed": "pale",
+            "size": 65,
+            "landColor": "0xc9dfeb",
+            "waterColor": "0x7fadd0",
+            "waterAmount": 0.2,
+            "waterType": "ice"
+          }
+        }
+      ]
+    },
+    "nacre": {
+      "planets": [
+        {
+          "name": "Reliquary",
+          "orbitRadius": 45,
+          "angle": 25,
+          "speed": 0.0016,
+          "lore": "'''Reliquary''' is the only charted planet of [[Nacre]]. Pale ridges surround a basin of ruins that predates the first human survey. Receivers near the excavation detect the [[Nacre Beacon]], but researchers have not found its transmitter. [[Beacon Watch]] operates under a joint agreement between the three powers.",
+          "visualization": {
+            "seed": "reliquary",
+            "size": 65,
+            "landColor": "0xbaafc9",
+            "waterColor": "0x726494",
+            "waterAmount": 0.1
+          },
+          "satellites": [
+            {
+              "name": "Beacon Watch",
+              "kind": "station",
+              "type": "outpost",
+              "distance": 2.8,
+              "size": 0.18,
+              "speed": 0.006,
+              "lore": "'''Beacon Watch''' is a compact research outpost above [[Reliquary]]. Observers from the [[Solar Concord]], [[Crucible Combine]] and [[Free Tide]] share its cramped laboratories. All raw recordings of the [[Nacre Beacon]] enter a public archive before any delegation can claim a discovery."
+            }
+          ]
+        }
+      ]
+    },
+    "silent-reach": {
+      "planets": []
+    }
+  },
+  "factions": {
+    "concord": {
+      "name": "Solar Concord",
+      "fillColor": "0x0088ff",
+      "fillOpacity": 0.12,
+      "borderColor": "0x00aaff",
+      "borderWidth": 2
+    },
+    "combine": {
+      "name": "Crucible Combine",
+      "fillColor": "0xff4444",
+      "fillOpacity": 0.12,
+      "borderColor": "0xff6666",
+      "borderWidth": 2
+    },
+    "tide": {
+      "name": "Free Tide",
+      "fillColor": "0x44ff44",
+      "fillOpacity": 0.12,
+      "borderColor": "0x66ff66",
+      "borderWidth": 2
+    },
+    "neutral": {
+      "name": "Neutral Territories",
+      "fillColor": "0xffff00",
+      "fillOpacity": 0.08,
+      "borderColor": "0xffff88",
+      "borderWidth": 2
+    }
+  },
+  "planetTextColors": {
+    "concord": "0x00aaff",
+    "combine": "0xff6666",
+    "tide": "0x66ff66",
+    "neutral": "0xffff00"
+  },
+  "hyperlineTypes": {
+    "gate": {
+      "name": "Quantum Gates",
+      "color": "0x00ffff",
+      "width": 3,
+      "opacity": 0.7
+    },
+    "trade": {
+      "name": "Trade Route",
+      "color": "0xffaa00",
+      "width": 2,
+      "opacity": 0.6
+    },
+    "military": {
+      "name": "Military Corridor",
+      "color": "0x4444ff",
+      "width": 2,
+      "opacity": 0.65
+    },
+    "industrial": {
+      "name": "Industrial Line",
+      "color": "0xff6600",
+      "width": 2,
+      "opacity": 0.65
+    },
+    "supply": {
+      "name": "Supply Line",
+      "color": "0xaa00aa",
+      "width": 2,
+      "opacity": 0.55
+    }
+  },
+  "hyperlines": [
+    {
+      "id": "gate-sol-asterion",
+      "description": "Quantum gate: first route",
+      "from": {
+        "sectorX": 1,
+        "sectorY": 1
+      },
+      "to": {
+        "sectorX": 2,
+        "sectorY": 3
+      },
+      "type": "gate"
+    },
+    {
+      "id": "gate-sol-cinder",
+      "description": "Quantum gate: foundries",
+      "from": {
+        "sectorX": 1,
+        "sectorY": 1
+      },
+      "to": {
+        "sectorX": 4,
+        "sectorY": 1
+      },
+      "type": "gate"
+    },
+    {
+      "id": "trade-asterion-nacre",
+      "description": "Survey trade route",
+      "from": {
+        "sectorX": 2,
+        "sectorY": 3
+      },
+      "to": {
+        "sectorX": 3,
+        "sectorY": 4
+      },
+      "type": "trade"
+    },
+    {
+      "id": "military-asterion-cinder",
+      "description": "Concord patrol corridor",
+      "from": {
+        "sectorX": 2,
+        "sectorY": 3
+      },
+      "to": {
+        "sectorX": 4,
+        "sectorY": 1
+      },
+      "type": "military"
+    },
+    {
+      "id": "industrial-cinder-vesper",
+      "description": "Combine freight line",
+      "from": {
+        "sectorX": 4,
+        "sectorY": 1
+      },
+      "to": {
+        "sectorX": 6,
+        "sectorY": 2
+      },
+      "type": "industrial"
+    },
+    {
+      "id": "supply-vesper-pelagos",
+      "description": "Convoy supply run",
+      "from": {
+        "sectorX": 6,
+        "sectorY": 2
+      },
+      "to": {
+        "sectorX": 5,
+        "sectorY": 5
+      },
+      "type": "supply"
+    },
+    {
+      "id": "trade-nacre-pelagos",
+      "description": "Tide ports trade route",
+      "from": {
+        "sectorX": 3,
+        "sectorY": 4
+      },
+      "to": {
+        "sectorX": 5,
+        "sectorY": 5
+      },
+      "type": "trade"
+    },
+    {
+      "id": "gate-nacre-halcyon",
+      "description": "Quantum gate: rescue run",
+      "from": {
+        "sectorX": 3,
+        "sectorY": 4
+      },
+      "to": {
+        "sectorX": 2,
+        "sectorY": 6
+      },
+      "type": "gate"
+    },
+    {
+      "id": "supply-pelagos-silent-reach",
+      "description": "One-way survey supply",
+      "from": {
+        "sectorX": 5,
+        "sectorY": 5
+      },
+      "to": {
+        "sectorX": 6,
+        "sectorY": 6
+      },
+      "type": "supply",
+      "direction": "forward"
+    }
+  ]
+}

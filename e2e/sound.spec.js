@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 import { readFileSync } from 'node:fs'
-import { openHash, releaseMap, serveMap, waitForView, watchConsole, withStores } from './helpers.js'
+import { openHash, worldMap, serveMap, waitForView, watchConsole, withStores } from './helpers.js'
 
 const journal = page => withStores(page, ({ sound }) => ({ names: sound.recent(), count: sound.playedCount() }))
 const AMBIENT = new Set(['typing', 'static', 'hover'])
@@ -143,7 +143,7 @@ test('the bar SFX has its own volume beside the music, tells it and lets it be h
 test('a map replaces a sound with its own file and silences another; Special:Sounds lists them all', async ({ page }) => {
   const warnings = []
   page.on('console', message => { if (message.type() === 'warning') warnings.push(message.text()) })
-  const map = releaseMap()
+  const map = worldMap()
   map.sounds = { volume: 0.5, click: 'sounds/beep.wav', hover: false }
   await serveMap(page, map)
   const wav = readFileSync(new URL('../src/assets/sounds/breaker.wav', import.meta.url))
@@ -177,7 +177,7 @@ test('▶ of Special:Sounds plays its sound though the visitor turned the sound 
 })
 
 test('a map without sound effects has no SFX bar and says so on Special:Sounds', async ({ page }) => {
-  const map = releaseMap()
+  const map = worldMap()
   map.sounds = false
   await serveMap(page, map)
   await openHash(page, '#/')

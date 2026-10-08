@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs'
 import { buildLegend, cssColor } from '../mapLegend.js'
 
 const mapData = JSON.parse(
-  readFileSync(new URL('../../../public/map.json', import.meta.url), 'utf8')
+  readFileSync(new URL('../../../test-world/map.json', import.meta.url), 'utf8')
 )
 const section = (sections, id) => sections.find(item => item.id === id)
 

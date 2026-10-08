@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { clip, escapeHtml, loadSocialSite, robotsTxt, sitemapXml, socialPages, socialTags, stubHtml } from '../preview'
 import { stubPath } from '../stubPath'
 
-const MAP_URL = new URL('../../../public/map.json', import.meta.url).href
+const MAP_URL = new URL('../../../test-world/map.json', import.meta.url).href
 const readText = async url => fs.readFileSync(fileURLToPath(url), 'utf8')
 const SITE = 'https://owner.github.io/reach/'
 

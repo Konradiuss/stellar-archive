@@ -6,7 +6,7 @@ import { waitForView, watchConsole } from './helpers'
 
 const WAV_PATH = fileURLToPath(new URL('../src/assets/sounds/breaker.wav', import.meta.url))
 const WAV = readFileSync(WAV_PATH)
-const MAP = readFileSync(new URL('../public/map.json', import.meta.url), 'utf8')
+const MAP = readFileSync(new URL('../test-world/map.json', import.meta.url), 'utf8')
 const gitSha = text => {
   const body = Buffer.from(text, 'utf8')
   return createHash('sha1').update(Buffer.concat([Buffer.from(`blob ${body.length}\0`), body])).digest('hex')

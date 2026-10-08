@@ -1,11 +1,7 @@
-import { readFileSync } from 'node:fs'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { checkMap, isWebPage, mapColor, parseMapJson } from '../mapCheck'
 import { buildMapData } from '../mapData'
 import { mapJournal, noteMap, startMapJournal } from '../mapJournal'
-
-const PUBLIC = new URL('../../../public/', import.meta.url)
-const referenceMap = () => JSON.parse(readFileSync(new URL('map.json', PUBLIC), 'utf8'))
 
 const errorOf = text => parseMapJson(text).error
 
@@ -278,14 +274,6 @@ describe('the sections of the map', () => {
       'warning terminal.script: Must be the path of a text file, such as "terminal.txt": the built-in script is used.',
       'warning terminal.files: Must be an object { "NOTES.TXT": "notes.txt" }: the terminal has no files of the map.'
     ])
-  })
-
-  it('finds no problem in the map that comes with the site', async () => {
-    const { data, fatal } = checkMap(referenceMap())
-    expect(fatal).toBeUndefined()
-    const fetchText = async url => readFileSync(new URL(new URL(url).pathname.slice(1), PUBLIC), 'utf8')
-    await buildMapData(data, { baseUrl: 'http://localhost/map.json', fetchText })
-    expect(notes()).toEqual([])
   })
 })
 

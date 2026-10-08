@@ -1,8 +1,8 @@
 import { expect } from '@playwright/test'
 import { readFileSync } from 'node:fs'
 
-// A fresh copy of the published map, for a test to change before serving it.
-export const releaseMap = () => JSON.parse(readFileSync(new URL('../public/map.json', import.meta.url), 'utf8'))
+// A fresh copy of the map of the test world (test-world/), for a test to change before serving it.
+export const worldMap = () => JSON.parse(readFileSync(new URL('../test-world/map.json', import.meta.url), 'utf8'))
 
 // Serves `map` as map.json. Registered after another route, it takes precedence.
 export function serveMap(page, map) {

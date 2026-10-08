@@ -5,7 +5,7 @@ import {
   setFactionField, setGalaxySize, setStarField, starAt, starLinks
 } from '../starEdits'
 
-const MAP = readFileSync(new URL('../../../public/map.json', import.meta.url), 'utf8')
+const MAP = readFileSync(new URL('../../../test-world/map.json', import.meta.url), 'utf8')
 const read = text => JSON.parse(text)
 const failure = run => {
   try {

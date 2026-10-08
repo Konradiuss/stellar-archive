@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { openHash, releaseMap, serveMap, watchConsole, withStores } from './helpers.js'
+import { openHash, worldMap, serveMap, watchConsole, withStores } from './helpers.js'
 
 test.use({ viewport: { width: 1600, height: 900 } })
 
@@ -10,7 +10,7 @@ const moon = (name, distance, size, angle, landColor) => ({
 
 // Crown with ten bodies: two moons and two stations share orbits, all four station types.
 function crowdedCrown() {
-  const map = releaseMap()
+  const map = worldMap()
   const crown = crownOf(map)
   crown.visualization.ring.size = 'large'
   crown.satellites = [
@@ -268,7 +268,7 @@ test('the satellites in sight slow down to a quarter while the pointer is over t
 
 test('orbits around a ringed planet start past the ring', async ({ page }) => {
   // Two of Crown's bodies would stand inside its ring.
-  const map = releaseMap()
+  const map = worldMap()
   crownOf(map).satellites.push(
     moon('Tiara', 2.2, 0.14, 120, '0x9a8fb0'),
     { name: 'Crown Yard', kind: 'station', type: 'shipyard', distance: 1.6, size: 0.45, angle: 60 }

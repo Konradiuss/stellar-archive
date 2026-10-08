@@ -20,7 +20,7 @@ import { buildTerritories } from '../territoryBuilder.js'
 import { getSectorCenter, normalizeGalaxyConfig } from '../../config/mapGeometry.js'
 
 const mapData = JSON.parse(
-  readFileSync(new URL('../../../public/map.json', import.meta.url), 'utf8')
+  readFileSync(new URL('../../../test-world/map.json', import.meta.url), 'utf8')
 )
 // The release map is roomy: three stars squeezed in by Pelagos make one name wrap by words and one hide.
 const crowdedMap = {

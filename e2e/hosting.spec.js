@@ -53,7 +53,7 @@ test('the built site works from a folder of the host', async ({ page }) => {
 
   await page.goto(PREVIEW_URL)
   await idle(page)
-  const track = page.waitForResponse(response => /\/spacemap\/music\/.+\.mp3/.test(response.url()))
+  const track = page.waitForResponse(response => /\/spacemap\/music\/.+\.wav/.test(response.url()))
   await page.locator('.music-player .button-play').click()
   expect((await track).status()).toBeLessThan(400)
 
@@ -255,7 +255,7 @@ async function cachingHost(mapText) {
 
 // Was: a newly published map stayed old for up to ten minutes: the browser took map.json from its cache.
 test('a newly published map is read at once, though the host lets files be cached for 10 minutes', async ({ page }) => {
-  const map = JSON.parse(await readFile(new URL('../public/map.json', import.meta.url), 'utf8'))
+  const map = JSON.parse(await readFile(new URL('../test-world/map.json', import.meta.url), 'utf8'))
   const host = await cachingHost(JSON.stringify(map))
   try {
     await page.goto(host.url)

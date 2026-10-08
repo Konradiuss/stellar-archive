@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { center, openHash, releaseMap, serveMap, waitForView, watchConsole, withStores } from './helpers'
+import { center, openHash, worldMap, serveMap, waitForView, watchConsole, withStores } from './helpers'
 
 let checkConsole
 test.beforeEach(({ page }) => { checkConsole = watchConsole(page) })
@@ -159,7 +159,7 @@ test('Back pressed during a jump returns without extra history entries', async (
 
 test('a star without planets opens from its URL and survives a reload', async ({ page }) => {
   // Was: a system without an entry in `systems` fell back to the galaxy.
-  const data = releaseMap()
+  const data = worldMap()
   delete data.systems['silent-reach']
   await serveMap(page, data)
   await openHash(page, '#/system/silent-reach')
@@ -373,4 +373,15 @@ test('a narrow PLANET-VISUAL keeps the empty outline and the planet inside their
   const planet = page.locator('.window-visual .planet-canvas-wrapper')
   await expect(page.locator('.window-visual .planet-params')).toBeVisible()
   expect((await planet.boundingBox()).width).toBeGreaterThan(100)
+})
+
+test('each type of station is drawn, and a star without planets says so', async ({ page }) => {
+  for (const [id, name] of [['asterion', 'CONCORD RING'], ['cinder', 'CRUCIBLE YARD'], ['pelagos', 'TIDE SPINDLE'], ['nacre', 'BEACON WATCH']]) {
+    await openHash(page, `#/system/${id}/1/1`)
+    await expect(page.locator('.window-data .planet-lore-title')).toHaveText(name)
+    await expect(page.locator('.window-visual .station-visualization canvas')).toBeVisible()
+  }
+  await openHash(page, '#/system/silent-reach')
+  await expect(page.locator('.system-planet')).toHaveCount(0)
+  await expect(page.locator('.window-data')).toContainText('No known planets in this system.')
 })

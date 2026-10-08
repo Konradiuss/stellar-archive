@@ -1,0 +1,126 @@
+{{Planet|name=Triton|class=Natural satellite}}
+[[File:solar/triton-overview.jpg|thumb|right|220px|alt=Triton showing bright polar deposits and varied terrain|Voyager 2 global colour mosaic of Triton from its 1989 flyby. Credit: NASA / Ted Stryk. [https://commons.wikimedia.org/wiki/File:Triton_color_global_view.jpg Source]; [https://commons.wikimedia.org/wiki/File:Triton_color_global_view.jpg#Licensing Public domain].]]
+'''Triton''' is [[Neptune]]'s largest natural satellite and an unusual member of the outer Solar System. It travels around its planet on a retrograde orbit, opposite to Neptune's normal rotational sense. That geometry strongly supports an origin through capture rather than simple assembly within an ordinary prograde satellite-forming disc.
+
+The moon has a cold, volatile-rich surface, a thin atmosphere and landscapes showing substantial geological modification. Voyager 2 observed active plumes during its 1989 encounter, demonstrating that a distant world can exhibit surface activity despite weak sunlight and low temperatures. Triton therefore connects several scientific subjects: capture dynamics, tidal evolution, the behaviour of nitrogen and other ices, and the histories of bodies formed beyond the giant planets. Its close-range record remains limited to one spacecraft visit, so many details of its interior and seasonal behaviour are still uncertain.<ref name="overview">[https://science.nasa.gov/neptune/moons/triton/ NASA Science: Triton]. Retrograde orbit, surface properties and exploration.</ref>
+
+{| class="wikitable"
+|+ Selected physical and orbital characteristics
+! Quantity !! Approximate value
+|-
+| Mean radius || 1,353 km
+|-
+| Mean orbital distance from Neptune's centre || 354,800 km
+|-
+| Orbital period || About 5.88 Earth days
+|-
+| Orbital direction || Retrograde
+|-
+| Rotation || Synchronous
+|-
+| Atmosphere || Thin, predominantly nitrogen
+|-
+| Close spacecraft encounter || Voyager 2, 1989
+|}
+
+== Discovery and naming ==
+William Lassell discovered Triton in 1846, shortly after Neptune itself was identified. Detecting a companion to a newly recognised distant planet expanded the physical account of the system beyond the planet's orbit. Following the moon's motion established that it was bound to Neptune rather than a neighbouring background star.
+
+The name Triton refers to a figure associated with the Greek sea god Poseidon, corresponding to the Roman Neptune. The name became especially useful as additional Neptunian moons were discovered and the phrase Neptune's satellite no longer uniquely identified one object.
+
+Triton is faint and difficult to study in detail from Earth, although its orbit can be measured over long intervals. Knowledge of an orbit can become precise while knowledge of the surface remains limited. That difference explains why early discovery did not immediately reveal plumes, distinctive terrain or atmospheric behaviour.
+
+Historical observations continue to support calculations of orbital evolution. Modern telescope measurements add spectra, brightness and other information, but they cannot reproduce all the spatial detail of a close spacecraft encounter. The progression from discovery to physical exploration therefore remains incomplete: a well-established nineteenth-century moon is still a partly investigated world in the twenty-first century.
+
+== Retrograde orbit and synchronous rotation ==
+Triton moves around Neptune in the direction opposite to the planet's usual spin. Large regular satellites commonly orbit in the prograde sense associated with their parent planet's equatorial system, making Triton's orbit a powerful clue to a different history.
+
+The moon rotates synchronously, generally keeping the same hemisphere towards Neptune. Retrograde orbital motion and synchronous rotation describe different aspects of its dynamics and are not contradictory. The former concerns direction around the planet; the latter concerns the relationship between the moon's own spin and orbital period.
+
+=== Geometry and long-term change ===
+The orbital plane is inclined relative to Neptune's equator, and the geometry of illumination changes through both orbital and longer seasonal cycles. Observed terrain and atmospheric conditions consequently correspond to particular configurations rather than one permanent arrangement.
+
+Tidal interactions affect the evolution of the orbit and the moon's response to Neptune's gravity. A captured orbit can change greatly as energy is dissipated, potentially producing substantial early heating. Reconstructing that evolution requires assumptions about material properties and initial conditions. The current nearly circular path is evidence of the resulting state, not a direct record of every earlier orbit.
+
+== Capture and system reconstruction ==
+Triton's retrograde orbit supports capture from a population of bodies that formed independently of Neptune's original regular satellite system. Its physical properties invite comparisons with objects beyond Neptune, although similarity in composition alone would not establish the exact route by which it arrived.
+
+Capture requires a way to remove enough orbital energy for a lasting bound relationship. Proposed mechanisms include interactions involving a binary object, in which one member becomes bound while the other leaves. Other historical possibilities have also been investigated. A gravitational encounter is not automatically a permanent capture without an energy-changing process.
+
+A newly captured massive moon could disrupt satellites already orbiting Neptune. Collisions, ejections and later rebuilding might therefore contribute to the arrangement observed today. A successful scenario has to explain both Triton and the surviving smaller moon system.
+
+The detailed starting conditions remain uncertain, and simulations explore ranges rather than reconstructing one witnessed event. Researchers test whether proposed histories reproduce orbital constraints while allowing plausible material and thermal evolution. Capture is consequently a well-supported broad interpretation with unresolved particulars. The distinction prevents a strong orbital clue from being overstated as a complete, precisely dated account of every event in the Neptunian system.
+
+== Interior and tidal heating ==
+Triton's density indicates a substantial rocky contribution beneath water-related layers. Interior models consider differentiation, possible liquid reservoirs and the thermal effects of its capture and subsequent orbital evolution. The detailed arrangement has not been directly measured by a long-lived orbiter or seismic network.
+
+Tidal dissipation during orbital change could have provided significant heat, especially when the captured orbit was more eccentric. That energy might influence melting, differentiation and geological activity. The amount and duration depend on the initial orbit and on how the moon's materials responded to deformation.
+
+Radioactive decay within rocky material supplies another potential heat source over long intervals. Cooling competes with these sources, while insulating layers and composition affect the rate at which energy reaches the surface. A possible subsurface ocean remains a scientific hypothesis requiring stronger constraints, not a directly observed liquid reservoir.
+
+Models must also account for the terrain and surface renewal visible to Voyager. Those features provide evidence of activity without uniquely locating every energy source. A plume driven largely by solar heating and a geological structure associated with deeper heat concern different processes. Distinguishing them is necessary before using surface activity to infer the present state of the entire interior.
+
+== Surface ices and composition ==
+Triton's surface contains volatile ices, including nitrogen, with methane and carbon-monoxide-related spectral signatures also important. Water ice contributes to the underlying geological framework. These materials respond differently to temperature, radiation and pressure, creating a surface more chemically varied than a uniform layer of frozen water.
+
+Nitrogen can move between solid deposits and atmospheric gas as conditions change. Methane and other substances affect reflected spectra and can undergo chemical processing. Their observed abundance depends on mixtures, grain properties and the area sampled by an instrument.
+
+The extremely low temperatures do not eliminate change. A substance that is inert under one set of conditions can sublime or condense when sunlight and local thermal properties shift. Small absolute temperature changes can be important near a phase boundary.
+
+Interpreting surface colour or brightness requires considering both composition and physical texture. Fresh frost, processed material and differently sized grains may scatter sunlight differently even when related substances are present. Spectroscopy provides stronger chemical constraints, while images locate patterns and geological relationships. Combining the two avoids treating every visually distinct patch as proof of an entirely different bulk material.
+
+== Cantaloupe terrain and geological structures ==
+[[File:solar/triton-terrain.jpg|thumb|center|480px|alt=Rounded pits and ridges in Triton's cantaloupe terrain|Voyager 2 false-colour view of Triton's cantaloupe terrain; colours enhance surface contrasts. Credit: NASA/JPL. [https://commons.wikimedia.org/wiki/File:Triton_-_False_Color_of_%27Cantaloupe%27_Terrain.jpg Source]; [https://commons.wikimedia.org/wiki/File:Triton_-_False_Color_of_%27Cantaloupe%27_Terrain.jpg#Licensing Public domain].]]
+
+Voyager images revealed terrain commonly called cantaloupe terrain because of its patterned, dimpled appearance. The nickname describes a visual resemblance rather than a formation mechanism. Researchers investigate deformation, subsurface movement and other processes that might produce its structure.
+
+Other regions contain smooth plains, ridges, depressions and features interpreted as evidence of geological renewal. Relationships among them supply relative chronology: a plain covering older terrain formed later, while a fracture cutting a deposit postdates that deposit. Such observations help reconstruct change without requiring an absolute date for every region.
+
+=== What the terrain can establish ===
+Surface structures demonstrate that Triton is not simply an untouched primordial ice sphere. However, identifying the exact material movement or source of heat remains harder. Different internal processes can create superficially similar landforms under weak gravity and low-temperature conditions.
+
+Detailed topography and compositional maps would help test competing interpretations. Voyager's viewing geometry and image resolution limit the measurements available for some areas, particularly outside the most favourable coverage. The geological record is therefore unevenly documented. Future research would benefit from broader mapping rather than assuming the photographed hemisphere contains every important landscape or represents the whole moon without variation.
+
+== Impact craters and resurfacing ==
+Triton's observed terrain contains relatively few preserved impact craters compared with heavily cratered, geologically quiet moons. That scarcity supports substantial resurfacing, although estimating an age requires assumptions about the impact population and the coverage of observations.
+
+The distribution of craters can also be influenced by the direction from which impactors arrive and by the geometry of Triton's orbit. A count from one region may therefore not transfer straightforwardly to another. Orbital dynamics and geology both affect the apparent record.
+
+Resurfacing can bury or erase old structures through deposition, movement or other activity. A smooth-looking landscape need not indicate that impacts never occurred there. The absence of visible scars may instead show that the record was overwritten.
+
+Absolute chronology is especially uncertain without returned samples and with only one close encounter. Researchers can compare relative sequences and test plausible rates, but should not present a model-derived surface age as if a rock had been measured directly in a laboratory. Triton supplies a useful comparison with icy and rocky satellites whose records were modified at different rates. The key scientific question is not merely whether its surface looks young, but which processes changed it and under what thermal conditions.
+
+== Thin atmosphere and seasonal exchange ==
+Triton has a thin atmosphere dominated by nitrogen. Surface frost supplies gas through sublimation, while cooling can return it through condensation. The atmosphere and deposits therefore participate in a volatile cycle controlled by illumination and local thermal properties.
+
+The low pressure does not support weather identical to Earth's. Nevertheless, gases can move, transport energy and influence the movement of particles released into the environment. Even a tenuous atmosphere matters for interpreting plumes and observations made during stellar occultations.
+
+=== Measuring change from a distance ===
+When Triton passes in front of a distant star, the changing starlight can constrain atmospheric density and structure. Comparing such observations across years helps investigate variation, but models and observing geometry affect the inferred quantities. A reported pressure belongs to an observation and interpretation, not automatically to every location or season.
+
+Neptune's long year and Triton's orbital orientation produce complex seasonal illumination. Volatile transport can respond with delays, while material distribution and thermal inertia affect the outcome. A single spacecraft encounter therefore cannot establish a complete climate cycle. Long-term monitoring is particularly valuable for connecting the detailed 1989 record with the changing atmospheric environment observed later.
+
+== Plumes observed by Voyager ==
+[[File:solar/triton-streaks.jpg|thumb|center|480px|alt=Dark plume streaks across bright ice on Triton|Voyager 2 view of Triton's southern polar terrain, with dark streaks associated with plume deposits. Credit: NASA/JPL. [https://commons.wikimedia.org/wiki/File:Neptune%E2%80%99s_Moon_Triton_Fosters_Rare_Icy_Union_(gemini1903a).jpg Source]; [https://creativecommons.org/licenses/by/4.0 CC BY 4.0].]]
+
+Voyager 2 observed active plumes in 1989, with particles rising above the surface and forming dark streaks as they travelled. The observations established that a cold outer-Solar-System moon could display contemporary activity rather than only preserve ancient terrain.
+
+Solar heating of nitrogen-related deposits is a leading class of explanation for those plumes. Energy can become concentrated beneath translucent or insulating layers and drive gas release. Details of the physical arrangement remain important, and the mechanism should not be treated as identical to silicate volcanism on [[Io]].
+
+The dark streaks supply information about particle transport and atmospheric movement. Their direction and extent depend on release conditions and environmental forces, while subsequent deposition changes the appearance of the ground. A streak is evidence of material movement, not necessarily an open fracture exposing the deep interior.
+
+Plume observations also have limits. They do not prove that every active site operates continuously or that all geological features share the same energy source. A short encounter captures a particular interval. Understanding recurrence and seasonal dependence would require extended observations. Keeping those distinctions clear preserves the importance of the discovery without turning a measured surface event into an untested conclusion about the whole moon.
+
+== Exploration and scientific priorities ==
+Voyager 2's 1989 encounter provided the only close spacecraft investigation of Triton so far. Images, spectral observations and atmospheric measurements transformed its scientific description. The encounter formed part of the broader Neptune investigation and supplied a record still central to research.<ref name="voyager">[https://science.nasa.gov/mission/voyager/ NASA Science: Voyager]. Exploration of Neptune and Triton.</ref>
+
+A flyby offers detailed observations along a limited path. It does not measure the full gravitational field with the repetition possible from an orbiter, nor does it map every season or obtain returned samples. Telescopes extend the time record but cannot reproduce every close-range measurement.
+
+Priority questions concern the capture mechanism, internal structure, possible liquid reservoirs and the relationship between geological renewal and volatile cycling. More complete topography, repeated atmosphere observations and improved gravity information would connect currently separate constraints.
+
+Triton is valuable because its history may preserve evidence from both its original formation environment and later life around Neptune. Those stages need not have produced identical compositions or surface conditions. A careful account uses orbital geometry, chemistry and geological relationships together. The moon remains a distinctive example of how a captured body can reshape a planetary system and undergo substantial physical change while still retaining clues to the distant regions where it first formed.
+
+== Sources ==
+<references />
+
+Written and reorganised using [https://en.wikipedia.org/wiki/Triton_(moon) Triton (moon)] by Wikipedia contributors ([https://en.wikipedia.org/w/index.php?title=Triton_(moon)&action=history page history]), checked 7 October 2026, with NASA material cited above. Changes include new explanatory prose, restructuring, a summary table and local atlas links. Adapted article text: [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0].

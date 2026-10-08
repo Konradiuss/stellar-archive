@@ -5,7 +5,7 @@ import { addRoute, addRouteType, removeRoute, removeRouteType, routeList, routeT
 import { addArticle, addGroup, articleFile, groupTargets, moveGroup, moveGroupInto, removeArticle, removeGroup, renameArticle, setArticleField, setArticleList, setGroupField, setHome, setWorldGroup, setWorldLore, splitList, wikiGroups } from '../articleEdits'
 import { mapPlaces } from '../places'
 
-const MAP = readFileSync('public/map.json', 'utf8')
+const MAP = readFileSync('test-world/map.json', 'utf8')
 const read = text => JSON.parse(text)
 const failure = run => {
   try {

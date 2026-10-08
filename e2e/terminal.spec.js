@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { openHash, releaseMap, waitForView, watchConsole, withStores } from './helpers.js'
+import { openHash, worldMap, waitForView, watchConsole, withStores } from './helpers.js'
 
 const dosInput = page => page.locator('.ms-dos-background .dos-input')
 const lines = page => page.locator('.ms-dos-background .boot-line')
@@ -170,7 +170,7 @@ test('SYNDICATE.EXE turns the screens red, silences the player and reboots the p
 })
 
 test('a map brings its own script, its own files and no SYNDICATE.EXE', async ({ page }) => {
-  const map = releaseMap()
+  const map = worldMap()
   map.terminal = { script: 'orion.txt', files: { 'CAPTAIN.LOG': 'logs/captain.txt', 'LOST.TXT': 'lost.txt' }, syndicate: false }
   const files = {
     'map.json': JSON.stringify(map),

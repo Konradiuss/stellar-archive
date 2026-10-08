@@ -6,7 +6,7 @@ import { crc32, zipFiles } from '../zip'
 import { draftFetch, draftKey, gitBlobSha, isPreview, loadDraft, previewDraft, saveDraft, setPreview, sitePath } from '../draft'
 import { mapJournal, startMapJournal, noteMap } from '../../utils/mapJournal'
 
-const MAP = JSON.parse(readFileSync('public/map.json', 'utf8'))
+const MAP = JSON.parse(readFileSync('test-world/map.json', 'utf8'))
 
 describe('the files of a site', () => {
   it('lists the map and every text file it names, each once', () => {

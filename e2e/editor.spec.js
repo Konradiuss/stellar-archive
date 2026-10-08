@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { waitForView, watchConsole, withStores } from './helpers'
 
-const SITE_MAP = readFileSync(new URL('../public/map.json', import.meta.url), 'utf8')
+const SITE_MAP = readFileSync(new URL('../test-world/map.json', import.meta.url), 'utf8')
 // A text area reads every line end as LF, whatever the checkout wrote.
 const MAP = SITE_MAP.replaceAll('\r\n', '\n')
 const gitSha = text => {
@@ -357,7 +357,7 @@ test('articles: a new one with its file, its preview, a new title, and one delet
     if (path === '/git/ref/heads/main') return reply({ object: { sha: 'parent' } })
     if (path === '/git/commits/parent') return reply({ tree: { sha: 'tree' } })
     if (path === '/git/trees/tree') {
-      const site = ['map.json', 'wiki/free-tide.md'].map(file => ({ path: `public/${file}`, type: 'blob', sha: gitSha(readFileSync(new URL(`../public/${file}`, import.meta.url), 'utf8')) }))
+      const site = ['map.json', 'wiki/free-tide.md'].map(file => ({ path: `public/${file}`, type: 'blob', sha: gitSha(readFileSync(new URL(`../test-world/${file}`, import.meta.url), 'utf8')) }))
       return reply({ tree: site })
     }
     if (path === '/git/trees') return reply({ sha: 'new-tree' })
@@ -558,4 +558,29 @@ test('a planet and an article of the draft are on the site in the preview', asyn
   await waitForView(page, 'wiki')
   await expect(page.locator('.wiki-title')).toHaveText('Черновая статья')
   await expect(page.locator('.wiki-article strong')).toHaveText('Черновая статья')
+})
+
+test('a renamed planet lands in map.json, and a Markdown article previews with its picture', async ({ page }) => {
+  await page.goto('/#/edit')
+  await expect(page.locator('.editor-area')).toBeVisible()
+  await expect(page.locator('.no-problems')).toBeVisible()
+  await page.locator('.tab-system').click()
+  await page.locator('.system-star-select').selectOption('asterion')
+  await page.locator('.planet-item', { hasText: 'Daybreak' }).click()
+  await page.locator('.body-name').fill('New Daybreak')
+  await page.locator('.body-name').press('Enter')
+  await expect(page.locator('.planet-item', { hasText: 'New Daybreak' })).toBeVisible()
+  await page.locator('.tab-files').click()
+  await page.locator('.file-item[data-path="map.json"]').click()
+  const changed = JSON.parse(await page.locator('.editor-area').inputValue())
+  expect(changed.systems.asterion.planets[0].name).toBe('New Daybreak')
+  expect(changed.systems.sol.planets).toHaveLength(8)
+  await page.locator('.file-item[data-path="wiki/markdown-example.md"]').click()
+  await expect(page.locator('.editor-area')).toHaveValue(/Markdown Example/)
+  await expect(page.locator('.file-preview')).toBeVisible()
+  await page.locator('.action-preview-file').click()
+  await expect(page.locator('.file-preview')).toHaveCount(0)
+  await page.locator('.action-preview-file').click()
+  await expect(page.locator('.file-preview')).toContainText('Paragraphs and emphasis')
+  await expect(page.locator('.file-preview .pixel-image-canvas')).toBeVisible()
 })

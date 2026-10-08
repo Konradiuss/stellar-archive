@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { center, releaseMap, serveMap, waitForView, watchConsole, withStores } from './helpers'
+import { center, worldMap, serveMap, waitForView, watchConsole, withStores } from './helpers'
 
 let checkConsole
 test.beforeEach(({ page }) => { checkConsole = watchConsole(page) })
@@ -15,7 +15,7 @@ const farStar = {
 }
 
 test('a bigger galaxy from the map file is drawn and its far star opens', async ({ page }) => {
-  const data = releaseMap()
+  const data = worldMap()
   data.galaxy = { columns: 20, rows: 12 }
   data.stars.push(farStar)
   await serveMap(page, data)
@@ -51,7 +51,7 @@ test('a bigger galaxy from the map file is drawn and its far star opens', async 
 })
 
 test('a star outside the given size widens the map instead of getting lost', async ({ page }) => {
-  const data = releaseMap()
+  const data = worldMap()
   data.galaxy = { columns: 16, rows: 9 }
   data.stars.push(farStar)
   await serveMap(page, data)
@@ -245,7 +245,7 @@ test('pulses run along the hyperlines', async ({ page }) => {
 
 test('a star name without room waits under "..." and shows on hover', async ({ page }) => {
   // Fort Perseverance sits in a ring of its own territory inside the Free Tide: no room for its name.
-  const data = releaseMap()
+  const data = worldMap()
   const star = (id, name, sectorX, sectorY, faction) => ({
     id, name, sectorX, sectorY, faction, starVisualization: { size: 60, color1: '0x9ad5ef', color2: '0x9ad5ef', color3: '0xfff0d4' }
   })

@@ -8,7 +8,7 @@ import { parseWikitext } from '../../utils/richText/wikitextParser'
 
 const LF = String.fromCharCode(10)
 const CRLF = String.fromCharCode(13, 10)
-const FILE = readFileSync('public/wiki/main.wiki', 'utf8')
+const FILE = readFileSync('test-world/wiki/main.wiki', 'utf8')
 // The form works on LF; the file may have Windows line breaks (a git checkout).
 const MAIN = FILE.replaceAll(CRLF, LF)
 const cards = segments => segments.filter(segment => !isGap(segment)).map(segment => segment.kind)

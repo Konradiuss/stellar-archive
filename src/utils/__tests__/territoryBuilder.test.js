@@ -9,7 +9,7 @@ import {
 import { createGalaxyGeometry } from '../../config/mapGeometry.js'
 
 const mapData = JSON.parse(
-  readFileSync(new URL('../../../public/map.json', import.meta.url), 'utf8')
+  readFileSync(new URL('../../../test-world/map.json', import.meta.url), 'utf8')
 )
 
 // The release map widened eastwards with a ring of Free Tide stars round two foreign enclaves.

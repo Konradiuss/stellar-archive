@@ -36,7 +36,7 @@ test.describe('desktop', () => {
     const player = await openPlayer(page)
     await expect(player).toHaveAttribute('data-state', 'paused')
     await expect(player).toHaveAttribute('data-track', '0')
-    await expect(player.locator('.now-time')).toHaveText('0:00 / 2:48')
+    await expect(player.locator('.now-time')).toHaveText('0:00 / 0:12')
 
     await player.locator('.button-play').click()
     await expect(player).toHaveAttribute('data-state', 'playing')
@@ -46,9 +46,9 @@ test.describe('desktop', () => {
     await expect(player).toHaveAttribute('data-track', '1')
     await expect(player).toHaveAttribute('data-state', 'playing')
 
-    // The middle of the seek bar: about half of Get Set (3:57).
+    // The middle of the seek bar: about half of Get Set (0:13 in the test world).
     await player.locator('.player-seek').click()
-    await expect(player.locator('.now-time')).toHaveText(/^1:5\d|^2:0\d/)
+    await expect(player.locator('.now-time')).toHaveText(/^0:0[5-8] /)
 
     await page.locator('.music-player .panel-titlebar .button-list').click()
     await player.locator('.list-row').nth(4).click()

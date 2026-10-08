@@ -1,0 +1,126 @@
+{{Planet|name=Moon|class=Natural satellite}}
+[[File:solar/moon-overview.jpg|thumb|right|220px|alt=Full Moon with dark maria and bright impact craters|A telescopic photograph of the full Moon, showing the dark maria and brighter highlands. Credit: Gregory H. Revera. [https://commons.wikimedia.org/wiki/File:FullMoon2010.jpg Source]; [https://creativecommons.org/licenses/by-sa/3.0 CC BY-SA 3.0].]]
+The '''Moon''' is [[Earth]]'s sole natural satellite and the nearest large world beyond our planet. Its surface preserves impact craters, volcanic plains and evidence of a long cooling history. Because it lacks a substantial atmosphere and an active terrestrial water cycle, many structures survive that would have been erased or altered on Earth. The Moon is consequently both an astronomical companion and an accessible geological archive.
+
+Its influence is familiar through changing phases, eclipses and tides, but those appearances reflect a moving three-dimensional system. The same hemisphere generally faces Earth because of synchronous rotation; it is not because the Moon fails to rotate or because one hemisphere is permanently dark. Returned samples, instruments left on the surface and orbital observations have made the Moon one of the best-studied bodies in [[Sol]]. Important questions nevertheless remain about its origin, interior and the distribution of water and other volatile materials.<ref name="overview">[https://science.nasa.gov/moon/facts/ NASA Science: Moon facts]. Physical properties and the Earth-Moon system.</ref>
+
+{| class="wikitable"
+|+ Selected physical and orbital characteristics
+! Quantity !! Approximate value
+|-
+| Mean radius || 1,737 km
+|-
+| Mean distance from Earth || 384,400 km
+|-
+| Sidereal orbital period || 27.3 Earth days
+|-
+| Phase cycle || 29.5 Earth days
+|-
+| Surface gravity || About one-sixth of Earth's
+|-
+| Rotation || Synchronous with its orbit
+|-
+| Atmosphere || Extremely tenuous exosphere
+|}
+
+== Orbit and synchronous rotation ==
+The Moon follows an elliptical orbit around Earth, so its distance and apparent size vary. Its motion is also influenced by the Sun and other gravitational effects. A simple circle provides an accessible illustration, but precise predictions require a more detailed account of the interacting system.
+
+Synchronous rotation means the Moon turns once relative to distant stars during each orbit around Earth. The result is that approximately the same hemisphere faces our planet. If the Moon did not rotate at all, observers on Earth would see different hemispheres as it moved around its orbit.
+
+=== Libration and the visible hemisphere ===
+Small variations in the apparent orientation, collectively called libration, allow observers to see somewhat more than half of the surface over time. Orbital eccentricity, axial geometry and the observer's changing position contribute. Libration does not imply that the far side is regularly turned fully towards Earth.
+
+Tidal interactions exchange angular momentum between Earth and Moon. Earth's rotation gradually slows while the lunar orbit expands. Laser-ranging observations measure that expansion and supply precise tests of orbital models. The modern distance is therefore one stage in a changing relationship, not necessarily the distance that existed at the Moon's formation. Reconstructing the past requires considering how tides operated under earlier ocean and orbital conditions.
+
+== Phases and eclipses ==
+The Moon shines mainly by reflecting sunlight. Half of its globe is illuminated at any moment, apart from special circumstances such as an eclipse, but observers see varying portions of that illuminated half. Those changes produce the familiar phases from new Moon through full Moon and back again.
+
+The phase cycle is longer than the sidereal orbital period because Earth and Moon also move around the Sun. After the Moon returns to the same direction relative to the stars, it must travel farther to regain the same Sun-Earth-Moon alignment. The two periods therefore measure different kinds of return.
+
+A lunar eclipse occurs when the Moon passes through Earth's shadow. A solar eclipse occurs when the Moon obscures the Sun from particular places on Earth. Eclipses do not occur at every new or full Moon because the lunar orbital plane is tilted relative to Earth's orbital plane. Suitable alignments require conjunctions near the orbital nodes.
+
+The far side experiences daylight and darkness, just as the near side does. Calling it permanently dark confuses visibility from Earth with illumination by the Sun. Earthshine can also faintly illuminate the near-side night hemisphere by reflecting sunlight from Earth. Each of these appearances is explained by geometry and reflection rather than by a changing intrinsic luminosity of the Moon.
+
+== Origin and the giant-impact hypothesis ==
+A major impact involving the early Earth is the leading framework for explaining the Moon's origin. In such scenarios, material launched into orbit assembles into a satellite. The collision also changes the Earth and may influence its rotation and the composition of the debris from which the Moon forms.
+
+Several observations support investigation of this framework, including the relationship between terrestrial and lunar material and the Moon's relatively small metal core. However, a broad impact explanation does not identify one uniquely established collision. Researchers examine impact geometry, mixing, temperature and the subsequent evolution of orbiting material.
+
+Isotopic measurements are especially valuable because they can connect or distinguish reservoirs of material. Similarities between Earth and Moon constrain how much mixing occurred and which bodies supplied the ingredients. Models must reproduce those chemical relationships together with mass, angular momentum and the resulting orbit.
+
+Alternative details within impact-based scenarios continue to be explored. Later accretion, cooling and tidal evolution also affect the interpretation of present properties. The origin should therefore be described as a developing scientific reconstruction, with a leading mechanism and unresolved particulars. A simulation that generates a moon is informative only if its outcome also agrees with the evidence from the actual Earth-Moon system.
+
+== Interior and thermal evolution ==
+The Moon has a crust, mantle and a comparatively small core. Seismic measurements, gravity observations and studies of rotation constrain that arrangement. Samples provide chemical evidence for the processes that built and modified the outer layers, while the deep interior remains less directly accessible.
+
+Early heating produced extensive melting and differentiation. Models of a lunar magma ocean explain how different minerals could crystallise and separate, contributing to the formation of the ancient crust. The detailed sequence and duration of those processes remain research subjects, particularly when chemical and age measurements do not fit a single simplified timeline.
+
+Over time, the Moon cooled and its lithosphere became increasingly resistant to deformation. Volcanic activity continued after the earliest crust formed, but its extent and timing varied among regions. A smaller body generally loses heat differently from a larger planet, making the Moon a useful comparison with Earth and [[Mars]].
+
+The interior is not perfectly inactive today. Moonquakes and other measurable processes occur, even though the Moon lacks an Earth-like network of tectonic plates and major ongoing surface volcanism. Describing it as geologically quiet is more precise than assuming nothing inside it moves or changes. Modern instruments and renewed sample analysis continue to improve estimates of its thermal and mechanical history.
+
+== Highlands, maria and volcanic history ==
+[[File:solar/moon-far-side.jpg|thumb|center|480px|alt=Cratered far side of the Moon rendered from NASA surface data|Rendering of the Moon's far side using NASA lunar surface data; the illumination is simulated. Credit: Wikideas1. [https://commons.wikimedia.org/wiki/File:Far_side_of_the_moon_4k.png Source]; [https://creativecommons.org/publicdomain/zero/1.0/deed.en CC0 1.0].]]
+
+Bright highlands dominate many areas and preserve heavily cratered ancient terrain. Darker maria are broad regions filled by basaltic lava. The word mare originated from historical interpretations of the dark areas as seas, but they are solid volcanic plains, not bodies of present liquid water.
+
+The maria occur mainly on the near side, creating a major asymmetry in familiar lunar views. Differences in crustal thickness, composition and thermal history help explain where magma could reach the surface. Determining their relationship requires measurements extending beyond visible brightness.
+
+Samples and crater relationships establish that volcanic plains formed at different times. A dark plain may bury an older crater, while later impacts cut through the lava and expose underlying material. Those overlaps help reconstruct a local sequence even where no directly sampled rock is available.
+
+=== Reading a volcanic landscape ===
+The shape of flows, channels and volcanic deposits adds information about how lava travelled and accumulated. Features need to be compared with composition and topography because superficially similar landforms can arise through different mechanisms. The lunar record also includes evidence for explosive eruptions involving volatile material. Its geology therefore extends beyond a simple story of one early molten surface cooling into an unchanged grey sphere.
+
+== Impacts and relative chronology ==
+Impact craters are widespread because the Moon has no dense atmosphere to prevent small objects from reaching the ground and little surface erosion to remove the resulting scars. Crater size, shape, ejecta and central structures depend on impact energy, target properties and gravity.
+
+Large impact basins profoundly altered the crust and produced material distributed far from the original collision. A rock collected at one location may therefore have been transported from another. Understanding sample provenance is necessary when connecting a laboratory age or composition to a particular geological event.
+
+Crater counting provides relative ages: a surface exposed for longer generally accumulates more craters. But saturation, burial and variation in the impact population complicate the conversion to absolute ages. Sample ages help calibrate the method, and disagreements can reveal where an assumed history needs improvement.
+
+The chronology inferred from lunar terrain is used elsewhere in the Solar System because many bodies lack returned samples. That makes the Moon an important reference, while also making the assumptions behind lunar-based dating consequential. Researchers distinguish measured rock ages from ages inferred by models and crater distributions. Treating every age estimate as equally direct would obscure the strengths and limitations of the geological record.
+
+== Regolith and the airless environment ==
+Repeated impacts break rock into fragments and fine particles, producing the loose surface material called regolith. Micrometeorites and energetic particles further modify it. Lunar soil is therefore not simply terrestrial sand without moisture; it contains particles shaped and chemically altered by a distinctive environment.
+
+The Moon's exosphere is extremely tenuous, so it does not support ordinary atmospheric weather. Surface temperature changes strongly with illumination, while the absence of an atmosphere exposes the ground to space-weather processes. Daytime and nighttime conditions depend on latitude, topography and material properties as well as the long solar day.
+
+Dust can adhere to equipment, abrade surfaces and complicate engineering operations. Its behaviour reflects particle shapes, electrical charging and low gravity. Lessons from lunar dust cannot automatically be transferred unchanged to every other airless body, but they help identify physical issues that missions must examine.
+
+Impact gardening repeatedly mixes the upper surface. A particle's history can include burial, excavation and exposure, affecting how it records radiation and solar-wind material. Samples are consequently both geological specimens and records of interactions with space. Their interpretation benefits from knowing the depth and context in which they were collected rather than treating all loose surface material as a uniform reservoir.
+
+== Water and polar cold traps ==
+Water and related chemical signatures have been detected in several lunar contexts. Some of the most important reservoirs are associated with permanently shaded polar locations, where low temperatures allow volatile material to survive. Those deposits differ from an exposed liquid-water environment on Earth.
+
+Small axial tilt and local topography create craters or depressions that receive very little direct sunlight. Nearby raised terrain may experience very different illumination, so conditions can change greatly over a short distance. Polar research therefore requires detailed maps of shadows and temperature rather than a single average value for the whole region.
+
+The presence of hydrogen or a water-related spectral signal does not by itself specify a thick, clean sheet of accessible ice. Material may be mixed with regolith, distributed irregularly or present in different chemical forms. Multiple instruments and, where possible, direct sampling help distinguish those arrangements.
+
+=== Scientific and practical questions ===
+Studying lunar volatiles can reveal how water was delivered and retained in the inner Solar System. It also informs possible resource investigations, but estimated abundance, recoverability and contamination risks are separate questions. A scientifically detected deposit is not automatically an engineering-ready supply. The polar environment matters first as a natural archive whose composition and distribution need reliable measurement.
+
+== Tides and Earth's environment ==
+The Moon contributes to ocean tides on Earth, with the Sun providing an additional influence. The changing alignments help organise variations in tidal range, but local geography and water depth determine the detailed pattern. Some coastlines therefore experience very different tides despite sharing the same astronomical forcing.
+
+The gravitational interaction also deforms the solid Earth and the Moon. Dissipation during those responses transfers energy and angular momentum, contributing to changes in rotation and orbital distance. Geological records and modern precision measurements supply different kinds of constraints on that evolution.
+
+The Moon's influence on Earth's axial behaviour is another topic connecting satellite dynamics to planetary history. Its mass and orbit affect the system's response to other gravitational influences. However, broad claims about the Moon being an absolute prerequisite for every form of life would go beyond the available evidence.
+
+The relationship is scientifically valuable because it can be measured repeatedly with high precision. It connects familiar coastal observations with celestial mechanics and material behaviour. The Moon is thus not merely an object observed from Earth: it participates in the dynamics of the home planet, while preserving a separate physical history that can be investigated through its rocks, gravity and surface environments.
+
+== Robotic exploration, Apollo and research ==
+[[File:solar/moon-apollo.jpg|thumb|center|480px|alt=Apollo 11 astronaut Buzz Aldrin standing on the Moon|Buzz Aldrin on the lunar surface during Apollo 11, photographed by Neil Armstrong in 1969. Credit: Neil Armstrong. [https://commons.wikimedia.org/wiki/File:A_Man_on_the_Moon,_AS11-40-5903.jpg Source]; [https://commons.wikimedia.org/wiki/File:A_Man_on_the_Moon,_AS11-40-5903.jpg#Licensing Public domain].]]
+
+Early robotic missions supplied close photographs, landings and increasingly detailed measurements. Apollo then enabled astronauts to observe geological relationships directly and return selected samples. Robotic sample-return missions added material from other locations, broadening the laboratory record.
+
+The scientific value of a sample depends on its context. A carefully documented rock can connect mineral chemistry and age to a known landscape, while an isolated specimen leaves more uncertainty about its source. Lunar meteorites expand the available material but usually lack the precise collection locations supplied by planned missions.
+
+Orbiters investigate terrain, gravity, surface chemistry and illumination over broad areas. Surface instruments supply measurements that remote sensing cannot easily reproduce, such as local seismic signals. These approaches complement one another rather than creating a competition between maps and samples.
+
+Future and ongoing research priorities include the far-side record, polar volatiles, interior structure and the timing of early geological events. Mission schedules change, so this article distinguishes established historical achievements from measurements still to be obtained. The Moon remains an important planetary laboratory because it combines close access with a relatively well-preserved surface archive. Improving that archive helps reconstruct not only lunar evolution but also the impact and material-transfer history shared with Earth and other terrestrial worlds.
+
+== Sources ==
+<references />
+
+Written and reorganised using [https://en.wikipedia.org/wiki/Moon Moon] by Wikipedia contributors ([https://en.wikipedia.org/w/index.php?title=Moon&action=history page history]), checked 7 October 2026, with NASA material cited above. Changes include new explanatory prose, restructuring, a summary table and local atlas links. Adapted article text: [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0].

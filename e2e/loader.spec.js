@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
-import { releaseMap, waitForView, watchConsole, withStores } from './helpers'
+import { worldMap, waitForView, watchConsole, withStores } from './helpers'
 
-const MAP = releaseMap()
+const MAP = worldMap()
 const solPlanets = MAP.systems.sol.planets
 const solOrbits = solPlanets.reduce((count, planet) => count + 1 + (planet.satellites?.length ?? 0), 0)
 

@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { openHash, watchConsole, withStores } from './helpers'
+import { openHash, watchConsole } from './helpers'
 
 let checkConsole
 test.beforeEach(({ page }) => { checkConsole = watchConsole(page) })
@@ -28,10 +28,4 @@ test('the map, a system, the wiki and its service pages have no Russian left', a
     await openHash(page, hash)
     expect(await russianOnPage(page), hash).toEqual([])
   }
-})
-
-test('every link of the wiki leads to a written page', async ({ page }) => {
-  await openHash(page, '#/wiki/')
-  const wanted = await withStores(page, ({ map }) => map.wikiGraph.wanted.map(item => item.name))
-  expect(wanted).toEqual([])
 })

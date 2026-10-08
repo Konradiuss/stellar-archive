@@ -818,7 +818,7 @@ npm run preview
 
 The repository includes `.github/workflows/pages.yml`. Push your copy to GitHub, then open **Settings → Pages** and choose **GitHub Actions** as the publishing source. A push to `main` or a manual workflow run builds and deploys `dist/`. Inspect the workflow result and the published address; deployment duration is not fixed. See GitHub's [Pages configuration instructions](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
-The workflow installs Node.js 22, runs `npm ci`, and builds before deployment. It does not run tests: they check the demo map, so any content edit, including one published from the editor, would fail them. `.github/workflows/tests.yml` runs lint and unit tests separately, only for changes outside `public/`; it never blocks deployment. If you change the working branch, update the workflow trigger and the editor's publication branch accordingly. Its Pages configuration provides `SITE_URL` for the build.
+The workflow installs Node.js 22, runs `npm ci`, lint and unit tests, and builds before deployment. The tests run on their own world in `test-world/`, not on `public/`, so editing your content, including from the editor, does not affect them. Leave `test-world/` unchanged unless you also change the tests that use it. If you change the working branch, update the workflow trigger and the editor's publication branch accordingly. Its Pages configuration provides `SITE_URL` for the build.
 
 <a id="en-other-static-hosts"></a>
 
@@ -1723,7 +1723,7 @@ npm run preview
 
 Репозиторій містить `.github/workflows/pages.yml`. Надішліть власну копію до GitHub, відкрийте **Settings → Pages** і виберіть **GitHub Actions** як джерело публікації. Push до `main` або ручний запуск workflow збирає й розміщує `dist/`. Перевірте результат workflow та опубліковану адресу; тривалість розміщення не фіксована. Дивіться [інструкцію GitHub щодо налаштування Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
-Workflow встановлює Node.js 22, виконує `npm ci`, а перед розміщенням збирає сайт. Тести він не запускає: вони перевіряють демонстраційну карту, тож будь-яка зміна вмісту, зокрема опублікована з редактора, їх не пройде. `.github/workflows/tests.yml` окремо виконує lint і модульні тести лише для змін поза `public/`; розміщення він не блокує. Якщо змінюєте робочу гілку, відповідно оновіть умову запуску workflow та гілку публікації в редакторі. Налаштування Pages надає `SITE_URL` для збірки.
+Workflow встановлює Node.js 22, виконує `npm ci`, lint і модульні тести, а перед розміщенням збирає сайт. Тести працюють на власному світі в `test-world/`, а не на `public/`, тож зміни вашого вмісту, зокрема з редактора, на них не впливають. Не змінюйте `test-world/`, якщо не змінюєте й тести, що його використовують. Якщо змінюєте робочу гілку, відповідно оновіть умову запуску workflow та гілку публікації в редакторі. Налаштування Pages надає `SITE_URL` для збірки.
 
 <a id="uk-other-static-hosts"></a>
 

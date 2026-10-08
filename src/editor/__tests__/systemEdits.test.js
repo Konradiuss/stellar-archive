@@ -5,7 +5,7 @@ import { addPlanet, addSatellite, addSystem, bodyAt, moveBody, removeBody, setBo
 import { swapItems } from '../jsonEdit'
 import { lostFiles } from '../siteFiles'
 
-const MAP = readFileSync('public/map.json', 'utf8')
+const MAP = readFileSync('test-world/map.json', 'utf8')
 const read = text => JSON.parse(text)
 const failure = run => {
   try {

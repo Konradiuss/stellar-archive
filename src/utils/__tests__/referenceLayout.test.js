@@ -88,7 +88,7 @@ describe('the room of the names', () => {
 
 describe('the layout of the reference map', () => {
   it('stays the same to the last coordinate', async () => {
-    const layout = layoutOf(JSON.parse(readFileSync('public/map.json', 'utf8')))
+    const layout = layoutOf(JSON.parse(readFileSync('test-world/map.json', 'utf8')))
     await expect(JSON.stringify(layout, null, 1)).toMatchFileSnapshot('./__snapshots__/referenceLayout.json')
   })
 

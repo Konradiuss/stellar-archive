@@ -1,0 +1,83 @@
+'''Long Article Example''' is a scrolling and table-of-contents demonstration. All Latin paragraphs are placeholders. See [[Wikitext Example]] and [[Markdown Example]] for shorter samples.
+
+== 1. Departure ==
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis, neque at varius consequat, ipsum justo dictum mauris, vel feugiat massa urna sed erat. Integer aliquet tincidunt augue, quis tristique nunc volutpat nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Donec dignissim lectus sed sapien sodales, vitae cursus neque elementum.
+
+=== Departure details ===
+
+Praesent eget nibh non ligula efficitur volutpat. Mauris viverra libero ut sapien ullamcorper, in interdum neque malesuada. Nunc at arcu et tellus fermentum placerat. Aliquam erat volutpat. Nulla facilisi. Fusce posuere lacus vel urna faucibus, eget vehicula erat tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+Curabitur pretium metus at arcu fermentum, a malesuada nisi consequat. Vivamus consectetur purus quis dolor sollicitudin, sed luctus urna volutpat. Aenean posuere tellus eget neque pharetra, eu tincidunt justo tincidunt. Suspendisse potenti. Etiam commodo lectus in diam ullamcorper, vitae fermentum magna consequat. Proin sed orci vel nibh pellentesque mollis.
+
+== 2. Navigation ==
+
+Praesent eget nibh non ligula efficitur volutpat. Mauris viverra libero ut sapien ullamcorper, in interdum neque malesuada. Nunc at arcu et tellus fermentum placerat. Aliquam erat volutpat. Nulla facilisi. Fusce posuere lacus vel urna faucibus, eget vehicula erat tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+=== Navigation details ===
+
+Curabitur pretium metus at arcu fermentum, a malesuada nisi consequat. Vivamus consectetur purus quis dolor sollicitudin, sed luctus urna volutpat. Aenean posuere tellus eget neque pharetra, eu tincidunt justo tincidunt. Suspendisse potenti. Etiam commodo lectus in diam ullamcorper, vitae fermentum magna consequat. Proin sed orci vel nibh pellentesque mollis.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis, neque at varius consequat, ipsum justo dictum mauris, vel feugiat massa urna sed erat. Integer aliquet tincidunt augue, quis tristique nunc volutpat nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Donec dignissim lectus sed sapien sodales, vitae cursus neque elementum.
+
+== 3. Transit ==
+
+Curabitur pretium metus at arcu fermentum, a malesuada nisi consequat. Vivamus consectetur purus quis dolor sollicitudin, sed luctus urna volutpat. Aenean posuere tellus eget neque pharetra, eu tincidunt justo tincidunt. Suspendisse potenti. Etiam commodo lectus in diam ullamcorper, vitae fermentum magna consequat. Proin sed orci vel nibh pellentesque mollis.
+
+=== Transit details ===
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis, neque at varius consequat, ipsum justo dictum mauris, vel feugiat massa urna sed erat. Integer aliquet tincidunt augue, quis tristique nunc volutpat nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Donec dignissim lectus sed sapien sodales, vitae cursus neque elementum.
+
+Praesent eget nibh non ligula efficitur volutpat. Mauris viverra libero ut sapien ullamcorper, in interdum neque malesuada. Nunc at arcu et tellus fermentum placerat. Aliquam erat volutpat. Nulla facilisi. Fusce posuere lacus vel urna faucibus, eget vehicula erat tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+== 4. Arrival ==
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis, neque at varius consequat, ipsum justo dictum mauris, vel feugiat massa urna sed erat. Integer aliquet tincidunt augue, quis tristique nunc volutpat nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Donec dignissim lectus sed sapien sodales, vitae cursus neque elementum.
+
+=== Arrival details ===
+
+Praesent eget nibh non ligula efficitur volutpat. Mauris viverra libero ut sapien ullamcorper, in interdum neque malesuada. Nunc at arcu et tellus fermentum placerat. Aliquam erat volutpat. Nulla facilisi. Fusce posuere lacus vel urna faucibus, eget vehicula erat tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+Curabitur pretium metus at arcu fermentum, a malesuada nisi consequat. Vivamus consectetur purus quis dolor sollicitudin, sed luctus urna volutpat. Aenean posuere tellus eget neque pharetra, eu tincidunt justo tincidunt. Suspendisse potenti. Etiam commodo lectus in diam ullamcorper, vitae fermentum magna consequat. Proin sed orci vel nibh pellentesque mollis.
+
+== 5. Survey ==
+
+Praesent eget nibh non ligula efficitur volutpat. Mauris viverra libero ut sapien ullamcorper, in interdum neque malesuada. Nunc at arcu et tellus fermentum placerat. Aliquam erat volutpat. Nulla facilisi. Fusce posuere lacus vel urna faucibus, eget vehicula erat tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+=== Survey details ===
+
+Curabitur pretium metus at arcu fermentum, a malesuada nisi consequat. Vivamus consectetur purus quis dolor sollicitudin, sed luctus urna volutpat. Aenean posuere tellus eget neque pharetra, eu tincidunt justo tincidunt. Suspendisse potenti. Etiam commodo lectus in diam ullamcorper, vitae fermentum magna consequat. Proin sed orci vel nibh pellentesque mollis.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis, neque at varius consequat, ipsum justo dictum mauris, vel feugiat massa urna sed erat. Integer aliquet tincidunt augue, quis tristique nunc volutpat nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Donec dignissim lectus sed sapien sodales, vitae cursus neque elementum.
+
+== 6. Archive ==
+
+Curabitur pretium metus at arcu fermentum, a malesuada nisi consequat. Vivamus consectetur purus quis dolor sollicitudin, sed luctus urna volutpat. Aenean posuere tellus eget neque pharetra, eu tincidunt justo tincidunt. Suspendisse potenti. Etiam commodo lectus in diam ullamcorper, vitae fermentum magna consequat. Proin sed orci vel nibh pellentesque mollis.
+
+=== Archive details ===
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis, neque at varius consequat, ipsum justo dictum mauris, vel feugiat massa urna sed erat. Integer aliquet tincidunt augue, quis tristique nunc volutpat nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Donec dignissim lectus sed sapien sodales, vitae cursus neque elementum.
+
+Praesent eget nibh non ligula efficitur volutpat. Mauris viverra libero ut sapien ullamcorper, in interdum neque malesuada. Nunc at arcu et tellus fermentum placerat. Aliquam erat volutpat. Nulla facilisi. Fusce posuere lacus vel urna faucibus, eget vehicula erat tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+== 7. Review ==
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis, neque at varius consequat, ipsum justo dictum mauris, vel feugiat massa urna sed erat. Integer aliquet tincidunt augue, quis tristique nunc volutpat nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Donec dignissim lectus sed sapien sodales, vitae cursus neque elementum.
+
+=== Review details ===
+
+Praesent eget nibh non ligula efficitur volutpat. Mauris viverra libero ut sapien ullamcorper, in interdum neque malesuada. Nunc at arcu et tellus fermentum placerat. Aliquam erat volutpat. Nulla facilisi. Fusce posuere lacus vel urna faucibus, eget vehicula erat tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+Curabitur pretium metus at arcu fermentum, a malesuada nisi consequat. Vivamus consectetur purus quis dolor sollicitudin, sed luctus urna volutpat. Aenean posuere tellus eget neque pharetra, eu tincidunt justo tincidunt. Suspendisse potenti. Etiam commodo lectus in diam ullamcorper, vitae fermentum magna consequat. Proin sed orci vel nibh pellentesque mollis.
+
+== 8. Return ==
+
+Praesent eget nibh non ligula efficitur volutpat. Mauris viverra libero ut sapien ullamcorper, in interdum neque malesuada. Nunc at arcu et tellus fermentum placerat. Aliquam erat volutpat. Nulla facilisi. Fusce posuere lacus vel urna faucibus, eget vehicula erat tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+=== Return details ===
+
+Curabitur pretium metus at arcu fermentum, a malesuada nisi consequat. Vivamus consectetur purus quis dolor sollicitudin, sed luctus urna volutpat. Aenean posuere tellus eget neque pharetra, eu tincidunt justo tincidunt. Suspendisse potenti. Etiam commodo lectus in diam ullamcorper, vitae fermentum magna consequat. Proin sed orci vel nibh pellentesque mollis.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis, neque at varius consequat, ipsum justo dictum mauris, vel feugiat massa urna sed erat. Integer aliquet tincidunt augue, quis tristique nunc volutpat nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Donec dignissim lectus sed sapien sodales, vitae cursus neque elementum.
+
+[[Category:Examples]]

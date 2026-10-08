@@ -1,0 +1,31 @@
+{{Banner
+|title = GALAXY ARCHIVE
+|style = sunset
+|caption = Welcome to the archive: {{NUMBEROFARTICLES}} articles and {{NUMBEROFPLACES}} places on the map
+|text = Eight stars. Three rival powers. One signal nobody can explain.
+Explore the familiar worlds of [[Sol]] and the contested routes beyond them, from [[Daybreak]] to the ruins of [[Reliquary]].
+}}
+{{Links|[[Galaxy|About the world]]|[[Settlement Chronicle|Chronicle]]|[[Special:All pages|All pages]]|[[Special:Icons|Icons]]|[[Special:Banners|Banners]]|[https://github.com/Konradiuss/stellar-archive Source code]}}
+
+{{Box|New to the archive|color=green|icon=question|
+Begin with '''[[Galaxy|the story of the eight stars]]''', then choose a route of your own.
+* [[Sol]] — eight real planets and a selection of their moons
+* [[Settlement Chronicle]] — the journey from a shared expedition to three powers
+* [[Nacre Beacon]] — the discovery that threatens their uneasy peace
+}}
+{{Box|Factions|color=red|icon=flag|link=Category:Factions|
+Three powers claim the inhabited systems. Their emblems lead to their archives.
+<gallery mode="tiles" widths=48px>
+File:emblem-earth.png|Solar Concord|link=Solar Concord
+File:emblem-mars.png|Crucible Combine|link=Crucible Combine
+File:emblem-outer.png|Free Tide|link=Free Tide
+</gallery>
+}}
+{{Box|Technology|color=blue|icon=gear|
+[[Quantum Gates]] carry trade and fleets between stars. [[Jump Ships]] travel beyond that network, using a [[Gate Drive]] whose makers guard every design.
+}}
+{{Box|Chronicle|color=purple|icon=book|link=Settlement Chronicle|
+Follow the first settlement of [[Asterion]], the division of the route network and the arrival of the unexplained signal from [[Nacre]].
+}}
+
+{{Archive sections}}

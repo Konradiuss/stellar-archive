@@ -7,6 +7,8 @@ import { socialPreview } from './scripts/socialPreview.js'
 export default defineConfig({
   // Relative links: the site works from any folder of a static host (https://<user>.github.io/<repo>/).
   base: './',
+  // The e2e tests serve the test world instead (scripts/testPublic.mjs).
+  publicDir: process.env.SPACEMAP_PUBLIC_DIR || 'public',
   plugins: [vue(), cspMeta(), socialPreview()],
   build: {
     rollupOptions: {

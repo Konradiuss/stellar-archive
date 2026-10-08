@@ -10,7 +10,7 @@ const title = page => page.locator('.wiki-view .wiki-title')
 // Serves an article of the site with `edit` applied, for a feature its text lacks.
 const editArticle = (page, file, edit) => page.route(`**/wiki/${file}`, route => route.fulfill({
   contentType: 'text/plain; charset=utf-8',
-  body: edit(readFileSync(new URL(`../public/wiki/${file}`, import.meta.url), 'utf8').replace(/\r\n/g, '\n'))
+  body: edit(readFileSync(new URL(`../test-world/wiki/${file}`, import.meta.url), 'utf8').replace(/\r\n/g, '\n'))
 }))
 const after = (line, added) => text => {
   if (!text.includes(line)) throw new Error(`No line "${line}" in the article`)

@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs'
 import { BUILT_IN_TYPES, applyHyperlineStyles, parseColor, resolveHyperlineStyle, typeDisplayName } from '../hyperlineStyle.js'
 
 const mapData = JSON.parse(
-  readFileSync(new URL('../../../public/map.json', import.meta.url), 'utf8')
+  readFileSync(new URL('../../../test-world/map.json', import.meta.url), 'utf8')
 )
 
 describe('hyperline style', () => {

@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { appendItem, inlineJson, locate, parseSpans, removeItem, removeKey, renameKey, setKey, setValue } from '../jsonEdit'
 
 // The file may have Windows line breaks (a git checkout); the line diffs below count LF lines.
-const MAP = readFileSync(new URL('../../../public/map.json', import.meta.url), 'utf8').replaceAll('\r\n', '\n')
+const MAP = readFileSync(new URL('../../../test-world/map.json', import.meta.url), 'utf8').replaceAll('\r\n', '\n')
 
 function changedLines(before, after) {
   const a = before.split('\n')

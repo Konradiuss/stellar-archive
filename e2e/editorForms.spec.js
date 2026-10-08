@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
-import { releaseMap, serveMap } from './helpers'
+import { worldMap, serveMap } from './helpers'
 
-const MAP = releaseMap()
+const MAP = worldMap()
 
 const area = page => page.locator('.editor-area')
 const mapNow = async page => {
@@ -35,7 +35,7 @@ test.beforeEach(async ({ page }) => {
 })
 
 test('a planet shows what the map sets as its own, and the rest as what the site takes', async ({ page }) => {
-  const map = releaseMap()
+  const map = worldMap()
   // Every planet of the release map names its seed; this one takes it from its name.
   delete map.systems.cinder.planets[0].visualization.seed
   await serveMap(page, map)

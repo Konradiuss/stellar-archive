@@ -1,0 +1,125 @@
+{{Planet|name=Uranus|class=Ice giant}}
+[[File:solar/uranus-overview.jpg|thumb|right|220px|alt=Pale blue-green disc of Uranus|Colour-calibrated Voyager 2 view of Uranus, reconstructed to approximate its visible appearance. Credit: Ardenau4. [https://commons.wikimedia.org/wiki/File:Uranus_Voyager2_color_calibrated.png Source]; [https://creativecommons.org/publicdomain/zero/1.0/deed.en CC0 1.0].]]
+'''Uranus''' is the seventh planet from the Sun and one of the two ice giants of [[Sol]]. It has a hydrogen-and-helium atmosphere containing methane, but its bulk structure differs from that of the gas giants [[Jupiter]] and [[Saturn]]. Its most immediately unusual property is a rotation axis tilted so far that the planet effectively rotates on its side as it travels around the Sun.
+
+The apparently calm, blue-green disc seen in many photographs can be misleading. Uranus has winds, clouds, a magnetic environment, faint rings and numerous moons. Much of the close-range record comes from a single spacecraft encounter, making it difficult to separate a global property from a seasonal or local observation. The planet is scientifically important both for understanding our own outer Solar System and for interpreting the many exoplanets with broadly similar size. Its unusual geometry makes ordinary assumptions about seasons and magnetic alignment especially unreliable.<ref name="overview">[https://science.nasa.gov/uranus/facts/ NASA Science: Uranus facts]. Physical characteristics and the Uranian system.</ref>
+
+{| class="wikitable"
+|+ Selected physical and orbital characteristics
+! Quantity !! Approximate value
+|-
+| Mean radius || 25,362 km
+|-
+| Mean solar distance || 19.2 astronomical units
+|-
+| Orbital period || About 84 Earth years
+|-
+| Reference rotation period || Approximately 17 hours
+|-
+| Axial tilt || About 98 degrees
+|-
+| Classification || Ice giant
+|-
+| Ring system || Narrow, generally dark rings
+|}
+
+== Discovery and naming ==
+Uranus is faintly visible without a telescope under favourable conditions, but it was not recognised as a planet in ancient observational traditions. Earlier records sometimes treated it as a star. William Herschel's observations in 1781 led to its identification as a new planetary body, expanding the familiar Solar System beyond Saturn.
+
+Establishing the discovery required following its motion and determining an orbit. A single faint point does not reveal whether an object is a nearby planet or a distant star. Repeated observations make that distinction possible by measuring movement relative to the background sky. Historical records of earlier sightings subsequently improved the understanding of its orbit.
+
+The name Uranus refers to a figure from Greek mythology. Its eventual adoption followed debate over alternative names, reflecting the mixture of astronomical practice, tradition and national preferences accompanying a major discovery. The names of its larger moons mostly draw from literary characters rather than following the same mythological pattern as several other planetary systems.
+
+Discovery history remains relevant to science because older observations supply a long baseline for orbital calculations. They also illustrate that an object can be recorded without its physical nature being recognised. Improving interpretation may therefore turn an existing observation into important evidence without requiring the sky itself to have changed.
+
+== Orbit and axial orientation ==
+[[File:solar/uranus-tilt.png|thumb|center|480px|alt=Diagram showing Uranus's tilted equatorial plane at three dates|Diagram of Uranus as viewed from Earth at three dates, illustrating the changing presentation of its tilted equator and satellite orbits. Credit: NASA, ESA, and G. Bacon (STScI). [https://commons.wikimedia.org/wiki/File:Uranus_as_Viewed_from_Earth_-_1994,_1997,_2006_(opo0642d).jpg Source]; [https://commons.wikimedia.org/wiki/File:Uranus_as_Viewed_from_Earth_-_1994,_1997,_2006_(opo0642d).jpg#Licensing Public domain].]]
+
+Uranus follows an orbit taking about eighty-four Earth years to complete. Its substantial distance means that sunlight is much weaker than near Earth, but distance alone does not describe the pattern of heating. The extreme axial tilt produces a geometry unlike the ordinary upright appearance of most schematic planetary diagrams.
+
+Near a solstice, one pole faces the Sun while the opposite polar region experiences prolonged darkness. At an equinox, illumination shifts towards a more familiar alternating day-night pattern over much of the planet. The long year makes those changes unfold over decades from the perspective of an observer on Earth.
+
+=== Rotation on a tilted axis ===
+The planet still rotates around its own axis; being on its side does not mean it tumbles arbitrarily during each orbit. The direction of its angular momentum and the convention used for describing its poles affect how its rotation and tilt are reported. A clear description should therefore distinguish geometry from an everyday comparison with a rolling ball.
+
+The moons and rings generally follow the equatorial plane, so their orientation changes together with the planet. This relationship makes the tilt a system-wide formation question rather than a visual peculiarity confined to the atmosphere. Any explanation of the planet's history must also account for the surrounding orbital arrangement.
+
+== Seasons and solar heating ==
+Uranian seasons last many Earth years, exposing regions to unusual intervals of sunlight and darkness. That distribution does not translate immediately into an identical distribution of temperature. Atmospheric circulation, heat storage and the time required for a response influence the resulting climate.
+
+A planet receiving weak sunlight can still develop substantial winds because differences in heating and pressure drive motion. The circulation responds within a rotating atmosphere, and its behaviour depends on depth as well as latitude. Long-term observations are needed to identify how cloud patterns and atmospheric structure evolve as illumination changes.
+
+The Voyager 2 encounter occurred during a particular seasonal configuration. It did not observe every hemisphere under the same conditions or monitor the planet across an entire year. Conclusions drawn from that encounter therefore benefit from comparison with later telescope measurements obtained at different seasons and wavelengths.
+
+The geometry also affects observations of rings and moons. Shadows, the angle of sunlight and the viewing direction alter the visibility of structures without requiring a physical change in their material. Distinguishing a genuine seasonal response from a change in observing conditions is a recurring challenge. Uranus supplies an unusually strong example of why a planetary image must be interpreted together with the time and geometry of its acquisition.
+
+== Atmosphere and blue-green colour ==
+Hydrogen and helium dominate the atmosphere, with methane providing an important additional component. Methane absorbs red wavelengths of reflected sunlight, contributing to the planet's blue-green appearance. Aerosols, clouds and the wavelength range used to construct an image also affect the displayed colour, so a familiar photograph is not a universal colour standard.
+
+Spectroscopy identifies gases through their interaction with radiation. Different wavelengths probe different atmospheric depths, depending on absorption and scattering. A measurement of methane near the upper clouds is therefore not automatically a measurement of the planet's entire methane inventory.
+
+Haze and cloud layers can make visible-light features subtle, while infrared observations reveal stronger contrasts. Improved instruments have shown that Uranus is not permanently featureless. Variations in clouds and brightness provide information about atmospheric motion and possible seasonal changes.
+
+The atmosphere's chemistry also connects to photochemical processing driven by sunlight. Reactions can produce additional hydrocarbons and particles, with effects that depend on altitude and transport. To interpret an apparent bright or dark patch, researchers must consider composition, cloud height, particle sizes and illumination together. A colour difference alone cannot uniquely identify the responsible substance or prove that the same physical layer was observed everywhere on the disc.
+
+== Clouds, winds and weather ==
+Cloud tracking reveals winds at different latitudes, although it relies on identifying features that persist long enough to follow. Some clouds evolve rapidly, making their changing shape difficult to separate from their movement. Uncertainty in the altitude of a feature also complicates the connection between a measured motion and a particular atmospheric layer.
+
+Uranus displays storms and changing cloud patterns despite receiving limited sunlight. The visual contrast can be modest compared with dramatic imagery of Jupiter, but that contrast is not a reliable measure of all atmospheric activity. Infrared measurements and repeated observations often reveal processes poorly represented by a single visible-light image.
+
+=== Weather over a long season ===
+Observations obtained over decades help test whether particular patterns are connected to seasonal changes. However, a correlation with illumination is not sufficient to explain every feature. Atmospheric dynamics can generate variations internally, and observations with different instruments must be compared carefully before a trend is assigned.
+
+The relationship between shallow clouds and deep circulation remains an open question. A wind measured near the visible atmosphere does not tell researchers how far it extends into the interior. Gravity and other remote measurements can provide additional constraints, but detailed global investigations remain limited. Uranus is therefore an important target for connecting well-observed upper-atmospheric behaviour with much less directly observed deeper layers.
+
+== Interior and the meaning of ice giant ==
+The term ice giant refers to the expected importance of elements and compounds heavier than hydrogen and helium in the planet's bulk composition. Water, ammonia and methane are commonly discussed in interior models. It does not mean Uranus is a solid ball of ordinary frozen ice beneath a thin atmosphere.
+
+High pressure and temperature change the behaviour of those materials. They may exist in fluid or other high-pressure states that differ substantially from familiar surface ice. The internal distribution remains uncertain, and a simple three-layer drawing is a useful approximation rather than a uniquely established structure.
+
+Gravity, atmospheric composition, size and rotation all help constrain possible interiors. Yet several models can satisfy the same broad measurements while distributing materials differently. Assumptions about mixing, temperature and the physical properties of compounds become especially important when direct close-range data are sparse.
+
+An improved account of the interior would clarify how Uranus formed and how its magnetic field is generated. It would also improve comparisons with [[Neptune]], whose similar size conceals different thermal behaviour. The two planets show that membership in the same broad class does not guarantee identical evolution. The classification identifies useful similarities while leaving substantial questions about individual histories and internal arrangements.
+
+== Cooling and the energy budget ==
+Uranus's intrinsic heat output is weak compared with that of Neptune. Separating emitted interior heat from absorbed and re-radiated sunlight requires a careful energy budget, rather than simply reading a temperature from a cloud-top image. Seasonal changes and observational uncertainties also matter when estimating the planet's emitted power.
+
+Possible explanations involve differences in formation, internal layering or the efficiency with which heat moves outward. A stable compositional arrangement could limit convection, allowing heat to remain deeper inside. An early collision might also have affected the thermal history, but the existence of an unusual tilt does not establish every consequence of a particular impact.
+
+The cooling problem is important because simple models of giant-planet evolution must account for the observed contrast between Uranus and Neptune. Matching one planet's luminosity while failing to reproduce the other suggests that additional physical processes may be relevant.
+
+Models can be tested against measurements of gravity, atmosphere and magnetic behaviour. Those observations constrain not just how much energy escapes, but possible routes through which it is transported. Research continues to examine which explanations can reproduce several properties at once. Uranus's subdued heat emission is thus a diagnostic scientific problem, not evidence that the planet has no internal processes or is entirely frozen and inactive.
+
+== Magnetic field and magnetosphere ==
+Uranus has a magnetic field that is strongly tilted relative to its rotation axis and displaced from the planet's centre. Such geometry produces a magnetosphere that changes orientation in unusual ways as the planet rotates and travels around the Sun. A simple dipole neatly aligned with the spin axis is a poor representation of the measured environment.
+
+The dynamo is thought to operate in conducting material within the interior, but identifying its precise depth and physical regime requires models. An unusual external field can constrain those models without uniquely revealing the composition of the generating region. Electrical conductivity, fluid motion and geometry all contribute.
+
+The solar wind interacts with that rotating field and with particles inside the system. A spacecraft observing one path during a brief encounter samples only a limited range of conditions. Time-dependent changes can therefore be difficult to separate from spatial structure.
+
+Auroral and plasma observations provide additional information, including evidence from telescopes that complements the Voyager measurements. The field also affects charged particles near moons and rings, connecting magnetospheric processes to the broader Uranian environment. Understanding these relationships would help researchers compare magnetic dynamos under conditions different from those in Earth, Jupiter or Saturn.
+
+== Rings and satellites ==
+[[File:solar/uranus-rings.jpg|thumb|center|480px|alt=Annotated infrared image showing the rings of Uranus|Annotated Webb near-infrared view of the Uranian rings; infrared wavelengths are mapped to visible colours. Credit: NASA/Webb team; annotations by IapetusCallistus. [https://commons.wikimedia.org/wiki/File:Annotated_Uranian_rings.png Source]; [https://commons.wikimedia.org/wiki/File:Annotated_Uranian_rings.png#Licensing Public domain].]]
+
+Uranus has narrow, generally dark rings. Their discovery through stellar occultation demonstrated that a planet can reveal surrounding material by blocking a distant star's light. Occultation timing supplies information about the location and structure of rings even when they are difficult to image directly.
+
+The rings contain particles interacting through gravity, collisions and external forces. Some structures are influenced by nearby moons, while dust behaves differently from larger particles. Narrowness and sharp edges motivate questions about confinement and the transport of material over time.
+
+The larger moons include Miranda, Ariel, Umbriel, Titania and Oberon. They preserve different combinations of craters, fractures and other geological features. Miranda's unusual terrain is particularly striking, but proposals about its history must be tested against its detailed structural relationships rather than inferred from appearance alone.
+
+Smaller moons occupy different orbital regions and include objects with histories potentially involving capture. The system's equatorial orientation ties satellite research to the planet's large tilt. A formation scenario must explain both the spin and the orbits, not merely one unusual property in isolation. No individual Uranian moon is selected in this atlas, but their omission from the display is a presentation choice and should not be interpreted as evidence that Uranus lacks satellites.
+
+== Voyager 2 and later observations ==
+Voyager 2 passed Uranus in 1986, providing the only close spacecraft encounter so far. Its observations revealed rings, satellites, atmospheric properties and an unexpected magnetic geometry. A flyby yields detailed measurements but offers only a short observing interval and a particular path through the system.
+
+Repeated observations from Earth and space-based telescopes have extended that record. They follow seasonal developments, cloud changes and aspects of ring and satellite behaviour. Each method has different resolution and sensitivity, so the combined record must be assembled with attention to calibration and observing geometry.
+
+An orbiter would offer opportunities unavailable during a brief flyby: repeated gravity measurements, changing magnetic conditions, prolonged atmospheric monitoring and targeted satellite encounters. A descent probe could directly measure atmospheric composition at one location, although global context would remain essential for interpreting its results.
+
+Proposed future investigations must be distinguished from completed missions. They identify scientific priorities rather than supplying data already obtained. Uranus remains important because a modest amount of additional well-chosen information could test competing models of its formation, internal structure and cooling. Its incomplete exploration also demonstrates why uncertainty belongs explicitly in a planetary article: the nearest ice giants are familiar names, but their deep physical histories are still only partly constrained.
+
+== Sources ==
+<references />
+
+Written and reorganised using [https://en.wikipedia.org/wiki/Uranus Uranus] by Wikipedia contributors ([https://en.wikipedia.org/w/index.php?title=Uranus&action=history page history]), checked 7 October 2026, with NASA material cited above. Changes include new explanatory prose, restructuring, a summary table and local atlas links. Adapted article text: [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0].
