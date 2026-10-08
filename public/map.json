@@ -544,7 +544,7 @@
               "kind": "station",
               "type": "ring",
               "distance": 2.8,
-              "size": 0.18,
+              "size": 0.5,
               "speed": 0.006,
               "lore": "'''Concord Ring''' hosts the assembly of the [[Solar Concord]] above [[Daybreak]]. A public docking hall welcomes delegations from [[Free Tide]] ports and [[Crucible Combine]] foundries. Its charter requires every arrival slot and council vote to be recorded in the open archive."
             }
@@ -620,7 +620,7 @@
               "kind": "station",
               "type": "shipyard",
               "distance": 2.8,
-              "size": 0.18,
+              "size": 0.5,
               "speed": 0.006,
               "lore": "'''Crucible Yard''' assembles [[Jump Ships]] above [[Forge]]. Its docks also wind the field coils used in a [[Gate Drive]]. The [[Crucible Combine]] guards the manufacturing records, but civilian repair crews may lease a berth when military contracts leave room."
             }
@@ -689,7 +689,7 @@
               "kind": "station",
               "type": "spindle",
               "distance": 2.8,
-              "size": 0.18,
+              "size": 0.5,
               "speed": 0.006,
               "lore": "'''Tide Spindle''' turns above [[Thalassa]], balancing workshops along a narrow rotating hull. It provides repairs, medical aid and meeting rooms to [[Free Tide]] crews. Engineers here are examining the navigation log returned from [[Silent Reach]] and comparing it with recordings of the [[Nacre Beacon]]."
             }
@@ -777,7 +777,7 @@
               "kind": "station",
               "type": "outpost",
               "distance": 2.8,
-              "size": 0.18,
+              "size": 0.5,
               "speed": 0.006,
               "lore": "'''Beacon Watch''' is a compact research outpost above [[Reliquary]]. Observers from the [[Solar Concord]], [[Crucible Combine]] and [[Free Tide]] share its cramped laboratories. All raw recordings of the [[Nacre Beacon]] enter a public archive before any delegation can claim a discovery."
             }
