@@ -55,6 +55,26 @@ describe('the form of a system', () => {
     expect(failure(() => setBodyField(MAP, { star: 'sol', planet: 99 }, 'name', 'X'))).toEqual(['editor.noBody', {}])
   })
 
+  it('sets the fields and the look of the star itself, which only the Galaxy tab moves or deletes', () => {
+    const sol = { star: 'sol' }
+    let text = setBodyField(MAP, sol, 'lore', 'A yellow dwarf.')
+    text = setBodyField(text, sol, 'tabTitle', 'The Sun')
+    text = setBodyLook(text, sol, 'color1', '#ff0000')
+    const star = read(text).stars.find(each => each.id === 'sol')
+    expect(bodyAt(read(text), sol)).toEqual(star)
+    expect(star).toMatchObject({ lore: 'A yellow dwarf.', tabTitle: 'The Sun' })
+    expect(star.starVisualization).toMatchObject({ size: 60, color1: '#ff0000' })
+    expect(read(setBodyLook(text, sol, 'color1', '')).stars.find(each => each.id === 'sol').starVisualization).not.toHaveProperty('color1')
+    // Was: a star added in the editor has no look at all.
+    const bare = '{ "stars": [{ "id": "a", "sectorX": 0, "sectorY": 0 }] }'
+    expect(read(setBodyLook(bare, { star: 'a' }, 'size', 80)).stars[0].starVisualization).toEqual({ size: 80 })
+    expect(setBodyLook(bare, { star: 'a' }, 'size', '')).toBe(bare)
+    expect(failure(() => setBodyField(bare, { star: 'b' }, 'lore', 'X'))).toEqual(['editor.noStar', { id: 'b' }])
+    expect(failure(() => removeBody(bare, { star: 'a' }))).toEqual(['editor.noBody', {}])
+    expect(failure(() => moveBody(bare, { star: 'a' }, 1))).toEqual(['editor.noBody', {}])
+    expect(failure(() => addSatellite(bare, { star: 'a' }, { name: 'M' }))).toEqual(['editor.noBody', {}])
+  })
+
   it('adds moons and stations to a planet', () => {
     const moon = addSatellite(MAP, earth, { kind: 'moon', name: 'Selene' })
     const satellites = bodyAt(read(MAP), earth).satellites

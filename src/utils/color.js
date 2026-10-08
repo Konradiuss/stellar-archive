@@ -16,3 +16,13 @@ export function hexToRgb(hex) {
 export function colorStyle(color) {
   return `rgb(${color.r}, ${color.g}, ${color.b})`
 }
+
+/** 0xrrggbb a `share` (0..1) of the way from `from` to `to`. */
+export function mixColor(from, to, share) {
+  const channel = shift => {
+    const a = (from >> shift) & 0xff
+    const b = (to >> shift) & 0xff
+    return Math.round(a + (b - a) * share) << shift
+  }
+  return channel(16) | channel(8) | channel(0)
+}

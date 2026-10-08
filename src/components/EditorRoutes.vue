@@ -52,7 +52,19 @@
         <EditorNumber :value="line.line.opacity" input-class="route-opacity" :placeholder="t('editor.asTypeValue', { value: line.ofType.opacity })" @commit="value => set('opacity', value)" />
       </label>
     </div>
-    <label class="editor-check"><input type="checkbox" class="route-pulses" :checked="line.line.pulse !== false" @change="set('pulse', $event.target.checked ? '' : false)" /> {{ t('editor.pulses') }}</label>
+    <EditorPulses
+      :key="`route-${editor.selectedRoute}`"
+      :own="isPulseValue(line.line.pulse) ? line.line.pulse : undefined"
+      :inherited="line.ofType.pulse"
+      :resolved="line.pulse"
+      :color="line.color"
+      :width="line.width"
+      :opacity="line.opacity"
+      :direction="line.direction"
+      :auto-label="t('editor.asType')"
+      input-class="route-pulse"
+      @set="value => set('pulse', value)"
+    />
     <div v-if="!confirming" class="editor-actions">
       <button type="button" class="editor-button is-danger route-delete" @click="confirming = true">{{ t('editor.delete') }}</button>
     </div>
@@ -110,6 +122,18 @@
           <EditorNumber :value="rawField(type.id, 'opacity')" input-class="type-opacity" :placeholder="t('editor.autoDefault', { value: type.builtInStyle.opacity })" @commit="value => setType(type.id, 'opacity', value)" />
         </label>
       </div>
+      <EditorPulses
+        class="type-pulses"
+        :own="isPulseValue(rawField(type.id, 'pulse')) ? rawField(type.id, 'pulse') : undefined"
+        :inherited="type.builtInStyle.pulse"
+        :resolved="type.pulse"
+        :color="type.color"
+        :width="type.width"
+        :opacity="type.opacity"
+        :auto-label="t('editor.auto')"
+        input-class="type-pulse"
+        @set="value => setType(type.id, 'pulse', value)"
+      />
     </div>
   </section>
 </template>
@@ -122,6 +146,8 @@ import { addRouteType, removeRoute, removeRouteType, routeList, routeTypes, setR
 import { cssColor } from '../editor/colors'
 import EditorColor from './EditorColor.vue'
 import EditorNumber from './EditorNumber.vue'
+import EditorPulses from './EditorPulses.vue'
+import { isObject } from '../utils/guards'
 
 defineProps({
   part: { type: String, default: 'types' }
@@ -140,6 +166,7 @@ const rawField = (id, field) => {
   const type = rawType(id)
   return type && typeof type === 'object' ? type[field] : undefined
 }
+const isPulseValue = value => value === false || isObject(value)
 const typeName = type => type.name || (type.builtIn ? t(`hyperlineTypes.${type.id}`) : type.id)
 
 const confirming = ref(false)
@@ -197,6 +224,10 @@ const addType = () => editor.editMap(text => addRouteType(text, { name: t('edito
   max-width: 360px;
 }
 
+.type-pulses {
+  padding-left: 32px;
+}
+
 .type-look {
   display: flex;
   flex-wrap: wrap;
@@ -206,7 +237,8 @@ const addType = () => editor.editMap(text => addRouteType(text, { name: t('edito
 }
 
 @media (max-width: 760px) {
-  .type-look {
+  .type-look,
+  .type-pulses {
     padding-left: 0;
   }
 }

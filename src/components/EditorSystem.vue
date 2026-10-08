@@ -11,7 +11,15 @@
 
       <template v-if="star && system">
         <svg class="orbit-sketch" viewBox="-110 -110 220 220" role="img" :aria-label="t('editor.planets')">
-          <circle class="orbit-star" r="7" />
+          <circle
+            class="orbit-star"
+            :class="{ 'is-selected': isStar }"
+            :fill="starColor"
+            r="7"
+            role="button"
+            :aria-label="star.name"
+            @click="select({ star: starId })"
+          />
           <circle v-for="orbit in orbits" :key="`o${orbit.index}`" class="orbit-ring" :r="orbit.r" />
           <circle
             v-for="orbit in orbits"
@@ -25,6 +33,16 @@
             @click="select({ star: starId, planet: orbit.index })"
           />
         </svg>
+
+        <div class="editor-subheading">{{ t('editor.star') }}</div>
+        <div class="editor-list">
+          <div class="body-row">
+            <button type="button" class="editor-list-item body-item star-item" :class="{ 'is-current': isStar }" @click="select({ star: starId })">
+              <span class="body-dot" :style="{ background: starColor }"></span>
+              <span class="editor-list-text">{{ star.name }}</span>
+            </button>
+          </div>
+        </div>
 
         <div class="editor-subheading">{{ t('editor.planets') }}</div>
         <div class="editor-list body-list">
@@ -66,6 +84,21 @@
         <div class="editor-actions">
           <button type="button" class="editor-button is-primary add-system" @click="addSystemHere">{{ t('editor.addSystem') }}</button>
         </div>
+      </div>
+
+      <div v-if="isStar && body" :key="placeKey" class="body-panel star-panel" :aria-label="body.name ?? body.id" role="region">
+        <section class="editor-card star-card">
+          <div class="editor-heading body-title">{{ body.name ?? body.id }}</div>
+          <div class="editor-row">
+            <label class="editor-field">
+              <span>{{ t('editor.tabTitle') }}</span>
+              <input class="editor-input body-tab" :value="body.tabTitle ?? ''" :placeholder="body.name ?? body.id" @change="set('tabTitle', $event.target.value.trim())" @keydown.enter="$event.target.blur()" />
+            </label>
+          </div>
+          <div class="editor-hint star-in-galaxy">{{ t('editor.starInGalaxy') }}</div>
+        </section>
+        <EditorStarLook :place="place" :body="body" />
+        <EditorLore :place="place" :body="body" />
       </div>
 
       <template v-else-if="body">
@@ -134,13 +167,15 @@
 import { computed, ref, watch } from 'vue'
 import { t } from '../i18n'
 import { useEditorStore } from '../stores/editorStore'
-import { addPlanet, addSatellite, addSystem, bodyAt, moveBody, removeBody, setBodyField } from '../editor/systemEdits'
+import { addPlanet, addSatellite, addSystem, bodyAt, isStarPlace, moveBody, removeBody, setBodyField } from '../editor/systemEdits'
 import { starAt } from '../editor/starEdits'
 import { cssColor } from '../editor/colors'
 import { createPlanetVisualizationConfig } from '../utils/planetRenderer'
+import { createStarVisualizationConfig } from '../utils/starRenderer'
 import { collectMapNotes } from '../utils/mapJournal'
 import EditorBodyLook from './EditorBodyLook.vue'
 import EditorStationLook from './EditorStationLook.vue'
+import EditorStarLook from './EditorStarLook.vue'
 import EditorLore from './EditorLore.vue'
 import EditorNumber from './EditorNumber.vue'
 
@@ -160,8 +195,17 @@ const system = computed(() => {
 const planets = computed(() => (Array.isArray(system.value?.planets) ? system.value.planets : []).map(planet => (planet && typeof planet === 'object' ? planet : {})))
 const satellitesOf = planet => (Array.isArray(planet.satellites) ? planet.satellites : []).map(each => (each && typeof each === 'object' ? each : {}))
 
-const place = computed(() => (editor.selectedBody?.star === starId.value ? editor.selectedBody : null))
+// With no planet or moon chosen, the star itself is.
+const place = computed(() => {
+  if (!star.value) return null
+  return editor.selectedBody?.star === starId.value ? editor.selectedBody : { star: starId.value }
+})
 const body = computed(() => (place.value ? bodyAt(map.value, place.value) : null))
+const isStar = computed(() => !!place.value && isStarPlace(place.value))
+const starColor = computed(() => {
+  const [, light] = createStarVisualizationConfig(bodyAt(map.value, { star: starId.value }) ?? {}).surfaceColors
+  return `rgb(${light.r}, ${light.g}, ${light.b})`
+})
 const placeKey = computed(() => JSON.stringify(place.value))
 const isSatellite = computed(() => place.value?.satellite !== null && place.value?.satellite !== undefined)
 const isStation = computed(() => isSatellite.value && body.value?.kind === 'station')
@@ -251,7 +295,14 @@ function removeHere() {
 }
 
 .orbit-star {
-  fill: var(--ed-warn);
+  stroke: var(--ed-bg);
+  stroke-width: 2;
+  cursor: pointer;
+}
+
+.orbit-star.is-selected {
+  stroke: var(--ed-accent);
+  stroke-width: 3;
 }
 
 .orbit-ring {

@@ -34,7 +34,9 @@ export function routeList(map) {
       color: style.color,
       width: style.width,
       opacity: style.opacity,
-      ofType: { color: typeStyle.color, width: typeStyle.width, opacity: typeStyle.opacity }
+      direction: style.direction,
+      pulse: style.pulse,
+      ofType: { color: typeStyle.color, width: typeStyle.width, opacity: typeStyle.opacity, pulse: typeStyle.pulse }
     }
   })).result
 }
@@ -67,6 +69,26 @@ export function setRouteField(text, index, field, value) {
   return isEmpty(value) ? removeKey(text, ['hyperlines', index], field) : setKey(text, ['hyperlines', index], field, value)
 }
 
+export const PULSE_FIELDS = ['interval', 'speed', 'length']
+
+/**
+ * The `pulse` of one layer (a route or a type) after a change, '' to remove it. `inherited` is what the layers
+ * below give: pulses, or null when they are off. change: { key, value } | { key, reset: true } | { on: false } | { on: true, kept }.
+ */
+export function pulseAfter(own, inherited, change) {
+  const fields = isObject(own) ? own : {}
+  // An empty object still turns on pulses the layers below turned off.
+  const ownOrInherit = next => (Object.keys(next).length || !inherited ? next : '')
+  if (change.on === false) return false
+  if (change.on === true) return isObject(change.kept) ? change.kept : ownOrInherit({})
+  if (change.reset) {
+    const rest = { ...fields }
+    delete rest[change.key]
+    return ownOrInherit(rest)
+  }
+  return { ...fields, [change.key]: change.value }
+}
+
 export function setRouteEnd(text, index, end, starId) {
   const map = read(text)
   const line = route(map, index)
@@ -94,8 +116,9 @@ export function routeTypes(map) {
       color: style.color,
       width: style.width,
       opacity: style.opacity,
+      pulse: style.pulse,
       // Without the map's overrides.
-      builtInStyle: (({ color, width, opacity }) => ({ color, width, opacity }))(resolveHyperlineStyle({ type: id }, {}))
+      builtInStyle: (({ color, width, opacity, pulse }) => ({ color, width, opacity, pulse }))(resolveHyperlineStyle({ type: id }, {}))
     }
   })).result
 }

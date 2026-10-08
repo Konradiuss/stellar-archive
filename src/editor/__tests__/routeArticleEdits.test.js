@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import { EditError } from '../starEdits'
-import { addRoute, addRouteType, removeRoute, removeRouteType, routeList, routeTypes, routesOf, setRouteEnd, setRouteField, setRouteTypeField } from '../routeEdits'
+import { addRoute, addRouteType, pulseAfter, removeRoute, removeRouteType, routeList, routeTypes, routesOf, setRouteEnd, setRouteField, setRouteTypeField } from '../routeEdits'
 import { addArticle, addGroup, articleFile, groupTargets, moveGroup, moveGroupInto, removeArticle, removeGroup, renameArticle, setArticleField, setArticleList, setGroupField, setHome, setWorldGroup, setWorldLore, splitList, wikiGroups } from '../articleEdits'
 import { mapPlaces } from '../places'
 
@@ -100,6 +100,34 @@ describe('the look of routes and of their types', () => {
     expect(read(text).hyperlineTypes.trade.opacity).toBe(0.9)
     expect(routeTypes(read(text)).find(type => type.id === 'trade').opacity).toBe(0.9)
     expect(read(setRouteTypeField(text, 'trade', 'opacity', '')).hyperlineTypes.trade).not.toHaveProperty('opacity')
+  })
+})
+
+describe('the pulses of a route or a type', () => {
+  const inherited = { speed: 45, interval: 1.7, length: 10 }
+
+  it('sets one field over the layers below, and gives it back to them', () => {
+    expect(pulseAfter(undefined, inherited, { key: 'interval', value: 0.8 })).toEqual({ interval: 0.8 })
+    expect(pulseAfter({ interval: 0.8 }, inherited, { key: 'speed', value: 90 })).toEqual({ interval: 0.8, speed: 90 })
+    expect(pulseAfter({ interval: 0.8, speed: 90 }, inherited, { key: 'interval', reset: true })).toEqual({ speed: 90 })
+    // Nothing of its own left: the field goes, and the type's pulses show again.
+    expect(pulseAfter({ speed: 90 }, inherited, { key: 'speed', reset: true })).toBe('')
+    // Below, pulses are off: an empty object keeps them on here.
+    expect(pulseAfter({ speed: 90 }, null, { key: 'speed', reset: true })).toEqual({})
+  })
+
+  // Was: turning pulses off and on again threw away the route's own speed and interval.
+  it('turns pulses off and on again with the settings kept', () => {
+    const own = { interval: 0.8, speed: 90 }
+    expect(pulseAfter(own, inherited, { on: false })).toBe(false)
+    expect(pulseAfter(false, inherited, { on: true, kept: own })).toEqual(own)
+    expect(pulseAfter(false, inherited, { on: true })).toBe('')
+    expect(pulseAfter(false, null, { on: true })).toEqual({})
+    const map = read(setRouteField(MAP, 0, 'pulse', pulseAfter(undefined, inherited, { key: 'interval', value: 0.8 })))
+    expect(map.hyperlines[0].pulse).toEqual({ interval: 0.8 })
+    expect(routeList(map)[0].pulse).toMatchObject({ interval: 0.8 })
+    expect(routeList(map)[0].ofType.pulse).toEqual(routeList(read(MAP))[0].pulse)
+    expect(routeTypes(read(MAP)).find(type => type.id === 'trade').builtInStyle.pulse).toEqual(inherited)
   })
 })
 

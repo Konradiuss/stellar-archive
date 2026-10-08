@@ -42,3 +42,33 @@ export function pulsePositions(seconds, { total, speed, interval, direction = 'b
   if (direction === 'both') run(0.5, false)
   return pulses
 }
+
+// Tail squares behind the head, and how far from each end a pulse fades in and out (it leaves from under the star).
+const PULSE_TAIL = 4
+const PULSE_EDGE_FADE = 14
+
+/**
+ * The squares of the pulses of a line at `seconds`, tail first and the head last so it stays on top:
+ * [{ x, y, size, tone: 'glow' | 'head' | 'tail', alpha }]. The map and the editor's preview draw the same list.
+ */
+export function pulseSquares(path, { pulse, direction, phase = 0, width }, seconds) {
+  const squares = []
+  const spacing = pulse.length / PULSE_TAIL
+  for (const { distance, forward } of pulsePositions(seconds, { total: path.total, ...pulse, direction, phase })) {
+    for (let step = PULSE_TAIL; step >= 0; step--) {
+      const at = forward ? distance - step * spacing : distance + step * spacing
+      if (at < 0 || at > path.total) continue
+      const fade = Math.min(1, Math.min(at, path.total - at) / PULSE_EDGE_FADE)
+      if (fade <= 0) continue
+      const point = pointAt(path, at)
+      const square = (size, tone, alpha) => squares.push({ x: Math.round(point.x - size / 2), y: Math.round(point.y - size / 2), size, tone, alpha })
+      if (step === 0) {
+        square(width + 6, 'glow', 0.3 * fade)
+        square(width + 2, 'head', fade)
+      } else {
+        square(width + 1, 'tail', 0.85 * (1 - step / (PULSE_TAIL + 1)) * fade)
+      }
+    }
+  }
+  return squares
+}

@@ -45,7 +45,7 @@
               :squareSize="50"
             />
 
-            <div v-if="currentStar && currentStar.starVisualization" class="star-container" :style="starStyle">
+            <div v-if="currentStar" class="star-container" :style="starStyle">
               <StarVisualization
                 :starConfig="starVisualConfig"
                 :scale="starScale"

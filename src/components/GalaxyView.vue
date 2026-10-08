@@ -56,7 +56,8 @@ import { createStarVisualizationConfig } from '../utils/starRenderer'
 import { createFuzzFilter, setFuzzTime } from '../utils/fuzzFilter'
 import { LABEL_GAP_FROM_CENTER, polylineSegments, resolveLabelSpace, stepTyping, typedLabel } from '../utils/starLabels'
 import { fillFuzzLevels } from '../utils/fuzzCycle'
-import { measurePath, pointAt, pulsePositions } from '../utils/hyperlinePulses'
+import { measurePath, pulseSquares } from '../utils/hyperlinePulses'
+import { mixColor } from '../utils/color'
 import { nextFrame } from '../utils/nextFrame'
 import { PIXEL_FONT, loadPixelFont } from '../utils/fontLoader'
 import { rebuildOnContextRestore } from '../utils/webglContext'
@@ -87,10 +88,6 @@ const RIPPLE_STEP = 0.55
 const FUZZ_INTENSITY = 0.18
 const FUZZ_RANGE = 30
 const FUZZ_FPS = 30
-// Pulses on hyperlines: tail squares behind the head, and how far from each
-// end a pulse fades in and out (it leaves from under the star).
-const PULSE_TAIL = 4
-const PULSE_EDGE_FADE = 14
 
 const containerRef = ref(null)
 const mapStore = useMapStore()
@@ -543,21 +540,19 @@ async function renderGalaxy(onStage = null) {
       labelViews.set(star.id, view)
     }
 
-    if (star.starVisualization) {
-      const screenPos = worldToScreenPoint(centerPos)
-      visualizedStars.push({
-        id: star.id,
-        sectorX: star.sectorX,
-        sectorY: star.sectorY,
-        screenX: screenPos.x,
-        screenY: screenPos.y,
-        viewportScale: world.scale.x,
-        config: getStarVisualizationConfig(star),
-        label: label?.hidden ? 'hidden' : 'shown',
-        labelOpen: false,
-        labelTyped: label?.hidden ? 'none' : null
-      })
-    }
+    const screenPos = worldToScreenPoint(centerPos)
+    visualizedStars.push({
+      id: star.id,
+      sectorX: star.sectorX,
+      sectorY: star.sectorY,
+      screenX: screenPos.x,
+      screenY: screenPos.y,
+      viewportScale: world.scale.x,
+      config: getStarVisualizationConfig(star),
+      label: label?.hidden ? 'hidden' : 'shown',
+      labelOpen: false,
+      labelTyped: label?.hidden ? 'none' : null
+    })
   })
 
   if (onStage) await onStage('loader.ignitingStars')
@@ -782,41 +777,15 @@ function drawRoutedHyperlines(layer) {
   return displayPaths
 }
 
-function mixColor(from, to, share) {
-  const channel = shift => {
-    const a = (from >> shift) & 0xff
-    const b = (to >> shift) & 0xff
-    return Math.round(a + (b - a) * share) << shift
-  }
-  return channel(16) | channel(8) | channel(0)
-}
-
 function animatePulses() {
   if (!hyperlinePulses.length) return
   const time = performance.now() / 1000
   hyperlinePulses.forEach(line => {
-    const { graphics, path, pulse } = line
+    const { graphics } = line
     graphics.clear()
-    const pulses = pulsePositions(time, { total: path.total, ...pulse, direction: line.direction, phase: line.phase })
-    const spacing = pulse.length / PULSE_TAIL
-    for (const { distance, forward } of pulses) {
-      // Tail first, the head last so it stays on top.
-      for (let step = PULSE_TAIL; step >= 0; step--) {
-        const at = forward ? distance - step * spacing : distance + step * spacing
-        if (at < 0 || at > path.total) continue
-        const fade = Math.min(1, Math.min(at, path.total - at) / PULSE_EDGE_FADE)
-        if (fade <= 0) continue
-        const point = pointAt(path, at)
-        const square = (size, color, alpha) => graphics
-          .rect(Math.round(point.x - size / 2), Math.round(point.y - size / 2), size, size)
-          .fill({ color, alpha })
-        if (step === 0) {
-          square(line.width + 6, line.color, 0.3 * fade)
-          square(line.width + 2, line.head, fade)
-        } else {
-          square(line.width + 1, line.tail, 0.85 * (1 - step / (PULSE_TAIL + 1)) * fade)
-        }
-      }
+    const tones = { glow: line.color, head: line.head, tail: line.tail }
+    for (const { x, y, size, tone, alpha } of pulseSquares(line.path, line, time)) {
+      graphics.rect(x, y, size, size).fill({ color: tones[tone], alpha })
     }
   })
 }

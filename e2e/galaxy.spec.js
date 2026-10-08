@@ -438,3 +438,20 @@ test.describe('on a touch screen', () => {
   })
 })
 
+
+// Was: a star added in the editor has no starVisualization: the map drew its name and routes, but no star to click.
+test('a star without a look of its own is drawn as the default star, opens, and shines in its system', async ({ page }) => {
+  const data = worldMap()
+  data.stars.push({ id: 'bare', name: 'Bare', sectorX: 0, sectorY: 7, faction: 'tide' })
+  data.systems.bare = { planets: [{ name: 'Lone', orbitRadius: 40, visualization: { seed: 'lone' } }] }
+  await serveMap(page, data)
+  await page.goto('/')
+  await waitForView(page, 'galaxy')
+  const bare = page.locator('.galaxy-star-container[data-star-id="bare"]')
+  await expect(bare.locator('canvas').first()).toBeVisible()
+  const spot = await center(bare)
+  await page.mouse.click(spot.x, spot.y)
+  await waitForView(page, 'system')
+  expect(await withStores(page, ({ ui }) => ui.selectedStar)).toBe('bare')
+  await expect(page.locator('.system-view .star-container canvas').first()).toBeVisible()
+})

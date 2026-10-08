@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { measurePath, pointAt, pulsePositions } from '../hyperlinePulses.js'
+import { measurePath, pointAt, pulsePositions, pulseSquares } from '../hyperlinePulses.js'
 
 describe('hyperline pulses', () => {
   const path = measurePath([{ x: 0, y: 0 }, { x: 30, y: 0 }, { x: 30, y: 40 }])
@@ -47,5 +47,33 @@ describe('hyperline pulses', () => {
   it('has no pulses on an empty line', () => {
     expect(pulsePositions(1, { ...line, total: 0 })).toEqual([])
     expect(pulsePositions(1, { ...line, speed: 0 })).toEqual([])
+  })
+
+  const straight = measurePath([{ x: 0, y: 0 }, { x: 100, y: 0 }])
+  const look = { pulse: { speed: 50, interval: 1, length: 12 }, direction: 'forward', width: 2 }
+
+  it('draws a pulse as a glowing head with a fading tail behind it', () => {
+    // At 0.4 s the forward pulses stand at 20 and 70 px.
+    const squares = pulseSquares(straight, look, 0.4)
+    const heads = squares.filter(square => square.tone === 'head')
+    expect(heads.map(square => square.x + square.size / 2)).toEqual([20, 70])
+    expect(heads.every(square => square.size === 4 && square.alpha === 1)).toBe(true)
+    expect(squares.filter(square => square.tone === 'glow').map(square => square.size)).toEqual([8, 8])
+    // Four tail squares 3 px apart (length 12), behind the head at 70.
+    const tail = squares.filter(square => square.tone === 'tail' && square.x > 40)
+    expect(tail).toHaveLength(4)
+    // Squares sit on whole pixels: within one of the exact spot.
+    tail.forEach((square, index) => expect(Math.abs(square.x + square.size / 2 - (58 + index * 3))).toBeLessThanOrEqual(1))
+    expect(tail.map(square => square.alpha)).toEqual([...tail.map(square => square.alpha)].sort((a, b) => a - b))
+    // The head is last of its pulse, drawn over the tail.
+    expect(squares.at(-1).tone).toBe('head')
+  })
+
+  it('fades a pulse in as it leaves the star and out as it reaches the other', () => {
+    const leaving = pulseSquares(straight, look, 0.1).find(square => square.tone === 'head')
+    expect(leaving.alpha).toBeCloseTo(5 / 14)
+    const arriving = pulseSquares(straight, look, 1.96).find(square => square.tone === 'head' && square.x > 90)
+    expect(arriving.alpha).toBeLessThan(0.2)
+    expect(pulseSquares(straight, { ...look, direction: 'both' }, 0.4).filter(square => square.tone === 'head')).toHaveLength(4)
   })
 })

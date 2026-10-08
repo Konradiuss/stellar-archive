@@ -267,3 +267,63 @@ test('a text and its preview stand side by side, frame by frame', async ({ page 
   await openBody(page, 'cinder', 'Forge')
   expect(await frames('.editor-lore .lore-text', '.editor-lore .editor-preview-page'), 'lore').toEqual(sideBySide)
 })
+
+// Was: only a checkbox turned pulses on and off, and turning them on again threw the route's own settings away.
+test('pulses of a route and of a type are set with sliders over a live preview', async ({ page }) => {
+  await openEditor(page)
+  await page.locator('.tab-stars').click()
+  await page.getByRole('button', { name: 'Sector 1, 1: Sol' }).click()
+  await page.locator('.star-route', { hasText: 'Asterion' }).click()
+  const gate = MAP.hyperlines.findIndex(line => line.id === 'gate-sol-asterion')
+  const pulses = page.locator('.route-panel .route-pulse')
+  const interval = pulses.locator('.route-pulse-interval')
+  await expect(interval).toHaveValue('2.6')
+  await expect(pulses.locator('.pulse-auto').first()).toHaveText('As its type')
+
+  // The preview moves: its picture changes from one moment to the next.
+  const picture = () => pulses.locator('.route-pulse-preview').evaluate(canvas => {
+    const { data } = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height)
+    let lit = 0
+    let sum = 0
+    for (let at = 0; at < data.length; at += 4) {
+      if (data[at] + data[at + 1] + data[at + 2] > 200) { lit++; sum += at }
+    }
+    return `${lit}:${sum}`
+  })
+  const before = await picture()
+  await expect.poll(picture).not.toBe(before)
+
+  await interval.fill('0.8')
+  await expect(pulses.locator('.pulse-value').first()).toHaveText('every 0.8 s')
+  expect((await mapNow(page)).hyperlines[gate].pulse).toEqual({ interval: 0.8 })
+  await page.locator('.tab-stars').click()
+  await pulses.locator('.route-pulse-speed').fill('90')
+  await pulses.locator('.pulse-reset').first().click()
+  expect((await mapNow(page)).hyperlines[gate].pulse).toEqual({ speed: 90 })
+
+  await page.locator('.tab-stars').click()
+  await pulses.locator('.route-pulse-on').uncheck()
+  await expect(pulses.locator('.route-pulse-speed')).toBeDisabled()
+  expect((await mapNow(page)).hyperlines[gate].pulse).toBe(false)
+  await page.locator('.tab-stars').click()
+  await page.getByRole('button', { name: 'Sector 1, 1: Sol' }).click()
+  await page.locator('.star-route', { hasText: 'Asterion' }).click()
+  await pulses.locator('.route-pulse-on').check()
+  // The form was opened anew in between: without what it kept, the route goes back to its type.
+  expect((await mapNow(page)).hyperlines[gate]).not.toHaveProperty('pulse')
+
+  await page.locator('.tab-stars').click()
+  await page.getByRole('button', { name: 'Sector 1, 1: Sol' }).click()
+  await page.locator('.star-route', { hasText: 'Asterion' }).click()
+  await pulses.locator('.route-pulse-speed').fill('90')
+  await pulses.locator('.route-pulse-on').uncheck()
+  await pulses.locator('.route-pulse-on').check()
+  await expect(pulses.locator('.route-pulse-speed')).toHaveValue('90')
+  expect((await mapNow(page)).hyperlines[gate].pulse).toEqual({ speed: 90 })
+
+  await page.locator('.tab-stars').click()
+  const trade = page.locator('.route-type-row[data-type="trade"]')
+  await expect(trade.locator('.type-pulse-speed')).toHaveValue('45')
+  await trade.locator('.type-pulse-speed').fill('120')
+  expect((await mapNow(page)).hyperlineTypes.trade.pulse).toEqual({ speed: 120 })
+})

@@ -120,9 +120,10 @@ The seven tabs edit the same draft. Forms update `map.json`; article editors upd
 
 #### Galaxy
 
-- Select an empty sector to add a star, or select a star to change its id, name, faction, position, and lore or delete it. Each sector holds one star; coordinates start at `0,0` in the upper-left corner.
+- Select an empty sector to add a star, or select a star to change its id, name, faction, and position or delete it. Its look and lore are on the **System** tab. Each sector holds one star; coordinates start at `0,0` in the upper-left corner.
 - Renaming a star id in the form updates its system key and routes. Moving a star updates routes that use its sector coordinates. Hand-editing an id in **Files** does not perform these related changes for you.
 - Use **Add a route from here**, then select the destination star. Select a route to edit its type, description, direction, pulse, and appearance, or delete it.
+- Pulses have three sliders over a live preview: **Frequency** (a new pulse every so many seconds), **Speed**, and **Tail**. A route takes its type's values until you move a slider; **Reset** gives one back to the type. The same sliders on a type in **Types of routes** set it for every route of that type.
 - **Factions** edits names, territory colors and opacity, borders, and galaxy dimensions. Deleting a faction leaves its stars without that faction.
 - **Types of routes** edits the built-in route types and adds custom ones. Deleting a custom type removes that type from its routes.
 
@@ -131,6 +132,7 @@ The seven tabs edit the same draft. Forms update `map.json`; article editors upd
 #### System
 
 - Select a star, add planets, and select a planet to edit its orbit, appearance, and lore. **Add a moon** and **Add a station** add entries to the selected planet.
+- The star itself opens first, and again when you select it in the list or in the middle of the orbit sketch: its tab name, appearance with a live preview, and lore. A star without a system has this form too, under **Add a system**.
 - The ↑ and ↓ buttons change list order. Planet and satellite URLs use this order, so reordering or deleting an entry can change what an existing numbered URL opens.
 - A seed gives a repeatable generated surface. A built-in preset such as `earth` supplies its own surface and liquid settings; the form locks those fields. Select **— none —** to configure a generated surface. Size and rings remain configurable for presets.
 - A station has a type, hull color, and light color. The preview shows changes to its appearance.
@@ -387,7 +389,7 @@ Keep star coordinates inside the grid: `sectorX` from 0 to columns − 1, `secto
 | `faction` | Existing faction id; unknown factions are removed with a warning |
 | `lore`, `loreFile`, `loreFormat` | Inline text, text file, and optional format (`wikitext` or `markdown`) |
 | `tabTitle` | Custom page name for the browser tab |
-| `starVisualization` | Appearance object; settings below |
+| `starVisualization` | Optional appearance object; settings below. Without it, the star takes the defaults |
 
 Stars with lore have wiki pages. Use stable ids without spaces for convenient URLs. Renaming an id by hand requires updating the matching `systems` key and any routes that refer to it.
 
@@ -1025,9 +1027,10 @@ npm run dev
 
 #### Galaxy
 
-- Виберіть вільний сектор, щоб додати зорю, або наявну зорю, щоб змінити її ідентифікатор, назву, фракцію, положення й опис чи видалити її. У секторі може бути одна зоря; координати починаються з `0,0` у верхньому лівому куті.
+- Виберіть вільний сектор, щоб додати зорю, або наявну зорю, щоб змінити її ідентифікатор, назву, фракцію й положення чи видалити її. Її вигляд і опис — на вкладці **System**. У секторі може бути одна зоря; координати починаються з `0,0` у верхньому лівому куті.
 - Перейменування ідентифікатора у формі оновлює ключ системи та маршрути. Переміщення зорі оновлює маршрути з координатами її сектора. Ручна зміна ідентифікатора у **Files** не виконує цих пов'язаних змін.
 - Натисніть **Add a route from here**, а потім виберіть кінцеву зорю. Виберіть маршрут, щоб змінити тип, опис, напрямок, імпульси й вигляд або видалити його.
+- Імпульси мають три повзунки над живим попереднім переглядом: **Frequency** (новий імпульс що стільки-то секунд), **Speed** і **Tail**. Маршрут бере значення свого типу, доки ви не зрушите повзунок; **Reset** повертає значення типу. Ті самі повзунки в типу у **Types of routes** задають їх для всіх маршрутів цього типу.
 - **Factions** змінює назви, кольори й прозорість територій, межі та розміри галактики. Після видалення фракції її зорі залишаються без неї.
 - **Types of routes** змінює вбудовані типи маршрутів і додає власні. Видалення власного типу прибирає цей тип із його маршрутів.
 
@@ -1036,6 +1039,7 @@ npm run dev
 #### System
 
 - Виберіть зорю, додайте планети й виберіть планету, щоб змінити орбіту, вигляд і опис. **Add a moon** та **Add a station** додають записи до вибраної планети.
+- Спершу відкривається сама зоря, а також щоразу, коли її вибрано в списку або в центрі схеми орбіт: назва у вкладці, вигляд із попереднім переглядом і опис. Зоря без системи теж має цю форму, під **Add a system**.
 - Кнопки ↑ та ↓ змінюють порядок списку. Адреси планет і супутників використовують цей порядок, тому переставлення або видалення запису може змінити об'єкт, який відкриває наявна числова адреса.
 - Seed дає відтворювану згенеровану поверхню. Вбудований пресет, наприклад `earth`, задає власні параметри поверхні й рідини; форма блокує ці поля. Виберіть **— none —**, щоб налаштувати згенеровану поверхню. Розмір і кільця можна змінювати й для пресетів.
 - Станція має тип, колір корпусу й колір освітлення. Попередній перегляд показує зміни її вигляду.
@@ -1292,7 +1296,7 @@ npm run dev
 | `faction` | Ідентифікатор наявної фракції; невідома фракція прибирається з попередженням |
 | `lore`, `loreFile`, `loreFormat` | Вбудований текст, текстовий файл і необов'язковий формат (`wikitext` або `markdown`) |
 | `tabTitle` | Власна назва сторінки для вкладки браузера |
-| `starVisualization` | Об'єкт вигляду; налаштування нижче |
+| `starVisualization` | Необов'язковий об'єкт вигляду; налаштування нижче. Без нього зоря має типовий вигляд |
 
 Зорі з описом мають сторінки вікі. Для зручних адрес використовуйте сталі ідентифікатори без пробілів. Ручне перейменування вимагає зміни відповідного ключа `systems` і маршрутів, які на нього посилаються.
 

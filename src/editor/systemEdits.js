@@ -1,4 +1,4 @@
-// A body is addressed by { star: star id, planet: index, satellite?: index }.
+// A body is addressed by { star: star id, planet: index, satellite?: index }; { star } alone is the star itself.
 
 import { appendItem, removeItem, removeKey, setKey, swapItems } from './jsonEdit'
 import { EditError, idOf } from './starEdits'
@@ -12,21 +12,36 @@ export const WATER_TYPES = ['water', 'lava', 'acid', 'magma', 'ice', 'methane', 
 export const STATION_TYPES = ['ring', 'spindle', 'shipyard', 'outpost']
 export const RING_SIZES = ['thin', 'medium', 'large']
 
-export function bodyPath({ star, planet, satellite = null }) {
+export const isStarPlace = place => place.planet === null || place.planet === undefined
+
+/** The path of the body in the map; a star's needs the map, as stars are a list. */
+export function bodyPath({ star, planet, satellite = null }, map) {
+  if (isStarPlace({ planet })) {
+    const index = Array.isArray(map?.stars) ? map.stars.findIndex(each => each?.id === star) : -1
+    return index < 0 ? null : ['stars', index]
+  }
   const path = ['systems', star, 'planets', planet]
   return satellite === null || satellite === undefined ? path : [...path, 'satellites', satellite]
 }
 
 export function bodyAt(map, body) {
+  const path = bodyPath(body, map)
+  if (!path) return null
   let value = map
-  for (const step of bodyPath(body)) value = value?.[step]
+  for (const step of path) value = value?.[step]
   return isObject(value) ? value : null
 }
 
 function body(map, place) {
   const found = bodyAt(map, place)
-  if (!found) throw new EditError('editor.noBody')
+  if (!found) throw isStarPlace(place) ? new EditError('editor.noStar', { id: place.star }) : new EditError('editor.noBody')
   return found
+}
+
+// A star is moved and deleted on the grid of the Galaxy tab.
+function planetOrSatellite(map, place) {
+  if (isStarPlace(place)) throw new EditError('editor.noBody')
+  return body(map, place)
 }
 
 export function addSystem(text, star) {
@@ -55,7 +70,7 @@ export function addPlanet(text, star, { name }) {
 }
 
 export function addSatellite(text, place, { kind = 'moon', name }) {
-  const planet = body(read(text), place)
+  const planet = planetOrSatellite(read(text), place)
   const satellites = Array.isArray(planet.satellites) ? planet.satellites : []
   const satellite = kind === 'station'
     ? { name: String(name ?? '').trim(), kind: 'station', type: 'ring' }
@@ -66,22 +81,25 @@ export function addSatellite(text, place, { kind = 'moon', name }) {
 }
 
 export function setBodyField(text, place, field, value) {
-  body(read(text), place)
-  const path = bodyPath(place)
+  const map = read(text)
+  body(map, place)
+  const path = bodyPath(place, map)
   return isEmpty(value) ? removeKey(text, path, field) : setKey(text, path, field, value)
 }
 
-/** Sets a field of `visualization`; an empty value removes it, while `ring: null` means no ring. */
+/** Sets a field of `visualization` (`starVisualization` of a star); an empty value removes it, while `ring: null` means no ring. */
 export function setBodyLook(text, place, field, value) {
-  const found = body(read(text), place)
-  const path = bodyPath(place)
-  if (!isObject(found.visualization)) return isEmpty(value) ? text : setKey(text, path, 'visualization', { [field]: value })
-  return isEmpty(value) ? removeKey(text, [...path, 'visualization'], field) : setKey(text, [...path, 'visualization'], field, value)
+  const map = read(text)
+  const found = body(map, place)
+  const path = bodyPath(place, map)
+  const look = isStarPlace(place) ? 'starVisualization' : 'visualization'
+  if (!isObject(found[look])) return isEmpty(value) ? text : setKey(text, path, look, { [field]: value })
+  return isEmpty(value) ? removeKey(text, [...path, look], field) : setKey(text, [...path, look], field, value)
 }
 
 export function moveBody(text, place, delta) {
   const map = read(text)
-  body(map, place)
+  planetOrSatellite(map, place)
   const isSatellite = place.satellite !== null && place.satellite !== undefined
   const index = isSatellite ? place.satellite : place.planet
   const listPath = bodyPath(place).slice(0, -1)
@@ -93,7 +111,7 @@ export function moveBody(text, place, delta) {
 }
 
 export function removeBody(text, place) {
-  body(read(text), place)
+  planetOrSatellite(read(text), place)
   const path = bodyPath(place)
   const next = removeItem(text, path.slice(0, -1), path.at(-1))
   return { text: next, orphans: lostFiles(text, next) }
