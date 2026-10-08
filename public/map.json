@@ -306,7 +306,8 @@
       "name": "Alchiba",
       "sectorX": 4,
       "sectorY": 7,
-      "faction": "tide"
+      "faction": "tide",
+      "starVisualization": { "color1": "#23b418", "color2": "#297f33", "color3": "#00ff33", "rotation": 32 }
     }
   ],
   "systems": {
@@ -1023,9 +1024,10 @@
       "to": "halcyon",
       "direction": "forward",
       "color": "#179730",
-      "opacity": 0.8,
-      "width": 1,
-      "description": "Survey trade route"
+      "opacity": 0.5,
+      "width": 2,
+      "description": "Survey trade route",
+      "pulse": { "interval": 0.5, "speed": 75 }
     }
   ]
 }
