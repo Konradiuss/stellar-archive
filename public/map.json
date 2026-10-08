@@ -806,7 +806,7 @@
           "name": "Alderamin",
           "orbitRadius": 40,
           "angle": 0,
-          "speed": 0.3,
+          "speed": 0.0016,
           "visualization": {
             "seed": "Alderamin",
             "landColor": "#574d3d",
