@@ -300,6 +300,13 @@
         "color2": "0xe4d8ff",
         "color3": "0xfff0d4"
       }
+    },
+    {
+      "id": "alchiba",
+      "name": "Alchiba",
+      "sectorX": 4,
+      "sectorY": 7,
+      "faction": "tide"
     }
   ],
   "systems": {
@@ -791,6 +798,25 @@
     },
     "silent-reach": {
       "planets": []
+    },
+    "alchiba": {
+      "planets": [
+        {
+          "name": "Alderamin",
+          "orbitRadius": 40,
+          "angle": 0,
+          "speed": 0.3,
+          "visualization": {
+            "seed": "Alderamin",
+            "landColor": "#574d3d",
+            "waterAmount": 0.05,
+            "waterType": "ice",
+            "size": 105
+          },
+          "lore": "A lonely planet in the middle of nowhere",
+          "tabTitle": "Alderamin"
+        }
+      ]
     }
   },
   "factions": {
@@ -979,6 +1005,27 @@
       },
       "type": "supply",
       "direction": "forward"
+    },
+    {
+      "id": "trade-alchiba-pelagos",
+      "type": "military",
+      "from": "alchiba",
+      "to": "pelagos",
+      "width": 1.5,
+      "opacity": 0.8,
+      "color": "#16b176",
+      "description": "Survey military route"
+    },
+    {
+      "id": "trade-alchiba-halcyon",
+      "type": "trade",
+      "from": "alchiba",
+      "to": "halcyon",
+      "direction": "forward",
+      "color": "#179730",
+      "opacity": 0.8,
+      "width": 1,
+      "description": "Survey trade route"
     }
   ]
 }
