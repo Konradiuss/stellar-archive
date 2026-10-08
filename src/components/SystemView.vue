@@ -248,7 +248,7 @@
                   v-else-if="selectedBody && selectedBody.visualization"
                   :key="bodyKey"
                   :planetConfig="getPlanetVisualizationConfig(selectedBody)"
-                  :disc-share="planetSatellites.length && !selectedSatellite && !satelliteGrid ? visualDiscShare : PLANET_DISC_SHARE"
+                  :disc-share="planetSatellites.length && !selectedSatellite && !satelliteGrid ? visualDiscShare : planetDiscShare(planetScale(selectedPlanetConfig))"
                   :paused="!settings.visual.rotate"
                   fit-ring
                   draggable
@@ -411,8 +411,9 @@
 import { ref, reactive, nextTick, onMounted, onUnmounted, watch, computed } from 'vue'
 import * as PIXI from 'pixi.js'
 import { useMapStore } from '../stores/mapStore'
+import { hyperlineTypeName } from '../utils/mapLegend'
 import { useUIStore } from '../stores/uiStore'
-import { createPlanetVisualizationConfig, ringOuterRadius } from '../utils/planetRenderer'
+import { createPlanetVisualizationConfig, planetScale, ringOuterRadius } from '../utils/planetRenderer'
 import { PLANET_PRESETS } from '../utils/planetPresets'
 import { createStarVisualizationConfig } from '../utils/starRenderer'
 import { getInitialOrbitAngle, getOrbitNumbers, getOrbitSpeed, toRoman } from '../utils/planetOrbit'
@@ -437,7 +438,8 @@ import {
   miniOrbitReach,
   needsSatelliteGrid,
   orbitCount,
-  orbitViewSize
+  orbitViewSize,
+  planetDiscShare
 } from '../utils/satellites'
 import { STATION_GLYPHS, createStationConfig } from '../utils/stationRenderer'
 import { language, t } from '../i18n'
@@ -553,8 +555,8 @@ const orbitOverflowKey = ref(null)
 const satelliteGridForced = computed(() => {
   if (!hasSatelliteView.value) return false
   if (orbitOverflowKey.value === orbitFitKey.value) return true
-  const ringOuter = ringOuterRadius(getPlanetVisualizationConfig(selectedPlanet.value))
-  return needsSatelliteGrid(planetSatellites.value, orbitViewSize(visualDisplaySize, settings.visual.params), ringOuter)
+  const config = getPlanetVisualizationConfig(selectedPlanet.value)
+  return needsSatelliteGrid(planetSatellites.value, orbitViewSize(visualDisplaySize, settings.visual.params), ringOuterRadius(config), planetScale(config))
 })
 const satelliteGrid = computed(() => (
   hasSatelliteView.value && (settings.visual.layout === 'grid' || satelliteGridForced.value)
@@ -737,7 +739,8 @@ const visualMenuItems = computed(() => [
 const jumpMenuItems = computed(() => neighbors.value.map(({ star, hyperline }) => ({
   type: 'action',
   label: String(star.name).toUpperCase(),
-  hint: hyperline.description || hyperline.type || '',
+  // Without a description, the name of its type as the legend has it, not the type's id.
+  hint: hyperline.description || (hyperline.type ? hyperlineTypeName(hyperline.type, mapStore.hyperlineTypes) : ''),
   onSelect: () => uiStore.jumpToStar(star.id)
 })))
 

@@ -5,6 +5,7 @@ import {
   createPlanetVisualizationConfig,
   measurePlanetWaterCoverage,
   normalizePlanetConfig,
+  planetScale,
   preparePlanetSurface,
   samplePlanetSurface,
   valueNoise3D
@@ -144,5 +145,30 @@ describe('planetRenderer', () => {
     expect(getMapCoherence(map)).toBeGreaterThan(0.85)
     expect(majorLandmasses.length).toBeGreaterThanOrEqual(2)
     expect(majorLandmasses.length).toBeLessThanOrEqual(6)
+  })
+
+  // Was: "no ring" removed the key and the preset's ring came back; a size of the map dropped the preset's colour.
+  it('takes the ring of a ready planet, none, or its own over it', () => {
+    expect(normalizePlanetConfig({ seed: 'saturn' }).ring).toEqual({ size: 'large', color: 0xd9c9a0 })
+    expect(normalizePlanetConfig({ seed: 'saturn', ring: null }).ring).toBeNull()
+    expect(normalizePlanetConfig({ seed: 'saturn', ring: false }).ring).toBeNull()
+    expect(normalizePlanetConfig({ seed: 'saturn', ring: { size: 'thin' } }).ring).toEqual({ size: 'thin', color: 0xd9c9a0 })
+    expect(normalizePlanetConfig({ seed: 'saturn', ring: { color: '#ff0000' } }).ring).toEqual({ size: 'large', color: 0xff0000 })
+    expect(normalizePlanetConfig({ seed: 'earth', ring: { size: 'thin' } }).ring).toEqual({ size: 'thin', color: 0xaaaaaa })
+    // Normalized again, the same ring.
+    const once = normalizePlanetConfig({ seed: 'saturn', ring: { size: 'thin' } })
+    expect(normalizePlanetConfig(once).ring).toEqual(once.ring)
+  })
+
+  // Was: "size" was read and shown, but the disc was drawn the same at any size.
+  it('keeps the size between 25 and 150 and scales the disc by it, a ready planet too', () => {
+    expect(normalizePlanetConfig({ size: 10 }).size).toBe(25)
+    expect(normalizePlanetConfig({ size: 400 }).size).toBe(150)
+    expect(normalizePlanetConfig({ size: 'big' }).size).toBe(100)
+    expect(normalizePlanetConfig({ seed: 'earth', size: 50 }).size).toBe(50)
+    expect(planetScale(normalizePlanetConfig({ size: 50 }))).toBe(0.5)
+    expect(planetScale({ size: 400 })).toBe(1.5)
+    expect(planetScale({ size: 'big' })).toBe(1)
+    expect(planetScale(null)).toBe(1)
   })
 })

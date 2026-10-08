@@ -55,10 +55,11 @@ const latinOnPage = (page, ids) => page.evaluate(ids => {
   const latin = /[A-Za-z]/
   // DOS stays DOS: prompt paths, the commands of HELP, file names.
   const dos = /^(?:[A-Z]:\\[\\\w.]*>?|[A-Z]:|TYPE|DIR|FIND|CHKDSK|CD|CLS|ECHO|EXIT|HELP|MEM|NETSTAT|PING|TELNET|VER|READ|[\p{L}\d_*/-]+\.(?:TXT|txt|ICO|JSON|json|wiki|md|BAT|COM|SYS|EXE)\.?|\/[A-Z]:[A-Z]|\/W|\*)$/u
-  // Skipped: map ids (SOL.TXT), Roman orbit numbers, the menu [x], glitch and decoding noise, the nuke dump, prompts, typed input, icon names.
+  // Skipped: map ids (SOL.TXT), Roman orbit numbers, the menu [x], glitch and decoding noise, the nuke dump, prompts, typed input, icon names,
+  // and the fields of paths, addresses and tags (.is-code), whose examples are no words.
   const id = new RegExp(`^(?:${ids.join('|')})(?:[.][^.]*)?$`, 'i')
   const roman = /^[IVXLCDM]+$/
-  const skip = node => node.closest?.('.dos-command, .typing-command, .terminal-prompt, .wiki-path, .glitch-text, .decode-text, .special-icon-name, .nuke-dump, .nuke-keys, .file-name, .file-pane-name, .publish-files, .problem-where, .problem-text, .route-id, .editor-color-code, code')
+  const skip = node => node.closest?.('.dos-command, .typing-command, .terminal-prompt, .wiki-path, .glitch-text, .decode-text, .special-icon-name, .nuke-dump, .nuke-keys, .file-name, .file-pane-name, .publish-files, .problem-where, .problem-text, .route-id, .editor-color-code, .is-code, code')
   const words = text => text.replace(/[A-Z]:\\[\\\w.]*>?/g, ' ').split(/[\s"“”«»()[\]{},:;|·>]+/)
     .filter(word => latin.test(word) && !dos.test(word) && !id.test(word) && !roman.test(word) && word !== 'x' && !word.startsWith('#/'))
   const found = []
@@ -85,7 +86,8 @@ test('every text of the interface comes from the strings of the map', async ({ p
   await serveMap(page, map)
   await page.route('**/terminal.txt', route => route.fulfill({ contentType: 'text/plain', body: pseudoScript() }))
   const sol = map.stars.find(star => star.id === 'sol')
-  const starIds = map.stars.map(star => star.id)
+  // Ids are the map's own words, shown where a name is missing (a star's, a faction's): not texts of the interface.
+  const starIds = [...map.stars.map(star => star.id), ...Object.keys(map.factions ?? {})]
   const screens = [
     ['#/', async () => page.locator('.music-player .button-list').click()],
     ['#/system/sol', async () => page.locator('.window-system .button-menu').click()],
@@ -144,6 +146,25 @@ test('every text of the interface comes from the strings of the map', async ({ p
   await page.locator('.new-article-create').click()
   await expect(page.locator('.article-preview strong')).toHaveText('Колония')
   expect(await latinOnPage(page, starIds), '#/edit article').toEqual([])
+  await page.locator('.tab-site').click()
+  await expect(page.locator('.site-share svg')).toBeVisible()
+  expect(await latinOnPage(page, starIds), '#/edit site').toEqual([])
+  await page.locator('.tab-sounds').click()
+  await expect(page.locator('.sound-row').first()).toBeVisible()
+  expect(await latinOnPage(page, starIds), '#/edit sounds').toEqual([])
+  await page.locator('.tab-theme').click()
+  await expect(page.locator('.theme-screen')).toBeVisible()
+  expect(await latinOnPage(page, starIds), '#/edit theme').toEqual([])
+  await page.locator('.tab-music').click()
+  await expect(page.locator('.track-length').first()).toBeVisible()
+  expect(await latinOnPage(page, starIds), '#/edit music').toEqual([])
+  await page.locator('.tab-loader').click()
+  await expect(page.locator('.loader-preview').first()).toBeVisible()
+  expect(await latinOnPage(page, starIds), '#/edit loading').toEqual([])
+  await page.locator('.tab-texts').click()
+  await page.locator('.strings-section-head').first().click()
+  await expect(page.locator('.string-row').first()).toBeVisible()
+  expect(await latinOnPage(page, starIds), '#/edit texts').toEqual([])
 
   await openHash(page, '#/system/sol')
   await expect(page.locator('.ms-dos-background .boot-line').first()).toContainText(pseudoText('EXODUS STATION'))

@@ -16,6 +16,8 @@ describe('the Content-Security-Policy of the built site', () => {
     expect(directive('img-src')).toContain('https:')
     expect(directive('img-src')).toContain('data:')
     expect(directive('media-src')).toContain('https:')
+    // A track of the editor's draft, in the preview.
+    expect(directive('media-src')).toContain('blob:')
     expect(directive('connect-src')).toContain('https:')
     expect(CONTENT_SECURITY_POLICY).not.toMatch(/\bhttp:/)
   })

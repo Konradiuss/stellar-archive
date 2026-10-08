@@ -285,7 +285,7 @@ test('a system: planets drawn as they are edited, moons, stations, lore', async 
 
   await page.locator('.tab-system').click()
   await page.locator('.planet-item', { hasText: 'New planet' }).click()
-  await page.locator('.lore-text').fill("'''Красное море''' у [[Sol]], далеко от [[Нигде]].")
+  await page.locator('.lore-text .editor-area').fill("'''Красное море''' у [[Sol]], далеко от [[Нигде]].")
   const preview = page.locator('.editor-lore .editor-preview-page')
   await expect(preview.locator('strong')).toHaveText('Красное море')
   await expect(preview.locator('.rt-link.is-internal')).toHaveText('Sol')
@@ -370,7 +370,7 @@ test('articles: a new one with its file, its preview, a new title, and one delet
   await page.locator('.new-article-title').fill('Новая колония')
   await page.locator('.new-article-create').click()
   await expect(page.locator('.article-title')).toHaveValue('Новая колония')
-  await expect(page.locator('.article-text .file-pane-name')).toHaveText('wiki/новая-колония.wiki')
+  await expect(page.locator('.article-panel .source-file')).toHaveValue('wiki/новая-колония.wiki')
   const text = page.locator('.article-text .editor-area')
   await expect(text).toHaveValue("'''Новая колония'''\n")
   await text.fill("'''Новая колония''' — у [[Free Tide|Прилива]] и [[Нигде]].\n\n== История ==\nОснована в 2430.")
@@ -601,8 +601,8 @@ test('the star of a system: chosen first, its look drawn as edited, its lore, an
   await expect.poll(() => redShare(surface)).toBeGreaterThan(0.4)
   await page.locator('.star-size').fill('80')
   await page.locator('.star-size').press('Enter')
-  await page.locator('.star-panel .lore-text').fill("'''Sol''' burns red now.")
-  await page.locator('.star-panel .lore-text').press('Tab')
+  await page.locator('.star-panel .lore-text .editor-area').fill("'''Sol''' burns red now.")
+  await page.locator('.star-panel .lore-text .editor-area').blur()
 
   await page.locator('.planet-item', { hasText: 'Earth' }).click()
   await expect(page.locator('.body-name')).toHaveValue('Earth')
@@ -624,4 +624,46 @@ test('the star of a system: chosen first, its look drawn as edited, its lore, an
   map = JSON.parse(await mapText(page))
   expect(map.stars.find(star => star.id === 'lantern').starVisualization).toEqual({ color1: '#00ff00' })
   consoleIsClean()
+})
+
+// Was: the tab read a "title" the map has not, so a new banner always said ARCHIVE.
+test('a new banner on the main page is titled with the name of the site', async ({ page }) => {
+  await openEditor(page)
+  await page.locator('.tab-main').click()
+  await page.locator('.main-add-block[data-kind="banner"]').click()
+  await expect(page.locator('.main-card.is-banner').last().locator('.banner-title')).toHaveValue('SPACEMAP')
+})
+
+// Was: an article tied to a planet lost it when the planet was renamed, and pointed at nothing when it was deleted.
+test('an article tied to a planet follows its new name, and is set free when the planet is deleted', async ({ page }) => {
+  await openEditor(page)
+  await page.locator('.tab-system').click()
+  await page.locator('.system-star-select').selectOption('nacre')
+  await page.locator('.planet-item', { hasText: 'Reliquary' }).click()
+  await page.locator('.body-name').fill('Reliquary Ruins')
+  await page.locator('.body-name').press('Enter')
+  let map = JSON.parse(await mapText(page))
+  expect(map.wiki.articles.find(article => article.title === 'Nacre Beacon').place).toBe('Reliquary Ruins')
+  await page.locator('.tab-articles').click()
+  await page.locator('.article-item', { hasText: 'Nacre Beacon' }).click()
+  await expect(page.locator('.article-place')).toHaveValue('Reliquary Ruins')
+
+  await page.locator('.tab-system').click()
+  await page.locator('.planet-item', { hasText: 'Reliquary Ruins' }).click()
+  await page.locator('.body-delete').click()
+  await page.locator('.editor-confirm .confirm-yes').click()
+  map = JSON.parse(await mapText(page))
+  expect(map.wiki.articles.find(article => article.title === 'Nacre Beacon')).not.toHaveProperty('place')
+})
+
+// Was: a place the list did not have showed as no place at all, and the next change wrote that over it.
+test('a place written by hand that the map has not is shown as it is, not lost', async ({ page }) => {
+  await openEditor(page)
+  const map = JSON.parse(MAP)
+  map.wiki.articles.find(article => article.title === 'Nacre Beacon').place = 'Atlantis'
+  await area(page).fill(JSON.stringify(map, null, 2))
+  await page.locator('.tab-articles').click()
+  await page.locator('.article-item', { hasText: 'Nacre Beacon' }).click()
+  await expect(page.locator('.article-place')).toHaveValue('Atlantis')
+  await expect(page.locator('.article-place option:checked')).toHaveText('? Atlantis')
 })

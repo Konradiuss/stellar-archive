@@ -61,6 +61,7 @@
               <select class="editor-input article-group-select" :value="current.group ?? ''" @change="set('group', $event.target.value)">
                 <option value="">{{ t('editor.noGroup') }}</option>
                 <option v-for="group in groups" :key="group.id" :value="group.id">{{ '· '.repeat(group.depth) }}{{ group.title }}</option>
+                <option v-if="current.group && !groups.some(group => group.id === current.group)" :value="current.group">? {{ current.group }}</option>
               </select>
             </label>
             <label class="editor-field">
@@ -68,6 +69,7 @@
               <select class="editor-input article-place" :value="current.place ?? ''" @change="set('place', $event.target.value)">
                 <option value="">{{ t('editor.noPlace') }}</option>
                 <option v-for="(each, index) in places" :key="index" :value="each.name">{{ '· '.repeat(each.depth) }}{{ each.name }}</option>
+                <option v-if="otherPlace" :value="otherPlace.value">{{ otherPlace.known ? otherPlace.value : `? ${otherPlace.value}` }}</option>
               </select>
             </label>
             <label class="editor-field">
@@ -86,40 +88,7 @@
           </div>
         </div>
 
-        <div class="article-body">
-          <div class="article-text">
-            <span class="file-pane-name">{{ current.file ?? t('editor.inlineText') }}</span>
-            <template v-if="current.file">
-              <div v-if="!filePath" class="editor-note is-warn file-outside">{{ t('editor.outsideSite', { file: current.file }) }}</div>
-              <div v-else-if="editor.readFailure(filePath)" class="file-absent">
-                <div class="editor-note is-error file-unread">{{ t('editor.readFailed', { file: filePath, reason: editor.readFailure(filePath) }) }}</div>
-                <button type="button" class="editor-button action-retry" @click="editor.retryRead(filePath)">{{ t('editor.retry') }}</button>
-              </div>
-              <div v-else-if="editor.isReading(filePath)" class="editor-note file-reading">{{ t('editor.reading', { file: filePath }) }}</div>
-              <div v-else-if="!editor.exists(filePath)" class="file-absent">
-                <div class="editor-note">{{ t('editor.missing') }}: {{ filePath }}</div>
-                <button type="button" class="editor-button action-create" @click="editor.create(filePath)">{{ t('editor.create') }}</button>
-              </div>
-              <EditorTextArea
-                v-else
-                class="article-area"
-                :model-value="editor.textOf(filePath)"
-                :label="t('editor.articleText', { title: current.title })"
-                wrap
-                @update:model-value="editor.setText(filePath, $event)"
-              />
-            </template>
-            <EditorTextArea
-              v-else
-              class="article-area"
-              :model-value="inlineText"
-              :label="t('editor.articleText', { title: current.title })"
-              wrap
-              @update:model-value="typeInline"
-            />
-          </div>
-          <EditorPreview class="article-preview" :text="bodyText" :format="format" />
-        </div>
+        <EditorTextSource :owner="{ at: 'article', title: current.title, keys: 'article' }" :label="t('editor.articleText', { title: current.title })" />
 
         <div v-if="!confirming" class="editor-actions">
           <button type="button" class="editor-button is-danger article-delete" @click="confirming = true">{{ t('editor.delete') }}</button>
@@ -140,18 +109,16 @@
 </template>
 
 <script setup>
-import { computed, onUnmounted, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { t } from '../i18n'
 import { useEditorStore } from '../stores/editorStore'
-import EditorTextArea from './EditorTextArea.vue'
-import EditorPreview from './EditorPreview.vue'
+import EditorTextSource from './EditorTextSource.vue'
 import EditorGroups from './EditorGroups.vue'
 import EditorWorldPage from './EditorWorldPage.vue'
 import { addArticle, articleIndex, removeArticle, renameArticle, setArticleField, setArticleList, setHome, splitList, wikiGroups } from '../editor/articleEdits'
 import { mapPlaces } from '../editor/places'
-import { detectLoreFormat, normalizeLoreConfig } from '../utils/richText/lore'
+import { placeExists } from '../editor/placeRefs'
 import { pageKey, worldPageTitle } from '../utils/wikiPages'
-import { sitePathOf } from '../editor/siteFiles'
 
 const editor = useEditorStore()
 const map = computed(() => editor.parsed.data ?? {})
@@ -159,6 +126,12 @@ const articles = computed(() => (Array.isArray(map.value.wiki?.articles) ? map.v
   .filter(article => article && typeof article === 'object' && typeof article.title === 'string'))
 const groups = computed(() => wikiGroups(map.value))
 const places = computed(() => mapPlaces(map.value))
+// A place written another way (a star's id, other letter case) or that the map has not: shown, not lost.
+const otherPlace = computed(() => {
+  const place = current.value?.place
+  if (typeof place !== 'string' || !place || places.value.some(each => each.name === place)) return null
+  return { value: place, known: placeExists(map.value, place) }
+})
 
 const worldTitle = computed(() => worldPageTitle())
 const sections = computed(() => {
@@ -174,7 +147,6 @@ const sections = computed(() => {
 
 const current = computed(() => articles.value[articleIndex(map.value, editor.selectedArticle ?? '')] ?? null)
 const isHome = computed(() => !!current.value && pageKey(map.value.wiki?.home) === pageKey(current.value.title))
-const format = computed(() => detectLoreFormat({ loreFormat: current.value?.format, loreFile: current.value?.file }, normalizeLoreConfig(map.value.loreConfig)))
 
 const keepAlias = ref(true)
 const confirming = ref(false)
@@ -213,39 +185,6 @@ function rename(value) {
 const set = (field, value) => editor.editMap(text => setArticleField(text, current.value.title, field, value))
 const setList = (field, value) => editor.editMap(text => setArticleList(text, current.value.title, field, splitList(value)))
 const setHomePage = on => editor.editMap(text => setHome(text, on ? current.value.title : null))
-
-// { timer, title } while a typed text waits to be written to its article.
-const inlineText = ref('')
-let waiting = null
-
-function saveInline() {
-  if (!waiting) return
-  const { timer, title } = waiting
-  clearTimeout(timer)
-  waiting = null
-  editor.editMap(text => setArticleField(text, title, 'text', inlineText.value))
-}
-const release = editor.holdSave(saveInline)
-
-// Flush the pending text to the article it was typed for before showing the new one.
-watch(() => [current.value?.title, current.value?.text], ([title], previous) => {
-  if (previous && title !== previous[0]) saveInline()
-  if (!waiting) inlineText.value = current.value?.text ?? ''
-}, { immediate: true })
-
-function typeInline(value) {
-  inlineText.value = value
-  clearTimeout(waiting?.timer)
-  waiting = { title: current.value.title, timer: setTimeout(saveInline, 500) }
-}
-onUnmounted(() => {
-  saveInline()
-  release()
-})
-
-// './wiki/a.wiki' → 'wiki/a.wiki'; null outside the site.
-const filePath = computed(() => (current.value?.file ? sitePathOf(current.value.file) : null))
-const bodyText = computed(() => (current.value?.file ? (filePath.value ? editor.textOf(filePath.value) : '') : inlineText.value))
 
 const deleteOrphans = computed(() => {
   if (!confirming.value || !current.value) return []

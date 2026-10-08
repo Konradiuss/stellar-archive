@@ -1,5 +1,5 @@
 <template>
-  <div ref="rootRef" class="screen-bezel" :class="`led-${status}`" :style="casingStyle">
+  <div ref="rootRef" class="screen-bezel" :class="`led-${status}`" :data-tint="casing.tint" :style="casingStyle">
     <div class="screen-bezel-screen">
       <slot />
     </div>

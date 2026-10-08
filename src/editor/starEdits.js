@@ -3,6 +3,7 @@
 import { appendItem, parseSpans, removeItem, removeKey, renameKey, setKey, setValue } from './jsonEdit'
 import { MAX_GALAXY_SECTORS } from '../config/mapGeometry'
 import { lostFiles } from './siteFiles'
+import { dropLostPlaces, followRename } from './placeRefs'
 import { isObject } from '../utils/guards'
 
 export class EditError extends Error {
@@ -70,8 +71,10 @@ export function addStar(text, { name, sectorX, sectorY, faction = null }) {
 /** Not for `id`: use renameStarId. */
 export function setStarField(text, id, field, value) {
   const index = starIndex(read(text), id)
-  if (value === '' || value === null || value === undefined) return removeKey(text, ['stars', index], field)
-  return setKey(text, ['stars', index], field, value)
+  const empty = value === '' || value === null || value === undefined
+  const next = empty ? removeKey(text, ['stars', index], field) : setKey(text, ['stars', index], field, value)
+  // Without a name, a star goes by its id.
+  return field === 'name' ? followRename(next, [read(text).stars[index].name], empty ? id : value) : next
 }
 
 export function renameStarId(text, id, newId) {
@@ -86,7 +89,7 @@ export function renameStarId(text, id, newId) {
   lines(map).forEach((line, at) => {
     for (const end of ['from', 'to']) if (line?.[end] === id) next = setValue(next, ['hyperlines', at, end], wanted)
   })
-  return next
+  return followRename(next, [id], wanted)
 }
 
 export function moveStar(text, id, sectorX, sectorY) {
@@ -116,6 +119,7 @@ export function removeStar(text, id, { withSystem = true, withLines = true } = {
   if (withLines) for (const at of [...links.lines].reverse()) next = removeItem(next, ['hyperlines'], at)
   if (withSystem && links.system) next = removeKey(next, ['systems'], id)
   next = removeItem(next, ['stars'], starIndex(map, id))
+  next = dropLostPlaces(text, next)
   return { text: next, orphans: lostFiles(text, next) }
 }
 
@@ -136,6 +140,19 @@ export function setFactionField(text, id, field, value) {
   return setKey(text, ['factions', id], field, value)
 }
 
+/** The colour of the names of a faction's stars and planets; '' gives them the theme's. */
+export function setLabelColor(text, id, value) {
+  const map = read(text)
+  if (!isObject(map.factions) || !isObject(map.factions[id])) throw new EditError('editor.noFaction', { id })
+  const colors = isObject(map.planetTextColors) ? map.planetTextColors : null
+  if (value === '' || value === null || value === undefined) {
+    if (!colors || !(id in colors)) return text
+    const next = removeKey(text, ['planetTextColors'], id)
+    return Object.keys(read(next).planetTextColors).length ? next : removeKey(next, [], 'planetTextColors')
+  }
+  return colors ? setKey(text, ['planetTextColors'], id, value) : setKey(text, [], 'planetTextColors', { [id]: value })
+}
+
 export function removeFaction(text, id) {
   const map = read(text)
   if (!isObject(map.factions) || !(id in map.factions)) throw new EditError('editor.noFaction', { id })
@@ -143,6 +160,10 @@ export function removeFaction(text, id) {
   stars(map).forEach((star, index) => {
     if (star?.faction === id) next = removeKey(next, ['stars', index], 'faction')
   })
+  if (isObject(map.planetTextColors) && id in map.planetTextColors) {
+    next = removeKey(next, ['planetTextColors'], id)
+    if (!Object.keys(read(next).planetTextColors).length) next = removeKey(next, [], 'planetTextColors')
+  }
   return removeKey(next, ['factions'], id)
 }
 

@@ -4,7 +4,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { afterEach, describe, expect, it } from 'vitest'
 import {
-  CASING_NAMES, COLOR_ROLES, DEFAULT_THEME, THEME_PRESETS, applyTheme, checkTheme, themeCasings, themeColor,
+  CASING_FRAMES, CASING_NAMES, COLOR_ROLES, DEFAULT_THEME, THEME_PRESETS, applyTheme, checkTheme, themeCasing, themeColor,
   themeHex, themeMixHex, themeNumber, themeVariables
 } from '../index'
 import { pickTint } from '../../utils/bezelSprites'
@@ -29,7 +29,7 @@ describe('theme of the map', () => {
       crt: { scanlines: 0, vignette: 5, sweep: false, glow: 'bright', blur: 1 }
     }, note)
     expect(theme.colors).toEqual({ ...THEME_PRESETS.amber, accent: '#ffee99', ok: '#00ff00' })
-    expect(theme.casings).toEqual(['gunmetal'])
+    expect(Object.values(theme.casings)).toEqual(['gunmetal', 'gunmetal', 'gunmetal', 'gunmetal'])
     expect(theme.crt).toEqual({ scanlines: 0, vignette: 2, sweep: 0, glow: 1 })
     expect(notes).toEqual([
       'warning theme.colors.glow: Is not a colour of the interface (text, dim, line, screen, accent, ok, warn, error): left out.',
@@ -68,8 +68,26 @@ describe('theme of the map', () => {
     expect(style.getPropertyValue('--crt-scanline-alpha')).toBe('0.08')
     expect(themeColor('text')).toBe('#102030')
     expect(themeNumber('text')).toBe(0x102030)
-    expect(themeCasings()).toEqual(['warm'])
-    for (const seed of ['map', 'lore', 'legend', 'music']) expect(pickTint(seed, themeCasings())).toBe('warm')
+    for (const seed of CASING_FRAMES) expect(themeCasing(seed)).toBe('warm')
+  })
+
+  // Was: `casings` was only a pool, and the name of each frame chose its steel: the author could not.
+  it('gives each frame the steel the map names for it, and the one it always had otherwise', () => {
+    const { notes, note } = notesOf()
+    const before = Object.fromEntries(CASING_FRAMES.map(frame => [frame, pickTint(frame, CASING_NAMES)]))
+    expect(DEFAULT_THEME.casings).toEqual(before)
+    const theme = checkTheme({ casings: { lore: 'warm', music: 'bronze', wiki: 'blue' } }, note)
+    expect(theme.casings).toEqual({ ...before, lore: 'warm' })
+    expect(notes).toEqual([
+      'warning theme.casings.music: "bronze" is no steel of the casings (blue, grey, warm, gunmetal): its own is used.',
+      'warning theme.casings.wiki: Is no frame of the site (map, lore, music, legend): left out.'
+    ])
+    // A list stays a pool, as it was.
+    const pool = ['blue', 'warm']
+    expect(checkTheme({ casings: pool }, note).casings).toEqual(Object.fromEntries(CASING_FRAMES.map(frame => [frame, pickTint(frame, pool)])))
+    applyTheme(theme)
+    expect(themeCasing('lore')).toBe('warm')
+    expect(themeCasing('console')).toBe(pickTint('console', CASING_NAMES))
   })
 
   it('mixes the greys of the default theme as they were', () => {

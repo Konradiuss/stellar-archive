@@ -7,7 +7,7 @@
     <div v-for="faction in factions" :key="faction.id" class="faction-row" :data-faction="faction.id">
       <div class="faction-top">
         <span class="faction-mark" :style="{ background: faction.mark }"></span>
-        <input class="editor-input faction-name" :aria-label="t('editor.factionName')" :value="faction.name" @change="set(faction.id, 'name', $event.target.value.trim() || faction.id)" @keydown.enter="$event.target.blur()" />
+        <input class="editor-input faction-name" :aria-label="t('editor.factionName')" :value="faction.name" :placeholder="faction.id" @change="set(faction.id, 'name', $event.target.value.trim() || faction.id)" @keydown.enter="$event.target.blur()" />
         <span class="editor-hint faction-count">{{ t('editor.factionStars', { count: faction.stars }) }}</span>
         <button v-if="confirming !== faction.id" type="button" class="editor-button is-danger is-small faction-delete" @click="confirming = faction.id">{{ t('editor.delete') }}</button>
       </div>
@@ -28,7 +28,7 @@
         />
         <label class="editor-field is-short">
           <span>{{ t('editor.fillOpacity') }}</span>
-          <EditorNumber :value="faction.raw.fillOpacity" input-class="faction-fill-opacity" :placeholder="t('editor.autoDefault', { value: 0.15 })" @commit="value => set(faction.id, 'fillOpacity', value)" />
+          <EditorNumber :value="faction.raw.fillOpacity" input-class="faction-fill-opacity" :min="0" :max="1" :placeholder="t('editor.autoDefault', { value: 0.15 })" @commit="value => set(faction.id, 'fillOpacity', value)" />
         </label>
         <EditorColor
           :label="t('editor.borderColor')"
@@ -39,8 +39,17 @@
         />
         <label class="editor-field is-short">
           <span>{{ t('editor.borderWidth') }}</span>
-          <EditorNumber :value="faction.raw.borderWidth" input-class="faction-border-width" :placeholder="t('editor.autoDefault', { value: 2 })" @commit="value => set(faction.id, 'borderWidth', value)" />
+          <EditorNumber :value="faction.raw.borderWidth" input-class="faction-border-width" :min="0" above :placeholder="t('editor.autoDefault', { value: 2 })" @commit="value => set(faction.id, 'borderWidth', value)" />
+          <span class="editor-hint border-width-hint">{{ t('editor.borderWidthHint') }}</span>
         </label>
+        <EditorColor
+          :label="t('editor.labelColor')"
+          :value="labelColors[faction.id]"
+          :auto="themeText"
+          input-class="faction-label"
+          @set="value => setLabel(faction.id, value)"
+          @reset="setLabel(faction.id, '')"
+        />
       </div>
     </div>
 
@@ -63,8 +72,9 @@
 import { computed, ref, watch } from 'vue'
 import { t } from '../i18n'
 import { useEditorStore } from '../stores/editorStore'
-import { addFaction, removeFaction, setFactionField, setGalaxySize } from '../editor/starEdits'
-import { factionColor } from '../editor/colors'
+import { addFaction, removeFaction, setFactionField, setGalaxySize, setLabelColor } from '../editor/starEdits'
+import { cssColor, factionColor } from '../editor/colors'
+import { checkTheme } from '../theme'
 import { normalizeGalaxyConfig } from '../config/mapGeometry'
 import { collectMapNotes } from '../utils/mapJournal'
 import EditorColor from './EditorColor.vue'
@@ -84,8 +94,13 @@ const factions = computed(() => Object.entries(map.value.factions && typeof map.
     stars: stars.value.filter(star => star?.faction === id).length
   })))
 
+const labelColors = computed(() => (map.value.planetTextColors && typeof map.value.planetTextColors === 'object' ? map.value.planetTextColors : {}))
+// Names without a colour of their faction's are in the text colour of the theme.
+const themeText = computed(() => cssColor(collectMapNotes(() => checkTheme(map.value.theme, () => {})).result.colors.text) ?? '#ffffff')
+
 const confirming = ref(null)
 const set = (id, field, value) => editor.editMap(text => setFactionField(text, id, field, value))
+const setLabel = (id, value) => editor.editMap(text => setLabelColor(text, id, value))
 const add = () => editor.editMap(text => addFaction(text, { name: t('editor.newFactionName') }))
 
 function remove(id) {

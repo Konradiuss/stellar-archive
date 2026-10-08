@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { worldMap, serveMap } from './helpers'
+import { worldMap, serveMap, waitForView, withStores } from './helpers'
 
 const MAP = worldMap()
 
@@ -85,6 +85,165 @@ test('a ready planet sets its colours and liquid: they are shown as its, not to 
   await expect(page.locator('.look-land')).toBeEnabled()
   await expect(page.locator('.look-locked')).toHaveCount(0)
   expect((await mapNow(page)).systems.sol.planets[2].visualization).toEqual({ size: 65 })
+})
+
+// The half-width of the disc on the middle row of a canvas, as a share of its smaller side.
+const discShare = canvas => canvas.evaluate(element => {
+  const row = Math.floor(element.height / 2)
+  const data = element.getContext('2d').getImageData(0, row, element.width, 1).data
+  let left = element.width
+  let right = -1
+  for (let x = 0; x < element.width; x++) {
+    if (data[x * 4 + 3] === 0) continue
+    left = Math.min(left, x)
+    right = Math.max(right, x)
+  }
+  return (right - left + 1) / 2 / Math.min(element.width, element.height)
+})
+const slide = (input, value) => input.evaluate((element, to) => {
+  element.value = String(to)
+  element.dispatchEvent(new Event('change', { bubbles: true }))
+}, value)
+
+// Was: a text stayed where it was written: nothing moved it into a file or back, set its format, or wrote a legend of a system.
+test('a text goes into a file of its own and back, takes a format, and a system gets a legend', async ({ page }) => {
+  await openEditor(page)
+  await page.locator('.tab-system').click()
+  await page.locator('.system-star-select').selectOption('sol')
+  await page.locator('.orbit-sketch .orbit-star').click()
+  const lore = page.locator('.editor-lore')
+  await expect(lore.locator('.source-where')).toHaveValue('map')
+  await lore.locator('.source-where').selectOption('file')
+  await expect(lore.locator('.source-file')).toHaveValue('lore/sol.wiki')
+  await expect(lore.locator('.lore-text .editor-area')).toHaveValue(/^'''Sol''' is the real Solar/)
+  let star = (await mapNow(page)).stars.find(each => each.id === 'sol')
+  expect(star.loreFile).toBe('lore/sol.wiki')
+  expect(star.lore).toBeUndefined()
+  await expect(page.locator('.file-item[data-path="lore/sol.wiki"]')).toHaveCount(1)
+
+  await page.locator('.tab-system').click()
+  await lore.locator('.lore-text .editor-area').fill('# Sol\n\nIn **markdown** now.')
+  await lore.locator('.source-format').selectOption('markdown')
+  await expect(lore.locator('.editor-preview-page strong')).toHaveText('markdown')
+  await lore.locator('.source-file').fill('lore/sun.md')
+  await lore.locator('.source-file').press('Enter')
+  await expect(lore.locator('.lore-text .editor-area')).toHaveValue('# Sol\n\nIn **markdown** now.')
+  await lore.locator('.source-where').selectOption('map')
+  star = (await mapNow(page)).stars.find(each => each.id === 'sol')
+  expect(star).toMatchObject({ lore: '# Sol\n\nIn **markdown** now.', loreFormat: 'markdown' })
+  expect(star.loreFile).toBeUndefined()
+  // The files the text left are no files of the draft any more.
+  await expect(page.locator('.file-item[data-path="lore/sol.wiki"]')).toHaveCount(0)
+  await expect(page.locator('.file-item[data-path="lore/sun.md"]')).toHaveCount(0)
+
+  await page.locator('.tab-system').click()
+  await page.locator('.system-legend .system-legend-text .editor-area').fill('Mind the rocks.')
+  await page.locator('.system-legend .system-legend-text .editor-area').blur()
+  await expect.poll(async () => (await mapNow(page)).systems.sol.legend).toBe('Mind the rocks.')
+  await Promise.all([page.waitForEvent('load'), page.locator('.action-preview').click()])
+  await page.goto('/#/system/sol')
+  await expect(page.locator('.map-legend')).toContainText('Mind the rocks.')
+})
+
+const pickColor = (locator, value) => locator.evaluate((input, color) => {
+  input.value = color
+  input.dispatchEvent(new Event('input', { bubbles: true }))
+  input.dispatchEvent(new Event('change', { bubbles: true }))
+}, value)
+
+// Was: the tab title of a moon, the colour of a faction's names and the loudness of one sound were set in map.json by hand only.
+test('a moon has its tab title, a faction the colour of its names, a sound its own loudness', async ({ page }) => {
+  await openEditor(page)
+  await openBody(page, 'sol', 'Earth', 'Moon')
+  await page.locator('.body-tab').fill('Luna')
+  await page.locator('.body-tab').press('Enter')
+
+  await page.locator('.tab-stars').click()
+  const tide = page.locator('.faction-row[data-faction="tide"]')
+  await expect(tide.locator('.faction-label')).toHaveValue('#66ff66')
+  await pickColor(tide.locator('.faction-label'), '#ff00ff')
+  const concord = page.locator('.faction-row[data-faction="concord"]')
+  await concord.locator('.editor-color').filter({ has: page.locator('.faction-label') }).locator('.color-reset').click()
+
+  await page.locator('.tab-sounds').click()
+  const volume = page.locator('.sound-row[data-sound="hover"] .sound-volume')
+  await expect(volume).toHaveAttribute('placeholder', '100, as the rest')
+  await volume.fill('40')
+  await volume.press('Enter')
+  await volume.fill('140')
+  await volume.press('Enter')
+  await expect(volume).toHaveClass(/is-invalid/)
+
+  const map = await mapNow(page)
+  expect(map.systems.sol.planets[2].satellites[0].tabTitle).toBe('Luna')
+  // Written as the map writes its colours.
+  expect(map.planetTextColors).toEqual({ combine: '0xff6666', tide: '0xff00ff', neutral: '0xffff00' })
+  expect(map.sounds).toEqual({ hover: { volume: 0.4 } })
+
+  await Promise.all([page.waitForEvent('load'), page.locator('.action-preview').click()])
+  await waitForView(page, 'galaxy')
+  expect(await withStores(page, ({ map: site }) => ({ ...site.planetTextColors }))).toEqual(map.planetTextColors)
+  await page.goto('/#/system/sol/3/1')
+  await waitForView(page, 'system')
+  await expect(page).toHaveTitle(/^Luna/)
+})
+
+// Was: the size was a number that changed nothing on the site or in the picture.
+test('the size of a planet scales its picture and the site, is cleared, and says what it draws', async ({ page }) => {
+  await openEditor(page)
+  await openBody(page, 'sol', 'Earth')
+  const size = page.locator('.look-size')
+  const picture = page.locator('.look-planet canvas')
+  await expect(size).toHaveValue('65')
+  await expect(page.locator('.look-size-field')).toContainText('Size: 65%')
+  await expect.poll(() => discShare(picture)).toBeCloseTo(0.3 * 0.65, 1)
+  await slide(size, 30)
+  await expect.poll(() => discShare(picture)).toBeCloseTo(0.3 * 0.3, 1)
+  expect((await mapNow(page)).systems.sol.planets[2].visualization).toEqual({ seed: 'earth', size: 30 })
+
+  await page.locator('.tab-system').click()
+  await page.locator('.size-reset').click()
+  await expect(page.locator('.look-size-field')).toContainText('Size: 100%')
+  await expect(page.locator('.look-size-field em')).toHaveText('Auto')
+  expect((await mapNow(page)).systems.sol.planets[2].visualization).toEqual({ seed: 'earth' })
+
+  // Written by hand past the range: shown as what the site draws.
+  const text = (await area(page).inputValue()).replace('"seed": "earth"', '"seed": "earth", "size": 400')
+  await area(page).fill(text)
+  await page.locator('.tab-system').click()
+  await expect(size).toHaveValue('150')
+  await expect(page.locator('.size-clamped')).toHaveText('map.json says 400; the site draws 150%.')
+  await slide(size, 30)
+  await expect(page.locator('.size-clamped')).toHaveCount(0)
+
+  await Promise.all([page.waitForEvent('load'), page.locator('.action-preview').click()])
+  await page.goto('/#/system/sol/3')
+  await page.mouse.move(5, 5)
+  const site = page.locator('.window-visual .planet-canvas-wrapper > .planet-visualization canvas')
+  await expect(site).toBeVisible()
+  // At 65 the disc would not go below 0.22 * 0.65 = 0.143 of the window.
+  await expect.poll(() => discShare(site)).toBeLessThan(0.12)
+})
+
+// Was: "no ring" removed the key, so the ready planet's ring came back, and the form said there was none.
+test('a ready planet keeps its ring, has none, or takes a size of its own with its colour', async ({ page }) => {
+  await openEditor(page)
+  await openBody(page, 'sol', 'Saturn')
+  const saturn = () => mapNow(page).then(map => map.systems.sol.planets.find(planet => planet.name === 'Saturn').visualization)
+  const ring = page.locator('.look-ring')
+  await expect(ring).toHaveValue('medium')
+  await ring.selectOption('none')
+  expect(await saturn()).toEqual({ seed: 'saturn', size: 80, ring: null })
+  await page.locator('.tab-system').click()
+  await expect(ring).toHaveValue('none')
+  await expect(page.locator('.look-ring-color')).toHaveCount(0)
+  await ring.selectOption('')
+  expect(await saturn()).toEqual({ seed: 'saturn', size: 80 })
+  await page.locator('.tab-system').click()
+  await expect(ring.locator('option:checked')).toHaveText('as the ready planet (large)')
+  await expect(color(page, '.look-ring-color').locator('.editor-color-auto')).toBeVisible()
+  await ring.selectOption('thin')
+  expect(await saturn()).toEqual({ seed: 'saturn', size: 80, ring: { size: 'thin' } })
 })
 
 test('numbers take a comma, and what is not a number is not written', async ({ page }) => {
@@ -304,19 +463,15 @@ test('pulses of a route and of a type are set with sliders over a live preview',
   await page.locator('.tab-stars').click()
   await pulses.locator('.route-pulse-on').uncheck()
   await expect(pulses.locator('.route-pulse-speed')).toBeDisabled()
-  expect((await mapNow(page)).hyperlines[gate].pulse).toBe(false)
+  await expect(pulses.locator('.route-pulse-speed')).toHaveValue('90')
+  expect((await mapNow(page)).hyperlines[gate].pulse).toEqual({ speed: 90, off: true })
+  // The settings live in the map: a reload and a new form find them.
+  await page.reload()
+  await expect(area(page)).toBeVisible()
   await page.locator('.tab-stars').click()
   await page.getByRole('button', { name: 'Sector 1, 1: Sol' }).click()
   await page.locator('.star-route', { hasText: 'Asterion' }).click()
-  await pulses.locator('.route-pulse-on').check()
-  // The form was opened anew in between: without what it kept, the route goes back to its type.
-  expect((await mapNow(page)).hyperlines[gate]).not.toHaveProperty('pulse')
-
-  await page.locator('.tab-stars').click()
-  await page.getByRole('button', { name: 'Sector 1, 1: Sol' }).click()
-  await page.locator('.star-route', { hasText: 'Asterion' }).click()
-  await pulses.locator('.route-pulse-speed').fill('90')
-  await pulses.locator('.route-pulse-on').uncheck()
+  await expect(pulses.locator('.route-pulse-on')).not.toBeChecked()
   await pulses.locator('.route-pulse-on').check()
   await expect(pulses.locator('.route-pulse-speed')).toHaveValue('90')
   expect((await mapNow(page)).hyperlines[gate].pulse).toEqual({ speed: 90 })
@@ -326,4 +481,54 @@ test('pulses of a route and of a type are set with sliders over a live preview',
   await expect(trade.locator('.type-pulse-speed')).toHaveValue('45')
   await trade.locator('.type-pulse-speed').fill('120')
   expect((await mapNow(page)).hyperlineTypes.trade.pulse).toEqual({ speed: 120 })
+})
+
+// Was: an emptied name was removed, and the site left the planet out of its system.
+test('a planet keeps its name when the field is emptied, and the form says why', async ({ page }) => {
+  await openEditor(page)
+  await openBody(page, 'sol', 'Earth')
+  await page.locator('.body-name').fill('')
+  await page.locator('.body-name').press('Enter')
+  await expect(page.locator('.form-error')).toContainText('needs a name')
+  await expect(page.locator('.body-name')).toHaveValue('Earth')
+  expect((await mapNow(page)).systems.sol.planets[2].name).toBe('Earth')
+})
+
+// Was: the route showed "both ways" whatever its type said, and choosing it removed the field: a forward type could not be undone on one route.
+test('a route runs as its type, or both ways or forward of its own; so does a type', async ({ page }) => {
+  await openEditor(page)
+  await page.locator('.tab-stars').click()
+  const gateType = page.locator('.route-type-row[data-type="gate"] .type-direction')
+  await expect(gateType.locator('option:checked')).toHaveText('Auto (both ways)')
+  await gateType.selectOption('forward')
+  expect((await mapNow(page)).hyperlineTypes.gate.direction).toBe('forward')
+
+  await page.locator('.tab-stars').click()
+  await page.getByRole('button', { name: 'Sector 1, 1: Sol' }).click()
+  await page.locator('.star-route', { hasText: 'Asterion' }).click()
+  const gate = MAP.hyperlines.findIndex(line => line.id === 'gate-sol-asterion')
+  const direction = page.locator('.route-direction')
+  await expect(direction.locator('option:checked')).toHaveText('from → to only, as its type')
+  await direction.selectOption('both')
+  expect((await mapNow(page)).hyperlines[gate].direction).toBe('both')
+  await page.locator('.tab-stars').click()
+  await direction.selectOption('')
+  expect((await mapNow(page)).hyperlines[gate]).not.toHaveProperty('direction')
+})
+
+// Was: any number was written, an opacity of 3 or a seed of 50 too, though the site cannot take them.
+test('a number outside what the site takes is not written, and the field says what it takes', async ({ page }) => {
+  await openEditor(page)
+  await page.locator('.tab-stars').click()
+  const opacity = page.locator('.route-type-row[data-type="trade"] .type-opacity')
+  await opacity.fill('3')
+  await opacity.press('Enter')
+  await expect(opacity).toHaveClass(/is-invalid/)
+  await expect(opacity).toHaveAttribute('title', 'From 0 to 1: it is not written into the map.')
+  expect((await mapNow(page)).hyperlineTypes.trade.opacity).toBe(MAP.hyperlineTypes.trade.opacity)
+  await page.locator('.tab-stars').click()
+  await opacity.fill('0,4')
+  await opacity.press('Enter')
+  await expect(opacity).not.toHaveClass(/is-invalid/)
+  expect((await mapNow(page)).hyperlineTypes.trade.opacity).toBe(0.4)
 })

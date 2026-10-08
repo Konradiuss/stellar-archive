@@ -184,7 +184,10 @@ function remove(index) {
   confirming.value = null
 }
 
-const siteTitle = computed(() => (typeof map.value.title === 'string' && map.value.title.trim() ? map.value.title.trim().toUpperCase() : 'ARCHIVE'))
+const siteTitle = computed(() => {
+  const title = map.value.site?.title
+  return typeof title === 'string' && title.trim() ? title.trim().toUpperCase() : 'ARCHIVE'
+})
 
 const titles = computed(() => [
   ...articles.value.map(article => article.title),

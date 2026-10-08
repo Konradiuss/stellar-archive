@@ -1,5 +1,6 @@
 // The main page's wikitext as blocks: layout templates on a line of their own are cards,
-// the rest is raw text. Joined, the blocks give the text back byte for byte; only a changed card is rewritten.
+// the rest is raw text. Joined, the blocks give the text back byte for byte. A change to a card
+// rewrites only the parameter changed, in its place and spacing: what the form does not know stays.
 
 import { findClosing, splitTopLevel } from '../utils/richText/inline'
 import { BANNERS, BOXES, LINK_ROWS, PORTALS, templateKey } from '../utils/richText/templates'
@@ -15,14 +16,66 @@ const CRLF = String.fromCharCode(13, 10)
 const KINDS = [[BANNERS, 'banner'], [BOXES, 'box'], [LINK_ROWS, 'links'], [PORTALS, 'portal']]
 const kindOf = name => KINDS.find(([names]) => names.has(templateKey(name)))?.[1] ?? null
 
+// Each param keeps its text as written (`raw`), so the template can be put back together around a change.
 function readTemplate(raw) {
   const [name, ...parts] = splitTopLevel(raw.slice(2, -2), '|')
   const params = parts.map(part => {
     const named = NAMED.exec(part)
-    return named ? { key: named[1].trim(), value: named[2] } : { key: null, value: part }
+    return named ? { key: named[1].trim(), value: named[2], raw: part } : { key: null, value: part, raw: part }
   })
-  return { name: name.trim(), params }
+  return { name: name.trim(), nameRaw: name, params }
 }
+
+function withParams(segment, params) {
+  const raw = `{{${segment.nameRaw ?? segment.name}${params.map(param => `|${param.raw}`).join('')}}}`
+  return { ...segment, ...readTemplate(raw), raw }
+}
+
+// The new value where the old one was, with the old one's spacing around it.
+function withValue(param, value) {
+  const lead = /^\s*/.exec(param.value)[0]
+  const trail = /\s*$/.exec(param.value)[0]
+  const head = param.raw.slice(0, param.raw.length - param.value.length)
+  const spaced = `${lead}${value}${trail}`
+  return { ...param, value: spaced, raw: `${head}${spaced}` }
+}
+
+// Written as the named params there are: one a line ("|key = value") or all on one line ("|key=value").
+function newParam(params, key, value) {
+  const last = params.filter(param => param.key !== null).at(-1)
+  const multiline = last ? /\n\s*$/.test(last.raw) : false
+  return multiline ? { key, value: ` ${value}\n`, raw: `${key} = ${value}\n` } : { key, value, raw: `${key}=${value}` }
+}
+
+/**
+ * Sets the first param named by one of `keys` ('' removes it). A new one goes after the last param
+ * that comes before it in the template's order: `rankOf(param, index)` gives a param's place in it, -1 for none.
+ */
+function setNamed(params, keys, value, rankOf, rank) {
+  const wanted = keys.map(templateKey)
+  const index = params.findIndex(param => param.key !== null && wanted.includes(templateKey(param.key)))
+  const list = [...params]
+  if (!String(value ?? '').trim()) {
+    if (index >= 0) list.splice(index, 1)
+    return list
+  }
+  if (index >= 0) {
+    list[index] = withValue(list[index], value)
+    return list
+  }
+  let at = 0
+  list.forEach((param, place) => {
+    const own = rankOf(param, place)
+    if (own >= 0 && own < rank) at = place + 1
+  })
+  list.splice(at, 0, newParam(list, keys[0], value))
+  return list
+}
+
+// A param's place in an order of [field, names] (-1 when the order has not its name).
+const rankIn = order => param => (param.key === null ? -1 : order.findIndex(([, names]) => names.map(templateKey).includes(templateKey(param.key))))
+
+const positionalIndexes = params => params.flatMap((param, index) => (param.key === null ? [index] : []))
 
 /** [{ kind: 'banner' | 'box' | 'links' | 'portal' | 'text', raw, name?, params? }] */
 export function parseLayout(text) {
@@ -100,7 +153,6 @@ const BANNER_FIELDS = [
   ['caption', ['caption', 'subtitle']],
   ['text', ['text']]
 ]
-const BANNER_KEYS = new Set(BANNER_FIELDS.flatMap(([, keys]) => keys))
 
 export function bannerFields(segment) {
   const values = positional(segment)
@@ -112,18 +164,23 @@ export function bannerFields(segment) {
 }
 
 export function setBannerField(segment, field, value) {
-  const fields = { ...bannerFields(segment), [field]: String(value ?? '').trim() }
-  // Params the form does not know are kept, after the known ones.
-  const others = segment.params.filter(param => param.key !== null && !BANNER_KEYS.has(templateKey(param.key)))
-  const params = [
-    ...BANNER_FIELDS.filter(([name]) => fields[name]).map(([name]) => ({ key: name, value: fields[name] })),
-    ...others.map(param => ({ key: param.key, value: param.value.trim() }))
-  ]
-  const lines = params.map(param => `\n|${param.key} = ${escapePipes(param.value)}`)
-  return { ...segment, params, raw: `{{${segment.name}${lines.join('')}\n}}` }
+  const keys = BANNER_FIELDS.find(([name]) => name === field)[1]
+  const text = escapePipes(String(value ?? '').trim())
+  const wanted = keys.map(templateKey)
+  const hasNamed = segment.params.some(param => param.key !== null && wanted.includes(templateKey(param.key)))
+  // The title and the text may be the first two values without a name.
+  const loose = positionalIndexes(segment.params)
+  const slot = { title: 0, text: 1 }[field]
+  const at = slot === undefined || hasNamed ? undefined : loose[slot]
+  if (at !== undefined) {
+    const params = [...segment.params]
+    params[at] = withValue(params[at], text)
+    return withParams(segment, params)
+  }
+  const named = rankIn(BANNER_FIELDS)
+  const rankOf = (param, index) => (param.key !== null ? named(param) : [0, BANNER_FIELDS.length - 1][loose.indexOf(index)] ?? -1)
+  return withParams(segment, setNamed(segment.params, keys, text, rankOf, BANNER_FIELDS.findIndex(([name]) => name === field)))
 }
-
-const BOX_KEYS = new Set(['title', 'text', 'link', 'color', 'colour', 'icon', 'wide'])
 
 export function boxFields(segment) {
   const values = positional(segment)
@@ -139,23 +196,42 @@ export function boxFields(segment) {
   }
 }
 
+// The order a box is written in: {{Box|title|color=…|icon=…|link=…|wide=yes|\ntext\n}}.
+const BOX_FIELDS = [['title', ['title']], ['color', ['color', 'colour']], ['icon', ['icon']], ['link', ['link']], ['wide', ['wide']], ['text', ['text']]]
+
+// The title first and the text last, either may go without a name.
 export function setBoxField(segment, field, value) {
-  const fields = { ...boxFields(segment), [field]: typeof value === 'boolean' ? value : String(value ?? '').trim() }
-  const others = segment.params.filter(param => param.key !== null && !BOX_KEYS.has(templateKey(param.key)))
-  const parts = []
-  // A title containing '=' would parse as a named parameter, so it is named.
-  if (fields.title.includes('=')) parts.push(`title=${escapePipes(fields.title)}`)
-  else parts.push(escapePipes(fields.title))
-  for (const key of ['color', 'icon', 'link']) if (fields[key]) parts.push(`${key}=${fields[key]}`)
-  if (fields.wide) parts.push('wide=yes')
-  for (const param of others) parts.push(`${param.key}=${param.value.trim()}`)
-  // The text goes last, on its own lines; its '|' stays (tables). Text that reads as
-  // "name=…" is named.
-  const body = fields.text ? `\n${fields.text}\n` : ''
-  if (NAMED.test(body)) parts.push(`text=${body}`)
-  else parts.push(body)
-  const raw = `{{${segment.name}|${parts.join('|')}}}`
-  return { ...segment, ...readTemplate(raw), name: segment.name, raw }
+  const params = [...segment.params]
+  const loose = positionalIndexes(params)
+  const titled = params.some(param => param.key !== null && templateKey(param.key) === 'title')
+  // The text is every value without a name after the title (a table's '|' splits it).
+  const body = loose.filter(index => titled || index !== loose[0])
+  const bodyAt = body[0] ?? params.length
+  const named = rankIn(BOX_FIELDS)
+  const rankOf = (param, index) => (param.key !== null ? named(param) : body.includes(index) ? BOX_FIELDS.length - 1 : 0)
+  const set = (keys, text) => withParams(segment, setNamed(params, keys, text, rankOf, BOX_FIELDS.findIndex(([name]) => name === field)))
+  if (field === 'title') {
+    const title = escapePipes(String(value ?? '').trim())
+    if (titled) return set(['title'], title)
+    // A title containing '=' would parse as a named parameter, so it is named.
+    const named = title.includes('=') ? { key: 'title', value: title, raw: `title=${title}` } : null
+    if (loose.length) params[loose[0]] = named ?? withValue(params[loose[0]], title)
+    else params.unshift(named ?? { key: null, value: title, raw: title })
+    return withParams(segment, params)
+  }
+  if (field === 'text') {
+    const text = String(value ?? '').replace(/^\n+|\s+$/g, '')
+    if (params.some(param => param.key !== null && templateKey(param.key) === 'text')) return set(['text'], text ? `\n${text}\n` : '')
+    const kept = params.filter((_, index) => !body.includes(index))
+    if (text) {
+      const raw = `\n${text}\n`
+      // Text that reads as "name=…" is named.
+      kept.splice(bodyAt - body.filter(index => index < bodyAt).length, 0, NAMED.test(raw) ? { key: 'text', value: raw, raw: `text=${raw}` } : { key: null, value: raw, raw })
+    }
+    return withParams(segment, kept)
+  }
+  if (field === 'wide') return set(['wide'], value ? 'yes' : '')
+  return set(BOX_FIELDS.find(([name]) => name === field)[1], String(value ?? '').trim())
 }
 
 /** [{ kind: 'page' | 'url', target, label } | { kind: 'raw', raw }] */
@@ -178,10 +254,20 @@ export function linkText(item) {
   return label && label !== target ? `[[${target}|${label}]]` : `[[${target}]]`
 }
 
+// The links take the place of the old ones; named params stay where they were.
 export function setLinkItems(segment, items) {
-  const parts = items.map(linkText).filter(Boolean)
-  const raw = `{{${segment.name}${parts.map(part => `|${part}`).join('')}}}`
-  return { ...segment, ...readTemplate(raw), name: segment.name, raw }
+  const links = items.map(linkText).filter(Boolean).map(raw => ({ key: null, value: raw, raw }))
+  const params = []
+  let placed = false
+  for (const param of segment.params) {
+    if (param.key !== null) params.push(param)
+    else if (!placed) {
+      params.push(...links)
+      placed = true
+    }
+  }
+  if (!placed) params.push(...links)
+  return withParams(segment, params)
 }
 
 export const textOfBlock = segment => segment.raw.replace(/^\s*\n/, '').replace(/\n\s*$/, '')

@@ -320,7 +320,7 @@
           "speed": 0.0016,
           "visualization": {
             "seed": "mercury",
-            "size": 50
+            "size": 77
           },
           "loreFile": "lore/solar/mercury.wiki"
         },
@@ -331,7 +331,7 @@
           "speed": 0.001143,
           "visualization": {
             "seed": "venus",
-            "size": 62
+            "size": 95
           },
           "loreFile": "lore/solar/venus.wiki"
         },
@@ -341,8 +341,7 @@
           "angle": 299,
           "speed": 0.000889,
           "visualization": {
-            "seed": "earth",
-            "size": 65
+            "seed": "earth"
           },
           "loreFile": "lore/solar/earth.wiki",
           "satellites": [
@@ -354,7 +353,7 @@
               "speed": 0.008,
               "visualization": {
                 "seed": "moon",
-                "size": 60,
+                "size": 92,
                 "landColor": "0x9a9a9a",
                 "waterAmount": 0
               },
@@ -379,7 +378,7 @@
           "speed": 0.000727,
           "visualization": {
             "seed": "mars",
-            "size": 55
+            "size": 85
           },
           "loreFile": "lore/solar/mars.wiki",
           "satellites": [
@@ -391,7 +390,7 @@
               "speed": 0.008,
               "visualization": {
                 "seed": "phobos",
-                "size": 60,
+                "size": 92,
                 "landColor": "0x9a9a9a",
                 "waterAmount": 0
               },
@@ -405,7 +404,7 @@
               "speed": 0.008,
               "visualization": {
                 "seed": "deimos",
-                "size": 60,
+                "size": 92,
                 "landColor": "0x9a9a9a",
                 "waterAmount": 0
               },
@@ -420,7 +419,7 @@
           "speed": 0.000615,
           "visualization": {
             "seed": "jupiter",
-            "size": 88
+            "size": 135
           },
           "loreFile": "lore/solar/jupiter.wiki",
           "satellites": [
@@ -432,7 +431,7 @@
               "speed": 0.008,
               "visualization": {
                 "seed": "io",
-                "size": 60,
+                "size": 92,
                 "landColor": "0xd9b542",
                 "waterAmount": 0
               },
@@ -446,7 +445,7 @@
               "speed": 0.008,
               "visualization": {
                 "seed": "europa",
-                "size": 60,
+                "size": 92,
                 "landColor": "0xd4cab0",
                 "waterAmount": 0
               },
@@ -461,7 +460,7 @@
           "speed": 0.000533,
           "visualization": {
             "seed": "saturn",
-            "size": 80,
+            "size": 123,
             "ring": {
               "color": "0xcbbd94",
               "size": "medium"
@@ -477,7 +476,7 @@
               "speed": 0.008,
               "visualization": {
                 "seed": "titan",
-                "size": 60,
+                "size": 92,
                 "landColor": "0xc89c60",
                 "waterAmount": 0
               },
@@ -492,7 +491,7 @@
           "speed": 0.000471,
           "visualization": {
             "seed": "uranus",
-            "size": 72
+            "size": 111
           },
           "loreFile": "lore/solar/uranus.wiki"
         },
@@ -503,7 +502,7 @@
           "speed": 0.000421,
           "visualization": {
             "seed": "neptune",
-            "size": 72
+            "size": 111
           },
           "loreFile": "lore/solar/neptune.wiki",
           "satellites": [
@@ -515,7 +514,7 @@
               "speed": 0.008,
               "visualization": {
                 "seed": "triton",
-                "size": 60,
+                "size": 92,
                 "landColor": "0xc4c7ce",
                 "waterAmount": 0
               },
@@ -535,7 +534,6 @@
           "lore": "'''Daybreak''' is the assembly world of the [[Solar Concord]]. Its coastal cities overlook a shallow equatorial sea. Delegates meet on [[Concord Ring]] so that no surface nation controls the chamber. The first settlers arrived from [[Sol]], as recorded in the [[Settlement Chronicle]].",
           "visualization": {
             "seed": "daybreak",
-            "size": 65,
             "landColor": "0x60a35d",
             "waterColor": "0x276fa5",
             "waterAmount": 0.6
@@ -560,7 +558,6 @@
           "lore": "'''Orchard''' feeds the settlements of [[Asterion]]. Broad river plains support farms under the Concord's common seed charter. Cargo crews send preserved food to [[Daybreak]] and sell the surplus at [[Pelagos]]. The harvest council measures prosperity in reserve supplies rather than gate tolls.",
           "visualization": {
             "seed": "orchard",
-            "size": 65,
             "landColor": "0x91b84d",
             "waterColor": "0x3a7a89",
             "waterAmount": 0.35
@@ -574,7 +571,7 @@
           "lore": "'''Crown''' is a ringed giant at the edge of [[Asterion]]'s settled orbits. Navigation crews use its rings as a calibration landmark before travelling to [[Nacre]]. Its small moon [[Mote]] carries an automated weather receiver maintained by the [[Solar Concord]].",
           "visualization": {
             "seed": "crown",
-            "size": 88,
+            "size": 135,
             "landColor": "0xb49bd6",
             "waterColor": "0x70568d",
             "waterAmount": 0.2,
@@ -592,7 +589,7 @@
               "speed": 0.008,
               "visualization": {
                 "seed": "mote",
-                "size": 60,
+                "size": 92,
                 "landColor": "0x9a9a9a",
                 "waterAmount": 0
               },
@@ -612,7 +609,6 @@
           "lore": "'''Forge''' houses the foundries of the [[Crucible Combine]]. Iron-coloured plateaus surround deep industrial basins, while [[Crucible Yard]] keeps the largest hulls away from the surface. The directorate claims that its gate tolls pay for the machinery on which every other faction depends.",
           "visualization": {
             "seed": "forge",
-            "size": 65,
             "landColor": "0xb95b3e",
             "waterColor": "0x6d342b",
             "waterAmount": 0.12,
@@ -638,7 +634,6 @@
           "lore": "'''Ash''' is a dry, wind-scoured world in [[Cinder]]. Survey crews work beneath sealed shelters and send mineral samples to [[Forge]]. Long abandoned prospecting trails remind visitors that the Combine's industrial wealth began with small expeditions and uncertain claims.",
           "visualization": {
             "seed": "ash",
-            "size": 65,
             "landColor": "0xa99b83",
             "waterAmount": 0
           }
@@ -655,7 +650,6 @@
           "lore": "'''Dusk''' is the convoy port of [[Vesper]]. Its dim blue seas reflect a sky veiled with dust. Crews gather here before the supply crossing to [[Pelagos]], carrying replacement gate parts and returning with food. Combine inspectors check every departure against a signed cargo contract.",
           "visualization": {
             "seed": "dusk",
-            "size": 65,
             "landColor": "0x6f789a",
             "waterColor": "0x304775",
             "waterAmount": 0.45
@@ -669,7 +663,6 @@
           "lore": "'''Anvil''' produces the heavy components shipped from [[Vesper]] to [[Cinder]]. Excavation belts cut through its dark rocky plains. The [[Crucible Combine]] operates the mines through rotating crews, who spend their leave on [[Dusk]] rather than in Anvil's sealed surface settlements.",
           "visualization": {
             "seed": "anvil",
-            "size": 65,
             "landColor": "0x626370",
             "waterAmount": 0
           }
@@ -686,7 +679,6 @@
           "lore": "'''Thalassa''' is an ocean world of the [[Free Tide]]. Floating cities follow sheltered current systems, trading with the docking crews of [[Tide Spindle]]. Its port councils oppose permanent borders on the water and exclusive concessions on the [[Quantum Gates]]. Life here is fictional; [[Europa]] describes a real moon with a possible subsurface ocean.",
           "visualization": {
             "seed": "thalassa",
-            "size": 65,
             "landColor": "0x69bda6",
             "waterColor": "0x167ea8",
             "waterAmount": 0.9
@@ -711,7 +703,6 @@
           "lore": "'''Shoal''' offers quiet harbours and low-gravity repair basins in [[Pelagos]]. Small independent yards rebuild survey vessels that cannot afford Combine docks. The port council keeps a reserve of spare navigation clocks after the unexplained voyage to [[Silent Reach]].",
           "visualization": {
             "seed": "shoal",
-            "size": 65,
             "landColor": "0xc8ad72",
             "waterColor": "0x4c9aab",
             "waterAmount": 0.45
@@ -729,7 +720,6 @@
           "lore": "'''Haven''' shelters rescue crews and migrant families in [[Halcyon]]. Its wooded continents support modest settlements connected by public landing fields. Volunteers watch the trade approaches and keep emergency supplies on the moon [[Wisp]]. The [[Free Tide]] regards rescue as a duty that carries no political debt.",
           "visualization": {
             "seed": "haven",
-            "size": 65,
             "landColor": "0x588659",
             "waterColor": "0x477fac",
             "waterAmount": 0.55
@@ -743,7 +733,7 @@
               "speed": 0.008,
               "visualization": {
                 "seed": "wisp",
-                "size": 60,
+                "size": 92,
                 "landColor": "0x9a9a9a",
                 "waterAmount": 0
               },
@@ -759,7 +749,6 @@
           "lore": "'''Pale''' is an icy world beyond [[Haven]]. Seasonal crews map its fractured plains and collect frozen samples for the laboratories at [[Beacon Watch]]. Visits are short, and the rescue service of [[Halcyon]] requires every expedition to leave a return plan before departure.",
           "visualization": {
             "seed": "pale",
-            "size": 65,
             "landColor": "0xc9dfeb",
             "waterColor": "0x7fadd0",
             "waterAmount": 0.2,
@@ -778,7 +767,6 @@
           "lore": "'''Reliquary''' is the only charted planet of [[Nacre]]. Pale ridges surround a basin of ruins that predates the first human survey. Receivers near the excavation detect the [[Nacre Beacon]], but researchers have not found its transmitter. [[Beacon Watch]] operates under a joint agreement between the three powers.",
           "visualization": {
             "seed": "reliquary",
-            "size": 65,
             "landColor": "0xbaafc9",
             "waterColor": "0x726494",
             "waterAmount": 0.1

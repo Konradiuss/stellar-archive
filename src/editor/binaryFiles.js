@@ -1,5 +1,9 @@
-// The draft holds strings (localStorage), so a sound is kept as a data URL.
-// A file is a sound by its extension only, never by its content.
+import { language, t } from '../i18n'
+
+// The draft holds strings (localStorage): a binary file is a reference to its bytes in the
+// blob store, "binary:<git sha>:<size>". A data URL is what drafts held before, and what the
+// draft keeps when the browser has no IndexedDB.
+// A file is a sound or a picture by its extension only, never by its content.
 
 // Every audio type a map may name: a missing one is read as text and corrupted on publish.
 const SOUND_TYPES = {
@@ -13,19 +17,37 @@ const SOUND_TYPES = {
   flac: 'audio/flac',
   webm: 'audio/webm'
 }
-const EXTENSION = new RegExp(`\\.(${Object.keys(SOUND_TYPES).join('|')})$`, 'i')
+// SVG is text: it stays a text file.
+const IMAGE_TYPES = {
+  png: 'image/png',
+  gif: 'image/gif',
+  jpg: 'image/jpeg',
+  jpeg: 'image/jpeg',
+  webp: 'image/webp',
+  ico: 'image/x-icon'
+}
+const TYPES = { ...SOUND_TYPES, ...IMAGE_TYPES }
+const EXTENSION = new RegExp(`\\.(${Object.keys(TYPES).join('|')})$`, 'i')
 
-/** Uploads accept only what every browser plays. */
+/** Uploads accept only what every browser plays or shows. */
 export const UPLOAD_EXTENSIONS = Object.freeze(['wav', 'mp3', 'ogg'])
+export const IMAGE_UPLOAD_EXTENSIONS = Object.freeze(['png', 'gif', 'jpg', 'jpeg', 'webp', 'ico'])
 
-// The draft has ~5 MB of localStorage and base64 adds a third.
-export const MAX_SOUND_BYTES = 300 * 1024
+export const MAX_SOUND_BYTES = 2 * 1024 * 1024
+export const MAX_IMAGE_BYTES = 5 * 1024 * 1024
+export const MAX_MUSIC_BYTES = 20 * 1024 * 1024
+// Without IndexedDB a file goes into localStorage as a data URL: a bigger one would not fit.
+export const MAX_INLINE_BYTES = 2 * 1024 * 1024
 
 export const isBinaryPath = path => EXTENSION.test(String(path ?? ''))
 
 export const extensionOf = path => EXTENSION.exec(String(path ?? ''))?.[1].toLowerCase() ?? null
 
-export const mimeOf = path => SOUND_TYPES[extensionOf(path)] ?? 'application/octet-stream'
+export const isImagePath = path => Object.hasOwn(IMAGE_TYPES, extensionOf(path) ?? '')
+
+export const isAudioPath = path => Object.hasOwn(SOUND_TYPES, extensionOf(path) ?? '')
+
+export const mimeOf = path => TYPES[extensionOf(path)] ?? 'application/octet-stream'
 
 export const base64Of = dataUrl => String(dataUrl ?? '').slice(String(dataUrl ?? '').indexOf(',') + 1)
 
@@ -45,4 +67,26 @@ export function bytesOf(dataUrl) {
 
 export const toDataUrl = (bytes, path) => `data:${mimeOf(path)};base64,${toBase64(bytes)}`
 
+export const isDataUrl = value => typeof value === 'string' && value.startsWith('data:')
+
+const REF = /^binary:([0-9a-f]{40}):(\d+)$/
+
+export const binaryRef = (sha, size) => `binary:${sha}:${size}`
+
+/** → { sha, size }, or null for anything else. */
+export function readRef(value) {
+  const match = REF.exec(typeof value === 'string' ? value : '')
+  return match ? { sha: match[1], size: Number(match[2]) } : null
+}
+
+/** The bytes of a text or of a data URL; a reference has none of its own (see the blob store). */
 export const fileBytes = (path, value) => (isBinaryPath(path) ? bytesOf(value) : new TextEncoder().encode(value))
+
+/** The size in bytes of what the draft holds for a binary file. */
+export const binarySize = value => readRef(value)?.size ?? (isDataUrl(value) ? bytesOf(value).length : 0)
+
+/** "310 KB", "2.4 MB", in the units of the strings. */
+export function sizeText(bytes) {
+  if (bytes < 1024 * 1024) return t('editor.sizeKb', { size: Math.ceil(bytes / 1024) })
+  return t('editor.sizeMb', { size: (Math.round((bytes / (1024 * 1024)) * 10) / 10).toLocaleString(language()) })
+}

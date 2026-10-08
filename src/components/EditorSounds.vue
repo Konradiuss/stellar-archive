@@ -2,7 +2,7 @@
   <section class="editor-pane sounds-panel" :aria-label="t('editor.tabSounds')">
     <div class="editor-card">
       <div class="editor-heading">{{ t('editor.soundsTitle') }}</div>
-      <div class="editor-hint">{{ t('editor.soundsNote', { max: MAX_KB }) }}</div>
+      <div class="editor-hint">{{ t('editor.soundsNote', { max: sizeText(MAX_SOUND_BYTES) }) }}</div>
       <div class="sounds-fields">
         <label class="editor-check">
           <input type="checkbox" class="sounds-on" :checked="enabled" @change="setEnabled($event.target.checked)" />
@@ -12,6 +12,8 @@
           <span>{{ t('editor.soundsVolume') }}</span>
           <EditorNumber
             input-class="sounds-volume"
+            :min="0"
+            :max="100"
             :value="volumePercent"
             :placeholder="String(DEFAULT_PERCENT)"
             :disabled="!enabled"
@@ -27,7 +29,7 @@
         <div class="sound-head">
           <button
             type="button"
-            class="editor-button is-small sound-play"
+            class="editor-button is-small is-code sound-play"
             data-sfx="none"
             :disabled="row.state.kind === 'silent'"
             :aria-label="t('special.soundPlay', { name: row.name })"
@@ -37,12 +39,24 @@
           <span class="sound-state" :class="`is-${row.state.kind}`">{{ stateText(row.state) }}</span>
         </div>
         <div class="sound-what">{{ t(`sounds.${row.name}`) }}</div>
+        <label class="editor-field sound-volume-field">
+          <span>{{ t('editor.soundVolume') }}</span>
+          <EditorNumber
+            input-class="sound-volume"
+            :min="0"
+            :max="100"
+            :value="row.state.volume === undefined ? undefined : Math.round(row.state.volume * 100)"
+            :placeholder="t('editor.soundVolumeAuto')"
+            @commit="value => setOwnVolume(row.name, value)"
+          />
+        </label>
         <div class="editor-actions">
           <label class="editor-button is-small sound-upload">
             {{ t('editor.soundUpload') }}
             <input type="file" class="sound-file" :accept="ACCEPT" hidden @change="upload(row.name, $event)" />
           </label>
           <button v-if="row.state.kind !== 'silent'" type="button" class="editor-button is-small sound-silence" @click="silence(row.name)">{{ t('editor.soundSilence') }}</button>
+          <button v-else type="button" class="editor-button is-small sound-unsilence" @click="unsilence(row.name)">{{ t('editor.soundUnsilence') }}</button>
           <button v-if="row.state.kind !== 'site'" type="button" class="editor-button is-small sound-reset" @click="reset(row.name)">{{ t('editor.soundReset') }}</button>
         </div>
         <div v-if="errors[row.name]" class="editor-note is-error sound-error" role="alert">{{ errors[row.name] }}</div>
@@ -57,18 +71,17 @@ import { t } from '../i18n'
 import { useEditorStore } from '../stores/editorStore'
 import EditorNumber from './EditorNumber.vue'
 import { SOUND_NAMES, DEFAULT_SOUND_VOLUME, soundEngine } from '../sound'
-import { MAX_SOUND_BYTES, UPLOAD_EXTENSIONS, bytesOf, extensionOf, toDataUrl } from '../editor/binaryFiles'
-import { resetSound, setSoundFile, setSoundsEnabled, setSoundsVolume, silenceSound, soundPath, soundState, soundsOf } from '../editor/soundEdits'
+import { MAX_SOUND_BYTES, UPLOAD_EXTENSIONS, extensionOf, sizeText } from '../editor/binaryFiles'
+import { resetSound, setSoundFile, setSoundVolume, setSoundsEnabled, setSoundsVolume, silenceSound, soundPath, soundState, soundsAreOn, soundsOf, unsilenceSound } from '../editor/soundEdits'
 import { sitePathOf } from '../editor/siteFiles'
 import { MAP_FILE } from '../utils/mapCheck'
 
 const ACCEPT = '.wav,.mp3,.ogg,audio/wav,audio/mpeg,audio/ogg'
-const MAX_KB = Math.round(MAX_SOUND_BYTES / 1024)
 const DEFAULT_PERCENT = Math.round(DEFAULT_SOUND_VOLUME * 100)
 
 const editor = useEditorStore()
 const map = computed(() => editor.parsed.data ?? {})
-const enabled = computed(() => soundsOf(map.value) !== false)
+const enabled = computed(() => soundsAreOn(map.value))
 const volumePercent = computed(() => {
   const volume = soundsOf(map.value)?.volume
   return typeof volume === 'number' ? Math.round(volume * 100) : undefined
@@ -78,16 +91,21 @@ const rows = computed(() => SOUND_NAMES.map(name => ({ name, state: soundState(m
 const errors = reactive({})
 
 function stateText(state) {
-  if (state.kind === 'silent') return t('editor.soundSilent')
+  if (state.kind === 'silent') return state.path ? t('editor.soundSilentFile', { path: state.path }) : t('editor.soundSilent')
   if (state.kind === 'file') return t('editor.soundFile', { path: state.path })
   return t('editor.soundSite')
 }
 
 const setEnabled = on => editor.editMap(text => setSoundsEnabled(text, on))
 const setVolume = value => editor.editMap(text => setSoundsVolume(text, value === '' ? null : value))
+const setOwnVolume = (name, value) => editor.editMap(text => setSoundVolume(text, name, value === '' ? null : value))
 const silence = name => {
   errors[name] = null
   editor.editMap(text => silenceSound(text, name))
+}
+const unsilence = name => {
+  errors[name] = null
+  editor.editMap(text => unsilenceSound(text, name))
 }
 const reset = name => {
   errors[name] = null
@@ -96,7 +114,8 @@ const reset = name => {
 
 async function recordingOf(path) {
   const own = sitePathOf(path)
-  if (own && editor.exists(own) && editor.textOf(own)) return bytesOf(editor.textOf(own))
+  const kept = own && editor.exists(own) && editor.textOf(own) ? await editor.bytesOf(own) : null
+  if (kept) return kept
   const response = await fetch(new URL(path, new URL(MAP_FILE, document.baseURI)).href)
   if (!response.ok) throw new Error(`HTTP ${response.status}`)
   return new Uint8Array(await response.arrayBuffer())
@@ -124,7 +143,7 @@ async function upload(name, event) {
     return
   }
   if (file.size > MAX_SOUND_BYTES) {
-    errors[name] = t('editor.soundTooBig', { file: file.name, size: Math.ceil(file.size / 1024), max: MAX_KB })
+    errors[name] = t('editor.soundTooBig', { file: file.name, size: sizeText(file.size), max: sizeText(MAX_SOUND_BYTES) })
     return
   }
   const bytes = new Uint8Array(await file.arrayBuffer())
@@ -133,8 +152,16 @@ async function upload(name, event) {
     return
   }
   const path = soundPath(name, file.name)
-  if (!editor.editMap(text => setSoundFile(text, name, path))) return
-  editor.setText(path, toDataUrl(bytes, path))
+  // The file first: the map must not name one the browser had no room for.
+  const refused = await editor.setBinary(path, bytes)
+  if (refused) {
+    errors[name] = t(refused.key, refused.params)
+    return
+  }
+  if (!editor.editMap(text => setSoundFile(text, name, path))) {
+    editor.revert(path)
+    return
+  }
   soundEngine.audition(name, bytes)
 }
 </script>

@@ -284,6 +284,39 @@ test('orbits around a ringed planet start past the ring', async ({ page }) => {
   }
 })
 
+// Was: "size" was read and shown, but every planet was drawn as big.
+test('a planet is drawn as big as its size says, its satellites in step and in the window', async ({ page }) => {
+  const earthAt = async size => {
+    const map = worldMap()
+    map.systems.sol.planets.find(planet => planet.name === 'Earth').visualization.size = size
+    await serveMap(page, map)
+    // The same address again would only be a jump within the page.
+    await page.goto('about:blank')
+    await openHash(page, '#/system/sol/3')
+    await page.mouse.move(5, 5)
+    await expect(page.locator('.window-visual .satellite-body')).toHaveCount(2)
+    await page.waitForTimeout(500)
+    return bigPlanet(page)
+  }
+  const usual = await earthAt(100)
+  const half = await earthAt(50)
+  expect(half.reach / usual.reach).toBeGreaterThan(0.45)
+  expect(half.reach / usual.reach).toBeLessThan(0.55)
+  const big = await earthAt(150)
+  expect(big.reach / usual.reach).toBeGreaterThan(1.2)
+  const frame = await page.locator('.window-visual .planet-display-container').boundingBox()
+  const bodies = await page.locator('.window-visual .satellite-body').evaluateAll(elements => elements.map(element => {
+    const box = element.getBoundingClientRect()
+    return { left: box.left, top: box.top, right: box.right, bottom: box.bottom }
+  }))
+  for (const body of bodies) {
+    expect(body.left).toBeGreaterThanOrEqual(frame.x - 1)
+    expect(body.right).toBeLessThanOrEqual(frame.x + frame.width + 1)
+    expect(body.top).toBeGreaterThanOrEqual(frame.y - 1)
+    expect(body.bottom).toBeLessThanOrEqual(frame.y + frame.height + 1)
+  }
+})
+
 const gridRows = page => page.locator('.window-visual .satellite-row')
 const rowTitles = page => gridRows(page).locator('.satellite-row-title')
 const layoutToggle = page => page.locator('.window-visual .layout-toggle')

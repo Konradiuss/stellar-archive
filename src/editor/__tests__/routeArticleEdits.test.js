@@ -119,10 +119,16 @@ describe('the pulses of a route or a type', () => {
   // Was: turning pulses off and on again threw away the route's own speed and interval.
   it('turns pulses off and on again with the settings kept', () => {
     const own = { interval: 0.8, speed: 90 }
-    expect(pulseAfter(own, inherited, { on: false })).toBe(false)
-    expect(pulseAfter(false, inherited, { on: true, kept: own })).toEqual(own)
+    // The settings wait in the map beside `off`, through a reload and a publish.
+    const off = pulseAfter(own, inherited, { on: false })
+    expect(off).toEqual({ interval: 0.8, speed: 90, off: true })
+    expect(pulseAfter(off, inherited, { on: true })).toEqual(own)
+    expect(pulseAfter(off, inherited, { key: 'speed', reset: true })).toEqual({ interval: 0.8, off: true })
+    // Nothing of its own: the short forms.
+    expect(pulseAfter(undefined, inherited, { on: false })).toBe(false)
     expect(pulseAfter(false, inherited, { on: true })).toBe('')
     expect(pulseAfter(false, null, { on: true })).toEqual({})
+    expect(pulseAfter({ off: true }, null, { on: true })).toEqual({})
     const map = read(setRouteField(MAP, 0, 'pulse', pulseAfter(undefined, inherited, { key: 'interval', value: 0.8 })))
     expect(map.hyperlines[0].pulse).toEqual({ interval: 0.8 })
     expect(routeList(map)[0].pulse).toMatchObject({ interval: 0.8 })
@@ -297,5 +303,22 @@ describe('the groups of articles', () => {
     expect(read(removeGroup(text, 'a')).wiki).not.toHaveProperty('worldGroup')
     expect(read(removeGroup(text, 'z')).wiki.worldGroup).toBe('b')
     expect(read(setWorldLore(NESTED, 'The galaxy')).worldLore).toBe('The galaxy')
+    // Was: an emptied text stayed as "".
+    expect(read(setWorldLore(setWorldLore(NESTED, 'The galaxy'), '  '))).not.toHaveProperty('worldLore')
+    expect(setWorldLore(NESTED, '')).toBe(NESTED)
+  })
+
+  // Was: emptying the name of a built-in type written as a name left "{}" behind.
+  it('gives a built-in type written as a name back to the site when the name is emptied', () => {
+    const map = '{ "hyperlineTypes": { "gate": "Portals", "rail": "Rails" } }'
+    expect(read(setRouteTypeField(map, 'gate', 'name', '')).hyperlineTypes).toEqual({ rail: 'Rails' })
+    expect(read(setRouteTypeField(map, 'rail', 'name', '')).hyperlineTypes.rail).toEqual({})
+  })
+
+  // Was: an emptied inline text stayed in the map as "".
+  it('leaves out the inline text of an article when it is emptied', () => {
+    const map = '{ "wiki": { "articles": [{ "title": "A", "text": "Old" }] } }'
+    expect(read(setArticleField(map, 'A', 'text', '')).wiki.articles[0]).toEqual({ title: 'A' })
+    expect(read(setArticleField(map, 'A', 'text', 'New')).wiki.articles[0].text).toBe('New')
   })
 })

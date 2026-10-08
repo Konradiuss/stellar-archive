@@ -20,6 +20,20 @@ describe('the sounds of a map file', () => {
     expect(normalizeSoundConfig(false, MAP)).toEqual({ enabled: false, volume: null, sounds: {} })
   })
 
+  // Was: off was only `false`, written over the volume and every sound of the map.
+  it('are turned off by "off", keeping their settings for when they are on again', () => {
+    const config = normalizeSoundConfig({ off: true, volume: 0.2, click: 'sounds/click.wav', hover: { file: 'sounds/hover.wav', volume: 0.5, off: true } }, MAP)
+    expect(config).toEqual({
+      enabled: false,
+      volume: 0.2,
+      sounds: { click: { src: 'https://owner.github.io/wiki/sounds/click.wav' }, hover: { silent: true } }
+    })
+    expect(normalizeSoundConfig({ off: false }, MAP).enabled).toBe(true)
+    expect(notes()).toEqual([])
+    expect(normalizeSoundConfig({ off: 'yes', typing: { off: 1 } }, MAP)).toEqual({ enabled: true, volume: null, sounds: {} })
+    expect(notes()).toEqual(['sounds.off: Must be true or false: left out.', 'sounds.typing.off: Must be true or false: left out.'])
+  })
+
   it('take a file next to the map or on another site, silence, a volume of their own', () => {
     const config = normalizeSoundConfig({
       volume: 0.2,
@@ -54,7 +68,7 @@ describe('the sounds of a map file', () => {
       'sounds.volume: Must be a number from 0 to 1: left out.',
       'sounds.clik: Is not a sound of the site: left out. The names are on the wiki page Special:Sounds.',
       'sounds.click: Bad file "javascript:alert(1)": the sound of the site is used.',
-      'sounds.hover: Must be a file, false or { "file", "volume" }: the sound of the site is used.',
+      'sounds.hover: Must be a file, false or { "file", "volume", "off" }: the sound of the site is used.',
       'sounds.breaker.file: Bad file "//cdn.example/switch.mp3": the sound of the site is used.',
       'sounds.breaker.volume: Must be a number from 0 to 1: left out.'
     ])

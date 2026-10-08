@@ -1,5 +1,6 @@
 import { safeStorage, siteFolder } from '../composables/usePersistentState'
-import { bytesOf, isBinaryPath, mimeOf } from './binaryFiles'
+import { bytesOf, isBinaryPath, isDataUrl, mimeOf, readRef } from './binaryFiles'
+import { getBlob } from './blobStore'
 
 const DRAFT_PREFIX = 'spacemap:draft:'
 const PUBLISHED_PREFIX = 'spacemap:published:'
@@ -139,20 +140,41 @@ export function draftFetch(fetchText, draft, mapUrl) {
   }
 }
 
-export function draftResponse(url, mapUrl, draft = previewDraft()) {
+/** → the Response of the draft's binary file, or null for the host's. */
+export async function draftResponse(url, mapUrl, draft = previewDraft()) {
   if (!draft) return null
   const path = sitePath(url, mapUrl)
   if (path === null || !isBinaryPath(path) || !Object.hasOwn(draft.files, path)) return null
-  if (draft.files[path] === null) return new Response(null, { status: 404 })
-  return new Response(bytesOf(draft.files[path]), { headers: { 'Content-Type': mimeOf(path) } })
+  const value = draft.files[path]
+  if (value === null) return new Response(null, { status: 404 })
+  const headers = { 'Content-Type': mimeOf(path) }
+  if (isDataUrl(value)) return new Response(bytesOf(value), { headers })
+  const ref = readRef(value)
+  // Gone from this browser's store: the host's file rather than none.
+  const blob = ref && await getBlob(ref.sha)
+  return blob ? new Response(blob, { headers }) : null
 }
 
-// Reads the draft once per page (the preview reloads to switch drafts):
-// parsing MBs of localStorage for every sound file is slow.
+/** → a blob: address of the draft's binary file at `url`, or null for the host's. */
+export async function draftFileUrl(url, mapUrl, draft = previewDraft()) {
+  const response = await draftResponse(url, mapUrl, draft)
+  return response?.ok ? URL.createObjectURL(await response.blob()) : null
+}
+
+/** Tracks whose files the draft holds play those: their `src` becomes a blob: address. */
+export async function draftTracks(tracks, mapUrl, draft = previewDraft()) {
+  if (!draft) return tracks
+  return Promise.all(tracks.map(async track => {
+    const src = await draftFileUrl(track.src, mapUrl, draft).catch(() => null)
+    return src ? { ...track, src } : track
+  }))
+}
+
+// Reads the draft once per page (the preview reloads to switch drafts).
 export function draftFileFetch(fetchFile, mapUrl, readDraft = previewDraft) {
   let draft
-  return url => {
+  return async url => {
     if (draft === undefined) draft = readDraft()
-    return draftResponse(url, mapUrl(), draft) ?? fetchFile(url)
+    return (await draftResponse(url, mapUrl(), draft)) ?? fetchFile(url)
   }
 }

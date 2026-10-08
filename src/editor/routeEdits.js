@@ -36,7 +36,7 @@ export function routeList(map) {
       opacity: style.opacity,
       direction: style.direction,
       pulse: style.pulse,
-      ofType: { color: typeStyle.color, width: typeStyle.width, opacity: typeStyle.opacity, pulse: typeStyle.pulse }
+      ofType: { color: typeStyle.color, width: typeStyle.width, opacity: typeStyle.opacity, direction: typeStyle.direction, pulse: typeStyle.pulse }
     }
   })).result
 }
@@ -73,18 +73,24 @@ export const PULSE_FIELDS = ['interval', 'speed', 'length']
 
 /**
  * The `pulse` of one layer (a route or a type) after a change, '' to remove it. `inherited` is what the layers
- * below give: pulses, or null when they are off. change: { key, value } | { key, reset: true } | { on: false } | { on: true, kept }.
+ * below give: pulses, or null when they are off. change: { key, value } | { key, reset: true } | { on: boolean }.
+ * Off keeps the layer's own fields beside `off: true`, for when pulses are on again.
  */
 export function pulseAfter(own, inherited, change) {
-  const fields = isObject(own) ? own : {}
+  const fields = isObject(own) ? { ...own } : {}
   // An empty object still turns on pulses the layers below turned off.
   const ownOrInherit = next => (Object.keys(next).length || !inherited ? next : '')
-  if (change.on === false) return false
-  if (change.on === true) return isObject(change.kept) ? change.kept : ownOrInherit({})
+  if (change.on === false) {
+    delete fields.off
+    return Object.keys(fields).length ? { ...fields, off: true } : false
+  }
+  if (change.on === true) {
+    delete fields.off
+    return ownOrInherit(fields)
+  }
   if (change.reset) {
-    const rest = { ...fields }
-    delete rest[change.key]
-    return ownOrInherit(rest)
+    delete fields[change.key]
+    return ownOrInherit(fields)
   }
   return { ...fields, [change.key]: change.value }
 }
@@ -116,9 +122,10 @@ export function routeTypes(map) {
       color: style.color,
       width: style.width,
       opacity: style.opacity,
+      direction: style.direction,
       pulse: style.pulse,
       // Without the map's overrides.
-      builtInStyle: (({ color, width, opacity, pulse }) => ({ color, width, opacity, pulse }))(resolveHyperlineStyle({ type: id }, {}))
+      builtInStyle: (({ color, width, opacity, direction, pulse }) => ({ color, width, opacity, direction, pulse }))(resolveHyperlineStyle({ type: id }, {}))
     }
   })).result
 }
@@ -140,7 +147,9 @@ export function setRouteTypeField(text, id, field, value) {
   const current = types?.[id]
   if (!BUILT_IN_ROUTE_TYPES.includes(id) && current === undefined) throw new EditError('editor.noRouteType', { id })
   if (typeof current === 'string') {
-    if (field === 'name') return isEmpty(value) ? setValue(text, ['hyperlineTypes', id], {}) : setValue(text, ['hyperlineTypes', id], value)
+    // A built-in type with no name of its own is the built-in one; a type of the map stays, its routes name it.
+    if (field === 'name' && isEmpty(value)) return BUILT_IN_ROUTE_TYPES.includes(id) ? removeKey(text, ['hyperlineTypes'], id) : setValue(text, ['hyperlineTypes', id], {})
+    if (field === 'name') return setValue(text, ['hyperlineTypes', id], value)
     return isEmpty(value) ? text : setValue(text, ['hyperlineTypes', id], { name: current, [field]: value })
   }
   if (isObject(current)) return isEmpty(value) ? removeKey(text, ['hyperlineTypes', id], field) : setKey(text, ['hyperlineTypes', id], field, value)

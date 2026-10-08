@@ -68,7 +68,7 @@
         <template v-if="star">
           <label class="editor-field">
             <span>{{ t('editor.starName') }}</span>
-            <input ref="nameRef" class="editor-input star-name" :value="star.name ?? ''" @change="setField('name', $event.target.value)" @keydown.enter="$event.target.blur()" />
+            <input ref="nameRef" class="editor-input star-name" :value="star.name ?? ''" :placeholder="star.id" @change="setField('name', $event.target.value)" @keydown.enter="$event.target.blur()" />
           </label>
           <label class="editor-field">
             <span>{{ t('editor.starId') }}</span>
@@ -109,6 +109,8 @@
             <div>{{ t('editor.confirmDeleteStar', { name: star.name ?? star.id }) }}</div>
             <label v-if="links.system" class="editor-check"><input v-model="withSystem" type="checkbox" /> {{ t('editor.withSystem') }}</label>
             <label v-if="links.lines.length" class="editor-check"><input v-model="withLines" type="checkbox" /> {{ t('editor.withLines', { count: links.lines.length }) }}</label>
+            <div v-if="links.system && !withSystem" class="editor-note is-warn keep-system-note">{{ t('editor.keptSystemNote') }}</div>
+            <div v-if="links.lines.length && !withLines" class="editor-note is-warn keep-lines-note">{{ t('editor.keptLinesNote', { count: links.lines.length }) }}</div>
             <div v-if="deleteOrphans.length" class="editor-note delete-files">{{ t('editor.withFiles', { files: deleteOrphans.join(', ') }) }}</div>
             <div class="editor-actions">
               <button type="button" class="editor-button is-danger confirm-yes" @click="removeSelected">{{ t('editor.yes') }}</button>

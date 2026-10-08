@@ -12,6 +12,7 @@ import {
   needsSatelliteGrid,
   orbitLight,
   orbitViewSize,
+  planetDiscShare,
   satelliteRows
 } from '../satellites.js'
 import { ringOuterRadius } from '../planetRenderer.js'
@@ -142,6 +143,22 @@ describe('satellites', () => {
     expect(crowded.hidden).toBeGreaterThan(0)
     expect(crowded.bodies.length).toBeGreaterThan(0)
     expect(crowded.hidden).toBe(10 - crowded.bodies.length)
+  })
+
+  it('draws a smaller or bigger planet with its satellites in step, never past the window', () => {
+    const mars = getSatellites({ name: 'Mars', satellites: [{ name: 'Shipyard', kind: 'station', distance: 1.6, size: 0.45 }, { name: 'Phobos', distance: 2.2, size: 0.14 }, { name: 'Deimos', distance: 3.2, size: 0.1 }] })
+    const view = { width: 1600, height: 500, ringOuter: 1.8 }
+    const usual = fitPlanetView(mars, view)
+    const half = fitPlanetView(mars, { ...view, scale: 0.5 })
+    expect(half.share).toBeCloseTo(usual.share / 2)
+    expect(half.hidden).toBe(0)
+    half.bodies.forEach((body, index) => expect(body.orbitRadius).toBeLessThan(usual.bodies[index].orbitRadius))
+    expect(planetDiscShare(0.5)).toBeCloseTo(0.175)
+    expect(planetDiscShare(1.5)).toBe(0.48)
+    const big = fitPlanetView(mars, { ...view, scale: 1.5 })
+    expect(big.discRadius).toBeLessThan(250)
+    big.bodies.forEach(body => expect(body.orbitRadius + body.bodyRadius).toBeLessThanOrEqual(800))
+    expect(needsSatelliteGrid(mars, { width: 600, height: 400 }, 1.8, 0.5)).toBe(false)
   })
 
   it('puts the satellites in rows by orbit for the grid, nearest first', () => {

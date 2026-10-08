@@ -65,8 +65,6 @@ const props = defineProps({
 })
 const emit = defineEmits(['set'])
 
-// The own settings while pulses are off, to bring them back when they are turned on again.
-const kept = ref(null)
 const dragging = ref(null)
 watch(() => props.own, () => { dragging.value = null })
 
@@ -74,7 +72,8 @@ const ownFields = computed(() => (isObject(props.own) ? props.own : {}))
 const isOwn = key => ownFields.value[key] !== undefined
 const valueOf = key => {
   if (dragging.value?.key === key) return dragging.value.value
-  return props.resolved?.[key] ?? kept.value?.[key] ?? props.inherited?.[key] ?? null
+  // While off, the layer's own fields wait in the map beside `off: true`.
+  return props.resolved?.[key] ?? ownFields.value[key] ?? props.inherited?.[key] ?? null
 }
 const shown = key => {
   const value = valueOf(key)
@@ -82,10 +81,7 @@ const shown = key => {
 }
 const shownPulse = computed(() => (props.resolved ? { ...props.resolved, ...(dragging.value ? { [dragging.value.key]: dragging.value.value } : {}) } : null))
 
-function toggle(on) {
-  if (!on) kept.value = Object.keys(ownFields.value).length ? { ...ownFields.value } : null
-  emit('set', pulseAfter(props.own, props.inherited, on ? { on: true, kept: kept.value } : { on: false }))
-}
+const toggle = on => emit('set', pulseAfter(props.own, props.inherited, { on }))
 const commit = (key, value) => emit('set', pulseAfter(props.own, props.inherited, { key, value }))
 const reset = key => emit('set', pulseAfter(props.own, props.inherited, { key, reset: true }))
 

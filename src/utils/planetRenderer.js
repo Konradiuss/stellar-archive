@@ -14,6 +14,15 @@ const DEFAULT_CONFIG = Object.freeze({
   ring: null
 })
 
+// `size` is a percentage of the usual disc in the visualization window.
+export const PLANET_SIZE = Object.freeze({ min: 25, max: 150 })
+
+/** The disc's scale against the usual one (size 100). */
+export function planetScale(config) {
+  const size = Number(config?.size)
+  return Number.isFinite(size) ? clamp(size, PLANET_SIZE.min, PLANET_SIZE.max) / DEFAULT_CONFIG.size : 1
+}
+
 // Rings, in planet radii: they start at RING_INNER and are this wide.
 export const RING_INNER = 1.4
 export const RING_WIDTHS = Object.freeze({ thin: 0.25, medium: 0.4, large: 0.6 })
@@ -137,6 +146,13 @@ function resolvePreset(input) {
   return typeof id === 'string' && Object.hasOwn(PLANET_PRESETS, id) ? { id, ...PLANET_PRESETS[id] } : null
 }
 
+// A ring of the map goes over the preset's (its size alone keeps the preset's colour); null or false: no ring.
+function presetRing(input, ring) {
+  if (!input || !Object.hasOwn(input, 'ring')) return ring ?? null
+  const own = input.ring
+  return own && typeof own === 'object' ? { ...(ring ?? {}), ...own } : null
+}
+
 export function normalizePlanetConfig(input = {}, seedKey = 'planet') {
   const preset = resolvePreset(input)
   const raw = preset
@@ -144,7 +160,7 @@ export function normalizePlanetConfig(input = {}, seedKey = 'planet') {
         ...DEFAULT_CONFIG,
         ...(input || {}),
         ...preset.config,
-        ring: input && Object.hasOwn(input, 'ring') ? input.ring : preset.config.ring ?? null
+        ring: presetRing(input, preset.config.ring)
       }
     : { ...DEFAULT_CONFIG, ...(input || {}) }
   const requestedAmount = Number(raw.waterAmount ?? DEFAULT_CONFIG.waterAmount)
@@ -163,7 +179,7 @@ export function normalizePlanetConfig(input = {}, seedKey = 'planet') {
 
   return {
     ...raw,
-    size: Number.isFinite(requestedSize) ? requestedSize : DEFAULT_CONFIG.size,
+    size: Number.isFinite(requestedSize) ? clamp(requestedSize, PLANET_SIZE.min, PLANET_SIZE.max) : DEFAULT_CONFIG.size,
     landColor: parsePlanetColor(preset ? raw.landColor : input?.landColor, DEFAULT_CONFIG.landColor),
     waterColor: parsePlanetColor(preset ? raw.waterColor : input?.waterColor, liquid.baseColor),
     waterAmount,

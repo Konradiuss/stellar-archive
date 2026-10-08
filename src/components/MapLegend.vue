@@ -27,8 +27,7 @@
 import { computed } from 'vue'
 import { useMapStore } from '../stores/mapStore'
 import { useUIStore } from '../stores/uiStore'
-import { pickTint } from '../utils/bezelSprites'
-import { themeCasings } from '../theme'
+import { themeCasing } from '../theme'
 import { buildLegend } from '../utils/mapLegend'
 import { t } from '../i18n'
 import RetroPanel from './RetroPanel.vue'
@@ -39,7 +38,7 @@ import { useScreenLayout } from '../composables/useScreenLayout'
 
 const LEGEND_SEED = 'legend'
 const { layout } = useScreenLayout()
-const legendTint = computed(() => pickTint(LEGEND_SEED, themeCasings()))
+const legendTint = computed(() => themeCasing(LEGEND_SEED))
 
 const mapStore = useMapStore()
 const uiStore = useUIStore()

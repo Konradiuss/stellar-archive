@@ -23,8 +23,12 @@ The interface uses English by default. Ukrainian documentation does not install 
     - [System](#en-system)
     - [Articles](#en-articles)
     - [Main page](#en-main-page)
+    - [Site](#en-site-tab)
+    - [Theme](#en-theme-tab)
     - [Sounds](#en-sounds)
+    - [Music](#en-music-tab)
     - [Loading](#en-loading)
+    - [Texts](#en-texts-tab)
     - [Automatic values and deletion](#en-automatic-values-and-deletion)
 - [3. Drafts, export, and publication](#en-drafts-export-and-publication)
     - [Draft storage and preview](#en-draft-storage-and-preview)
@@ -98,22 +102,38 @@ Opening `index.html` directly with `file://` does not work: the browser needs an
 5. Use **View on site** to check the result. Return with **Editor**; **Leave the draft** shows the published files again.
 6. Fix issues in **Problems of the map**, then download or publish the draft as described below.
 
+Then give the site its own name and look on **Site** and **Theme**, and its sound on **Sounds** and **Music**.
+
 <a id="en-browser-editor"></a>
 
 ### 2. Browser editor
 
-![The editor showing Files, Galaxy, System, Articles, Main page, Sounds, and Loading](media/11-editor.gif)
+![The editor with its tabs Files, Galaxy, System, Articles, Main page, Site, Theme, Sounds, Music, Loading, and Texts](media/11-editor.gif)
 
-The seven tabs edit the same draft. Forms update `map.json`; article editors update inline text or the referenced article file. They preserve unrelated JSON text rather than reformatting the whole map. Some settings, such as the theme and music playlist, are edited directly in **Files**.
+The eleven tabs edit the same draft. Forms update `map.json`; article editors update inline text or the referenced article file. They preserve unrelated JSON text rather than reformatting the whole map. A setting without a form is edited directly in **Files**.
+
+| Tab | What it edits | In `map.json` |
+|---|---|---|
+| [Files](#en-files) | `map.json` and every text file it names, as text | — |
+| [Galaxy](#en-galaxy) | Stars, routes, factions, route types, the size of the galaxy | `stars`, `hyperlines`, `factions`, `planetTextColors`, `hyperlineTypes`, `galaxy` |
+| [System](#en-system) | The look and lore of a star, its planets, moons, and stations | `systems`, a star's `starVisualization` and lore |
+| [Articles](#en-articles) | Wiki articles, their groups, the world page | `wiki.articles`, `wiki.groups`, `worldLore` |
+| [Main page](#en-main-page) | The blocks of the home article | The home article's text |
+| [Site](#en-site-tab) | Name, language, address, icon, link preview, terminal, wiki settings, the galaxy legend | `site`, `terminal`, `loreConfig`, `wiki.portal`, `legend` |
+| [Theme](#en-theme-tab) | Colours, CRT effects, the steel of each frame | `theme` |
+| [Sounds](#en-sounds) | Interface sound effects | `sounds` |
+| [Music](#en-music-tab) | The playlist and its files | `music` |
+| [Loading](#en-loading) | The loader's title and lines | `strings.loader` |
+| [Texts](#en-texts-tab) | Every other text of the interface | `strings` |
 
 <a id="en-files"></a>
 
 #### Files
 
-- Select `map.json` or a referenced text file from the list. The list includes articles, lore, terminal files, and configured sound files; it is not a general file browser for every asset in the repository.
+- Select `map.json` or a referenced text file from the list. The list includes articles, lore, terminal files, configured sound files, the site's icon and preview picture, and the tracks of the playlist the draft adds, moves, or deletes; it is not a general file browser for every asset in the repository.
 - A missing referenced file is marked **no file**. **Create** adds it to the draft. An incorrect path must also be corrected in `map.json`.
 - Changed files have a dot. **Undo changes** restores the selected file to the editor's original version.
-- Wikitext and Markdown files have a rendered preview beside the text. **Hide preview** and **Show preview** toggle it. Sound files have playback controls instead of a text editor.
+- Wikitext and Markdown files have a rendered preview beside the text. **Hide preview** and **Show preview** toggle it. Sound files have playback controls instead of a text editor, and pictures are shown.
 - **Problems of the map** checks the draft while you edit. Selecting a problem points to its location in `map.json`. Invalid JSON disables forms that need to read the map.
 
 <a id="en-galaxy"></a>
@@ -124,7 +144,7 @@ The seven tabs edit the same draft. Forms update `map.json`; article editors upd
 - Renaming a star id in the form updates its system key and routes. Moving a star updates routes that use its sector coordinates. Hand-editing an id in **Files** does not perform these related changes for you.
 - Use **Add a route from here**, then select the destination star. Select a route to edit its type, description, direction, pulse, and appearance, or delete it.
 - Pulses have three sliders over a live preview: **Frequency** (a new pulse every so many seconds), **Speed**, and **Tail**. A route takes its type's values until you move a slider; **Reset** gives one back to the type. The same sliders on a type in **Types of routes** set it for every route of that type.
-- **Factions** edits names, territory colors and opacity, borders, and galaxy dimensions. Deleting a faction leaves its stars without that faction.
+- **Factions** edits names, territory colors and opacity, borders, the color of the names of the faction's stars and planets (`planetTextColors`), and galaxy dimensions. Deleting a faction leaves its stars without that faction and drops its name color.
 - **Types of routes** edits the built-in route types and adds custom ones. Deleting a custom type removes that type from its routes.
 
 <a id="en-system"></a>
@@ -132,11 +152,12 @@ The seven tabs edit the same draft. Forms update `map.json`; article editors upd
 #### System
 
 - Select a star, add planets, and select a planet to edit its orbit, appearance, and lore. **Add a moon** and **Add a station** add entries to the selected planet.
-- The star itself opens first, and again when you select it in the list or in the middle of the orbit sketch: its tab name, appearance with a live preview, and lore. A star without a system has this form too, under **Add a system**.
+- The star itself opens first, and again when you select it in the list or in the middle of the orbit sketch: its tab name, appearance with a live preview, lore, and the legend note of its system, shown in the map legend while the system is open. A star without a system has this form too, under **Create a system**.
 - The ↑ and ↓ buttons change list order. Planet and satellite URLs use this order, so reordering or deleting an entry can change what an existing numbered URL opens.
 - A seed gives a repeatable generated surface. A built-in preset such as `earth` supplies its own surface and liquid settings; the form locks those fields. Select **— none —** to configure a generated surface. Size and rings remain configurable for presets.
 - A station has a type, hull color, and light color. The preview shows changes to its appearance.
-- Lore can be inline or stored in a separate file. Referenced lore files can also be opened in **Files**.
+- Planets, moons, and stations have a tab name of their own.
+- Lore can be kept in `map.json` or in a file of its own. **The text is kept** moves it: into a new file that takes the text, or back into `map.json`, deleting the file unless the map names it elsewhere. **File** renames the file (a new path takes its text) or points at an existing one. **Markup** sets `loreFormat`; **Auto** follows the file extension and `loreConfig.format`. The same controls are used for articles, the world page, and both legends.
 
 <a id="en-articles"></a>
 
@@ -144,7 +165,7 @@ The seven tabs edit the same draft. Forms update `map.json`; article editors upd
 
 - Create an article with a title and format. The editor adds its entry and a file under `wiki/`.
 - Set its group, aliases, categories, map place, and whether it is the home page. Renaming a title keeps the old title as an alias; existing links can still find it.
-- Edit the text beside its preview. Existing page links are blue; missing page links are red. Use **View on site** to check the complete wiki: counters such as `{{NUMBEROFPAGES}}` show `0` in the isolated article preview.
+- Edit the text beside its preview, in `map.json` or in its file, with its markup, as for lore. Existing page links are blue; missing page links are red. Use **View on site** to check the complete wiki: counters such as `{{NUMBEROFPAGES}}` show `0` in the isolated article preview.
 - **Groups of articles** adds and reorders groups, changes their title and icon, and moves groups with their children. Groups support three levels. Deleting a group also deletes its subgroups; their articles remain without a group.
 - The world page **Galaxy** is available here too. Its content comes from `worldLore` or `worldLoreFile`.
 
@@ -164,14 +185,50 @@ Choose the home article, or create one when the wiki currently opens on Galaxy. 
 
 **Add** appends a block; ↑ and ↓ move it. Blocks are saved as templates in the home article. Text written by hand is kept alongside the blocks.
 
+<a id="en-site-tab"></a>
+
+#### Site
+
+- **The site** sets the fields of `site`: its name, the description for link previews, the title of the browser tab, the language, the public address, the tab icon, and a picture of its own for link previews. Beside them, a link to the site is drawn as a chat shows it, with the card the build draws, or the picture of its own.
+- The tab title must contain `{page}`; a line below shows how a planet's tab will read. The description counts its letters: the site keeps 300, a link preview shows about 200.
+- **UPLOAD** puts a PNG, GIF, JPG, WebP, or ICO picture of up to 5 MiB into the draft as `favicon.<ext>` or `preview.<ext>`. **View on site** shows the uploaded icon in the tab.
+- **Terminal** sets `terminal`: the script it types (**Create it from the built-in script** starts the file with a copy of the built-in one), the files of `C:\` for `TYPE` with their DOS names, and the hidden program. Removing a file of the terminal deletes its text file unless the map names it elsewhere.
+- **Wiki** sets `loreConfig` (the markup of texts without their own, the folder of pictures, a server wiki) and whether the main page has its portal (`wiki.portal`).
+- **Legend of the galaxy** edits `legend` or `legendFile`, as lore.
+
+<a id="en-theme-tab"></a>
+
+#### Theme
+
+- **Ready theme** sets `theme.preset`; **Auto** is White.
+- **Colours** set `theme.colors` role by role; **Reset** gives a role the colour of the ready theme back. A colour written by hand that is no colour is shown with a warning and kept.
+- **CRT effects** set `theme.crt`: scan lines, dark corners, the passing bar, and the glow of the beam, from 0 (off) to 200%. 100% is the default and is not written.
+- **Steel of the casings** sets `theme.casings`, frame by frame: the main screen, the lore, the music player, and the legend with its mode switch. **Auto** keeps the steel the site gives the frame; **All frames** paints every frame one steel. A list of steels written by hand still works as a pool; the first steel chosen in the form turns it into one steel per frame, as they were.
+- The preview is one screen of the site in the theme, with its CRT effects and casing. The editor keeps its own colours; **View on site** shows the whole site.
+
+See [Theme](#en-theme) for the fields.
+
 <a id="en-sounds"></a>
 
 #### Sounds
 
-- Select a sound and preview it with ▶. **UPLOAD** replaces it with a WAV, MP3, or OGG file, up to **300 KiB** (`300 × 1024` bytes).
+- Select a sound and preview it with ▶. **UPLOAD** replaces it with a WAV, MP3, or OGG file, up to **2 MiB** (`2 × 1024 × 1024` bytes).
 - The recording becomes a file under `sounds/` in the draft. It is included in downloads and publication; it is not just a temporary preview.
-- **SILENCE** disables the selected sound. **USE BUILT-IN** removes its override.
-- The music playlist is configured separately in `music`; this tab edits interface sound effects.
+- **Sound effects on the site** turns all of them off or on; the volume and the recordings stay. **Volume for a new visitor, %** sets `sounds.volume`; each visitor can keep their own.
+- **SILENCE** disables the selected sound, **SOUND ON** brings it back. **USE BUILT-IN** removes its override.
+- **Its loudness** sets `sounds.<name>.volume`, in percent of all sound effects: empty is 100.
+- The music playlist has its own tab, [Music](#en-music-tab); this tab edits interface sound effects.
+
+<a id="en-music-tab"></a>
+
+#### Music
+
+- **Add tracks** takes one or more WAV, MP3, or OGG files, up to **20 MiB** each. Each becomes a file under `music/` in the draft, kept in the browser's IndexedDB, with its title from the file name and its length from the file.
+- Each track has its **Title** (empty: the file name), **Author**, **Licence**, **Page of the track** (an http(s) address), and **Length** (`3:45` or `225`; empty: read from the file). A value written by hand that the site cannot read is shown with a warning and kept until you change it.
+- ↑ and ↓ set the order of the playlist; ▶ plays the track in the editor.
+- **File** is a path in the site or an address on the web. Another path of the site moves the file there; **Replace the file** uploads another recording and takes its length.
+- ✕ removes the track. Its file is deleted too unless another track plays it; in **Files**, **Keep it** keeps the file.
+- The editor does not download the playlist when it opens: a track's file is read only to move it.
 
 <a id="en-loading"></a>
 
@@ -179,7 +236,18 @@ Choose the home article, or create one when the wiki currently opens on Galaxy. 
 
 Edit the loader title and lines for startup, entering a system, returning to the galaxy, and entering the wiki. ▶ previews a group with the current map's counts. An empty override uses the built-in text.
 
-This tab also sets whether the site's sound effects are enabled and their initial volume. Loading text describes the transition; it does not change the underlying loading tasks or their duration.
+Loading text describes the transition; it does not change the underlying loading tasks or their duration. Whether sound effects are on, and their volume, are set on the **Sounds** tab.
+
+<a id="en-texts-tab"></a>
+
+#### Texts
+
+**Every text of the site** lists every other text of the interface by section, as `strings` sets it (see [Strings and language](#en-strings-and-language)). Open a section, or search by key, English text, or your own words; **Only the texts of the map** shows what the map already writes. A text written in `map.json` by hand, nested or with a dotted key, is changed where it is.
+
+- An empty field is the English text again.
+- A text with a number has a field for each plural form the site's `site.language` tells apart, such as `one`, `few`, `many`, and `other` for Russian.
+- A form that leaves out a placeholder such as `{count}` is warned about, form by form. So is a MAP/WIKI word the mode switch cannot draw.
+- Keys under `strings` that are no texts of the interface are listed with **Remove**.
 
 <a id="en-automatic-values-and-deletion"></a>
 
@@ -201,7 +269,9 @@ After renaming a map body, check links to its old name and article `place` field
 
 Drafts are stored in this browser's local storage for the site folder. Reloading or closing the page normally keeps them. Another browser or computer does not receive the draft. Clearing browser data removes it.
 
-If the editor reports that the draft could not be saved, storage may be unavailable or full. Download the changes before closing the page. Uploaded sound files count towards browser storage, including their encoded representation.
+Uploaded files (recordings, pictures, and tracks) are kept apart from the texts, in the browser's IndexedDB; the draft names each by a short reference. A browser without IndexedDB, such as some private windows, keeps them inside the draft itself, which holds only a few megabytes: there it takes files of up to 2 MiB only. Before an upload the editor checks the free space the browser reports and refuses a file that does not fit.
+
+If the editor reports that the draft could not be saved, storage may be unavailable or full. Download the changes before closing the page. If the browser's data was cleared, a file of the draft says that the browser no longer has it: download and publication stop until it is uploaded again or reverted.
 
 **View on site** displays the draft with a **Draft of the editor** banner. **Editor** returns to editing. **Leave the draft** returns to the site's current files without deleting the draft.
 
@@ -264,7 +334,7 @@ The resulting commit and workflow are linked in the publication window. A commit
 
 After a build, the contents of `public/` sit beside `dist/index.html`. Paths inside `map.json` are relative to that map file: write `wiki/history.wiki`, not `public/wiki/history.wiki`.
 
-The editor manages local paths inside the site: no URL scheme, leading `/`, or `..` path segment. External resources can be configured in supported fields, but cannot be edited as local files in **Files**. Add ordinary images and music files to `public/` yourself; the sound upload form is not a general asset uploader.
+The editor manages local paths inside the site: no URL scheme, leading `/`, or `..` path segment. External resources can be configured in supported fields, but cannot be edited as local files in **Files**. Add ordinary images to `public/` yourself; the upload buttons of **Sounds**, **Site**, and **Music** take only their own kinds of files.
 
 <a id="en-json-rules"></a>
 
@@ -420,16 +490,18 @@ An editor-created first planet starts at radius 40, and subsequent planets are a
 | Field inside `visualization` | Meaning and default |
 |---|---|
 | `seed` | String or number for repeatable generation; defaults to the body's `id` or `name` |
-| `size` | Display size; default 100; use a positive number |
+| `size` | Size of the disc in the visualization window, in percent of the usual one; default 100, kept within 25–150. Moons, stations, and the ring follow the planet; the system map does not change. For a moon it applies when the moon itself is open; around its planet, the satellite's own `size` sets it |
 | `landColor` | Land color; generated surface default `#44aa44` |
 | `waterColor` | Liquid color; without an override, follows the liquid type |
 | `waterAmount` | Liquid coverage, clamped to 0–1; default 0.6 |
 | `waterType` | `water`, `lava`, `acid`, `magma`, `ice`, `methane`, `ammonia`, `oil`; default `water` |
-| `ring` | Ring object, or `null` for no ring; default none for generated surfaces |
+| `ring` | Ring object, or `null` for no ring; default none for generated surfaces. Over a built-in surface, its fields go over the preset's ring: a `size` alone keeps the preset's colour |
 | `ring.size` | `thin`, `medium`, `large`; unrecognized sizes render as `medium` |
 | `ring.color` | Ring color; default grey (`#aaaaaa`) |
 
-Built-in surface seeds are `mercury`, `venus`, `earth`, `moon`, `mars`, `phobos`, `deimos`, `jupiter`, `saturn`, `uranus`, `neptune`, and `pluto`. They set surface colors and liquid values. Explicit size and ring settings still apply; use `ring: null` to remove a preset's ring. Other names, including `titan`, produce generated surfaces rather than built-in presets.
+Built-in surface seeds are `mercury`, `venus`, `earth`, `moon`, `mars`, `phobos`, `deimos`, `jupiter`, `saturn`, `uranus`, `neptune`, and `pluto`. They set surface colors and liquid values. Explicit size and ring settings still apply; use `ring: null` to remove a preset's ring. In the editor, the ring list offers **as the ready planet**, **no ring**, and the sizes. Other names, including `titan`, produce generated surfaces rather than built-in presets.
+
+A planet or moon without `visualization` has no picture: the system view shows it as a plain dot, and its visualization window has no planet to draw. Give it at least a `seed`.
 
 JSON fragment, showing a planet to insert into a system's `planets` array:
 
@@ -472,11 +544,11 @@ Distances rounded to two decimal places define shared orbits. Bodies sharing an 
 | `width` | Positive thickness up to 12; fallback 2 |
 | `opacity` | 0–1; fallback 0.7 |
 | `direction` | `both` or `forward`; default `both`; controls pulses, not one-way travel |
-| `pulse` | `{ "speed", "interval", "length" }` or `false` to disable pulses; numbers must be positive |
+| `pulse` | `{ "speed", "interval", "length" }`, with `"off": true` to disable pulses and keep those values; `false` also disables them. Numbers must be positive |
 
 Appearance is resolved from the route, its custom type configuration, its built-in type, then fallback values. Pulse speed is in map pixels per second, interval in seconds, and length in map pixels.
 
-`hyperlineTypes.<type>` can be a display-name string or an object with `name` and route appearance fields. Pulse objects merge individual fields through these layers. `pulse: false` disables them, but a higher-priority pulse object enables them again; clearing an override restores inheritance.
+`hyperlineTypes.<type>` can be a display-name string or an object with `name` and route appearance fields. Pulse objects merge individual fields through these layers. `pulse: false` or `"off": true` disables them, and a higher-priority pulse object without `off` enables them again; the fields of every layer still count. Clearing an override restores inheritance.
 
 Built-in defaults:
 
@@ -524,7 +596,7 @@ JSON fragment using the stars from the complete example:
 | `.tabTitle` | Custom browser tab page name |
 | `loreConfig.format` | Default format for text without its own setting; `wikitext` |
 | `loreConfig.images` | Folder for Wikitext image names; `lore/images/` |
-| `loreConfig.wikiUrl` | Optional external MediaWiki base URL for image lookup and links not found locally |
+| `loreConfig.wikiUrl` | Optional external MediaWiki base URL. Links not found locally lead there, and every `[[File:…]]` image is taken from it: `loreConfig.images` is then not used |
 
 Stars, planets, moons, and stations with lore get their own wiki pages and generated information cards. Use distinct names and article titles so links are unambiguous. Groups organize navigation; categories organize cross-links. They are separate settings.
 
@@ -550,7 +622,7 @@ JSON fragment (also create the referenced files):
 
 #### Music and sound effects
 
-`music.tracks` is an ordered playlist. Each entry needs `file`, a relative path or HTTP(S) URL. Optional fields are `title` (otherwise the filename), `author`, `url` (the source page), `license`, and `duration` (positive seconds). Put your audio files under `public/music/` and credit their authors and licenses.
+`music.tracks` is an ordered playlist. Each entry needs `file`, a relative path or HTTP(S) URL. Optional fields are `title` (otherwise the filename), `author`, `url` (the source page), `license`, and `duration` (positive seconds). Put your audio files under `public/music/`, or add them on the editor's [Music](#en-music-tab) tab, and credit their authors and licenses.
 
 JSON fragment (provide the recording):
 
@@ -558,13 +630,14 @@ JSON fragment (provide the recording):
 { "music": { "tracks": [{ "title": "Archive theme", "author": "Your name", "file": "music/archive.ogg", "duration": 180 }] } }
 ```
 
-Music starts after a visitor presses play. The player shows the playlist, time, and a spectrum. A track without a known duration shows an unknown length until metadata loads. Browsers may block audio before a user interacts with the page.
+Music starts after a visitor presses play. The player shows the playlist, time, and a spectrum. A track without `duration` takes its length from the file's metadata, in the list too. Browsers may block audio before a user interacts with the page.
 
 | Sound setting | Meaning |
 |---|---|
-| `sounds: false` | Disable all interface sound effects; separate from music |
+| `sounds: false` or `sounds.off: true` | Disable all interface sound effects; separate from music. With `off`, the volume and recordings stay for when sounds are on again |
 | `sounds.volume` | Initial volume, 0–1; default 0.35; visitors can keep their own setting |
 | `sounds.<name>: false` | Silence this sound |
+| `sounds.<name>: { "file": "…", "off": true }` | Silence it, keeping its recording and volume |
 | `sounds.<name>: "sounds/click.wav"` | Replace it with a recording |
 | `sounds.<name>: { "file": "…", "volume": 0.5 }` | Recording and/or individual volume override |
 
@@ -584,7 +657,7 @@ JSON fragment:
 |---|---|
 | `theme.preset` | `white` (default), `amber`, `green` |
 | `theme.colors` | Overrides for the color roles below |
-| `theme.casings` | One name or an array: `blue`, `grey`, `warm`, `gunmetal`; all four used by default |
+| `theme.casings` | The steel of each frame, `{ "map": …, "lore": …, "music": …, "legend": … }`, of `blue`, `grey`, `warm`, `gunmetal`; a frame left out keeps its own. One name or an array instead is a pool each frame picks from by its name; all four by default |
 | `theme.crt` | `scanlines`, `vignette`, `sweep`, `glow`: strengths 0–2; 1 is the default, 0 disables an effect |
 
 | Color role | Use | Default in `white` |
@@ -598,12 +671,12 @@ JSON fragment:
 | `warn` | Warnings | `#ffc24a` |
 | `error` | Errors | `#ff5555` |
 
-Theme colors accept `#rgb`, `#rrggbb`, or `0xrrggbb`. Invalid settings fall back with a map-check message; CRT strengths above 2 are capped. Casings are chosen from the allowed list for individual frames. These settings do not replace planet or faction colors. Remove an override to return to the preset; remove `theme` to return to the default appearance.
+Theme colors accept `#rgb`, `#rrggbb`, or `0xrrggbb`. Invalid settings fall back with a map-check message; CRT strengths above 2 are capped. The editor's [Theme](#en-theme-tab) tab sets the steel of each frame. These settings do not replace planet or faction colors. Remove an override to return to the preset; remove `theme` to return to the default appearance.
 
 JSON fragment:
 
 ```json
-{ "theme": { "preset": "amber", "colors": { "accent": "#ffffff" }, "casings": ["warm"], "crt": { "scanlines": 1, "vignette": 0.5, "sweep": 0, "glow": 1 } } }
+{ "theme": { "preset": "amber", "colors": { "accent": "#ffffff" }, "casings": { "lore": "warm", "music": "blue" }, "crt": { "scanlines": 1, "vignette": 0.5, "sweep": 0, "glow": 1 } } }
 ```
 
 <a id="en-strings-and-language"></a>
@@ -612,7 +685,7 @@ JSON fragment:
 
 `site.language` selects the locale, while `strings` supplies translations. An untranslated key uses its English text. This guide's Ukrainian translation does **not** mean that a complete Ukrainian interface is bundled.
 
-Use the keys in [strings.en.json](strings.en.json) as a reference. `strings` accepts nested objects or dotted keys. A value is a string or a plural object with `zero`, `one`, `two`, `few`, `many`, and/or `other`. The locale's `Intl.PluralRules` chooses the form; include `other` as a fallback.
+The editor's [Texts](#en-texts-tab) and [Loading](#en-loading) tabs write them for you. Use the keys in [strings.en.json](strings.en.json) as a reference. `strings` accepts nested objects or dotted keys. A value is a string or a plural object with `zero`, `one`, `two`, `few`, `many`, and/or `other`. The locale's `Intl.PluralRules` chooses the form; include `other` as a fallback.
 
 Keep placeholders such as `{count}`, `{star}`, `{page}`, and `{message}` in translated messages. Unknown keys and missing placeholders produce warnings. Loader lines are an exception: their dynamic values may be omitted deliberately. Service-page addresses and diagnostic messages remain English. Long or unsupported labels on the pixel-drawn MAP/WIKI switch can retain the English label.
 
@@ -839,7 +912,9 @@ Upload the contents of `dist/` to a static host that serves its folders and file
 | Map opens with warnings | Open **Special:Map check** or **Problems of the map**; a fallback can hide a configuration mistake |
 | Article, image, or sound missing | Check exact filename case, path relative to `map.json`, and the browser Network response |
 | JSON error containing HTML | A host returned an error page or SPA fallback instead of `map.json`; inspect the HTTP response |
-| Draft does not survive reload | Check the editor's storage warning, browser privacy settings, and available local-storage space; download a backup |
+| Draft does not survive reload | Check the editor's storage warning, browser privacy settings, and available storage space; download a backup |
+| The editor refuses an upload | Read the reason under the field: the format, the size limit, no room left in the browser, or no IndexedDB (some private windows) |
+| A file of the draft is no longer in the browser | Its browser data was cleared: upload the file again on its tab, or use **Undo changes** for it in **Files** |
 | Old page or assets after deployment | Check the build and deployment results, published path, and browser cache |
 | GitHub refuses publication | Check token expiration, selected repository, Contents permission, existing branch, folder, and branch protection; use the reported API error |
 | Music silent or spectrum still | Press play after interacting with the page; check volume, format, resource response, and CORS |
@@ -930,8 +1005,12 @@ In PowerShell the environment variable remains set for that shell session. On Gi
     - [System](#uk-system)
     - [Articles](#uk-articles)
     - [Main page](#uk-main-page)
+    - [Site](#uk-site-tab)
+    - [Theme](#uk-theme-tab)
     - [Sounds](#uk-sounds)
+    - [Music](#uk-music-tab)
     - [Loading](#uk-loading)
+    - [Texts](#uk-texts-tab)
     - [Автоматичні значення та видалення](#uk-automatic-values-and-deletion)
 - [3. Чернетки, завантаження та публікація](#uk-drafts-export-and-publication)
     - [Зберігання чернетки й попередній перегляд](#uk-draft-storage-and-preview)
@@ -1005,22 +1084,38 @@ npm run dev
 5. Натисніть **View on site**, щоб перевірити результат. Поверніться кнопкою **Editor**; **Leave the draft** показує опубліковані файли.
 6. Виправте проблеми в **Problems of the map**, а потім завантажте або опублікуйте чернетку, як описано нижче.
 
+Далі дайте сайту власну назву й вигляд у **Site** та **Theme**, а звук — у **Sounds** і **Music**.
+
 <a id="uk-browser-editor"></a>
 
 ### 2. Браузерний редактор
 
-![Редактор із вкладками Files, Galaxy, System, Articles, Main page, Sounds і Loading](media/11-editor.gif)
+![Редактор із вкладками Files, Galaxy, System, Articles, Main page, Site, Theme, Sounds, Music, Loading і Texts](media/11-editor.gif)
 
-Сім вкладок змінюють одну чернетку. Форми оновлюють `map.json`; редактори статей — вбудований текст або файл відповідної статті. Інший текст JSON зберігається без переформатування всієї карти. Деякі налаштування, зокрема тему та музичний список, змінюють безпосередньо у **Files**.
+Одинадцять вкладок змінюють одну чернетку. Форми оновлюють `map.json`; редактори статей — вбудований текст або файл відповідної статті. Інший текст JSON зберігається без переформатування всієї карти. Налаштування без форми змінюють безпосередньо у **Files**.
+
+| Вкладка | Що змінює | У `map.json` |
+|---|---|---|
+| [Files](#uk-files) | `map.json` і кожен текстовий файл, який він називає, як текст | — |
+| [Galaxy](#uk-galaxy) | Зорі, маршрути, фракції, типи маршрутів, розмір галактики | `stars`, `hyperlines`, `factions`, `planetTextColors`, `hyperlineTypes`, `galaxy` |
+| [System](#uk-system) | Вигляд і опис зорі, її планети, місяці й станції | `systems`, `starVisualization` і опис зорі |
+| [Articles](#uk-articles) | Статті вікі, їхні групи, сторінка світу | `wiki.articles`, `wiki.groups`, `worldLore` |
+| [Main page](#uk-main-page) | Блоки головної статті | Текст головної статті |
+| [Site](#uk-site-tab) | Назва, мова, адреса, значок, перегляд посилання, термінал, налаштування вікі, легенда галактики | `site`, `terminal`, `loreConfig`, `wiki.portal`, `legend` |
+| [Theme](#uk-theme-tab) | Кольори, ефекти CRT, сталь кожної рамки | `theme` |
+| [Sounds](#uk-sounds) | Звукові ефекти інтерфейсу | `sounds` |
+| [Music](#uk-music-tab) | Музичний список і його файли | `music` |
+| [Loading](#uk-loading) | Заголовок і рядки завантаження | `strings.loader` |
+| [Texts](#uk-texts-tab) | Усі інші тексти інтерфейсу | `strings` |
 
 <a id="uk-files"></a>
 
 #### Files
 
-- Виберіть `map.json` або текстовий файл зі списку. Він містить статті, описи, файли термінала та налаштовані звуки; це не загальний оглядач усіх ресурсів репозиторію.
+- Виберіть `map.json` або текстовий файл зі списку. Він містить статті, описи, файли термінала, налаштовані звуки, значок і зображення попереднього перегляду сайту, а також записи музичного списку, які чернетка додає, переносить або видаляє; це не загальний оглядач усіх ресурсів репозиторію.
 - Відсутній файл, на який є посилання, позначено **no file**. **Create** додає його до чернетки. Неправильний шлях також потрібно виправити в `map.json`.
 - Змінені файли позначено крапкою. **Undo changes** повертає вибраний файл до початкової версії редактора.
-- Поруч із текстом Wikitext і Markdown є попередній перегляд. Його перемикають **Hide preview** та **Show preview**. Для звукових файлів замість текстового редактора показано елементи відтворення.
+- Поруч із текстом Wikitext і Markdown є попередній перегляд. Його перемикають **Hide preview** та **Show preview**. Для звукових файлів замість текстового редактора показано елементи відтворення, а зображення показано.
 - **Problems of the map** перевіряє чернетку під час редагування. Вибір проблеми показує її місце в `map.json`. Некоректний JSON блокує форми, яким потрібно прочитати карту.
 
 <a id="uk-galaxy"></a>
@@ -1031,7 +1126,7 @@ npm run dev
 - Перейменування ідентифікатора у формі оновлює ключ системи та маршрути. Переміщення зорі оновлює маршрути з координатами її сектора. Ручна зміна ідентифікатора у **Files** не виконує цих пов'язаних змін.
 - Натисніть **Add a route from here**, а потім виберіть кінцеву зорю. Виберіть маршрут, щоб змінити тип, опис, напрямок, імпульси й вигляд або видалити його.
 - Імпульси мають три повзунки над живим попереднім переглядом: **Frequency** (новий імпульс що стільки-то секунд), **Speed** і **Tail**. Маршрут бере значення свого типу, доки ви не зрушите повзунок; **Reset** повертає значення типу. Ті самі повзунки в типу у **Types of routes** задають їх для всіх маршрутів цього типу.
-- **Factions** змінює назви, кольори й прозорість територій, межі та розміри галактики. Після видалення фракції її зорі залишаються без неї.
+- **Factions** змінює назви, кольори й прозорість територій, межі, колір назв зір і планет фракції (`planetTextColors`) і розміри галактики. Після видалення фракції її зорі залишаються без неї, а колір назв прибирається.
 - **Types of routes** змінює вбудовані типи маршрутів і додає власні. Видалення власного типу прибирає цей тип із його маршрутів.
 
 <a id="uk-system"></a>
@@ -1039,11 +1134,12 @@ npm run dev
 #### System
 
 - Виберіть зорю, додайте планети й виберіть планету, щоб змінити орбіту, вигляд і опис. **Add a moon** та **Add a station** додають записи до вибраної планети.
-- Спершу відкривається сама зоря, а також щоразу, коли її вибрано в списку або в центрі схеми орбіт: назва у вкладці, вигляд із попереднім переглядом і опис. Зоря без системи теж має цю форму, під **Add a system**.
+- Спершу відкривається сама зоря, а також щоразу, коли її вибрано в списку або в центрі схеми орбіт: назва у вкладці, вигляд із попереднім переглядом, опис і примітка легенди її системи, яку легенда карти показує, поки система відкрита. Зоря без системи теж має цю форму, під **Create a system**.
 - Кнопки ↑ та ↓ змінюють порядок списку. Адреси планет і супутників використовують цей порядок, тому переставлення або видалення запису може змінити об'єкт, який відкриває наявна числова адреса.
 - Seed дає відтворювану згенеровану поверхню. Вбудований пресет, наприклад `earth`, задає власні параметри поверхні й рідини; форма блокує ці поля. Виберіть **— none —**, щоб налаштувати згенеровану поверхню. Розмір і кільця можна змінювати й для пресетів.
 - Станція має тип, колір корпусу й колір освітлення. Попередній перегляд показує зміни її вигляду.
-- Опис можна зберігати в JSON або окремому файлі. Файли описів також доступні у **Files**.
+- Планети, місяці й станції мають власну назву у вкладці.
+- Опис можна зберігати в `map.json` або в окремому файлі. **The text is kept** переносить його: у новий файл, який отримує текст, або назад у `map.json`, видаляючи файл, якщо карта не називає його деінде. **File** перейменовує файл (новий шлях отримує його текст) або вказує на наявний. **Markup** задає `loreFormat`; **Auto** визначається розширенням файлу й `loreConfig.format`. Ті самі елементи використовуються для статей, сторінки світу й обох легенд.
 
 <a id="uk-articles"></a>
 
@@ -1051,7 +1147,7 @@ npm run dev
 
 - Створіть статтю з назвою та форматом. Редактор додасть її запис і файл у `wiki/`.
 - Задайте групу, альтернативні назви, категорії, місце на карті й ознаку головної сторінки. Після перейменування попередня назва залишається альтернативною; старі посилання можуть і далі знаходити статтю.
-- Редагуйте текст поруч із попереднім переглядом. Посилання на наявні сторінки сині, на відсутні — червоні. **View on site** відкриває повну вікі: лічильники на кшталт `{{NUMBEROFPAGES}}` в окремому перегляді статті показують `0`.
+- Редагуйте текст поруч із попереднім переглядом, у `map.json` або у файлі, з його розміткою, як і опис. Посилання на наявні сторінки сині, на відсутні — червоні. **View on site** відкриває повну вікі: лічильники на кшталт `{{NUMBEROFPAGES}}` в окремому перегляді статті показують `0`.
 - **Groups of articles** додає й переставляє групи, змінює назву та значок, переміщує групи разом із дочірніми. Доступні три рівні. Видалення групи також видаляє її підгрупи; статті залишаються без групи.
 - Тут доступна й сторінка світу **Galaxy**. Її вміст береться з `worldLore` або `worldLoreFile`.
 
@@ -1071,14 +1167,50 @@ npm run dev
 
 **Add** додає блок у кінець; ↑ та ↓ переміщують його. Блоки зберігаються як шаблони в головній статті. Текст, написаний вручну, зберігається поруч із блоками.
 
+<a id="uk-site-tab"></a>
+
+#### Site
+
+- **The site** задає поля `site`: назву, опис для перегляду посилань, заголовок вкладки браузера, мову, публічну адресу, значок вкладки й власне зображення для перегляду посилань. Поруч намальовано посилання на сайт так, як його показує чат: із карткою, яку малює збірка, або з власним зображенням.
+- Заголовок вкладки має містити `{page}`; рядок нижче показує, як читатиметься вкладка планети. Опис рахує символи: сайт зберігає 300, перегляд посилання показує близько 200.
+- **UPLOAD** додає до чернетки зображення PNG, GIF, JPG, WebP або ICO розміром до 5 MiB як `favicon.<ext>` або `preview.<ext>`. **View on site** показує завантажений значок у вкладці.
+- **Terminal** задає `terminal`: сценарій, який він друкує (**Create it from the built-in script** створює файл із копії вбудованого), файли `C:\` для `TYPE` з їхніми назвами DOS і приховану програму. Видалення файлу термінала видаляє його текстовий файл, якщо карта не називає його деінде.
+- **Wiki** задає `loreConfig` (розмітку текстів без власної, папку зображень, серверну вікі) і чи має головна сторінка портал (`wiki.portal`).
+- **Legend of the galaxy** змінює `legend` або `legendFile`, як і опис.
+
+<a id="uk-theme-tab"></a>
+
+#### Theme
+
+- **Ready theme** задає `theme.preset`; **Auto** — White.
+- **Colours** задають `theme.colors` для кожної ролі; **Reset** повертає ролі колір готової теми. Колір, записаний вручну, який не є кольором, показано з попередженням і збережено.
+- **CRT effects** задають `theme.crt`: лінії розгортки, темні кути, смугу, що пробігає, і світіння променя, від 0 (вимкнено) до 200%. 100% — типове значення, його не записано.
+- **Steel of the casings** задає `theme.casings` для кожної рамки: головного екрана, лору, музичного програвача та легенди з перемикачем режиму. **Auto** лишає сталь, яку рамці дає сайт; **All frames** фарбує всі рамки однією сталлю. Список сталей, записаний вручну, і далі працює як набір; перша сталь, вибрана у формі, перетворює його на сталь для кожної рамки, якою вона була.
+- Попередній перегляд — один екран сайту в цій темі, з ефектами CRT і корпусом. Редактор зберігає власні кольори; **View on site** показує весь сайт.
+
+Поля описано в розділі [Тема](#uk-theme).
+
 <a id="uk-sounds"></a>
 
 #### Sounds
 
-- Виберіть звук і прослухайте його кнопкою ▶. **UPLOAD** замінює його файлом WAV, MP3 або OGG розміром до **300 KiB** (`300 × 1024` байтів).
+- Виберіть звук і прослухайте його кнопкою ▶. **UPLOAD** замінює його файлом WAV, MP3 або OGG розміром до **2 MiB** (`2 × 1024 × 1024` байтів).
 - Запис стає файлом у `sounds/` у чернетці. Він потрапляє до завантажень і публікації; це не лише тимчасовий перегляд.
-- **SILENCE** вимикає вибраний звук. **USE BUILT-IN** прибирає його перевизначення.
-- Музичний список налаштовують окремо в `music`; ця вкладка змінює звукові ефекти інтерфейсу.
+- **Sound effects on the site** вимикає або вмикає їх усі; гучність і записи зберігаються. **Volume for a new visitor, %** задає `sounds.volume`; кожен відвідувач може лишити власну.
+- **SILENCE** вимикає вибраний звук, **SOUND ON** повертає його. **USE BUILT-IN** прибирає його перевизначення.
+- **Its loudness** задає `sounds.<name>.volume` у відсотках від усіх звукових ефектів: порожнє поле — 100.
+- Музичний список має власну вкладку, [Music](#uk-music-tab); ця вкладка змінює звукові ефекти інтерфейсу.
+
+<a id="uk-music-tab"></a>
+
+#### Music
+
+- **Add tracks** приймає один або кілька файлів WAV, MP3 чи OGG, до **20 MiB** кожен. Кожен стає файлом у `music/` у чернетці й зберігається в IndexedDB браузера; назву взято з імені файлу, тривалість — із самого файлу.
+- Кожен запис має **Title** (порожнє поле — ім'я файлу), **Author**, **Licence**, **Page of the track** (адреса http(s)) і **Length** (`3:45` або `225`; порожнє поле — тривалість із файлу). Значення, записане вручну, якого сайт не прочитає, показано з попередженням і збережено, доки ви його не зміните.
+- ↑ і ↓ задають порядок списку; ▶ відтворює запис у редакторі.
+- **File** — шлях усередині сайту або адреса в мережі. Інший шлях сайту переносить файл туди; **Replace the file** завантажує інший запис і бере його тривалість.
+- ✕ прибирає запис. Його файл теж видаляється, якщо жоден інший запис його не відтворює; у **Files** кнопка **Keep it** зберігає файл.
+- Відкриваючись, редактор не завантажує музичний список: файл запису читається лише для перенесення.
 
 <a id="uk-loading"></a>
 
@@ -1086,7 +1218,18 @@ npm run dev
 
 Змінюйте заголовок і рядки завантаження для запуску, відкриття системи, повернення до галактики й відкриття вікі. ▶ показує групу з кількістю об'єктів поточної карти. Порожнє перевизначення використовує вбудований текст.
 
-Тут також можна ввімкнути чи вимкнути звукові ефекти сайту й задати їхню початкову гучність. Текст завантаження описує перехід; він не змінює завдання завантаження або їхню тривалість.
+Текст завантаження описує перехід; він не змінює завдання завантаження або їхню тривалість. Чи ввімкнено звукові ефекти та їхню гучність задають на вкладці **Sounds**.
+
+<a id="uk-texts-tab"></a>
+
+#### Texts
+
+**Every text of the site** показує всі інші тексти інтерфейсу за розділами, як їх задає `strings` (див. [Рядки та мова](#uk-strings-and-language)). Відкрийте розділ або шукайте за ключем, англійським текстом чи власними словами; **Only the texts of the map** показує те, що карта вже задає. Текст, записаний у `map.json` вручну, вкладено чи ключем із крапкою, змінюється на своєму місці.
+
+- Порожнє поле знову дає англійський текст.
+- Текст із числом має поле для кожної числової форми, яку розрізняє `site.language` сайту, наприклад `one`, `few`, `many` і `other` для російської.
+- Форма без підстановки на кшталт `{count}` дає попередження, окремо для кожної форми. Так само й слово MAP/WIKI, яке перемикач режиму не може намалювати.
+- Ключі в `strings`, що не є текстами інтерфейсу, показано з кнопкою **Remove**.
 
 <a id="uk-automatic-values-and-deletion"></a>
 
@@ -1108,7 +1251,9 @@ npm run dev
 
 Чернетки зберігаються в локальному сховищі цього браузера для папки сайту. Перезавантаження або закриття сторінки зазвичай їх не видаляє. Інший браузер чи комп'ютер не отримує чернетку. Очищення даних браузера її видаляє.
 
-Якщо редактор повідомляє, що чернетку не вдалося зберегти, сховище може бути недоступним або заповненим. Завантажте зміни перед закриттям сторінки. Завантажені звукові файли теж займають місце у сховищі, зокрема в закодованому вигляді.
+Завантажені файли (записи, зображення й музика) зберігаються окремо від текстів, в IndexedDB браузера; чернетка називає кожен короткою позначкою. Браузер без IndexedDB, як деякі приватні вікна, тримає їх у самій чернетці, де вміщається лише кілька мегабайтів: там він приймає файли лише до 2 MiB. Перед завантаженням редактор перевіряє вільне місце, про яке повідомляє браузер, і не приймає файл, що не вміщається.
+
+Якщо редактор повідомляє, що чернетку не вдалося зберегти, сховище може бути недоступним або заповненим. Завантажте зміни перед закриттям сторінки. Якщо дані браузера очищено, файл чернетки повідомляє, що браузер його більше не має: завантаження й публікація зупиняються, доки його не завантажать знову або не скасують зміни.
 
 **View on site** показує чернетку з банером **Draft of the editor**. **Editor** повертає до редагування. **Leave the draft** повертає до поточних файлів сайту, не видаляючи чернетку.
 
@@ -1171,7 +1316,7 @@ npm run dev
 
 Після збірки вміст `public/` розміщується поруч із `dist/index.html`. Шляхи в `map.json` відносні до цього файлу карти: пишіть `wiki/history.wiki`, а не `public/wiki/history.wiki`.
 
-Редактор працює з локальними шляхами всередині сайту: без схеми URL, початкового `/` або сегмента `..`. Зовнішні ресурси можна налаштувати в підтримуваних полях, але не редагувати як локальні файли у **Files**. Звичайні зображення й музику додавайте до `public/` самостійно; форма завантаження звуку не призначена для всіх ресурсів.
+Редактор працює з локальними шляхами всередині сайту: без схеми URL, початкового `/` або сегмента `..`. Зовнішні ресурси можна налаштувати в підтримуваних полях, але не редагувати як локальні файли у **Files**. Звичайні зображення додавайте до `public/` самостійно; кнопки завантаження у **Sounds**, **Site** і **Music** приймають лише власні види файлів.
 
 <a id="uk-json-rules"></a>
 
@@ -1327,16 +1472,18 @@ npm run dev
 | Поле у `visualization` | Значення та типове налаштування |
 |---|---|
 | `seed` | Рядок або число для відтворюваної генерації; інакше `id` або `name` об'єкта |
-| `size` | Розмір зображення; типово 100; використовуйте додатне число |
+| `size` | Розмір диска у вікні візуалізації, у відсотках від звичайного; типово 100, обмежується 25–150. Супутники, станції й кільце масштабуються разом із планетою; схема системи не змінюється. Для супутника діє, коли відкрито його самого; біля планети його розмір задає власний `size` супутника |
 | `landColor` | Колір суходолу; для згенерованої поверхні типово `#44aa44` |
 | `waterColor` | Колір рідини; без перевизначення залежить від її типу |
 | `waterAmount` | Частка рідини, обмежується 0–1; типово 0.6 |
 | `waterType` | `water`, `lava`, `acid`, `magma`, `ice`, `methane`, `ammonia`, `oil`; типово `water` |
-| `ring` | Об'єкт кільця або `null` без кільця; для згенерованої поверхні типово немає |
+| `ring` | Об'єкт кільця або `null` без кільця; для згенерованої поверхні типово немає. Над вбудованою поверхнею його поля лягають поверх кільця пресета: сам `size` зберігає колір пресета |
 | `ring.size` | `thin`, `medium`, `large`; невідомий розмір відображається як `medium` |
 | `ring.color` | Колір кільця; типово сірий (`#aaaaaa`) |
 
-Вбудовані seed поверхні: `mercury`, `venus`, `earth`, `moon`, `mars`, `phobos`, `deimos`, `jupiter`, `saturn`, `uranus`, `neptune`, `pluto`. Вони задають кольори поверхні та параметри рідини. Явні розмір і налаштування кільця діють і далі; `ring: null` прибирає кільце пресета. Інші назви, зокрема `titan`, дають згенеровані поверхні, а не вбудовані пресети.
+Вбудовані seed поверхні: `mercury`, `venus`, `earth`, `moon`, `mars`, `phobos`, `deimos`, `jupiter`, `saturn`, `uranus`, `neptune`, `pluto`. Вони задають кольори поверхні та параметри рідини. Явні розмір і налаштування кільця діють і далі; `ring: null` прибирає кільце пресета. У редакторі список кілець пропонує **as the ready planet**, **no ring** і розміри. Інші назви, зокрема `titan`, дають згенеровані поверхні, а не вбудовані пресети.
+
+Планета чи супутник без `visualization` не має зображення: огляд системи показує її простою точкою, а вікну візуалізації нічого малювати. Задайте принаймні `seed`.
 
 Фрагмент JSON із планетою для масиву `planets` системи:
 
@@ -1379,11 +1526,11 @@ npm run dev
 | `width` | Додатна товщина до 12; резервне значення 2 |
 | `opacity` | 0–1; резервне значення 0.7 |
 | `direction` | `both` або `forward`; типово `both`; керує імпульсами, а не однобічним переходом |
-| `pulse` | `{ "speed", "interval", "length" }` або `false` для вимкнення імпульсів; числа мають бути додатними |
+| `pulse` | `{ "speed", "interval", "length" }`, з `"off": true` — імпульси вимкнено, а значення збережено; `false` теж вимикає їх. Числа мають бути додатними |
 
 Вигляд визначається налаштуваннями маршруту, його власного типу, вбудованого типу, потім резервними значеннями. Швидкість імпульсу — пікселі карти за секунду, інтервал — секунди, довжина — пікселі карти.
 
-`hyperlineTypes.<type>` може бути рядком із видимою назвою або об'єктом із `name` і полями вигляду маршруту. Об'єкти імпульсів об'єднують окремі поля з цих рівнів. `pulse: false` вимикає їх, але об'єкт імпульсів із вищим пріоритетом вмикає знову; очищення перевизначення відновлює успадкування.
+`hyperlineTypes.<type>` може бути рядком із видимою назвою або об'єктом із `name` і полями вигляду маршруту. Об'єкти імпульсів об'єднують окремі поля з цих рівнів. `pulse: false` або `"off": true` вимикає їх, а об'єкт імпульсів із вищим пріоритетом без `off` вмикає знову; поля всіх рівнів і далі враховуються. Очищення перевизначення відновлює успадкування.
 
 Вбудовані значення:
 
@@ -1431,7 +1578,7 @@ npm run dev
 | `.tabTitle` | Власна назва сторінки для вкладки браузера |
 | `loreConfig.format` | Типовий формат тексту без власного налаштування; `wikitext` |
 | `loreConfig.images` | Папка зображень Wikitext; `lore/images/` |
-| `loreConfig.wikiUrl` | Необов'язкова базова адреса зовнішньої MediaWiki для пошуку зображень і посилань, не знайдених локально |
+| `loreConfig.wikiUrl` | Необов'язкова базова адреса зовнішньої MediaWiki. Туди ведуть посилання, не знайдені локально, і звідти беруться всі зображення `[[File:…]]`: `loreConfig.images` тоді не використовується |
 
 Зорі, планети, місяці та станції з описом отримують сторінки вікі й автоматичні інформаційні картки. Використовуйте різні назви об'єктів і статей, щоб посилання були однозначними. Групи впорядковують навігацію; категорії — перехресні посилання. Це окремі налаштування.
 
@@ -1457,7 +1604,7 @@ npm run dev
 
 #### Музика та звукові ефекти
 
-`music.tracks` — упорядкований список записів. Кожен запис потребує `file`: відносного шляху або HTTP(S) URL. Необов'язкові поля: `title` (інакше назва файлу), `author`, `url` (сторінка джерела), `license`, `duration` (додатна кількість секунд). Розміщуйте аудіофайли в `public/music/` і вказуйте їхніх авторів та ліцензії.
+`music.tracks` — упорядкований список записів. Кожен запис потребує `file`: відносного шляху або HTTP(S) URL. Необов'язкові поля: `title` (інакше назва файлу), `author`, `url` (сторінка джерела), `license`, `duration` (додатна кількість секунд). Розміщуйте аудіофайли в `public/music/` або додавайте їх на вкладці редактора [Music](#uk-music-tab) і вказуйте їхніх авторів та ліцензії.
 
 Фрагмент JSON (додайте запис):
 
@@ -1465,13 +1612,14 @@ npm run dev
 { "music": { "tracks": [{ "title": "Archive theme", "author": "Your name", "file": "music/archive.ogg", "duration": 180 }] } }
 ```
 
-Музика починається після натискання кнопки відтворення. Програвач показує список, час і спектр. Для запису без відомої тривалості довжина невідома до завантаження метаданих. Браузер може блокувати звук до взаємодії користувача зі сторінкою.
+Музика починається після натискання кнопки відтворення. Програвач показує список, час і спектр. Запис без `duration` бере тривалість із метаданих файлу, зокрема у списку. Браузер може блокувати звук до взаємодії користувача зі сторінкою.
 
 | Налаштування звуку | Значення |
 |---|---|
-| `sounds: false` | Вимкнути всі звукові ефекти інтерфейсу; це окремо від музики |
+| `sounds: false` або `sounds.off: true` | Вимкнути всі звукові ефекти інтерфейсу; це окремо від музики. З `off` гучність і записи зберігаються до повторного ввімкнення |
 | `sounds.volume` | Початкова гучність, 0–1; типово 0.35; відвідувач може зберігати власне налаштування |
 | `sounds.<name>: false` | Вимкнути цей звук |
+| `sounds.<name>: { "file": "…", "off": true }` | Вимкнути його, зберігши запис і гучність |
 | `sounds.<name>: "sounds/click.wav"` | Замінити його записом |
 | `sounds.<name>: { "file": "…", "volume": 0.5 }` | Запис та/або окреме перевизначення гучності |
 
@@ -1491,7 +1639,7 @@ npm run dev
 |---|---|
 | `theme.preset` | `white` (типовий), `amber`, `green` |
 | `theme.colors` | Перевизначення ролей кольорів нижче |
-| `theme.casings` | Одна назва або масив: `blue`, `grey`, `warm`, `gunmetal`; типово використовуються всі чотири |
+| `theme.casings` | Сталь кожної рамки, `{ "map": …, "lore": …, "music": …, "legend": … }`, з `blue`, `grey`, `warm`, `gunmetal`; пропущена рамка лишає свою. Одна назва чи масив натомість — набір, з якого кожна рамка вибирає за своєю назвою; типово всі чотири |
 | `theme.crt` | `scanlines`, `vignette`, `sweep`, `glow`: сила 0–2; 1 — типове значення, 0 вимикає ефект |
 
 | Роль кольору | Використання | Типове значення в `white` |
@@ -1505,12 +1653,12 @@ npm run dev
 | `warn` | Попередження | `#ffc24a` |
 | `error` | Помилки | `#ff5555` |
 
-Кольори теми приймають `#rgb`, `#rrggbb` або `0xrrggbb`. Некоректні налаштування замінюються резервними з повідомленням перевірки карти; сила CRT понад 2 обмежується. Корпус окремої рамки вибирається з дозволеного списку. Ці налаштування не замінюють кольори планет і фракцій. Приберіть перевизначення, щоб повернутися до пресета; приберіть `theme`, щоб повернути типовий вигляд.
+Кольори теми приймають `#rgb`, `#rrggbb` або `0xrrggbb`. Некоректні налаштування замінюються резервними з повідомленням перевірки карти; сила CRT понад 2 обмежується. Сталь кожної рамки задає вкладка редактора [Theme](#uk-theme-tab). Ці налаштування не замінюють кольори планет і фракцій. Приберіть перевизначення, щоб повернутися до пресета; приберіть `theme`, щоб повернути типовий вигляд.
 
 Фрагмент JSON:
 
 ```json
-{ "theme": { "preset": "amber", "colors": { "accent": "#ffffff" }, "casings": ["warm"], "crt": { "scanlines": 1, "vignette": 0.5, "sweep": 0, "glow": 1 } } }
+{ "theme": { "preset": "amber", "colors": { "accent": "#ffffff" }, "casings": { "lore": "warm", "music": "blue" }, "crt": { "scanlines": 1, "vignette": 0.5, "sweep": 0, "glow": 1 } } }
 ```
 
 <a id="uk-strings-and-language"></a>
@@ -1519,7 +1667,7 @@ npm run dev
 
 `site.language` вибирає локаль, а `strings` задає переклади. Неперекладений ключ використовує англійський текст. Український переклад цього посібника **не означає**, що проєкт містить повний український інтерфейс.
 
-Використовуйте ключі з [strings.en.json](strings.en.json) як довідник. `strings` приймає вкладені об'єкти або ключі з крапками. Значення — рядок або об'єкт числових форм із `zero`, `one`, `two`, `few`, `many` та/або `other`. Форму вибирає `Intl.PluralRules` відповідної локалі; додайте `other` як резервну.
+Вкладки редактора [Texts](#uk-texts-tab) і [Loading](#uk-loading) записують їх за вас. Використовуйте ключі з [strings.en.json](strings.en.json) як довідник. `strings` приймає вкладені об'єкти або ключі з крапками. Значення — рядок або об'єкт числових форм із `zero`, `one`, `two`, `few`, `many` та/або `other`. Форму вибирає `Intl.PluralRules` відповідної локалі; додайте `other` як резервну.
 
 Зберігайте підстановки на кшталт `{count}`, `{star}`, `{page}`, `{message}` у перекладених повідомленнях. Невідомі ключі та відсутні підстановки дають попередження. Рядки завантаження — виняток: їхні динамічні значення можна свідомо пропустити. Адреси службових сторінок і діагностичні повідомлення залишаються англійськими. Довгі або непідтримувані написи на перемикачі MAP/WIKI, намальованому піксельними літерами, можуть залишатися англійськими.
 
@@ -1747,6 +1895,8 @@ Workflow встановлює Node.js 22, виконує `npm ci`, lint і мо�
 | Немає статті, зображення чи звуку | Перевірте регістр назви файлу, шлях відносно `map.json` і відповідь у Network браузера |
 | Помилка JSON містить HTML | Хостинг повернув сторінку помилки або SPA-заглушку замість `map.json`; перевірте HTTP-відповідь |
 | Чернетка зникає після перезавантаження | Перевірте попередження сховища, приватність браузера та вільне місце; завантажте резервну копію |
+| Редактор не приймає файл | Прочитайте причину під полем: формат, обмеження розміру, брак місця в браузері або відсутність IndexedDB (деякі приватні вікна) |
+| Файлу чернетки більше немає в браузері | Дані браузера очищено: завантажте файл знову на його вкладці або скористайтеся **Undo changes** для нього у **Files** |
 | Старі сторінка чи ресурси після публікації | Перевірте результати збірки й розміщення, публічний шлях і кеш браузера |
 | GitHub відхиляє публікацію | Перевірте строк дії токена, вибраний репозиторій, право Contents, наявну гілку, папку та захист гілки; орієнтуйтеся на повідомлення API |
 | Музики не чути або спектр нерухомий | Натисніть відтворення після взаємодії зі сторінкою; перевірте гучність, формат, відповідь ресурсу та CORS |

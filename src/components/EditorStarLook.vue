@@ -22,11 +22,11 @@
         <div class="editor-row">
           <label class="editor-field is-short">
             <span>{{ t('editor.starSize') }}</span>
-            <EditorNumber :value="look.size" input-class="star-size" :placeholder="t('editor.autoDefault', { value: DEFAULT_CONFIG.size })" @commit="value => set('size', value)" />
+            <EditorNumber :value="look.size" input-class="star-size" :min="32" :max="100" :placeholder="t('editor.autoDefault', { value: DEFAULT_CONFIG.size })" @commit="value => set('size', value)" />
           </label>
           <label class="editor-field is-short">
             <span>{{ t('editor.starSeed') }}</span>
-            <EditorNumber :value="look.seed" input-class="star-seed" :placeholder="t('editor.auto')" @commit="value => set('seed', value)" />
+            <EditorNumber :value="look.seed" input-class="star-seed" :min="1" :max="10" :placeholder="t('editor.auto')" @commit="value => set('seed', value)" />
           </label>
           <label class="editor-field is-short">
             <span>{{ t('editor.angle') }}</span>

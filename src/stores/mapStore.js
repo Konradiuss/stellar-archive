@@ -14,7 +14,7 @@ import { setStrings, t } from '../i18n'
 import { setFontSample } from '../utils/fontLoader'
 import { applyTheme } from '../theme'
 import { DEFAULT_TERMINAL } from '../utils/terminal'
-import { draftFetch, previewDraft } from '../editor/draft'
+import { draftFetch, draftTracks, previewDraft } from '../editor/draft'
 import { freshFetch } from '../utils/freshFetch'
 import { normalizeSoundConfig } from '../sound/soundConfig'
 
@@ -152,6 +152,7 @@ export const useMapStore = defineStore('map', () => {
         }
       })
 
+      const tracks = draft ? await draftTracks(built.music, baseUrl, draft) : built.music
       worldLore.value = built.worldLore
       worldLoreDoc.value = built.worldLoreDoc
       legendDoc.value = built.legendDoc
@@ -167,7 +168,7 @@ export const useMapStore = defineStore('map', () => {
       starLabels.value = built.starLabels
       factions.value = built.factions
       hyperlineTypes.value = built.hyperlineTypes
-      music.value = built.music
+      music.value = tracks
       sounds.value = built.sounds
       wiki.value = built.wiki
       wikiIndex.value = built.wikiIndex

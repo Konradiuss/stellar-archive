@@ -43,8 +43,8 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
 import { useUIStore } from '../stores/uiStore'
-import { ORBIT_TILT, PLANET_DISC_SHARE, ellipsePosition, fitPlanetView, getSatellites, orbitLight } from '../utils/satellites'
-import { createPlanetVisualizationConfig, ringOuterRadius } from '../utils/planetRenderer'
+import { ORBIT_TILT, ellipsePosition, fitPlanetView, getSatellites, orbitLight, planetDiscShare } from '../utils/satellites'
+import { createPlanetVisualizationConfig, planetScale, ringOuterRadius } from '../utils/planetRenderer'
 import { createStationConfig } from '../utils/stationRenderer'
 import { t } from '../i18n'
 import { playSound } from '../sound'
@@ -86,11 +86,14 @@ function configOf(satellite) {
   return configs.get(data)
 }
 
-const ringOuter = computed(() => ringOuterRadius(createPlanetVisualizationConfig(props.planet)))
+const planetConfig = computed(() => createPlanetVisualizationConfig(props.planet))
+const ringOuter = computed(() => ringOuterRadius(planetConfig.value))
+// The satellites keep their share of a bigger or smaller planet.
+const scale = computed(() => planetScale(planetConfig.value))
 const layout = computed(() => (
   size.width && size.height
-    ? fitPlanetView(satellites.value, { width: size.width, height: size.height, ringOuter: ringOuter.value })
-    : { share: PLANET_DISC_SHARE, bodies: [], orbits: [], hidden: 0 }
+    ? fitPlanetView(satellites.value, { width: size.width, height: size.height, ringOuter: ringOuter.value, scale: scale.value })
+    : { share: planetDiscShare(scale.value), bodies: [], orbits: [], hidden: 0 }
 ))
 watch(() => layout.value.share, share => emit('share', share), { immediate: true })
 // SystemView decides on a grid beforehand; this is the last word, said once the

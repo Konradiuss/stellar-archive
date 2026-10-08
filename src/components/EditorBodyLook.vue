@@ -3,7 +3,7 @@
     <div class="editor-heading">{{ t('editor.look') }}</div>
     <div class="body-look-grid">
       <div class="body-look-picture">
-        <PlanetVisualization v-if="config" class="look-planet" :planet-config="config" :disc-share="0.3" fit-ring />
+        <PlanetVisualization v-if="config" class="look-planet" :planet-config="config" :disc-share="planetDiscShare(planetScale(config), PREVIEW_SHARE)" fit-ring />
         <div v-else class="editor-note body-look-none">{{ t('editor.noLook') }}</div>
       </div>
       <div class="body-look-fields">
@@ -27,12 +27,29 @@
               <option v-for="name in PRESETS" :key="name" :value="name">{{ t(`planetPresets.${name}`) }}</option>
             </select>
           </label>
-          <label class="editor-field is-short">
-            <span>{{ t('editor.lookSize') }}</span>
-            <EditorNumber :value="look.size" input-class="look-size" :placeholder="t('editor.autoDefault', { value: DEFAULTS.size })" @commit="value => set('size', value)" />
-          </label>
         </div>
         <div class="editor-hint">{{ t('editor.seedHint') }}</div>
+
+        <div class="editor-field look-size-field">
+          <span class="look-amount-label">
+            {{ t('editor.lookSize', { percent: drawnSize }) }}
+            <em v-if="!sizeSet" class="editor-hint">{{ t('editor.auto') }}</em>
+            <button v-if="sizeSet" type="button" class="editor-button is-quiet is-small size-reset" @click="set('size', '')">{{ t('editor.reset') }}</button>
+          </span>
+          <input
+            class="look-size"
+            :class="{ 'is-auto': !sizeSet }"
+            type="range"
+            :min="PLANET_SIZE.min"
+            :max="PLANET_SIZE.max"
+            step="1"
+            :value="drawnSize"
+            :aria-label="t('editor.lookSize', { percent: drawnSize })"
+            @change="set('size', Number($event.target.value))"
+          />
+          <div v-if="sizeSet && look.size !== drawnSize" class="editor-note size-clamped">{{ t('editor.lookSizeDrawn', { value: String(look.size), percent: drawnSize }) }}</div>
+          <div class="editor-hint">{{ t(place.satellite != null ? 'editor.lookSizeMoonHint' : 'editor.lookSizeHint') }}</div>
+        </div>
 
         <div v-if="preset" class="editor-note look-locked">{{ t('editor.presetLocks', { name: t(`planetPresets.${preset}`) }) }}</div>
         <div class="editor-row look-colors">
@@ -86,19 +103,20 @@
         <div class="editor-row look-ring-row">
           <label class="editor-field look-ring-field">
             <span>{{ t('editor.ring') }}</span>
-            <select class="editor-input look-ring" :value="look.ring?.size ?? ''" @change="setRing($event.target.value)">
-              <option value="">{{ t('editor.noRing') }}</option>
+            <select class="editor-input look-ring" :value="ringChoice" @change="setRing($event.target.value)">
+              <option v-if="presetRing" value="">{{ t('editor.ringOfPreset', { size: t(`ringSizes.${presetRing.size}`) }) }}</option>
+              <option :value="presetRing ? 'none' : ''">{{ t('editor.noRing') }}</option>
               <option v-for="size in RING_SIZES" :key="size" :value="size">{{ t(`ringSizes.${size}`) }}</option>
             </select>
           </label>
           <EditorColor
-            v-if="look.ring?.size"
+            v-if="config?.ring"
             :label="t('editor.ringColor')"
-            :value="look.ring.color"
-            :auto="cssColor(config?.ring?.color) ?? '#aaaaaa'"
+            :value="look.ring?.color"
+            :auto="cssColor(presetRing?.color) ?? '#aaaaaa'"
             input-class="look-ring-color"
-            @set="value => set('ring', { ...look.ring, color: value })"
-            @reset="set('ring', withoutColor(look.ring))"
+            @set="value => set('ring', { ...(look.ring ?? {}), color: value })"
+            @reset="resetRingColor"
           />
         </div>
       </div>
@@ -112,8 +130,8 @@ import { t } from '../i18n'
 import { useEditorStore } from '../stores/editorStore'
 import PlanetVisualization from './PlanetVisualization.vue'
 import EditorColor from './EditorColor.vue'
-import EditorNumber from './EditorNumber.vue'
-import { createPlanetVisualizationConfig } from '../utils/planetRenderer'
+import { PLANET_SIZE, createPlanetVisualizationConfig, planetScale } from '../utils/planetRenderer'
+import { planetDiscShare } from '../utils/satellites'
 import { PLANET_PRESETS } from '../utils/planetPresets'
 import { collectMapNotes } from '../utils/mapJournal'
 import { RING_SIZES, WATER_TYPES, setBodyLook } from '../editor/systemEdits'
@@ -127,20 +145,44 @@ const props = defineProps({
 
 // Must match the defaults in planetRenderer.js.
 const DEFAULTS = { size: 100, waterAmount: 0.6 }
+// The preview's frame is small: a little less than the window's 0.35.
+const PREVIEW_SHARE = 0.3
 const PRESETS = Object.keys(PLANET_PRESETS)
 const editor = useEditorStore()
 const look = computed(() => (props.body.visualization && typeof props.body.visualization === 'object' ? props.body.visualization : {}))
 // A new object on each change, so the picture redraws.
 const config = computed(() => (props.body.visualization ? { ...collectMapNotes(() => createPlanetVisualizationConfig(props.body)).result } : null))
 const preset = computed(() => (PRESETS.includes(String(look.value.seed ?? '').toLowerCase()) ? String(look.value.seed).toLowerCase() : ''))
+// The preset the site draws (by seed, alias or `preset`), and its ring.
+const presetRing = computed(() => PLANET_PRESETS[config.value?.preset]?.config.ring ?? null)
+// '': as the preset (or no ring without one), 'none': no ring over a preset's, or a size.
+const ringChoice = computed(() => {
+  if (!Object.hasOwn(look.value, 'ring')) return ''
+  const ring = look.value.ring
+  if (ring && typeof ring === 'object') return ring.size ?? presetRing.value?.size ?? ''
+  return presetRing.value ? 'none' : ''
+})
 // Same fallback seed as the site.
 const seedName = computed(() => props.body.id ?? props.body.name ?? '')
 const amountSet = computed(() => typeof look.value.waterAmount === 'number')
+const sizeSet = computed(() => Object.hasOwn(look.value, 'size'))
+const drawnSize = computed(() => Number(config.value?.size ?? DEFAULTS.size))
 const amount = computed(() => Number(config.value?.waterAmount ?? DEFAULTS.waterAmount))
 
 const set = (field, value) => editor.editMap(text => setBodyLook(text, props.place, field, value))
-const setRing = size => set('ring', size ? { ...(look.value.ring ?? {}), size } : '')
-const withoutColor = ({ color, ...ring }) => ring
+function setRing(choice) {
+  if (choice === 'none') set('ring', null)
+  else if (choice) set('ring', { ...(look.value.ring && typeof look.value.ring === 'object' ? look.value.ring : {}), size: choice })
+  else set('ring', '')
+}
+
+function resetRingColor() {
+  const ring = { ...(look.value.ring ?? {}) }
+  delete ring.color
+  // Over a preset, a ring of nothing but the preset's size is the preset's ring.
+  const asPreset = presetRing.value && Object.keys(ring).length === 1 && ring.size === presetRing.value.size
+  set('ring', Object.keys(ring).length && !asPreset ? ring : '')
+}
 </script>
 
 <style scoped>
@@ -197,7 +239,8 @@ const withoutColor = ({ color, ...ring }) => ring
   font-style: normal;
 }
 
-.look-amount.is-auto {
+.look-amount.is-auto,
+.look-size.is-auto {
   opacity: 0.6;
 }
 

@@ -43,7 +43,7 @@ function pick(layers, read) {
   return undefined
 }
 
-/** `pulse` is { speed, interval, length } or null (`pulse: false`). Wrong values are reported and replaced. */
+/** `pulse` is { speed, interval, length } or null (`pulse: false` or `{ off: true, … }`). Wrong values are reported and replaced. */
 export function resolveHyperlineStyle(line, types = {}) {
   const type = line?.type
   const layers = [line ?? {}, typeStyle(types, type), BUILT_IN_TYPES[type] ?? {}]
@@ -61,21 +61,26 @@ export function resolveHyperlineStyle(line, types = {}) {
   const opacity = valid('opacity', value => typeof value === 'number' && value >= 0 && value <= 1)
   const direction = valid('direction', value => DIRECTIONS.includes(value))
 
-  let pulse = { ...DEFAULT_PULSE }
+  // The fields merge from the bottom layer up; the top layer that says decides whether pulses run.
+  const fields = { ...DEFAULT_PULSE }
+  let on = true
   for (const layer of [...layers].reverse()) {
-    if (layer.pulse === false) pulse = null
+    if (layer.pulse === false) on = false
     else if (layer.pulse && typeof layer.pulse === 'object') {
-      pulse = { ...(pulse ?? DEFAULT_PULSE) }
       for (const key of Object.keys(DEFAULT_PULSE)) {
         const value = layer.pulse[key]
         if (value === undefined) continue
-        if (typeof value === 'number' && value > 0) pulse[key] = value
+        if (typeof value === 'number' && value > 0) fields[key] = value
         else warn(`pulse.${key}`, value)
       }
+      const off = layer.pulse.off
+      if (off !== undefined && typeof off !== 'boolean') warn('pulse.off', off)
+      on = off !== true
     } else if (layer.pulse !== undefined) {
       warn('pulse', layer.pulse)
     }
   }
+  const pulse = on ? fields : null
 
   return {
     color: colorValue !== undefined ? parseColor(colorValue) : DEFAULT_STYLE.color,

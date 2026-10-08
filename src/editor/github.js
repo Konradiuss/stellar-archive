@@ -1,6 +1,6 @@
 // Publishes the draft as one commit through the GitHub API (it allows CORS) with the author's token.
 // The token is sent only to api.github.com, in the Authorization header.
-import { base64Of, isBinaryPath } from './binaryFiles'
+import { base64Of, isBinaryPath, toBase64 } from './binaryFiles'
 
 const API = 'https://api.github.com'
 
@@ -24,7 +24,8 @@ export function guessRepo({ hostname = '', pathname = '/' } = {}) {
 export const repoPath = (folder, path) => [String(folder ?? '').replace(/^\/+|\/+$/g, ''), path].filter(Boolean).join('/')
 
 /**
- * files: { path: text | null (delete) }; bases: { path: git sha | null } as editing began.
+ * files: { path: text | bytes | null (delete) }; bases: { path: git sha | null } as editing began.
+ * A binary file is its bytes (Uint8Array), or a data URL.
  * Returns { status: 'conflict', conflicts } if GitHub has another version (unless `overwrite`),
  * else { status: 'done', commit, url, actions }.
  */
@@ -73,14 +74,15 @@ export async function publish({ token, repo, branch = 'main', folder = 'public',
 
   log('editor.stepWrite', { count: paths.length })
   // A deletion is a tree entry with sha null (skipped if GitHub lacks the file);
-  // a sound (data URL) is uploaded first as a base64 blob.
+  // a binary file is uploaded first as a base64 blob.
   const entries = await Promise.all(paths
     .filter(path => files[path] !== null || remote.has(repoPath(folder, path)))
     .map(async path => {
       const entry = { path: repoPath(folder, path), mode: '100644', type: 'blob' }
       if (files[path] === null) return { ...entry, sha: null }
-      if (!isBinaryPath(path)) return { ...entry, content: files[path] }
-      const blob = await call('POST', '/git/blobs', { content: base64Of(files[path]), encoding: 'base64' })
+      const bytes = files[path] instanceof Uint8Array ? files[path] : null
+      if (!bytes && !isBinaryPath(path)) return { ...entry, content: files[path] }
+      const blob = await call('POST', '/git/blobs', { content: bytes ? toBase64(bytes) : base64Of(files[path]), encoding: 'base64' })
       return { ...entry, sha: blob.sha }
     }))
   const written = await call('POST', '/git/trees', { base_tree: tree, tree: entries })

@@ -9,10 +9,9 @@ import {
   DETAIL_BUILDERS,
   STEEL_TINTS,
   buildBezelBase,
-  buildBolt,
-  pickTint
+  buildBolt
 } from './bezelSprites'
-import { themeCasings } from '../theme'
+import { themeCasing } from '../theme'
 
 export const BOLT_OFFSET = 3
 const SPAN_MARGIN = BOLT_OFFSET + BOLT_SIZE + 3
@@ -123,7 +122,7 @@ function layoutSide({ seed, tintName, side, length, ledEnd }) {
 // width/height in sprite pixels; positions are CSS-like offsets (left/right, top/bottom),
 // so details on the right and bottom edges stay pinned to them.
 export function layoutBezel({ seed, width = 0, height = 0 }) {
-  const tintName = pickTint(seed, themeCasings())
+  const tintName = themeCasing(seed)
   const rng = createRng(seed, 'casing')
   const ledEnd = rng.chance(0.5) ? 'end' : 'start'
 

@@ -99,6 +99,17 @@
         </section>
         <EditorStarLook :place="place" :body="body" />
         <EditorLore :place="place" :body="body" />
+        <section class="editor-card system-legend" :aria-label="t('editor.systemLegend')">
+          <div class="editor-heading">{{ t('editor.systemLegend') }}</div>
+          <div class="editor-hint">{{ t('editor.systemLegendHint') }}</div>
+          <EditorTextSource
+            :owner="{ at: 'system', star: place.star, keys: 'legend' }"
+            :label="t('editor.systemLegend')"
+            :star-id="place.star"
+            area-class="system-legend-text"
+            compact
+          />
+        </section>
       </div>
 
       <template v-else-if="body">
@@ -108,9 +119,9 @@
             <div class="editor-row">
               <label class="editor-field body-name-field">
                 <span>{{ t('editor.bodyName') }}</span>
-                <input class="editor-input body-name" :value="body.name ?? ''" @change="set('name', $event.target.value.trim())" @keydown.enter="$event.target.blur()" />
+                <input class="editor-input body-name" :value="body.name ?? ''" @change="setName($event.target)" @keydown.enter="$event.target.blur()" />
               </label>
-              <label v-if="!isSatellite" class="editor-field">
+              <label class="editor-field">
                 <span>{{ t('editor.tabTitle') }}</span>
                 <input class="editor-input body-tab" :value="body.tabTitle ?? ''" :placeholder="body.name ?? ''" @change="set('tabTitle', $event.target.value.trim())" @keydown.enter="$event.target.blur()" />
               </label>
@@ -120,16 +131,16 @@
               <template v-if="isSatellite">
                 <label class="editor-field">
                   <span>{{ t('editor.distance') }}</span>
-                  <EditorNumber :value="body.distance" input-class="body-distance" :placeholder="t('editor.auto')" @commit="value => set('distance', value)" />
+                  <EditorNumber :value="body.distance" input-class="body-distance" :min="0" above :placeholder="t('editor.auto')" @commit="value => set('distance', value)" />
                 </label>
                 <label class="editor-field">
                   <span>{{ t('editor.satelliteSize') }}</span>
-                  <EditorNumber :value="body.size" input-class="body-size" :placeholder="t('editor.auto')" @commit="value => set('size', value)" />
+                  <EditorNumber :value="body.size" input-class="body-size" :min="0" above :max="1" :placeholder="t('editor.auto')" @commit="value => set('size', value)" />
                 </label>
               </template>
               <label v-else class="editor-field is-short">
                 <span>{{ t('editor.orbitRadius') }}</span>
-                <EditorNumber :value="body.orbitRadius" input-class="body-orbit" :placeholder="t('editor.auto')" @commit="value => set('orbitRadius', value)" />
+                <EditorNumber :value="body.orbitRadius" input-class="body-orbit" :min="0" above :placeholder="t('editor.auto')" @commit="value => set('orbitRadius', value)" />
               </label>
               <label class="editor-field is-short">
                 <span>{{ t('editor.angle') }}</span>
@@ -177,6 +188,7 @@ import EditorBodyLook from './EditorBodyLook.vue'
 import EditorStationLook from './EditorStationLook.vue'
 import EditorStarLook from './EditorStarLook.vue'
 import EditorLore from './EditorLore.vue'
+import EditorTextSource from './EditorTextSource.vue'
 import EditorNumber from './EditorNumber.vue'
 
 const editor = useEditorStore()
@@ -241,6 +253,13 @@ function chooseStar(id) {
 
 const select = value => { editor.selectedBody = { satellite: null, ...value } }
 const set = (field, value) => editor.editMap(text => setBodyField(text, place.value, field, value))
+
+// An empty name is refused (the form says why) and the field shows the name back.
+function setName(input) {
+  const name = input.value.trim()
+  if (!name) input.value = body.value?.name ?? ''
+  set('name', name)
+}
 
 const addSystemHere = () => editor.editMap(text => addSystem(text, starId.value))
 

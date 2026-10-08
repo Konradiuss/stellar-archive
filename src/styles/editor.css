@@ -780,11 +780,8 @@ textarea.editor-input {
   min-height: 0;
 }
 
-.article-text .file-pane-name {
-  font-size: 12px;
-  line-height: 18px;
-}
 
+.article-text > .editor-label,
 .article-preview .editor-label {
   line-height: 18px;
 }

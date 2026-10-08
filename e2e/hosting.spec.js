@@ -171,6 +171,40 @@ test('every screen works under the Content-Security-Policy of the build, with no
   expect(refused).toEqual([])
 })
 
+// Was: media-src had no blob:, so the preview could not play a track the editor added.
+test('the preview plays a track of the draft under the Content-Security-Policy', async ({ page, request }) => {
+  const map = await (await request.get(`${PREVIEW_URL}map.json`)).json()
+  map.music = { tracks: [{ title: 'Draft only', file: 'music/draft-only.wav' }] }
+  const wav = Buffer.alloc(44 + 44100)
+  wav.write('RIFF', 0)
+  wav.writeUInt32LE(36 + 44100, 4)
+  wav.write('WAVEfmt ', 8)
+  wav.writeUInt32LE(16, 16)
+  wav.writeUInt16LE(1, 20)
+  wav.writeUInt16LE(1, 22)
+  wav.writeUInt32LE(22050, 24)
+  wav.writeUInt32LE(44100, 28)
+  wav.writeUInt16LE(2, 32)
+  wav.writeUInt16LE(16, 34)
+  wav.write('data', 36)
+  wav.writeUInt32LE(44100, 40)
+  const draft = { files: { 'map.json': JSON.stringify(map), 'music/draft-only.wav': `data:audio/wav;base64,${wav.toString('base64')}` }, bases: {} }
+  await page.addInitScript(value => {
+    window.__cspViolations = []
+    document.addEventListener('securitypolicyviolation', event => window.__cspViolations.push(`${event.violatedDirective} ${event.blockedURI}`))
+    localStorage.setItem('spacemap:draft:/spacemap/', value)
+    sessionStorage.setItem('spacemap:preview', '1')
+  }, JSON.stringify(draft))
+  await page.goto(PREVIEW_URL)
+  await idle(page)
+  const player = page.locator('.music-player .player')
+  await page.locator('.music-player .panel-titlebar .button-list').click()
+  await expect(player.locator('.list-time')).toHaveText(['0:01'])
+  await player.locator('.list-row').first().click()
+  await expect(player).toHaveAttribute('data-state', 'playing')
+  expect(await page.evaluate(() => window.__cspViolations)).toEqual([])
+})
+
 // Was: a shared link showed an empty card: no og:* tags, one title for every map, every page after a "#" bots drop.
 test('a link of the site and of each of its places has a preview of its own', async ({ page, request }) => {
   await page.goto(PREVIEW_URL)

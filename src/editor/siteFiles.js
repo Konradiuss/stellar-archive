@@ -2,13 +2,14 @@ import { collectMapNotes } from '../utils/mapJournal'
 import { MAP_FILE, checkMap } from '../utils/mapCheck'
 import { normalizeWiki } from '../utils/wikiPages'
 import { loreEntries } from '../utils/richText/lore'
+import { isImagePath } from './binaryFiles'
 
 // Relative and inside the site: no scheme, no leading "/", no "..".
 export const isSitePath = path => typeof path === 'string' && !!path.trim() && !/^[a-z][a-z\d+.-]*:|^\/|(^|\/)\.\.(\/|$)/i.test(path.trim())
 export const cleanPath = path => path.trim().replace(/^\.\//, '')
 export const sitePathOf = path => (isSitePath(path) ? cleanPath(path) : null)
 
-/** [{ path, kind: 'map' | 'text' | 'terminal' | 'sound' }]: the map first, then sorted. */
+/** [{ path, kind: 'map' | 'text' | 'terminal' | 'sound' | 'picture' }]: the map first, then sorted. */
 export function textFiles(raw) {
   const files = new Map([[MAP_FILE, 'map']])
   // Through checkMap (quietly), so the parts of a broken map are found where the site finds them.
@@ -21,6 +22,7 @@ export function textFiles(raw) {
     const terminal = data.terminal
     if (isSitePath(terminal?.script)) files.set(cleanPath(terminal.script), 'terminal')
     for (const [, path] of terminal?.files ?? []) if (isSitePath(path)) files.set(cleanPath(path), 'terminal')
+    for (const path of [data.site?.favicon, data.site?.preview]) if (isSitePath(path) && isImagePath(path)) files.set(cleanPath(path), 'picture')
   }
   for (const path of soundFiles(raw)) files.set(path, 'sound')
   const [map, ...others] = [...files]
@@ -37,6 +39,12 @@ export function soundFiles(raw) {
     .map(sitePathOf)
     .filter(Boolean)
   return [...new Set(paths)]
+}
+
+// Not read with the others when the editor opens: a playlist is many megabytes.
+export function musicFiles(raw) {
+  const tracks = Array.isArray(raw?.music?.tracks) ? raw.music.tracks : []
+  return [...new Set(tracks.map(track => sitePathOf(track?.file)).filter(Boolean))]
 }
 
 const read = text => {
@@ -66,5 +74,6 @@ export function lostFiles(before, after) {
   const kept = namedPaths(read(after))
   // Nothing in the map names the map file itself.
   kept.add(MAP_FILE)
-  return textFiles(read(before)).map(file => file.path).filter(path => !kept.has(path))
+  const named = read(before)
+  return [...new Set([...textFiles(named).map(file => file.path), ...musicFiles(named)])].filter(path => !kept.has(path))
 }

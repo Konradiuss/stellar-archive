@@ -199,16 +199,23 @@ export function planetViewLayout(satellites, { discRadius, ringOuter = 0, maxRad
 // The big planet shrinks for its satellites down to MIN_PLANET_DISC_SHARE, no more than it has to.
 export const PLANET_DISC_SHARE = 0.35
 export const MIN_PLANET_DISC_SHARE = 0.22
+// A big planet (its `size`) still leaves the window a few pixels.
+export const MAX_PLANET_DISC_SHARE = 0.48
 const DISC_SHARE_STEP = 0.01
 const VIEW_EDGE_PX = 4
 
+/** scale: planetScale() of the planet. */
+export function planetDiscShare(scale = 1, share = PLANET_DISC_SHARE) {
+  return Math.min(MAX_PLANET_DISC_SHARE, share * scale)
+}
+
 /** The largest disc with which up to `limit` bodies fit, else the one showing the most. → { share, discRadius, ...planetViewLayout } */
-export function fitPlanetView(satellites, { width, height, ringOuter = 0, limit = PLANET_VIEW_LIMIT }) {
+export function fitPlanetView(satellites, { width, height, ringOuter = 0, scale = 1, limit = PLANET_VIEW_LIMIT }) {
   const side = Math.min(width, height)
   const wanted = Math.min(satellites.length, limit)
   let best = null
   for (let step = 0; PLANET_DISC_SHARE - step * DISC_SHARE_STEP >= MIN_PLANET_DISC_SHARE - 1e-9; step++) {
-    const share = Math.round((PLANET_DISC_SHARE - step * DISC_SHARE_STEP) * 100) / 100
+    const share = planetDiscShare(scale, Math.round((PLANET_DISC_SHARE - step * DISC_SHARE_STEP) * 100) / 100)
     const discRadius = side * share
     const layout = planetViewLayout(satellites, { discRadius, ringOuter, maxRadius: width / 2 - VIEW_EDGE_PX, limit })
     const fit = { share, discRadius, ...layout }
@@ -229,9 +236,9 @@ export function orbitViewSize({ width, height }, params) {
   return { width: Math.max(0, Math.min(width - PARAMS_WIDTH_PX - PARAMS_GAP_PX, width * ORBIT_VIEW_MAX_SHARE)), height }
 }
 
-export function needsSatelliteGrid(satellites, { width, height }, ringOuter = 0) {
+export function needsSatelliteGrid(satellites, { width, height }, ringOuter = 0, scale = 1) {
   if (!satellites.length || !width || !height) return false
-  return fitPlanetView(satellites, { width, height, ringOuter }).hidden > 0
+  return fitPlanetView(satellites, { width, height, ringOuter, scale }).hidden > 0
 }
 
 /** → [{ orbit, distance, bodies }], nearest first. */

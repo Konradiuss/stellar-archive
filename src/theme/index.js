@@ -1,7 +1,7 @@
 // Colours become CSS variables on <html> (--ui-text, and --ui-text-rgb for alpha); canvases ask themeColor().
 
 import { shallowRef } from 'vue'
-import { STEEL_TINTS } from '../utils/bezelSprites'
+import { STEEL_TINTS, pickTint } from '../utils/bezelSprites'
 import { isObject } from '../utils/guards'
 
 export const COLOR_ROLES = ['text', 'dim', 'line', 'screen', 'accent', 'ok', 'warn', 'error']
@@ -19,10 +19,16 @@ const CRT_DEFAULTS = { scanlines: 0.16, vignette: 0.35, sweep: 0.05 }
 const MAX_EFFECT = 2
 
 export const CASING_NAMES = Object.keys(STEEL_TINTS)
+// The seeds of the casings: the main screen (the wiki's too), the lore, the player, the legend with its switch.
+export const CASING_FRAMES = ['map', 'lore', 'music', 'legend']
+
+// Each frame a steel of `names`, picked by its name.
+const casingsFrom = names => Object.freeze(Object.fromEntries(CASING_FRAMES.map(frame => [frame, pickTint(frame, names)])))
+const AUTO_CASINGS = casingsFrom(CASING_NAMES)
 
 export const DEFAULT_THEME = Object.freeze({
   colors: THEME_PRESETS[DEFAULT_PRESET],
-  casings: CASING_NAMES,
+  casings: AUTO_CASINGS,
   crt: { scanlines: 1, vignette: 1, sweep: 1, glow: 1 }
 })
 
@@ -41,7 +47,7 @@ export function themeHex(value) {
 export function checkTheme(raw, note) {
   if (raw == null) return DEFAULT_THEME
   if (!isObject(raw)) {
-    note('error', 'theme', 'Must be an object { "preset": …, "colors": { … }, "casings": [ … ], "crt": { … } }: the default look is used.')
+    note('error', 'theme', 'Must be an object { "preset": …, "colors": { … }, "casings": { … }, "crt": { … } }: the default look is used.')
     return DEFAULT_THEME
   }
   let preset = DEFAULT_PRESET
@@ -61,15 +67,7 @@ export function checkTheme(raw, note) {
     else note('error', `theme.colors.${role}`, `${JSON.stringify(value)} is not a colour like "#ffcc00": the colour of the preset is used.`)
   }
 
-  let casings = CASING_NAMES
-  if (raw.casings != null) {
-    const list = (Array.isArray(raw.casings) ? raw.casings : [raw.casings]).filter(name => {
-      if (CASING_NAMES.includes(name)) return true
-      note('warning', 'theme.casings', `${JSON.stringify(name)} is no steel of the casings (${CASING_NAMES.join(', ')}): left out.`)
-      return false
-    })
-    if (list.length) casings = [...new Set(list)]
-  }
+  const casings = checkCasings(raw.casings, note)
 
   const crt = { ...DEFAULT_THEME.crt }
   if (raw.crt != null && !isObject(raw.crt)) note('error', 'theme.crt', 'Must be an object { "scanlines": 1, "vignette": 1, "sweep": 1, "glow": 1 }: the effects stay as they are.')
@@ -83,6 +81,29 @@ export function checkTheme(raw, note) {
     else note('error', `theme.crt.${effect}`, `${JSON.stringify(value)} is not a strength from 0 (off) to ${MAX_EFFECT}: 1 is used.`)
   }
   return { colors, casings, crt }
+}
+
+const isSteel = name => CASING_NAMES.includes(name)
+const noSteel = (name, then) => `${JSON.stringify(name)} is no steel of the casings (${CASING_NAMES.join(', ')}): ${then}.`
+
+// { frame: steel } names each frame's own; a list (or one name) is a pool each frame picks from by its name.
+function checkCasings(raw, note) {
+  if (raw == null) return AUTO_CASINGS
+  if (isObject(raw)) {
+    const casings = { ...AUTO_CASINGS }
+    for (const [frame, name] of Object.entries(raw)) {
+      if (!CASING_FRAMES.includes(frame)) note('warning', `theme.casings.${frame}`, `Is no frame of the site (${CASING_FRAMES.join(', ')}): left out.`)
+      else if (isSteel(name)) casings[frame] = name
+      else note('warning', `theme.casings.${frame}`, noSteel(name, 'its own is used'))
+    }
+    return Object.freeze(casings)
+  }
+  const list = (Array.isArray(raw) ? raw : [raw]).filter(name => {
+    if (isSteel(name)) return true
+    note('warning', 'theme.casings', noSteel(name, 'left out'))
+    return false
+  })
+  return list.length ? casingsFrom([...new Set(list)]) : AUTO_CASINGS
 }
 
 const channels = hex => [1, 3, 5].map(offset => parseInt(hex.slice(offset, offset + 2), 16)).join(' ')
@@ -109,7 +130,10 @@ export function applyTheme(theme = DEFAULT_THEME) {
 export const themeColor = role => state.value.colors[role] ?? DEFAULT_THEME.colors[role]
 // 0xrrggbb, for Pixi.
 export const themeNumber = role => parseInt(themeColor(role).slice(1), 16)
-export const themeCasings = () => state.value.casings
+/** The steel of the casing of a frame; a seed that is no frame picks one by its name. */
+export const themeCasing = seed => state.value.casings[seed] ?? pickTint(seed, CASING_NAMES)
+/** What each frame wears with no setting of the map. */
+export const autoCasing = frame => AUTO_CASINGS[frame]
 
 const mixChannels = (a, b, share) => [1, 3, 5].map(offset => {
   const x = parseInt(a.slice(offset, offset + 2), 16)

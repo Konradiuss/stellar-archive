@@ -5,7 +5,11 @@ import { nextTick } from 'vue'
 import { mount } from '@vue/test-utils'
 import { useEditorStore } from '../editorStore'
 import { draftKey, gitBlobSha, loadDraft, loadPublished, publishedKey, savePublished } from '../../editor/draft'
+import { binaryRef, readRef, toDataUrl } from '../../editor/binaryFiles'
+import { getBlob, putBlob, useBackend } from '../../editor/blobStore'
+import { memoryBackend } from '../../editor/__tests__/blobBackend'
 import { moveBody } from '../../editor/systemEdits'
+import { removeTrack } from '../../editor/musicEdits'
 import EditorLore from '../../components/EditorLore.vue'
 
 const MAP = JSON.stringify({ stars: [{ id: 'sol', name: 'Sol', sectorX: 0, sectorY: 0, loreFile: 'lore/sol.wiki' }] })
@@ -16,6 +20,7 @@ function serve(files) {
     const file = files[new URL(url).pathname.slice(1)]
     if (typeof file === 'number') return new Response('', { status: file })
     if (file?.html) return new Response(file.html, { headers: { 'content-type': 'text/html; charset=utf-8' } })
+    if (file instanceof Uint8Array) return new Response(file, { headers: { 'content-type': 'audio/wav' } })
     return file === undefined ? new Response('', { status: 404 }) : new Response(file)
   })
 }
@@ -211,6 +216,115 @@ describe('the editor', () => {
     await reloaded.publish({ message: 'test' })
     expect(localStorage.getItem('spacemap:github-token:/')).toBe('tab-token')
     expect(sessionStorage.getItem('spacemap:github-token:/')).toBeNull()
+  })
+
+  describe('with recordings', () => {
+    const SOUND_MAP = JSON.stringify({ stars: [], sounds: { click: 'sounds/click.wav' } })
+    const WAV = new Uint8Array([0x52, 0x49, 0x46, 0x46, 1, 2, 3, 4])
+    const OTHER = new Uint8Array([0x52, 0x49, 0x46, 0x46, 9, 9])
+    let backend
+    beforeEach(() => {
+      backend = memoryBackend()
+      useBackend(backend)
+    })
+    afterEach(() => useBackend(null))
+    const stored = () => loadDraft(draftKey()).files['sounds/click.wav']
+    const bytes = async blob => [...new Uint8Array(await blob.arrayBuffer())]
+
+    // Was: the bytes went into localStorage as a data URL; a few recordings filled it and the draft was not kept.
+    it('keeps the bytes in the blob store and a short reference in the draft', async () => {
+      const editor = await openEditor({ 'map.json': SOUND_MAP, 'sounds/click.wav': WAV })
+      expect(readRef(editor.originals['sounds/click.wav'])).toEqual({ sha: await gitBlobSha(WAV), size: WAV.length })
+      expect(await editor.setBinary('sounds/click.wav', OTHER)).toBeNull()
+      expect(stored()).toBe(binaryRef(await gitBlobSha(OTHER), OTHER.length))
+      expect(editor.draft.bases['sounds/click.wav']).toBe(await gitBlobSha(WAV))
+      expect([...await editor.bytesOf('sounds/click.wav')]).toEqual([...OTHER])
+      const { blob } = await editor.downloadable()
+      expect(await bytes(blob)).toEqual([...OTHER])
+      // The host's own bytes again: no change left.
+      await editor.setBinary('sounds/click.wav', WAV)
+      expect(editor.changedFiles).toEqual([])
+    })
+
+    it('moves a recording of an older draft out of localStorage, once', async () => {
+      localStorage.setItem(draftKey(), JSON.stringify({ files: { 'sounds/click.wav': toDataUrl(OTHER, 'sounds/click.wav') }, bases: { 'sounds/click.wav': null } }))
+      const editor = await openEditor({ 'map.json': SOUND_MAP })
+      const sha = await gitBlobSha(OTHER)
+      expect(stored()).toBe(binaryRef(sha, OTHER.length))
+      expect(await bytes(await getBlob(sha))).toEqual([...OTHER])
+      expect([...await editor.bytesOf('sounds/click.wav')]).toEqual([...OTHER])
+    })
+
+    it('keeps the recording in the draft itself when the browser has no IndexedDB', async () => {
+      useBackend(null)
+      const editor = await openEditor({ 'map.json': SOUND_MAP })
+      expect(await editor.setBinary('sounds/click.wav', OTHER)).toBeNull()
+      expect(stored()).toBe(toDataUrl(OTHER, 'sounds/click.wav'))
+      expect([...await editor.bytesOf('sounds/click.wav')]).toEqual([...OTHER])
+    })
+
+    // Was: without IndexedDB a track of megabytes went into localStorage, which could not keep it, and the whole draft was lost.
+    it('refuses a big file when the browser has no IndexedDB', async () => {
+      useBackend(null)
+      const editor = await openEditor({ 'map.json': SOUND_MAP })
+      const big = new Uint8Array(3 * 1024 * 1024)
+      expect(await editor.setBinary('music/long.wav', big)).toEqual({ key: 'editor.noFileStore', params: { file: 'music/long.wav', size: '3 MB', max: '2 MB' } })
+      expect(editor.changedFiles).toEqual([])
+    })
+
+    // Was: the editor would have downloaded every track of the playlist when it opened, and again to delete one.
+    it('neither reads the tracks of the playlist when it opens nor to delete one', async () => {
+      const map = JSON.stringify({ stars: [], music: { tracks: [{ file: 'music/a.wav' }, { file: 'music/b.wav' }] } })
+      const editor = await openEditor({ 'map.json': map, 'music/a.wav': WAV, 'music/b.wav': OTHER })
+      const asked = vi.mocked(fetch)
+      const read = []
+      vi.stubGlobal('fetch', async (url, options) => {
+        read.push(new URL(url).pathname)
+        return asked(url, options)
+      })
+      expect(editor.files.map(file => file.path)).toEqual(['map.json'])
+      editor.editMap(text => removeTrack(text, 1))
+      await new Promise(resolve => setTimeout(resolve, 0))
+      expect(read.filter(path => path.startsWith('/music/'))).toEqual([])
+      expect(editor.isDeleted('music/b.wav')).toBe(true)
+      // Nothing to compare: publishing deletes it if GitHub has it.
+      expect(Object.hasOwn(editor.draft.bases, 'music/b.wav')).toBe(false)
+      editor.revert('music/b.wav')
+      expect(editor.isChanged('music/b.wav')).toBe(false)
+    })
+
+    it('refuses a recording the browser has no room for, saying how much there is', async () => {
+      vi.stubGlobal('navigator', { storage: { estimate: async () => ({ quota: 1000, usage: 996 }) } })
+      const editor = await openEditor({ 'map.json': SOUND_MAP })
+      expect(await editor.setBinary('sounds/click.wav', OTHER)).toEqual({ key: 'editor.noRoom', params: { file: 'sounds/click.wav', size: '1 KB', free: '1 KB' } })
+      expect(editor.changedFiles).toEqual([])
+    })
+
+    it('says which recordings of the draft the browser lost, and neither downloads nor publishes without them', async () => {
+      const lost = binaryRef('f'.repeat(40), 3)
+      localStorage.setItem(draftKey(), JSON.stringify({ files: { 'sounds/click.wav': lost }, bases: { 'sounds/click.wav': null } }))
+      const editor = await openEditor({ 'map.json': SOUND_MAP })
+      expect(editor.lostFiles).toEqual(['sounds/click.wav'])
+      await editor.download()
+      expect(editor.formError).toEqual({ key: 'editor.binaryLost', params: { files: 'sounds/click.wav' } })
+      editor.token = 'secret'
+      editor.publishSettings.repo = 'owner/site'
+      await editor.publish({ message: 'test' })
+      expect(editor.publishResult).toEqual({ status: 'failed', key: 'editor.binaryLost', params: { files: 'sounds/click.wav' } })
+      // Uploaded again: found.
+      await editor.setBinary('sounds/click.wav', OTHER)
+      expect(editor.lostFiles).toEqual([])
+    })
+
+    it('finds a recording another tab put in the store', async () => {
+      const sha = await gitBlobSha(OTHER)
+      await putBlob(sha, new Blob([OTHER]))
+      useBackend(backend)
+      localStorage.setItem(draftKey(), JSON.stringify({ files: { 'sounds/click.wav': binaryRef(sha, OTHER.length) }, bases: {} }))
+      const editor = await openEditor({ 'map.json': SOUND_MAP })
+      expect(editor.lostFiles).toEqual([])
+      expect([...await editor.bytesOf('sounds/click.wav')]).toEqual([...OTHER])
+    })
   })
 
   // Was: a failure that was not GitHub's (a stored setting of the wrong kind) was thrown out of publish(), and the dialog showed nothing.

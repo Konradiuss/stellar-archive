@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { loaderText, setLoaderText } from '../stringEdits'
+import { loaderText, setLoaderText, setString, stringPath, stringValue } from '../stringEdits'
 
 const MAP = `{
   "site": { "title": "Atlas" },
@@ -31,5 +31,25 @@ describe('the texts of the loader in the map file', () => {
   it('read a text with forms by number by the form for most numbers', () => {
     expect(loaderText({ strings: { loader: { checkingMap: { one: 'A', other: 'B' } } } }, 'checkingMap')).toBe('B')
     expect(loaderText({ strings: 'broken' }, 'checkingMap')).toBe('')
+  })
+
+  // Was: a text with forms by number became one plain text, and the other forms were lost.
+  it('keep the forms by number of a text: only the general one changes', () => {
+    const forms = '{ "strings": { "loader": { "checkingMap": { "one": "ONE MAP", "other": "MAPS" } } } }'
+    expect(JSON.parse(setLoaderText(forms, 'checkingMap', 'CHARTS')).strings.loader.checkingMap).toEqual({ one: 'ONE MAP', other: 'CHARTS' })
+    expect(JSON.parse(setLoaderText(forms, 'checkingMap', '')).strings.loader.checkingMap).toEqual({ one: 'ONE MAP' })
+    const last = '{ "strings": { "loader": { "checkingMap": { "other": "MAPS" } } } }'
+    expect(JSON.parse(setLoaderText(last, 'checkingMap', ''))).toEqual({})
+  })
+
+  // Was: a dotted key was not read, so the field looked empty, and writing added the same text a second time.
+  it('read and write a text where the map has it, dotted keys too', () => {
+    const dotted = '{ "strings": { "loader.title": "SHIP-OS", "wiki": { "search": "FIND" } } }'
+    expect(stringPath(JSON.parse(dotted), 'loader.title')).toEqual(['strings', 'loader.title'])
+    expect(loaderText(JSON.parse(dotted), 'title')).toBe('SHIP-OS')
+    expect(JSON.parse(setLoaderText(dotted, 'title', 'HULL-OS')).strings).toEqual({ 'loader.title': 'HULL-OS', wiki: { search: 'FIND' } })
+    expect(JSON.parse(setLoaderText(dotted, 'title', '')).strings).toEqual({ wiki: { search: 'FIND' } })
+    expect(stringValue(JSON.parse(dotted), 'wiki.search')).toBe('FIND')
+    expect(JSON.parse(setString(dotted, 'wiki.menu.text', 'TEXT')).strings.wiki).toEqual({ search: 'FIND', menu: { text: 'TEXT' } })
   })
 })

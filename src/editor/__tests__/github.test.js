@@ -122,4 +122,13 @@ describe('publishing to GitHub', () => {
       { path: 'public/sounds/click.wav', mode: '100644', type: 'blob', sha: 'blob-of-sound' }
     ])
   })
+
+  it('sends the bytes of a file the editor read from its store', async () => {
+    const { calls, send } = fakeGitHub()
+    await request(send, {
+      files: { 'sounds/click.wav': new Uint8Array([0x52, 0x49, 0x46, 0x46]) },
+      bases: { 'sounds/click.wav': null }
+    })
+    expect(calls.find(call => call.url.endsWith('/git/blobs')).body).toEqual({ content: 'UklGRg==', encoding: 'base64' })
+  })
 })

@@ -385,3 +385,15 @@ test('each type of station is drawn, and a star without planets says so', async 
   await expect(page.locator('.system-planet')).toHaveCount(0)
   await expect(page.locator('.window-data')).toContainText('No known planets in this system.')
 })
+
+// Was: a route without a description gave the JUMP menu its type's id, "gate", instead of its name.
+test('the JUMP menu names the type of a route that has no description', async ({ page }) => {
+  const data = worldMap()
+  const gate = data.hyperlines.find(line => line.id === 'gate-sol-asterion')
+  delete gate.description
+  await serveMap(page, data)
+  await openHash(page, '#/system/sol')
+  await page.locator('.jump-anchor .back-btn').click()
+  const asterion = page.locator('.jump-anchor .dos-menu-item', { hasText: 'ASTERION' })
+  await expect(asterion.locator('.dos-menu-hint')).toHaveText('Quantum Gates')
+})

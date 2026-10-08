@@ -51,7 +51,7 @@ export function addArticle(text, { title, format = 'wikitext', group = null }) {
 /** field: 'group' | 'place' | 'tabTitle' | 'text'; empty removes it. */
 export function setArticleField(text, title, field, value) {
   const at = index(read(text), title)
-  const empty = value === null || value === undefined || (typeof value === 'string' && !value.trim() && field !== 'text')
+  const empty = value === null || value === undefined || (typeof value === 'string' && !value.trim())
   return empty ? removeKey(text, ['wiki', 'articles', at], field) : setKey(text, ['wiki', 'articles', at], field, value)
 }
 
@@ -240,4 +240,9 @@ export function setWorldGroup(text, id) {
   return setKey(text, ['wiki'], 'worldGroup', id)
 }
 
-export const setWorldLore = (text, value) => setKey(text, [], 'worldLore', String(value ?? ''))
+// Emptied, the world's text goes: the site then has no Galaxy page, as with no text at all.
+export function setWorldLore(text, value) {
+  const lore = String(value ?? '')
+  if (lore.trim()) return setKey(text, [], 'worldLore', lore)
+  return Object.hasOwn(read(text), 'worldLore') ? removeKey(text, [], 'worldLore') : text
+}

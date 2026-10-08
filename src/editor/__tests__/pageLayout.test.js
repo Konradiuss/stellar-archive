@@ -47,11 +47,14 @@ describe('the main page as a row of blocks', () => {
     expect(setBannerField(next, 'animation', '').raw).not.toContain('animation')
   })
 
-  it('names the title and text of a banner written without names, keeps what the form does not know, escapes "|"', () => {
+  // Was: one change rewrote the whole banner: its title and text got names, its params one a line.
+  it('changes one param of a banner written without names, keeping how it is written, and escapes "|"', () => {
     const [banner] = parseLayout('{{Banner|Archive|Hello|glow=yes}}')
     expect(bannerFields(banner)).toMatchObject({ title: 'Archive', text: 'Hello' })
     const next = setBannerField(banner, 'caption', 'A | B [[Mars|the red one]]')
-    expect(next.raw).toBe('{{Banner\n|title = Archive\n|caption = A {{!}} B [[Mars|the red one]]\n|text = Hello\n|glow = yes\n}}')
+    expect(next.raw).toBe('{{Banner|Archive|caption=A {{!}} B [[Mars|the red one]]|Hello|glow=yes}}')
+    expect(bannerFields(next)).toMatchObject({ title: 'Archive', text: 'Hello' })
+    expect(setBannerField(next, 'title', 'Atlas').raw).toBe('{{Banner|Atlas|caption=A {{!}} B [[Mars|the red one]]|Hello|glow=yes}}')
     expect(bannerFields(next).caption).toBe('A | B [[Mars|the red one]]')
     expect(blocksOf(next.raw)[0].caption.map(node => node.value ?? node.children?.[0]?.value).join('')).toContain('A | B')
   })
@@ -68,6 +71,17 @@ describe('the main page as a row of blocks', () => {
     expect(blocksOf(wide.raw)[0]).toMatchObject({ type: 'box', wide: true, color: '#2f8f46', icon: 'question' })
     const odd = setBoxField(setBoxField(box, 'text', 'Speed = 5'), 'title', 'a=b')
     expect(boxFields(odd)).toMatchObject({ title: 'a=b', text: 'Speed = 5' })
+  })
+
+  // Was: other names became the main ones, a box's "colour" became "color", and a row of links lost its named params.
+  it('keeps the other names a banner or a box was written with, and the named params of a row of links', () => {
+    const [banner] = parseLayout('{{Banner\n|name = Atlas\n|colours = #ff0000, #00ff00\n|subtitle = Hi\n}}')
+    expect(setBannerField(banner, 'caption', 'Hello').raw).toBe(banner.raw.replace('Hi', 'Hello'))
+    const [box] = parseLayout('{{Box|News|colour=red|\nBody.\n}}')
+    expect(setBoxField(box, 'color', 'blue').raw).toBe('{{Box|News|colour=blue|\nBody.\n}}')
+    expect(setBoxField(box, 'icon', 'book').raw).toBe('{{Box|News|colour=red|icon=book|\nBody.\n}}')
+    const [row] = parseLayout('{{Links|[[A]]|style=compact|[[B]]}}')
+    expect(setLinkItems(row, [{ kind: 'page', target: 'C', label: '' }]).raw).toBe('{{Links|[[C]]|style=compact}}')
   })
 
   it('reads and writes the links of a row', () => {

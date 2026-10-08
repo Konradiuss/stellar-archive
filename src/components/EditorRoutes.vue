@@ -5,12 +5,14 @@
       <label class="editor-field">
         <span>{{ t('editor.routeFrom') }}</span>
         <select class="editor-input route-from" :value="line.from?.id ?? ''" @change="setEnd('from', $event.target.value)">
+          <option v-if="!line.from" value="" disabled>? {{ endText(line.line.from) }}</option>
           <option v-for="star in stars" :key="star.id" :value="star.id">{{ star.name }}</option>
         </select>
       </label>
       <label class="editor-field">
         <span>{{ t('editor.routeTo') }}</span>
         <select class="editor-input route-to" :value="line.to?.id ?? ''" @change="setEnd('to', $event.target.value)">
+          <option v-if="!line.to" value="" disabled>? {{ endText(line.line.to) }}</option>
           <option v-for="star in stars" :key="star.id" :value="star.id">{{ star.name }}</option>
         </select>
       </label>
@@ -28,9 +30,10 @@
     </label>
     <label class="editor-field">
       <span>{{ t('editor.routeDirection') }}</span>
-      <select class="editor-input route-direction" :value="line.line.direction ?? 'both'" @change="set('direction', $event.target.value === 'both' ? '' : $event.target.value)">
-        <option value="both">{{ t('editor.directionBoth') }}</option>
-        <option value="forward">{{ t('editor.directionForward') }}</option>
+      <select class="editor-input route-direction" :value="directionChoice(line.line.direction)" @change="set('direction', $event.target.value)">
+        <option value="">{{ t('editor.asTypeValue', { value: directionName(line.ofType.direction) }) }}</option>
+        <option v-for="direction in DIRECTIONS" :key="direction" :value="direction">{{ directionName(direction) }}</option>
+        <option v-if="isUnknownDirection(line.line.direction)" :value="line.line.direction">? {{ line.line.direction }}</option>
       </select>
     </label>
     <EditorColor
@@ -45,11 +48,11 @@
     <div class="editor-row">
       <label class="editor-field is-short">
         <span>{{ t('editor.routeWidth') }}</span>
-        <EditorNumber :value="line.line.width" input-class="route-width" :placeholder="t('editor.asTypeValue', { value: line.ofType.width })" @commit="value => set('width', value)" />
+        <EditorNumber :value="line.line.width" input-class="route-width" :min="0" above :max="12" :placeholder="t('editor.asTypeValue', { value: line.ofType.width })" @commit="value => set('width', value)" />
       </label>
       <label class="editor-field is-short">
         <span>{{ t('editor.routeOpacity') }}</span>
-        <EditorNumber :value="line.line.opacity" input-class="route-opacity" :placeholder="t('editor.asTypeValue', { value: line.ofType.opacity })" @commit="value => set('opacity', value)" />
+        <EditorNumber :value="line.line.opacity" input-class="route-opacity" :min="0" :max="1" :placeholder="t('editor.asTypeValue', { value: line.ofType.opacity })" @commit="value => set('opacity', value)" />
       </label>
     </div>
     <EditorPulses
@@ -115,11 +118,19 @@
         />
         <label class="editor-field is-short">
           <span>{{ t('editor.routeWidth') }}</span>
-          <EditorNumber :value="rawField(type.id, 'width')" input-class="type-width" :placeholder="t('editor.autoDefault', { value: type.builtInStyle.width })" @commit="value => setType(type.id, 'width', value)" />
+          <EditorNumber :value="rawField(type.id, 'width')" input-class="type-width" :min="0" above :max="12" :placeholder="t('editor.autoDefault', { value: type.builtInStyle.width })" @commit="value => setType(type.id, 'width', value)" />
         </label>
         <label class="editor-field is-short">
           <span>{{ t('editor.routeOpacity') }}</span>
-          <EditorNumber :value="rawField(type.id, 'opacity')" input-class="type-opacity" :placeholder="t('editor.autoDefault', { value: type.builtInStyle.opacity })" @commit="value => setType(type.id, 'opacity', value)" />
+          <EditorNumber :value="rawField(type.id, 'opacity')" input-class="type-opacity" :min="0" :max="1" :placeholder="t('editor.autoDefault', { value: type.builtInStyle.opacity })" @commit="value => setType(type.id, 'opacity', value)" />
+        </label>
+        <label class="editor-field">
+          <span>{{ t('editor.routeDirection') }}</span>
+          <select class="editor-input type-direction" :value="directionChoice(rawField(type.id, 'direction'))" @change="setType(type.id, 'direction', $event.target.value)">
+            <option value="">{{ t('editor.autoValue', { value: directionName(type.builtInStyle.direction) }) }}</option>
+            <option v-for="direction in DIRECTIONS" :key="direction" :value="direction">{{ directionName(direction) }}</option>
+            <option v-if="isUnknownDirection(rawField(type.id, 'direction'))" :value="rawField(type.id, 'direction')">? {{ rawField(type.id, 'direction') }}</option>
+          </select>
         </label>
       </div>
       <EditorPulses
@@ -142,7 +153,7 @@
 import { computed, ref, watch } from 'vue'
 import { t } from '../i18n'
 import { useEditorStore } from '../stores/editorStore'
-import { addRouteType, removeRoute, removeRouteType, routeList, routeTypes, setRouteEnd, setRouteField, setRouteTypeField } from '../editor/routeEdits'
+import { DIRECTIONS, addRouteType, removeRoute, removeRouteType, routeList, routeTypes, setRouteEnd, setRouteField, setRouteTypeField } from '../editor/routeEdits'
 import { cssColor } from '../editor/colors'
 import EditorColor from './EditorColor.vue'
 import EditorNumber from './EditorNumber.vue'
@@ -167,6 +178,12 @@ const rawField = (id, field) => {
   return type && typeof type === 'object' ? type[field] : undefined
 }
 const isPulseValue = value => value === false || isObject(value)
+// An end the map names but has no star for: a star id, or the sector.
+const endText = end => (isObject(end) ? `${end.sectorX}, ${end.sectorY}` : String(end ?? ''))
+const directionName = direction => t(direction === 'forward' ? 'editor.directionForward' : 'editor.directionBoth')
+const isUnknownDirection = value => value !== undefined && !DIRECTIONS.includes(value)
+// '' follows the type; a value the map has but the site does not know stays shown.
+const directionChoice = value => (value === undefined ? '' : value)
 const typeName = type => type.name || (type.builtIn ? t(`hyperlineTypes.${type.id}`) : type.id)
 
 const confirming = ref(false)

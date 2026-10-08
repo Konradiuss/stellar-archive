@@ -3,6 +3,8 @@ import { useMapStore } from '../stores/mapStore'
 import { useUIStore } from '../stores/uiStore'
 import { startAnimatedFavicon } from '../utils/animatedFavicon'
 import { buildTabTitle, TAB_STATUS } from '../utils/tabTitle'
+import { draftFileUrl } from '../editor/draft'
+import { MAP_FILE } from '../utils/mapCheck'
 
 export function useDocumentHead() {
   const mapStore = useMapStore()
@@ -39,12 +41,29 @@ export function useDocumentHead() {
     const url = mapStore.siteConfig.favicon
     return url ? new URL(url, document.baseURI).href : null
   })
-  watch(favicon, url => {
+  // The preview of the editor shows the icon of its draft.
+  let ownUrl = null
+  let asked = 0
+  watch(favicon, async url => {
+    const ask = ++asked
     stopFavicon?.()
-    stopFavicon = url ? startAnimatedFavicon(url) : null
+    stopFavicon = null
+    if (ownUrl) URL.revokeObjectURL(ownUrl)
+    ownUrl = null
+    if (!url) return
+    const own = await draftFileUrl(url, new URL(MAP_FILE, document.baseURI).href).catch(() => null)
+    if (ask !== asked) {
+      if (own) URL.revokeObjectURL(own)
+      return
+    }
+    ownUrl = own
+    stopFavicon = startAnimatedFavicon(own ?? url)
   }, { immediate: true })
 
-  onScopeDispose(() => stopFavicon?.())
+  onScopeDispose(() => {
+    stopFavicon?.()
+    if (ownUrl) URL.revokeObjectURL(ownUrl)
+  })
 
   return { title }
 }

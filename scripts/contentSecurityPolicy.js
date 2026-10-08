@@ -8,10 +8,12 @@ export const CONTENT_SECURITY_POLICY = [
   "script-src 'self'",
   "style-src 'self'",
   "img-src 'self' data: blob: https:",
-  "media-src 'self' https:",
+  // blob: is a recording of the editor's draft.
+  "media-src 'self' blob: https:",
   "font-src 'self'",
-  // The favicon of another site is read with fetch; api.github.com is the editor's.
-  "connect-src 'self' https:",
+  // The favicon of another site is read with fetch; api.github.com is the editor's;
+  // blob: is a file of the editor's draft, which the preview reads.
+  "connect-src 'self' https: blob:",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'none'",

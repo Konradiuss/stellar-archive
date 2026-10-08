@@ -8,8 +8,12 @@
         <button type="button" class="editor-tab tab-system" :class="{ 'is-active': editor.tab === 'system' }" @click="editor.tab = 'system'">{{ t('editor.tabSystem') }}</button>
         <button type="button" class="editor-tab tab-articles" :class="{ 'is-active': editor.tab === 'articles' }" @click="editor.tab = 'articles'">{{ t('editor.tabArticles') }}</button>
         <button type="button" class="editor-tab tab-main" :class="{ 'is-active': editor.tab === 'main' }" @click="editor.tab = 'main'">{{ t('editor.tabMain') }}</button>
+        <button type="button" class="editor-tab tab-site" :class="{ 'is-active': editor.tab === 'site' }" @click="editor.tab = 'site'">{{ t('editor.tabSite') }}</button>
+        <button type="button" class="editor-tab tab-theme" :class="{ 'is-active': editor.tab === 'theme' }" @click="editor.tab = 'theme'">{{ t('editor.tabTheme') }}</button>
         <button type="button" class="editor-tab tab-sounds" :class="{ 'is-active': editor.tab === 'sounds' }" @click="editor.tab = 'sounds'">{{ t('editor.tabSounds') }}</button>
+        <button type="button" class="editor-tab tab-music" :class="{ 'is-active': editor.tab === 'music' }" @click="editor.tab = 'music'">{{ t('editor.tabMusic') }}</button>
         <button type="button" class="editor-tab tab-loader" :class="{ 'is-active': editor.tab === 'loader' }" @click="editor.tab = 'loader'">{{ t('editor.tabLoader') }}</button>
+        <button type="button" class="editor-tab tab-texts" :class="{ 'is-active': editor.tab === 'texts' }" @click="editor.tab = 'texts'">{{ t('editor.tabTexts') }}</button>
       </nav>
       <span class="editor-changed" :class="{ 'is-changed': changedCount }">{{ changedCount ? t('editor.changed', { count: changedCount }) : t('editor.unchanged') }}</span>
       <div class="editor-bar-actions">
@@ -35,7 +39,7 @@
               v-for="file in editor.files"
               :key="file.path"
               type="button"
-              class="editor-list-item file-item"
+              class="editor-list-item is-code file-item"
               :class="{ 'is-current': file.path === editor.current, 'is-changed': editor.isChanged(file.path), 'is-deleted': editor.isDeleted(file.path), 'is-missing': isMissing(file.path) }"
               :data-path="file.path"
               :title="file.path"
@@ -81,9 +85,16 @@
             <div class="editor-note">{{ t('editor.missing') }}: {{ editor.current }}</div>
             <button v-if="!isBinaryPath(editor.current)" type="button" class="editor-button action-create" @click="editor.create(editor.current)">{{ t('editor.create') }}</button>
           </div>
-          <div v-else-if="isBinaryPath(editor.current)" class="file-absent file-sound">
-            <div class="editor-note">{{ t('editor.soundFileNote', { size: soundSize }) }}</div>
-            <button type="button" class="editor-button action-play" data-sfx="none" @click="playFile">▶</button>
+          <div v-else-if="isBinaryPath(editor.current)" class="file-absent" :class="isImagePath(editor.current) ? 'file-picture' : 'file-sound'">
+            <div v-if="editor.lostFiles.includes(editor.current)" class="editor-note is-error file-lost">{{ t('editor.binaryGone') }}</div>
+            <template v-else-if="isImagePath(editor.current)">
+              <EditorThumb class="file-picture-image" :source="editor.current" />
+              <div class="editor-note">{{ t('editor.pictureFileNote', { size: soundSize }) }}</div>
+            </template>
+            <template v-else>
+              <div class="editor-note">{{ t('editor.soundFileNote', { size: soundSize }) }}</div>
+              <button type="button" class="editor-button action-play" data-sfx="none" @click="playFile">▶</button>
+            </template>
           </div>
           <div v-else class="file-pair" :class="{ 'has-preview': showFilePreview }">
             <EditorTextArea
@@ -105,8 +116,12 @@
       <EditorSystem v-else-if="editor.tab === 'system'" />
       <EditorArticles v-else-if="editor.tab === 'articles'" />
       <EditorMainPage v-else-if="editor.tab === 'main'" />
+      <EditorSite v-else-if="editor.tab === 'site'" />
+      <EditorTheme v-else-if="editor.tab === 'theme'" />
       <EditorSounds v-else-if="editor.tab === 'sounds'" />
+      <EditorMusic v-else-if="editor.tab === 'music'" />
       <EditorLoader v-else-if="editor.tab === 'loader'" />
+      <EditorTexts v-else-if="editor.tab === 'texts'" />
     </main>
 
     <footer v-if="ready" class="editor-problems" :class="{ 'is-open': problemsOpen && problemCount }" :aria-label="t('editor.problems')">
@@ -149,15 +164,20 @@ import { t } from '../i18n'
 import { useEditorStore } from '../stores/editorStore'
 import { MAP_FILE } from '../utils/mapCheck'
 import { locate } from '../editor/jsonEdit'
-import { bytesOf, isBinaryPath } from '../editor/binaryFiles'
+import { binarySize, isBinaryPath, isImagePath, sizeText } from '../editor/binaryFiles'
 import { soundEngine } from '../sound'
 import EditorTextArea from './EditorTextArea.vue'
+import EditorThumb from './EditorThumb.vue'
 import EditorStars from './EditorStars.vue'
 import EditorSystem from './EditorSystem.vue'
 import EditorArticles from './EditorArticles.vue'
 import EditorMainPage from './EditorMainPage.vue'
+import EditorSite from './EditorSite.vue'
+import EditorTheme from './EditorTheme.vue'
 import EditorSounds from './EditorSounds.vue'
+import EditorMusic from './EditorMusic.vue'
 import EditorLoader from './EditorLoader.vue'
+import EditorTexts from './EditorTexts.vue'
 import EditorPreview from './EditorPreview.vue'
 import { detectLoreFormat, normalizeLoreConfig } from '../utils/richText/lore'
 import EditorPublish from './EditorPublish.vue'
@@ -179,8 +199,11 @@ watch(() => (syntax.value ? `syntax:${syntax.value.line}:${syntax.value.column}`
   if (now && now !== before) problemsOpen.value = true
 })
 
-const soundSize = computed(() => (isBinaryPath(editor.current) && editor.exists(editor.current) ? Math.ceil(bytesOf(editor.textOf(editor.current)).length / 1024) : 0))
-const playFile = () => soundEngine.audition(null, bytesOf(editor.textOf(editor.current)))
+const soundSize = computed(() => sizeText(isBinaryPath(editor.current) && editor.exists(editor.current) ? binarySize(editor.textOf(editor.current)) : 0))
+async function playFile() {
+  const bytes = await editor.bytesOf(editor.current)
+  if (bytes) soundEngine.audition(null, bytes)
+}
 
 const isMissing = path => !editor.isDeleted(path) && !editor.exists(path) && editor.originals[path] !== undefined
 const isProse = path => /\.(wiki|md|markdown|txt)$/i.test(path ?? '')

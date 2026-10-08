@@ -6,7 +6,7 @@
       <label class="editor-field loader-title-field">
         <span>{{ t('editor.loaderHeading') }}</span>
         <EditorCommitText
-          class="loader-field"
+          class="loader-field is-code"
           data-key="title"
           :value="loaderText(map, 'title')"
           :placeholder="DEFAULTS.title"
@@ -23,10 +23,10 @@
           <label v-for="key in group.keys" :key="key" class="editor-field">
             <span class="loader-key">
               <code>{{ key }}</code>
-              <span v-if="placeholdersOf(key).length" class="loader-params">{{ placeholdersOf(key).join(' ') }}</span>
+              <span v-if="placeholdersOf(key).length" class="loader-params is-code">{{ placeholdersOf(key).join(' ') }}</span>
             </span>
             <EditorCommitText
-              class="loader-field"
+              class="loader-field is-code"
               :data-key="key"
               :value="loaderText(map, key)"
               :placeholder="DEFAULTS[key]"
@@ -36,7 +36,8 @@
           </label>
         </div>
         <div class="loader-preview-box">
-          <div class="loader-preview" :aria-label="t('editor.loaderPreview')">
+          <!-- Texts being written, shown as the site prints them. -->
+          <div class="loader-preview is-code" :aria-label="t('editor.loaderPreview')">
             <div class="loader-preview-title">{{ titleText }}</div>
             <div class="loader-preview-rule">==============================</div>
             <div v-for="(line, index) in shownLines(group)" :key="index" class="loader-preview-line">&gt; {{ padLoaderLabel(line.text) }} <span :class="line.done ? 'is-ok' : 'is-busy'">{{ line.done ? 'OK' : '_' }}</span></div>

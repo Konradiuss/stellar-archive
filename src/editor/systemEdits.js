@@ -3,6 +3,7 @@
 import { appendItem, removeItem, removeKey, setKey, swapItems } from './jsonEdit'
 import { EditError, idOf } from './starEdits'
 import { lostFiles } from './siteFiles'
+import { dropLostPlaces, followRename } from './placeRefs'
 import { isObject } from '../utils/guards'
 
 const read = text => JSON.parse(text.charCodeAt(0) === 0xfeff ? text.slice(1) : text)
@@ -83,8 +84,11 @@ export function addSatellite(text, place, { kind = 'moon', name }) {
 export function setBodyField(text, place, field, value) {
   const map = read(text)
   body(map, place)
+  // The site leaves out a planet or a moon without a name; a star falls back to its id.
+  if (field === 'name' && isEmpty(String(value ?? '').trim()) && !isStarPlace(place)) throw new EditError('editor.nameRequired')
   const path = bodyPath(place, map)
-  return isEmpty(value) ? removeKey(text, path, field) : setKey(text, path, field, value)
+  const next = isEmpty(value) ? removeKey(text, path, field) : setKey(text, path, field, value)
+  return field === 'name' ? followRename(next, [bodyAt(map, place).name], isEmpty(value) ? place.star : value) : next
 }
 
 /** Sets a field of `visualization` (`starVisualization` of a star); an empty value removes it, while `ring: null` means no ring. */
@@ -113,6 +117,6 @@ export function moveBody(text, place, delta) {
 export function removeBody(text, place) {
   planetOrSatellite(read(text), place)
   const path = bodyPath(place)
-  const next = removeItem(text, path.slice(0, -1), path.at(-1))
+  const next = dropLostPlaces(text, removeItem(text, path.slice(0, -1), path.at(-1)))
   return { text: next, orphans: lostFiles(text, next) }
 }

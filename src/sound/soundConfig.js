@@ -1,5 +1,5 @@
-// "sounds": false (no sound effects), or { "volume": 0.35 (for a new visitor),
-//   "<name>": "sounds/click.wav" | false (silence) | { "file", "volume" } }.
+// "sounds": false (no sound effects), or { "off": true (no sound effects, the rest kept for turning them on again),
+//   "volume": 0.35 (for a new visitor), "<name>": "sounds/click.wav" | false (silence) | { "file", "volume", "off" } }.
 
 import { SOUND_NAMES } from './synth'
 import { warnMap } from '../utils/mapJournal'
@@ -34,6 +34,12 @@ function fileOf(value, where, baseUrl) {
   return null
 }
 
+function offOf(value, where) {
+  if (value === undefined || typeof value === 'boolean') return value === true
+  warnMap(where, 'Must be true or false: left out.')
+  return false
+}
+
 function soundOf(name, value, baseUrl) {
   const where = `sounds.${name}`
   if (value === false) return { silent: true }
@@ -42,6 +48,7 @@ function soundOf(name, value, baseUrl) {
     return src ? { src } : null
   }
   if (value && typeof value === 'object' && !Array.isArray(value)) {
+    if (offOf(value.off, `${where}.off`)) return { silent: true }
     const sound = {}
     if (value.file !== undefined) {
       const src = fileOf(value.file, `${where}.file`, baseUrl)
@@ -53,7 +60,7 @@ function soundOf(name, value, baseUrl) {
     }
     return Object.keys(sound).length ? sound : null
   }
-  warnMap(where, 'Must be a file, false or { "file", "volume" }: the sound of the site is used.')
+  warnMap(where, 'Must be a file, false or { "file", "volume", "off" }: the sound of the site is used.')
   return null
 }
 
@@ -69,6 +76,8 @@ export function normalizeSoundConfig(raw, baseUrl) {
   for (const [name, value] of Object.entries(raw)) {
     if (name === 'volume') {
       config.volume = volumeOf(value, 'sounds.volume')
+    } else if (name === 'off') {
+      config.enabled = !offOf(value, 'sounds.off')
     } else if (!SOUND_NAMES.includes(name)) {
       warnMap(`sounds.${name}`, 'Is not a sound of the site: left out. The names are on the wiki page Special:Sounds.')
     } else {

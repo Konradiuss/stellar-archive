@@ -75,6 +75,14 @@ describe('the form of a system', () => {
     expect(failure(() => addSatellite(bare, { star: 'a' }, { name: 'M' }))).toEqual(['editor.noBody', {}])
   })
 
+  // Was: clearing the name removed it, and the site left the planet out with an error.
+  it('keeps the name of a planet or a moon, which the site needs; a star falls back to its id', () => {
+    expect(failure(() => setBodyField(MAP, earth, 'name', ''))).toEqual(['editor.nameRequired', {}])
+    expect(failure(() => setBodyField(MAP, earth, 'name', '   '))).toEqual(['editor.nameRequired', {}])
+    expect(failure(() => setBodyField(MAP, { ...earth, satellite: 0 }, 'name', ''))).toEqual(['editor.nameRequired', {}])
+    expect(read(setBodyField(MAP, { star: 'sol' }, 'name', '')).stars.find(star => star.id === 'sol')).not.toHaveProperty('name')
+  })
+
   it('adds moons and stations to a planet', () => {
     const moon = addSatellite(MAP, earth, { kind: 'moon', name: 'Selene' })
     const satellites = bodyAt(read(MAP), earth).satellites

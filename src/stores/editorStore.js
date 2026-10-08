@@ -10,7 +10,8 @@ import { applyTheme } from '../theme'
 import { draftKey, forgetPublished, gitBlobSha, loadDraft, loadPublished, publishedKey, saveDraft, savePublished, setPreview } from '../editor/draft'
 import { textFiles } from '../editor/siteFiles'
 import { zipFiles } from '../editor/zip'
-import { fileBytes, isBinaryPath, mimeOf, toDataUrl } from '../editor/binaryFiles'
+import { MAX_INLINE_BYTES, binaryRef, bytesOf as dataUrlBytes, fileBytes, isBinaryPath, isDataUrl, isImagePath, mimeOf, readRef, sizeText, toDataUrl } from '../editor/binaryFiles'
+import { freeRoom, getBlob, putBlob, remember, sweep } from '../editor/blobStore'
 import { EditError, formsCanEdit } from '../editor/starEdits'
 import { PublishError, guessRepo, publish as publishToGitHub } from '../editor/github'
 import { readStoredValue, safeStorage, siteFolder, writeStoredValue } from '../composables/usePersistentState'
@@ -69,6 +70,22 @@ const keepToken = (value, remember) => {
 // Keeps a byte order mark (response.text() drops it), so the hash is git's.
 const responseText = async response => new TextDecoder('utf-8', { ignoreBOM: true }).decode(await response.arrayBuffer())
 
+// A reference carries the git sha of its bytes.
+const shaOf = (path, value) => readRef(value)?.sha ?? gitBlobSha(fileBytes(path, value))
+
+// The shas the stored draft and the records of publishing still name.
+function namedShas(draft, records) {
+  const values = [...Object.values(draft.files), ...Object.values(records).map(record => record.text)]
+  return new Set(values.map(value => readRef(value)?.sha).filter(Boolean))
+}
+
+export class LostFilesError extends Error {
+  constructor(paths) {
+    super(paths.join(', '))
+    this.paths = paths
+  }
+}
+
 export const useEditorStore = defineStore('editor', () => {
   // 'loading' | 'ready' | 'failed'
   const status = ref('loading')
@@ -96,6 +113,8 @@ export const useEditorStore = defineStore('editor', () => {
   const worldOpen = ref(false)
   // { key, params }
   const formError = ref(null)
+  // Binary files of the draft whose bytes this browser no longer has.
+  const lostFiles = ref([])
 
   const publishSettings = ref(readStoredValue('editor-publish', { repo: guessRepo(globalThis.location ?? {}), branch: 'main', folder: 'public' }))
   const token = ref(readToken())
@@ -166,7 +185,7 @@ export const useEditorStore = defineStore('editor', () => {
   const files = computed(() => {
     const listed = textFiles(lastReadable.value)
     const known = new Set(listed.map(file => file.path))
-    for (const path of changedFiles.value) if (!known.has(path)) listed.push({ path, kind: isBinaryPath(path) ? 'sound' : 'text' })
+    for (const path of changedFiles.value) if (!known.has(path)) listed.push({ path, kind: isImagePath(path) ? 'picture' : isBinaryPath(path) ? 'sound' : 'text' })
     return listed
   })
 
@@ -181,7 +200,10 @@ export const useEditorStore = defineStore('editor', () => {
     if (isBinaryPath(path)) {
       // A missing file answered with the site's own index.html.
       if (/text\/html/i.test(response.headers?.get('content-type') ?? '')) return null
-      return toDataUrl(new Uint8Array(await response.arrayBuffer()), path)
+      const bytes = new Uint8Array(await response.arrayBuffer())
+      const sha = await gitBlobSha(bytes)
+      remember(sha, new Blob([bytes], { type: mimeOf(path) }))
+      return binaryRef(sha, bytes.length)
     }
     const text = await responseText(response)
     return isWebPage(text, { contentType: response.headers?.get('content-type'), path }) ? null : text
@@ -190,7 +212,7 @@ export const useEditorStore = defineStore('editor', () => {
   // Right after publishing the host may still serve the old file: the published text counts then.
   async function readOriginal(path) {
     const text = await fetchOriginal(path)
-    const sha = text === null ? null : await gitBlobSha(fileBytes(path, text))
+    const sha = text === null ? null : await shaOf(path, text)
     const record = published[path]
     return record && record.before === sha ? { text: record.text, sha: record.sha } : { text, sha }
   }
@@ -198,8 +220,10 @@ export const useEditorStore = defineStore('editor', () => {
   const reading = shallowRef(new Set())
 
   async function loadNamed() {
+    // A recording the draft deletes is not downloaded only to be deleted.
     const missing = files.value.map(file => file.path)
       .filter(path => !Object.hasOwn(originals.value, path) && !Object.hasOwn(readFailures.value, path) && !reading.value.has(path))
+      .filter(path => !(isBinaryPath(path) && isDeleted(path)))
     if (!missing.length) return
     reading.value = new Set([...reading.value, ...missing])
     const results = await Promise.all(missing.map(async path => {
@@ -242,8 +266,39 @@ export const useEditorStore = defineStore('editor', () => {
     loadNamed()
   }
 
+  // Drafts kept their recordings as data URLs in localStorage: they move to the blob store, once.
+  async function storeDataUrls() {
+    const moved = []
+    for (const [path, value] of Object.entries(draft.value.files)) {
+      if (!isBinaryPath(path) || !isDataUrl(value)) continue
+      const bytes = dataUrlBytes(value)
+      const sha = await gitBlobSha(bytes)
+      if (!(await putBlob(sha, new Blob([bytes], { type: mimeOf(path) })))) continue
+      draft.value.files[path] = binaryRef(sha, bytes.length)
+      moved.push(path)
+    }
+    if (moved.length) keep(moved)
+  }
+
+  async function findLost() {
+    const lost = []
+    for (const [path, value] of Object.entries(draft.value.files)) {
+      const ref = isBinaryPath(path) ? readRef(value) : null
+      if (ref && !(await getBlob(ref.sha))) lost.push(path)
+    }
+    lostFiles.value = lost
+  }
+
+  let sweepTimer = null
+  function sweepSoon() {
+    clearTimeout(sweepTimer)
+    sweepTimer = setTimeout(() => sweep(namedShas(loadDraft(draftKey()), loadPublished())), 2000)
+  }
+
   async function load() {
     status.value = 'loading'
+    await storeDataUrls()
+    await findLost()
     try {
       const { text, sha } = await readOriginal(MAP_FILE)
       if (text === null) throw new Error('HTTP 404')
@@ -288,7 +343,9 @@ export const useEditorStore = defineStore('editor', () => {
     for (const path of touched) {
       if (isChanged(path)) {
         stored.files[path] = draft.value.files[path]
-        stored.bases[path] = draft.value.bases[path]
+        // No base: a file never read, which publishing does not compare.
+        if (Object.hasOwn(draft.value.bases, path)) stored.bases[path] = draft.value.bases[path]
+        else delete stored.bases[path]
       } else {
         delete stored.files[path]
         delete stored.bases[path]
@@ -296,6 +353,8 @@ export const useEditorStore = defineStore('editor', () => {
     }
     draft.value = stored
     draftKept.value = saveDraft(stored, key)
+    lostFiles.value = lostFiles.value.filter(path => isChanged(path) && draft.value.files[path] !== null)
+    sweepSoon()
   }
 
   function adoptOtherDraft() {
@@ -308,6 +367,7 @@ export const useEditorStore = defineStore('editor', () => {
     const clashed = changed.filter(path => touched.has(path))
     if (clashed.length) otherTabFiles.value = clashed
     if (status.value === 'ready') check()
+    findLost()
   }
 
   function adoptOtherPublishing() {
@@ -334,7 +394,46 @@ export const useEditorStore = defineStore('editor', () => {
   onScopeDispose(() => {
     globalThis.removeEventListener?.('storage', adoptOtherTab)
     globalThis.removeEventListener?.('pagehide', flushPending)
+    clearTimeout(sweepTimer)
   })
+
+  // → null, or the { key, params } of why it was not taken.
+  async function setBinary(path, bytes) {
+    const room = await freeRoom()
+    if (room !== null && bytes.length > room) return { key: 'editor.noRoom', params: { file: path, size: sizeText(bytes.length), free: sizeText(room) } }
+    const sha = await gitBlobSha(bytes)
+    // Without IndexedDB the bytes go into the draft itself, as before.
+    const stored = await putBlob(sha, new Blob([bytes], { type: mimeOf(path) }))
+    if (!stored && bytes.length > MAX_INLINE_BYTES) return { key: 'editor.noFileStore', params: { file: path, size: sizeText(bytes.length), max: sizeText(MAX_INLINE_BYTES) } }
+    setText(path, stored ? binaryRef(sha, bytes.length) : toDataUrl(bytes, path))
+    lostFiles.value = lostFiles.value.filter(each => each !== path)
+    return null
+  }
+
+  /** → the bytes of a binary file as the draft or the host has it, or null when they are gone. */
+  async function bytesOf(path) {
+    const value = textOf(path)
+    if (isDataUrl(value)) return dataUrlBytes(value)
+    const ref = readRef(value)
+    const blob = ref && await getBlob(ref.sha)
+    return blob ? new Uint8Array(await blob.arrayBuffer()) : null
+  }
+
+  // { path: text | bytes | null } of the draft; throws LostFilesError naming every file whose bytes are gone.
+  async function contents(paths) {
+    const result = {}
+    const lost = []
+    for (const path of paths) {
+      const value = draft.value.files[path]
+      if (value === null || !isBinaryPath(path)) result[path] = value
+      else if ((result[path] = await bytesOf(path)) === null) lost.push(path)
+    }
+    if (lost.length) {
+      lostFiles.value = [...new Set([...lostFiles.value, ...lost])]
+      throw new LostFilesError(lost)
+    }
+    return result
+  }
 
   function setText(path, text) {
     if (text === originals.value[path]) {
@@ -358,8 +457,13 @@ export const useEditorStore = defineStore('editor', () => {
   }
   const create = path => setText(path, '')
 
+  // A file never read (a track of the playlist) is deleted with no version to compare:
+  // publishing skips it if the host has none.
   function markDeleted(path) {
-    if (typeof originals.value[path] !== 'string') {
+    if (!Object.hasOwn(originals.value, path)) {
+      draft.value.files[path] = null
+      delete draft.value.bases[path]
+    } else if (typeof originals.value[path] !== 'string') {
       delete draft.value.files[path]
       delete draft.value.bases[path]
     } else {
@@ -374,6 +478,8 @@ export const useEditorStore = defineStore('editor', () => {
     touched.clear()
     draft.value = { files: {}, bases: {} }
     draftKept.value = saveDraft(draft.value, draftKey())
+    lostFiles.value = []
+    sweepSoon()
     check()
   }
 
@@ -409,27 +515,33 @@ export const useEditorStore = defineStore('editor', () => {
     window.location.hash = '#/'
   }
 
-  function downloadable() {
-    const paths = changedFiles.value
-    const written = paths.filter(path => !isDeleted(path))
+  async function downloadable() {
+    const written = changedFiles.value.filter(path => !isDeleted(path))
+    const files = await contents(written)
     if (written.length === 1 && !deletedFiles.value.length) {
       const [path] = written
       const blob = isBinaryPath(path)
-        ? new Blob([fileBytes(path, draft.value.files[path])], { type: mimeOf(path) })
-        : new Blob([draft.value.files[path]], { type: 'text/plain;charset=utf-8' })
+        ? new Blob([files[path]], { type: mimeOf(path) })
+        : new Blob([files[path]], { type: 'text/plain;charset=utf-8' })
       return { name: path.split('/').pop(), blob }
     }
-    const entries = written.map(path => (isBinaryPath(path)
-      ? { path, bytes: fileBytes(path, draft.value.files[path]) }
-      : { path, text: draft.value.files[path] }))
+    const entries = written.map(path => (isBinaryPath(path) ? { path, bytes: files[path] } : { path, text: files[path] }))
     if (deletedFiles.value.length) entries.push({ path: 'DELETED.txt', text: `${t('editor.deletedNote')}\n\n${deletedFiles.value.join('\n')}\n` })
     return { name: 'site-edits.zip', blob: new Blob([zipFiles(entries)], { type: 'application/zip' }) }
   }
 
-  function download() {
+  async function download() {
     flushPending()
     if (!changedFiles.value.length) return
-    const { name, blob } = downloadable()
+    let file
+    try {
+      file = await downloadable()
+    } catch (error) {
+      if (!(error instanceof LostFilesError)) throw error
+      formError.value = { key: 'editor.binaryLost', params: { files: error.paths.join(', ') } }
+      return
+    }
+    const { name, blob } = file
     const link = document.createElement('a')
     link.href = URL.createObjectURL(blob)
     link.download = name
@@ -456,12 +568,19 @@ export const useEditorStore = defineStore('editor', () => {
     keepToken(token.value.trim(), rememberToken.value)
     try {
       const files = { ...draft.value.files }
+      let sent
+      try {
+        sent = await contents(Object.keys(files))
+      } catch (error) {
+        if (!(error instanceof LostFilesError)) throw error
+        throw new PublishError('editor.binaryLost', { files: error.paths.join(', ') })
+      }
       const result = await publishToGitHub({
         token: token.value,
         repo: settings.repo.trim(),
         branch: settings.branch.trim() || 'main',
         folder: settings.folder.trim(),
-        files,
+        files: sent,
         bases: draft.value.bases,
         message: message?.trim() || t('editor.defaultMessage'),
         overwrite,
@@ -472,7 +591,7 @@ export const useEditorStore = defineStore('editor', () => {
         const next = { ...originals.value }
         const at = Date.now()
         for (const [path, text] of Object.entries(files)) {
-          const sha = text === null ? null : await gitBlobSha(fileBytes(path, text))
+          const sha = text === null ? null : await shaOf(path, text)
           published[path] = { before: originalShas[path] ?? null, sha, text, at }
           next[path] = text
           originalShas[path] = sha
@@ -517,6 +636,7 @@ export const useEditorStore = defineStore('editor', () => {
     selectedArticle,
     worldOpen,
     formError,
+    lostFiles,
     publishSettings,
     token,
     rememberToken,
@@ -544,6 +664,8 @@ export const useEditorStore = defineStore('editor', () => {
     check,
     load,
     setText,
+    setBinary,
+    bytesOf,
     revert,
     create,
     discard,

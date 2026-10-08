@@ -75,7 +75,7 @@
                 <span class="list-number">{{ String(i + 1).padStart(2, '0') }}</span>
                 <span class="list-title">{{ item.title }}</span>
                 <span class="list-leader" aria-hidden="true"></span>
-                <span class="list-time">{{ formatTime(item.duration) }}</span>
+                <span class="list-time">{{ formatTime(lengths.lengthOf(item)) }}</span>
               </li>
             </ol>
           </div>
@@ -175,6 +175,7 @@ import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { useMapStore } from '../stores/mapStore'
 import { useUIStore } from '../stores/uiStore'
 import { useMusicPlayer } from '../composables/useMusicPlayer'
+import { useTrackLengths } from '../composables/useTrackLengths'
 import { formatTime, spectrumBars } from '../utils/musicPlaylist'
 import { useSoundStore } from '../stores/soundStore'
 import { playSound, soundEngine } from '../sound'
@@ -202,6 +203,11 @@ const sound = useSoundStore()
 const showList = ref(false)
 watch(() => props.compact || props.vertical, compact => { if (compact) showList.value = false })
 const hasTracks = computed(() => mapStore.isLoaded && mapStore.music.length > 0)
+// A track the map gives no length: from its file, the list's all at once.
+const lengths = useTrackLengths(() => {
+  if (!mapStore.isLoaded) return []
+  return showList.value ? mapStore.music : [player.track.value]
+})
 const spectrumRef = ref(null)
 
 const reducedMotion = prefersReducedMotion()
@@ -219,7 +225,7 @@ const trackNumber = computed(() => {
   const pad = value => String(value).padStart(2, '0')
   return `${pad(player.index.value + 1)}/${pad(count)}`
 })
-const timeText = computed(() => `${formatTime(player.currentTime.value)} / ${formatTime(player.length.value)}`)
+const timeText = computed(() => `${formatTime(player.currentTime.value)} / ${formatTime(player.length.value ?? lengths.lengthOf(player.track.value))}`)
 const progress = computed(() => (
   player.length.value ? Math.min(1, player.currentTime.value / player.length.value) : 0
 ))

@@ -36,6 +36,18 @@ describe('hyperline style', () => {
     expect(resolveHyperlineStyle({ type: 'trade', pulse: { interval: 3 } }, types).pulse).toMatchObject({ interval: 3 })
   })
 
+  // Was: off was only `false`, so turning pulses off threw the line's own speed and interval away.
+  it('switches pulses off with "off", keeping the fields for when they are on again', () => {
+    const quiet = { type: 'trade', pulse: { interval: 0.8, off: true } }
+    expect(resolveHyperlineStyle(quiet, {}).pulse).toBeNull()
+    expect(resolveHyperlineStyle({ type: 'trade', pulse: { interval: 0.8 } }, {}).pulse).toEqual({ ...BUILT_IN_TYPES.trade.pulse, interval: 0.8 })
+    // A type turned off, a line of it on again: the fields of every layer still count.
+    const types = { trade: { pulse: { speed: 20, off: true } } }
+    expect(resolveHyperlineStyle({ type: 'trade' }, types).pulse).toBeNull()
+    expect(resolveHyperlineStyle({ type: 'trade', pulse: { interval: 3 } }, types).pulse).toEqual({ ...BUILT_IN_TYPES.trade.pulse, speed: 20, interval: 3 })
+    expect(resolveHyperlineStyle({ type: 'trade', pulse: { off: false } }, types).pulse).toMatchObject({ speed: 20 })
+  })
+
   it('reports a wrong value with the id of the line and uses the type instead', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
     const style = resolveHyperlineStyle({ id: 'broken', type: 'trade', color: 'blue', direction: 'sideways' }, { trade: { color: '0xffaa00' } })
